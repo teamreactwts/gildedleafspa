@@ -23,7 +23,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "65px",
         lineHeight: "1em",
         fontWeight: "300",
-        color: primaryColors?.color6B6657,
+        color: `${primaryColors?.color6B6657}`,
         fontStyle: "italic",
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
@@ -33,13 +33,14 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
       },
       h2: {
         fontSize: "45px",
-        lineHeight: "1.1em",
+        lineHeight: "1em",
         fontWeight: "400",
         color: "#161D29",
+        fontStyle: "italic",
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
           fontSize: "22px",
-          lineHeight: "26px"
+          lineHeight: "1.1em"
         }
       },
       h3: {

@@ -12,6 +12,7 @@ import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { Box, Container } from "@mui/system";
 import Image from "next/image";
+import { CommonHeader } from "../DifferentSec/DifferentSec";
 
 export const DownloadAppSectionWrap = styled(Box)`
   position: relative;
@@ -83,16 +84,21 @@ export const DownloadAppSectionWrap = styled(Box)`
       }
     }
     .download_rgtPart {
-      .download_text {
-        color: ${primaryColors.textPrimaryColor};
-        font-family: Noto Sans;
-        font-size: 13px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.5;
-        margin: 35px 0;
-        max-width: 399px;
+      .heading_title {
+        text-align: left;
+        margin-bottom: 35px;
+        p {
+          color: ${primaryColors.textPrimaryColor};
+          font-family: Noto Sans;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 1.5;
+          margin-top: 35px;
+          max-width: 399px;
+        }
       }
+
       ul {
         display: flex;
         align-items: center;
@@ -102,25 +108,22 @@ export const DownloadAppSectionWrap = styled(Box)`
           &:last-child {
             margin-right: 0;
           }
-          button{
+          button {
             min-width: 187px;
             padding: 12px;
             &.downloadapp_btn {
-            
-            span {
-              color: ${primaryColors.primary};
-              font-family: Cormorant Garamond;
-              font-size: 15px;
-              font-weight: 500;
-              line-height: 1;
-            
-            }
-            &:hover{
+              span {
+                color: ${primaryColors.primary};
+                font-family: Cormorant Garamond;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 1;
+              }
+              &:hover {
                 border: 1px solid ${primaryColors.colorA67033};
               }
+            }
           }
-          }
-          
         }
       }
     }
@@ -170,15 +173,11 @@ function DownloadAppSection() {
             </Grid>
             <Grid item lg={6} xs={12}>
               <Box className="download_rgtPart">
-                <Typography variant="h2">
-                  Download
-                  <Typography variant="caption">our new app</Typography>
-                </Typography>
-                <Typography variant="body1" className="download_text">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s
-                </Typography>
+                <CommonHeader
+                  title="Download"
+                  breakTitle="our new app"
+                  subTitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                />
                 <List disablePadding>
                   <ListItem disablePadding>
                     <CustomButtonPrimary
