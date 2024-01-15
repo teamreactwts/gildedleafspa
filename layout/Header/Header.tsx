@@ -40,23 +40,31 @@ export default function Header(props: Props) {
   const navItems = [
     {
       name: "Services",
-      route: "javascript:void(0)"
+      route: "#url"
     },
     {
       name: "Conditions",
-      route: "javascript:void(0)"
+      route: "#url"
     },
     {
       name: "Membership",
-      route: "javascript:void(0)"
+      route: "#url"
     },
     {
       name: "Shop",
-      route: "javascript:void(0)"
+      route: "#url"
     },
     {
       name: "About Us",
-      route: "javascript:void(0)"
+      route: "#url"
+    },
+    {
+      name: "Affordability",
+      route: "#url"
+    },
+    {
+      name: "Blogs",
+      route: "#url"
     }
   ];
 
@@ -211,7 +219,7 @@ export default function Header(props: Props) {
                   {navItems.map((item) => (
                     <Link
                       href={item?.route}
-                      key={item?.route}
+                      key={item?.name}
                       className={router.pathname === item.route ? "active" : ""}
                     >
                       {item?.name}
