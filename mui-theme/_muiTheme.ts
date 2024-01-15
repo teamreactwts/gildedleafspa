@@ -21,9 +21,10 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
       fontSize: 16,
       h1: {
         fontSize: "65px",
-        lineHeight: "1.1em",
-        fontWeight: "700",
-        color: "#6B6657",
+        lineHeight: "1em",
+        fontWeight: "300",
+        color: primaryColors?.color6B6657,
+        fontStyle: "italic",
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
           fontSize: "22px",
