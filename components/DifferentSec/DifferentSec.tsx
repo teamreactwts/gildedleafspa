@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import assest from "@/json/assest";
 import { primaryColors } from "@/themes/_muiPalette";
+import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -42,6 +43,7 @@ export const CommonHeaderWrapper = styled(Box)`
 
 export const IconCardStack = styled(Stack)`
   margin: -10px -15px;
+  padding-bottom: 100px;
   .each_icon_card {
     width: 20%;
     padding: 10px 15px;
@@ -65,6 +67,21 @@ export const IconCardStack = styled(Stack)`
         &:hover {
           color: ${primaryColors?.primary1};
         }
+      }
+    }
+  }
+`;
+
+export const ServiceWrapper = styled(Box)`
+  .title_left {
+    h2 {
+      span {
+        font-weight: 700;
+        font-style: normal;
+        font-size: inherit;
+        color: inherit;
+        font-family: inherit;
+        line-height: inherit;
       }
     }
   }
@@ -145,6 +162,28 @@ const DifferentSec = React.forwardRef<HTMLDivElement, props>(({ ...props }) => {
             </Box>
           ))}
         </IconCardStack>
+        <ServiceWrapper>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            flexWrap="wrap"
+            alignItems="center"
+          >
+            <Box className="title_left">
+              <Typography variant="h2">
+                Which service are{" "}
+                <Typography variant="caption">you interested in?</Typography>
+              </Typography>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                rutrum nulla sed nisi gravida maximus.
+              </Typography>
+            </Box>
+            <CustomButtonPrimary variant="contained" color="primary">
+              <Typography variant="caption">Explore</Typography>
+            </CustomButtonPrimary>
+          </Stack>
+        </ServiceWrapper>
       </Container>
     </DifferentWrapper>
   );

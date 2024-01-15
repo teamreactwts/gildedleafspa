@@ -37,13 +37,6 @@ const CustomButtonWrapper = styled(Button)`
     font-weight: 600;
     line-height: 1.2;
   }
-  span {
-    div {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
 `;
 
 interface CustomButtonprops extends ButtonProps {
