@@ -1,4 +1,5 @@
 import BannerSec from "@/components/BannerSec/BannerSec";
+import DifferentSec from "@/components/DifferentSec/DifferentSec";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Typography from "@mui/material/Typography";
@@ -17,6 +18,7 @@ export default function Home() {
           anytime.
         </Typography>
       </BannerSec>
+      <DifferentSec className="cmn_gap" />
     </Wrapper>
   );
 }

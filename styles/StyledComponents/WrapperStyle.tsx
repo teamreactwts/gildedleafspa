@@ -38,7 +38,6 @@ export const WrapperStyle = styled(Box)`
   h6 {
     padding: 0;
     margin: 0;
-    color: #6b6657;
   }
   /* h1 {
     text-transform: capitalize;
@@ -161,7 +160,7 @@ export const WrapperStyle = styled(Box)`
   }
 
   .cmn_gap {
-    padding: 100px 0;
+    padding: 50px 0;
   }
 
   .cmn_gap_top {

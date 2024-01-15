@@ -10,5 +10,9 @@ export default {
   banner_vector: "/assets/images/banner_vector.png",
   diff_blur: "/assets/images/diff_blur.png",
   diffIcon1: "/assets/images/diffIcon1.svg",
+  diffIcon2: "/assets/images/diffIcon2.svg",
+  diffIcon3: "/assets/images/diffIcon3.svg",
+  diffIcon4: "/assets/images/diffIcon4.svg",
+  diffIcon5: "/assets/images/diffIcon5.svg",
   footerDesing: "/assets/images/footerDesing.png"
 };
