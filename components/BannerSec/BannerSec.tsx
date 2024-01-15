@@ -18,7 +18,7 @@ export default function BannerSec({
     <BannerWrap>
       <Container fixed>
         <Grid container alignItems="center" spacing={{ lg: 5, md: 3, xs: 2 }}>
-          <Grid item md={6} xs={12}>
+          <Grid item md={7} xs={12}>
             <Box className="banner_wrap">
               {children}
               <CustomButtonPrimary variant="contained" color="primary">
@@ -28,7 +28,7 @@ export default function BannerSec({
               </CustomButtonPrimary>
             </Box>
           </Grid>
-          <Grid item md={6} xs={12}>
+          <Grid item md={5} xs={12}>
             <Box className="banner_fig">
               <Box className="gradient-box" />
               <figure>
