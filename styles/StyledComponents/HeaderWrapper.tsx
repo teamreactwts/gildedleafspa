@@ -84,6 +84,9 @@ export const HeaderWrap = styled(Box)`
       }
     }
   }
+  .header_btm {
+    background-color: ${primaryColors?.colorFDFDFB};
+  }
   .MuiToolbar-root {
     min-height: auto;
     padding: 0;

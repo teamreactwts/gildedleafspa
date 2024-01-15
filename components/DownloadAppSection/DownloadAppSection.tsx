@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import assest from "@/json/assest";
 import { primaryColors } from "@/themes/_muiPalette";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -35,6 +36,95 @@ export const DownloadAppSectionWrap = styled(Box)`
     width: 464px;
     height: 464px;
   }
+  .downloadapp_wrap {
+    padding: 37px 100px 37px 71px;
+    border-radius: 20px;
+    background: linear-gradient(
+      120deg,
+      rgba(253, 252, 248, 0.74) 3.57%,
+      rgba(253, 252, 248, 0.29) 96.74%
+    );
+    backdrop-filter: blur(2px);
+    z-index: 4;
+    position: relative;
+    .download_leftpart {
+      position: relative;
+      .phoneImage {
+        line-height: 0;
+        font-size: 0;
+        width: 234px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 3;
+        .downloadSeciton {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          z-index: 3;
+          transform: translateX(-50%);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 92px 50px;
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+        }
+      }
+      .backgroun_overlay {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 425px;
+        height: 306px;
+        border-radius: 21px;
+        opacity: 0.2;
+        z-index: 2;
+      }
+    }
+    .download_rgtPart {
+      .download_text {
+        color: ${primaryColors.textPrimaryColor};
+        font-family: Noto Sans;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 35px 0;
+        max-width: 399px;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        li {
+          width: auto;
+          margin-right: 17px;
+          &:last-child {
+            margin-right: 0;
+          }
+          button{
+            min-width: 187px;
+            padding: 12px;
+            &.downloadapp_btn {
+            
+            span {
+              color: ${primaryColors.primary};
+              font-family: Cormorant Garamond;
+              font-size: 15px;
+              font-weight: 500;
+              line-height: 1;
+            
+            }
+            &:hover{
+                border: 1px solid ${primaryColors.colorA67033};
+              }
+          }
+          }
+          
+        }
+      }
+    }
+  }
 `;
 
 function DownloadAppSection() {
@@ -42,10 +132,10 @@ function DownloadAppSection() {
     <DownloadAppSectionWrap className="cmn_gap">
       <Container fixed>
         <Box className="downloadapp_wrap">
-          <Grid container spacing={10}>
+          <Grid container spacing={10} alignItems="center">
             <Grid item lg={6} xs={12}>
               <Box className="download_leftpart">
-                <figure>
+                <figure className="phoneImage">
                   <Image
                     src={assest.downloadPhoneImg}
                     alt="phoneImage"
@@ -79,12 +169,12 @@ function DownloadAppSection() {
               </Box>
             </Grid>
             <Grid item lg={6} xs={12}>
-              <Box classsName="download_rgtPart">
+              <Box className="download_rgtPart">
                 <Typography variant="h2">
                   Download
                   <Typography variant="caption">our new app</Typography>
                 </Typography>
-                <Typography variant="body1">
+                <Typography variant="body1" className="download_text">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s
@@ -92,30 +182,35 @@ function DownloadAppSection() {
                 <List disablePadding>
                   <ListItem disablePadding>
                     <CustomButtonPrimary
-                      type="button"
-                      variant="outlined"
-                      color="primary"
-                    >
-                      <Typography variant="caption">
+                      startIcon={
                         <PlaysoreIcon
                           IconWidth="21"
                           IconHeight="24"
                           IconColor={primaryColors.primary}
                         />
-                      </Typography>
-                      Download App
+                      }
+                      variant="outlined"
+                      color="primary"
+                      className="downloadapp_btn"
+                    >
+                      <Typography variant="caption">Download App</Typography>
                     </CustomButtonPrimary>
                   </ListItem>
                   <ListItem disablePadding>
                     <CustomButtonPrimary
+                      startIcon={
+                        <AppStoreIcon
+                          IconWidth="20"
+                          IconHeight="24"
+                          IconColor={primaryColors.white}
+                        />
+                      }
                       type="button"
                       variant="contained"
                       color="primary"
+                      className="download_btn"
                     >
-                      <Typography variant="caption">
-                        <AppStoreIcon />
-                      </Typography>
-                      Download App
+                      <Typography variant="caption">Download App</Typography>
                     </CustomButtonPrimary>
                   </ListItem>
                 </List>

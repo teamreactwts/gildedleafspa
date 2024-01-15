@@ -38,11 +38,11 @@ export const WrapperStyle = styled(Box)`
   h6 {
     padding: 0;
     margin: 0;
-    color: #161D29;
+    color: #6b6657;
   }
-  h1 {
+  /* h1 {
     text-transform: capitalize;
-  }
+  } */
   p:last-child {
     margin-bottom: 0;
   }
@@ -132,9 +132,9 @@ export const WrapperStyle = styled(Box)`
     font-size: 15px;
     line-height: 22px;
     font-weight: 500;
-    color: #F6F4EE;
-    background: #161D29;
-    border: 1px solid #161D29;
+    color: #f6f4ee;
+    background: #161d29;
+    border: 1px solid #161d29;
     font-family: Cormorant Garamond;
     transition: 0.3s all ease-in-out 0s;
     -webkit-transition: 0.3s all ease-in-out 0s;
@@ -150,8 +150,8 @@ export const WrapperStyle = styled(Box)`
   button:hover,
   input[type="button"]:hover,
   input[type="submit"]:hover {
-    background-color: #8C6034;
-    color: #F6F4EE;
+    background-color: #8c6034;
+    color: #f6f4ee;
     outline: none;
     text-decoration: none;
   }
@@ -179,7 +179,7 @@ export const WrapperStyle = styled(Box)`
     h2 {
       font-size: 40px;
       text-transform: none;
-      color: #161D29;
+      color: #161d29;
       @media (max-width: 1200px) {
       }
     }
@@ -408,7 +408,7 @@ export const WrapperStyle = styled(Box)`
   // ==============================
   .MuiContainer-root {
     @media (min-width: 1200px) {
-      max-width: 1155px;
+      max-width: 1170px;
       padding: 0 10px;
     }
     &.cus_container {

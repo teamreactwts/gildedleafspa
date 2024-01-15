@@ -166,69 +166,71 @@ export default function Header(props: Props) {
             </Stack>
           </Container>
         </Box>
-        <Container fixed>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Link href="/" className="headerLogo">
-              <BrandLogo />
-            </Link>
-            {isLoggedIn ? (
-              <Box
-                sx={{ display: { xs: "none", sm: "block" } }}
-                className="navbar"
+        <Box className="header_btm">
+          <Container fixed>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ mr: 2, display: { sm: "none" } }}
               >
-                <CustomButtonPrimary
-                  onClick={handleLogout}
-                  type="button"
-                  variant="contained"
-                  color="primary"
+                <MenuIcon />
+              </IconButton>
+              <Link href="/" className="headerLogo">
+                <BrandLogo />
+              </Link>
+              {isLoggedIn ? (
+                <Box
+                  sx={{ display: { xs: "none", sm: "block" } }}
+                  className="navbar"
                 >
-                  <Typography variant="caption">Logout</Typography>
-                </CustomButtonPrimary>
-
-                <CustomButtonPrimary
-                  type="button"
-                  variant="contained"
-                  color="primary"
-                >
-                  {userData?.email!}
-                </CustomButtonPrimary>
-              </Box>
-            ) : (
-              <Box
-                sx={{ display: { xs: "none", sm: "block" } }}
-                className="navbar"
-              >
-                {navItems.map((item) => (
-                  <Link
-                    href={item?.route}
-                    key={item?.route}
-                    className={router.pathname === item.route ? "active" : ""}
+                  <CustomButtonPrimary
+                    onClick={handleLogout}
+                    type="button"
+                    variant="contained"
+                    color="primary"
                   >
-                    {item?.name}
-                  </Link>
-                ))}
+                    <Typography variant="caption">Logout</Typography>
+                  </CustomButtonPrimary>
+
+                  <CustomButtonPrimary
+                    type="button"
+                    variant="contained"
+                    color="primary"
+                  >
+                    {userData?.email!}
+                  </CustomButtonPrimary>
+                </Box>
+              ) : (
+                <Box
+                  sx={{ display: { xs: "none", sm: "block" } }}
+                  className="navbar"
+                >
+                  {navItems.map((item) => (
+                    <Link
+                      href={item?.route}
+                      key={item?.route}
+                      className={router.pathname === item.route ? "active" : ""}
+                    >
+                      {item?.name}
+                    </Link>
+                  ))}
+                </Box>
+              )}
+              <Box className="hdr_rgt">
+                <CustomButtonPrimary
+                  type="button"
+                  variant="contained"
+                  color="primary"
+                >
+                  <Typography variant="caption">Book Now</Typography>
+                </CustomButtonPrimary>
               </Box>
-            )}
-            <Box className="hdr_rgt">
-              <CustomButtonPrimary
-                type="button"
-                variant="contained"
-                color="primary"
-              >
-                <Typography variant="caption">Book Now</Typography>
-              </CustomButtonPrimary>
-            </Box>
-          </Toolbar>
-        </Container>
+            </Toolbar>
+          </Container>
+        </Box>
       </AppBar>
       <Box component="nav">
         <Drawer
