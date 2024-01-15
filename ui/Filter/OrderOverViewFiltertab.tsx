@@ -19,7 +19,7 @@ const CustomTabWrapper = styled(Box)`
       padding: 12px 16px;
       width: 33.33%;
       min-height: auto;
-      color: ${primaryColors?.mainFontColor};
+      color: ${primaryColors?.primary};
       position: relative;
       &::after {
         content: "";

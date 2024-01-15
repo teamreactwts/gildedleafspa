@@ -20,7 +20,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const FooterWrap = styled(Box)`
-  background-color: ${primaryColors.mainFontColor};
+  background-color: ${primaryColors.primary};
   padding: 92px 0 37px 0;
 `;
 

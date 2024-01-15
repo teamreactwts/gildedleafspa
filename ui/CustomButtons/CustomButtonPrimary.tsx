@@ -4,7 +4,7 @@ import Button, { ButtonProps } from "@mui/material/Button";
 
 const CustomButtonWrapper = styled(Button)`
   display: flex;
-  padding: 20px 15px;
+  padding: 18px 25px;
   border-radius: 50px;
   min-width: 117px;
   justify-content: center;
@@ -26,16 +26,16 @@ const CustomButtonWrapper = styled(Button)`
   }
 
   &.MuiButton-outlinedInfo {
-    p {
+    span {
       color: ${primaryColors?.black};
     }
   }
-  p {
-    color: ${primaryColors.colorF6F4EE};
-font-family: Cormorant Garamond;
-font-size: 15px;
-font-weight: 500;
-line-height: 1;
+  span {
+    color: ${primaryColors?.colorF6F4EE};
+    font-family: "Cormorant Garamond";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
   }
   span {
     div {
@@ -44,9 +44,6 @@ line-height: 1;
       justify-content: center;
     }
   }
-  /* img {
-    width: 24px;
-  } */
 `;
 
 interface CustomButtonprops extends ButtonProps {
