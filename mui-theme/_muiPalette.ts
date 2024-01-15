@@ -53,6 +53,7 @@ export const primaryColors = {
   color272F3D:"#272F3D",
   color807072:"#807072",
   colorA67033:"#A67033",
+  colorE8DDD0:"#E8DDD0",
 
 
 };

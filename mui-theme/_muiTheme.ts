@@ -322,6 +322,23 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
             }
             if (
               ownerState.variant === "outlined" &&
+              ownerState.color === "primary"
+            ) {
+              return {
+                backgroundColor: "transparent",
+                color: primaryColors?.primary,
+                border: `1px solid ${primaryColors?.primary}`,
+                borderRadius:"86px",
+
+                "&:hover": {
+                 
+
+                  color: primaryColors?.white
+                }
+              };
+            }
+            if (
+              ownerState.variant === "outlined" &&
               ownerState.color === "info"
             ) {
               return {

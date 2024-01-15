@@ -1,3 +1,4 @@
+import DownloadAppSection from "@/components/DownloadAppSection/DownloadAppSection";
 import StorySec from "@/components/StorySec/StorySec";
 import assest from "@/json/assest";
 import { cardList } from "@/json/mock/cardlist.mock";
@@ -20,6 +21,8 @@ export default function Home() {
           lifetime guarantee for all of our products.
         </Typography>
       </StorySec>
+
+      <DownloadAppSection />
     </Wrapper>
   );
 }
