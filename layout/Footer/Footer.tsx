@@ -170,7 +170,7 @@ const FooterWrap = styled(Box)`
 
     height: 100%;
     top: 0;
-    left: 47%;
+    left: 50%;
     transform: translateX(-50%);
     z-index: 2;
     img{

@@ -96,7 +96,7 @@ export const CommonHeader = ({
   subTitle?: string;
 }) => {
   return (
-    <CommonHeaderWrapper>
+    <CommonHeaderWrapper className="heading_title">
       <Typography variant="h2">
         {title} <Typography variant="caption">{breakTitle}</Typography>
       </Typography>

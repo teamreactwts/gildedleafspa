@@ -273,7 +273,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
                 borderRadius: "50px",
 
                 "&:hover": {
-                  background: primaryColors.color6B6657,
+                  background: primaryColors.colorA67033,
                   color: primaryColors?.white
                 }
               };
@@ -318,6 +318,23 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
                 border: `1px solid ${primaryColors?.errorMain}`,
                 "&:hover": {
                   background: primaryColors?.errorMain,
+                  color: primaryColors?.white
+                }
+              };
+            }
+            if (
+              ownerState.variant === "outlined" &&
+              ownerState.color === "primary"
+            ) {
+              return {
+                backgroundColor: "transparent",
+                color: primaryColors?.primary,
+                border: `1px solid ${primaryColors?.primary}`,
+                borderRadius:"86px",
+
+                "&:hover": {
+                 
+                  backgroundColor: primaryColors.primary,
                   color: primaryColors?.white
                 }
               };
