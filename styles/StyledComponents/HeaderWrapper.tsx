@@ -3,19 +3,97 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const HeaderWrap = styled(Box)`
-  background: ${primaryColors.white};
-  box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.07);
+  .header_top {
+    background-color: ${primaryColors.mainFontColor};
+
+    .header_lableWrap {
+      padding: 9px 0;
+      .lableContact_lft {
+        a {
+          display: inline-block;
+          display: flex;
+          align-items: center;
+          &:hover {
+            opacity: 0.8;
+          }
+          i {
+            display: inline-block;
+            line-height: 0;
+            font-size: 0;
+            width: 27px;
+            height: 27px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: ${primaryColors.color2B3343};
+          }
+          p {
+            margin-left: 10px;
+            color: ${primaryColors.white};
+            font-family: Noto Sans;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            letter-spacing: 0.32px;
+          }
+        }
+      }
+      .lableContact_rgt {
+        .title_descriptoion {
+          color: ${primaryColors.white};
+          font-size: 12px;
+          line-height: 1.6;
+          letter-spacing: 0.24px;
+          margin-right: 19px;
+        }
+        ul {
+          display: flex;
+          align-items: center;
+          margin: 0 -13px;
+          li {
+            width: auto;
+            padding: 0 13px;
+            border-right: 1px solid ${primaryColors.color272F3D};
+            &:last-child{
+              border-right: 0;
+            }
+            a {
+              display: inline-flex;
+              display: flex;
+              align-items: center;
+              &:hover{
+                opacity: 0.7;
+              }
+              i {
+                display: inline-block;
+                line-height: 0;
+                font-size: 0;
+              }
+              p {
+                color: ${primaryColors.white};
+                font-family: Noto Sans;
+                font-size: 10px;
+                line-height: 1.6;
+                letter-spacing: 0.2px;
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   .MuiToolbar-root {
     min-height: auto;
     padding: 0;
+    padding: 23px 0;
   }
   .hdr_rgt {
-    margin-left: 20px;
+    margin-left: 32px;
     display: flex;
     align-items: center;
     button {
-      padding: 11px 42px;
-      min-width: auto;
     }
     .MuiBadge-badge {
       right: 4px;
@@ -23,31 +101,36 @@ export const HeaderWrap = styled(Box)`
       min-width: 10px;
       height: 10px;
     }
-    .cart_icon{
+    .cart_icon {
       margin-right: 18px;
     }
   }
 
   .headerContainer {
     background-color: transparent !important;
-    padding: 20px 0;
+
     transition: all 0.4s;
   }
 
   .headerLogo {
-    width: 120px;
+    width: 219px;
     display: inline-block;
+    line-height: 0;
+    font-size: 0;
     transition: all 0.4s;
   }
   .navbar {
     margin-left: auto;
     a {
-      margin-right: 45px;
+      margin-right: 28px;
       display: inline-block;
-      color: ${primaryColors.secondaryFont};
-      font-size: 15px;
+      color: ${primaryColors.mainFontColor};
+      font-size: 16px;
+      font-family: Cormorant Garamond;
+      font-weight: 500;
+      line-height: 1;
       &:hover {
-        color: ${primaryColors.primary};
+        color: ${primaryColors.themTextcolor};
       }
       &:last-child {
         margin-right: 0;
@@ -56,7 +139,7 @@ export const HeaderWrap = styled(Box)`
         margin-left: 0;
       }
       &.active {
-        color: ${primaryColors.primary};
+        color: ${primaryColors.themTextcolor};
       }
     }
   }

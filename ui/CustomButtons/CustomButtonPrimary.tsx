@@ -4,9 +4,9 @@ import Button, { ButtonProps } from "@mui/material/Button";
 
 const CustomButtonWrapper = styled(Button)`
   display: flex;
-  padding: 16px 44px;
+  padding: 20px 15px;
   border-radius: 50px;
-  min-width: 194px;
+  min-width: 117px;
   justify-content: center;
   align-items: center;
   &.Mui-disabled {
@@ -14,7 +14,7 @@ const CustomButtonWrapper = styled(Button)`
     border: 1px solid ${primaryColors?.disabledBg};
 
     p {
-      color: ${primaryColors?.white};
+      color: ${primaryColors.colorF6F4EE};
     }
     img {
       filter: contrast(0);
@@ -31,9 +31,11 @@ const CustomButtonWrapper = styled(Button)`
     }
   }
   p {
-    font-size: 16px;
-    font-weight: 500;
-    color: ${primaryColors?.white};
+    color: ${primaryColors.colorF6F4EE};
+font-family: Cormorant Garamond;
+font-size: 15px;
+font-weight: 500;
+line-height: 1;
   }
   span {
     div {

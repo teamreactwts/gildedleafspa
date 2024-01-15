@@ -1,187 +1,162 @@
+/* eslint-disable react/no-array-index-key */
 import assest from "@/json/assest";
+import { primaryColors } from "@/themes/_muiPalette";
+import FacebookIcon from "@/ui/Icons/FacebookIcon";
+import InstaGramIcon from "@/ui/Icons/InstaGramIcon";
+import LocationIcon from "@/ui/Icons/LocationIcon";
+import MailIcon from "@/ui/Icons/MailIcon";
+import PhoneIcon from "@/ui/Icons/PhoneIcon";
+import TictockIcon from "@/ui/Icons/TictockIcon";
+import YoutubeIcon from "@/ui/Icons/YoutubeIcon";
 import styled from "@emotion/styled";
-import Image from "next/image";
-import React from "react";
 import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
+import Image from "next/image";
 import Link from "next/link";
-import { List, ListItem } from "@mui/material";
-import path from "path";
-import { useRouter } from "next/router";
 
 const FooterWrap = styled(Box)`
-  padding: 45px 0;
-  .ftr-list {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    @media (max-width: 1199px) {
-      justify-content: center;
-      margin: 8px 0;
-      flex-wrap: wrap;
-    }
-    li {
-      width: auto;
-      margin-right: 35px;
-      @media (max-width: 899px) {
-        margin: 0 17px;
-      }
-      &:last-child {
-        margin-right: 0;
-
-        @media (max-width: 899px) {
-          margin-right: 17px;
-        }
-      }
-      a {
-        font-weight: 400;
-        font-size: 15px;
-        color: var(--color3A4950);
-        text-transform: capitalize;
-        &:hover {
-          color: var(--black);
-        }
-        &.active{
-          color: var(--black);
-        }
-      }
-    }
-  }
-  .ftr-logo {
-    margin-right: 28px;
-    line-height: 0;
-    @media (max-width: 1199px) {
-      max-width: 180px;
-      margin: 0 auto;
-    }
-  }
-  .social-list {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin-left: 50px;
-    @media (max-width: 1199px) {
-      justify-content: center;
-      margin-left: 0px;
-      margin-bottom: 15px;
-    }
-    li {
-      width: auto;
-      margin-right: 20px;
-      
-      &:last-child {
-        margin-right: 0;
-      }
-      img {
-        &:hover {
-          filter: brightness(0);
-        }
-        @media (max-width: 991px) {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-  }
-
-  .copy {
-    margin-left: auto;
-
-    font-size: 14px;
-    color: var(--color3A4950);
-
-    a {
-      color: var(--color3A4950);
-      &:hover {
-        color: var(--black);
-      }
-    }
-  }
-  .ftr-wrapper {
-    display: flex;
-    align-items: center;
-    @media (max-width: 1199px) {
-      display: block;
-      text-align: center;
-    }
-  }
+  background-color: ${primaryColors.mainFontColor};
+  padding: 92px 0 37px 0;
 `;
-
-const navItems = [
-  {
-    name: "home",
-    route: "/",
-  },
-  {
-    name: "About",
-    route: "/about",
-  },
-  {
-    name: "Products",
-    route: "/products",
-  },
-  {
-    name: "Package",
-    route: "/package",
-  },
-  {
-    name: "Contact",
-    route: "/contact",
-  },
-];
-
-
 
 const Footer = () => {
   const navItems = [
     {
       name: "home",
-      route: "/",
+      route: "/"
     },
     {
       name: "About",
-      route: "/about",
+      route: "/about"
     },
     {
       name: "Products",
-      route: "/products",
+      route: "/products"
     },
     {
       name: "Package",
-      route: "/package",
+      route: "/package"
     },
     {
       name: "Contact",
-      route: "/contact",
-    },
+      route: "/contact"
+    }
   ];
-  const router = useRouter();
+  const socialmediaSection = [
+    {
+      icon: <FacebookIcon />,
+      route: "javascript:void(0)"
+    },
+    {
+      icon: <TictockIcon />,
+      route: "javascript:void(0)"
+    },
+    {
+      icon: <InstaGramIcon />,
+      route: "javascript:void(0)"
+    },
+    {
+      icon: <YoutubeIcon />,
+      route: "javascript:void(0)"
+    }
+  ];
+  // const router = useRouter();
   return (
-    <>
-      <FooterWrap>
-        <Container fixed>
-          <Box className="ftr-wrapper">
-            <Link href="/" className="ftr-logo">
-              <Image src={assest.logo_img} alt="" width={210} height={34} />
-            </Link>
-
-            <List className="ftr-list">
-              {navItems.map((item: any, index: number) => (
-                <ListItem disablePadding>
-                  <Link href={item?.route} key={item.name} className={router.pathname === item.route ? "active" : ""}>
-                    {item?.name}
-                  </Link>
-                </ListItem>
-              ))}
-            </List>
- 
-            <Box className="copy">
-              © 2023 <Link href="/">Career Utility.</Link> All Rights Reserved.
-            </Box>
-          </Box>
-        </Container>
-      </FooterWrap>
-    </>
+    <FooterWrap>
+      <Container fixed>
+        <Box className="ftr-wrapper">
+          <Grid container spacing={10}>
+            <Grid item lg={2}>
+              <Box className="nave_itemWrap">
+                <Typography variant="h5" className="footerTitle_text">
+                  Quick Links
+                </Typography>
+                <List disablePadding>
+                  {navItems.map((item, index) => (
+                    <ListItem disablePadding key={index}>
+                      <Link href={item.route}>{item.name}</Link>
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Grid>
+            <Grid item lg={7}>
+              <Box className="footer_socialMedian">
+                <Link href="/">
+                  <Image
+                    src={assest.footerBrandIcon}
+                    alt="footericon"
+                    width={137}
+                    height={87}
+                  />
+                </Link>
+                <List disablePadding className="social_icons">
+                  {socialmediaSection.map((item, index) => (
+                    <ListItem disablePadding key={index}>
+                      <Link href={item.route}>{item.icon}</Link>
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Grid>
+            <Grid item lg={3}>
+              <Box className="footer_contactDetails">
+                <Typography variant="h5" className="footerTitle_text">
+                  Quick Links
+                </Typography>
+                <List disablePadding className="footer_contactform">
+                  <ListItem disablePadding>
+                    <Link href="mailto:demomail@gmail.com">
+                      <i className="phone_icon">
+                        <MailIcon />
+                      </i>
+                      <Typography>demomail@gmail.com</Typography>
+                    </Link>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <Link href="tel:1234567890">
+                      <i className="phone_icon">
+                        <PhoneIcon />
+                      </i>
+                      <Typography>1234567890</Typography>
+                    </Link>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <Box>
+                      <i className="phone_icon">
+                        <LocationIcon />
+                      </i>
+                      <Typography>
+                        demo street, location, city country, zip
+                      </Typography>
+                    </Box>
+                  </ListItem>
+                </List>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          className="footer_btn"
+        >
+          <Typography className="copyrighttext" variant="body1">
+            Copyright © 2024 <Link href="/">Gilded Leaf</Link>. All Rights
+            Reserved
+          </Typography>
+          <Typography className="desingText">
+            Website Design by Webskitters
+          </Typography>
+        </Stack>
+      </Container>
+    </FooterWrap>
   );
 };
 

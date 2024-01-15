@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable mui-path-imports/mui-path-imports */
 /* eslint-disable no-console */
 /* eslint-disable react/no-unused-prop-types */
@@ -17,17 +18,19 @@ import * as React from "react";
 
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
-import assest from "@/json/assest";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
+import { HeaderWrap } from "@/styles/StyledComponents/HeaderWrapper";
+import BrandLogo from "@/ui/Icons/BrandLogo";
+import CartIcon from "@/ui/Icons/cartIcon";
+import { Badge, Stack } from "@mui/material";
 import { Container } from "@mui/system";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { HeaderWrap } from "@/styles/StyledComponents/HeaderWrapper";
-import { Badge } from "@mui/material";
-import CartIcon from "@/ui/Icons/cartIcon";
+import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
+import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
+import PhoneIcon from "@/ui/Icons/PhoneIcon";
 
 // const CustomButton = dynamic(() => import("@/ui/Buttons/CustomButton"));
 
@@ -45,11 +48,15 @@ export default function Header(props: Props) {
   console.log(props);
   const navItems = [
     {
-      name: "Clinical studies",
+      name: "Services",
       route: "javascript:void(0)"
     },
     {
-      name: "The science",
+      name: "Conditions",
+      route: "javascript:void(0)"
+    },
+    {
+      name: "Membership",
       route: "javascript:void(0)"
     },
     {
@@ -57,7 +64,7 @@ export default function Header(props: Props) {
       route: "javascript:void(0)"
     },
     {
-      name: "Contact us",
+      name: "About Us",
       route: "javascript:void(0)"
     }
   ];
@@ -122,7 +129,49 @@ export default function Header(props: Props) {
         elevation={0}
         className="headerContainer"
       >
+         <Box className="header_top">
+           <Container fixed>
+           <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              className="header_lableWrap"
+            >
+              <Box className="lableContact_lft">
+                <Link href="tel:+808 999 9889">
+                  <i className="phone_icon">
+                    <PhoneIcon />
+                  </i>
+                  <Typography>(808) 999-9889</Typography>
+                </Link>
+              </Box>
+              <Stack direction="row" alignItems="center" className="lableContact_rgt">
+                <Typography className="title_descriptoion" variant="body1">Download the app:</Typography>
+                <List disablePadding>
+                  <ListItem disablePadding>
+                    <Link href="javascript:void(0)">
+                      <i className="phone_icon">
+                        <PlaysoreIcon />
+                      </i>
+                      <Typography>Play store</Typography>
+                    </Link>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <Link href="javascript:void(0)">
+                      <i className="phone_icon">
+                        <AppStoreIcon />
+                      </i>
+                      <Typography>App store</Typography>
+                    </Link>
+                  </ListItem>
+                </List>
+              </Stack>
+            </Stack>
+           </Container>
+          </Box>
         <Container fixed>
+         
+
           <Toolbar>
             <IconButton
               color="inherit"
@@ -134,7 +183,7 @@ export default function Header(props: Props) {
               <MenuIcon />
             </IconButton>
             <Link href="/" className="headerLogo">
-              <Image src={assest.logo_img} width={250} height={38} alt="Logo" />
+              <BrandLogo />
             </Link>
             {isLoggedIn ? (
               <Box
@@ -177,17 +226,12 @@ export default function Header(props: Props) {
               </Box>
             )}
             <Box className="hdr_rgt">
-              <Box className="cart_icon">
-                <Badge color="primary" variant="dot">
-                  <CartIcon/>
-                </Badge>
-              </Box>
               <CustomButtonPrimary
                 type="button"
                 variant="contained"
                 color="primary"
               >
-                <Typography>Login</Typography>
+                <Typography>Book Now</Typography>
               </CustomButtonPrimary>
             </Box>
           </Toolbar>

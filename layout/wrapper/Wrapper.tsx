@@ -42,7 +42,7 @@ const Wrapper = (props: wrapperProps) => {
 
   routerText.shift();
   const favText = routerText.join("").toString().toUpperCase();
-  const projectName = "Procell";
+  const projectName = "Gilded Leaf";
 
   useOnlineStatus();
 
@@ -59,6 +59,7 @@ const Wrapper = (props: wrapperProps) => {
         url=""
         image=""
       />
+
       <Header />
 
       <Box className="body_content">{children}</Box>

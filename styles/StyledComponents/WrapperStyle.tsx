@@ -37,7 +37,7 @@ export const WrapperStyle = styled(Box)`
   h6 {
     padding: 0;
     margin: 0;
-    color: var(--color07171E);
+    color: #161D29;
   }
   h1 {
     text-transform: capitalize;
@@ -128,12 +128,13 @@ export const WrapperStyle = styled(Box)`
   input[type="submit"] {
     text-align: center;
     padding: 8px 20px;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 22px;
-    font-weight: 400;
-    color: #fff;
-    background: #51bff0;
-    border: 1px solid #51bff0;
+    font-weight: 500;
+    color: #F6F4EE;
+    background: #161D29;
+    border: 1px solid #161D29;
+    font-family: Cormorant Garamond;
     transition: 0.3s all ease-in-out 0s;
     -webkit-transition: 0.3s all ease-in-out 0s;
     -moz-transition: 0.3s all ease-in-out 0s;
@@ -148,8 +149,8 @@ export const WrapperStyle = styled(Box)`
   button:hover,
   input[type="button"]:hover,
   input[type="submit"]:hover {
-    background-color: #51bff0;
-    color: #ffffff;
+    background-color: #8C6034;
+    color: #F6F4EE;
     outline: none;
     text-decoration: none;
   }
@@ -159,7 +160,7 @@ export const WrapperStyle = styled(Box)`
   }
 
   .cmn_gap {
-    padding: 50px 0;
+    padding: 100px 0;
   }
 
   .cmn_gap_top {
@@ -177,7 +178,7 @@ export const WrapperStyle = styled(Box)`
     h2 {
       font-size: 40px;
       text-transform: none;
-      color: #202020;
+      color: #161D29;
       @media (max-width: 1200px) {
       }
     }
@@ -406,7 +407,7 @@ export const WrapperStyle = styled(Box)`
   // ==============================
   .MuiContainer-root {
     @media (min-width: 1200px) {
-      max-width: 1170px;
+      max-width: 1155px;
       padding: 0 10px;
     }
     &.cus_container {
