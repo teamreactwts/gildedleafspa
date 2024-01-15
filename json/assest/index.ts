@@ -9,5 +9,6 @@ export default {
   banner_back_logo: "/assets/images/banner_back_logo.png",
   banner_vector: "/assets/images/banner_vector.png",
   diff_blur: "/assets/images/diff_blur.png",
-  diffIcon1: "/assets/images/diffIcon1.svg"
+  diffIcon1: "/assets/images/diffIcon1.svg",
+  footerDesing: "/assets/images/footerDesing.png"
 };
