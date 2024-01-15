@@ -50,7 +50,10 @@ export const primaryColors = {
   themTextcolor:"#8C6034",
   colorF3EEE8:"#F3EEE8",
   color2B3343:"#2B3343",
-  color272F3D:"#272F3D"
+  color272F3D:"#272F3D",
+  color807072:"#807072",
+  colorA67033:"#A67033",
+
 
 
 

@@ -22,6 +22,38 @@ import Link from "next/link";
 const FooterWrap = styled(Box)`
   background-color: ${primaryColors.mainFontColor};
   padding: 92px 0 37px 0;
+  .ftr-wrapper {
+    .footerTitle_text {
+      color: ${primaryColors.color807072};
+      font-family: Nunito Sans;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .nave_itemWrap {
+      ul {
+        padding-top: 25px;
+        li {
+          margin-bottom: 31px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          a {
+            display: inline-block;
+            color: ${primaryColors.white};
+            font-family: Nunito Sans;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            transition: all .3s ease-in-out ;
+            &:hover{
+              color: ${primaryColors.colorA67033};
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 const Footer = () => {
