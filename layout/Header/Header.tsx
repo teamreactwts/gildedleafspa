@@ -1,7 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable mui-path-imports/mui-path-imports */
-/* eslint-disable no-console */
 /* eslint-disable react/no-unused-prop-types */
+/* eslint-disable no-console */
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -22,23 +20,16 @@ import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
 import { HeaderWrap } from "@/styles/StyledComponents/HeaderWrapper";
+import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import BrandLogo from "@/ui/Icons/BrandLogo";
-import CartIcon from "@/ui/Icons/cartIcon";
-import { Badge, Stack } from "@mui/material";
+import PhoneIcon from "@/ui/Icons/PhoneIcon";
+import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
+import Stack from "@mui/material/Stack";
 import { Container } from "@mui/system";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
-import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
-import PhoneIcon from "@/ui/Icons/PhoneIcon";
-
-// const CustomButton = dynamic(() => import("@/ui/Buttons/CustomButton"));
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window?: () => Window;
 }
 
@@ -129,9 +120,9 @@ export default function Header(props: Props) {
         elevation={0}
         className="headerContainer"
       >
-         <Box className="header_top">
-           <Container fixed>
-           <Stack
+        <Box className="header_top">
+          <Container fixed>
+            <Stack
               direction="row"
               alignItems="center"
               justifyContent="space-between"
@@ -145,11 +136,17 @@ export default function Header(props: Props) {
                   <Typography>(808) 999-9889</Typography>
                 </Link>
               </Box>
-              <Stack direction="row" alignItems="center" className="lableContact_rgt">
-                <Typography className="title_descriptoion" variant="body1">Download the app:</Typography>
+              <Stack
+                direction="row"
+                alignItems="center"
+                className="lableContact_rgt"
+              >
+                <Typography className="title_descriptoion" variant="body1">
+                  Download the app:
+                </Typography>
                 <List disablePadding>
                   <ListItem disablePadding>
-                    <Link href="javascript:void(0)">
+                    <Link href="#url">
                       <i className="phone_icon">
                         <PlaysoreIcon />
                       </i>
@@ -157,7 +154,7 @@ export default function Header(props: Props) {
                     </Link>
                   </ListItem>
                   <ListItem disablePadding>
-                    <Link href="javascript:void(0)">
+                    <Link href="#url">
                       <i className="phone_icon">
                         <AppStoreIcon />
                       </i>
@@ -167,11 +164,9 @@ export default function Header(props: Props) {
                 </List>
               </Stack>
             </Stack>
-           </Container>
-          </Box>
+          </Container>
+        </Box>
         <Container fixed>
-         
-
           <Toolbar>
             <IconButton
               color="inherit"
@@ -196,7 +191,7 @@ export default function Header(props: Props) {
                   variant="contained"
                   color="primary"
                 >
-                  <span>Logout</span>
+                  <Typography variant="caption">Logout</Typography>
                 </CustomButtonPrimary>
 
                 <CustomButtonPrimary
@@ -204,7 +199,7 @@ export default function Header(props: Props) {
                   variant="contained"
                   color="primary"
                 >
-                  <span>{userData?.email}</span>
+                  {userData?.email!}
                 </CustomButtonPrimary>
               </Box>
             ) : (
@@ -218,9 +213,7 @@ export default function Header(props: Props) {
                     key={item?.route}
                     className={router.pathname === item.route ? "active" : ""}
                   >
-                    {/* <CustomButton type="button" variant="text"> */}
                     {item?.name}
-                    {/* </CustomButton> */}
                   </Link>
                 ))}
               </Box>
@@ -231,7 +224,7 @@ export default function Header(props: Props) {
                 variant="contained"
                 color="primary"
               >
-                <Typography>Book Now</Typography>
+                <Typography variant="caption">Book Now</Typography>
               </CustomButtonPrimary>
             </Box>
           </Toolbar>

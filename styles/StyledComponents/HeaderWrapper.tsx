@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 
 export const HeaderWrap = styled(Box)`
   .header_top {
-    background-color: ${primaryColors.mainFontColor};
+    background-color: ${primaryColors.primary};
 
     .header_lableWrap {
       padding: 9px 0;
@@ -55,14 +55,14 @@ export const HeaderWrap = styled(Box)`
             width: auto;
             padding: 0 13px;
             border-right: 1px solid ${primaryColors.color272F3D};
-            &:last-child{
+            &:last-child {
               border-right: 0;
             }
             a {
               display: inline-flex;
               display: flex;
               align-items: center;
-              &:hover{
+              &:hover {
                 opacity: 0.7;
               }
               i {
@@ -124,10 +124,10 @@ export const HeaderWrap = styled(Box)`
     a {
       margin-right: 28px;
       display: inline-block;
-      color: ${primaryColors.mainFontColor};
+      color: ${primaryColors.primary};
       font-size: 16px;
-      font-family: Cormorant Garamond;
-      font-weight: 500;
+      font-family: "Cormorant Garamond";
+      font-weight: 600;
       line-height: 1;
       &:hover {
         color: ${primaryColors.themTextcolor};

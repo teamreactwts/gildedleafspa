@@ -20,9 +20,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const FooterWrap = styled(Box)`
-  background-color: ${primaryColors.mainFontColor};
+  background-color: ${primaryColors.primary};
   padding: 92px 0 37px 0;
+  position: relative;
   .ftr-wrapper {
+    position: relative;
+    z-index: 3;
     .footerTitle_text {
       color: ${primaryColors.color807072};
       font-family: Nunito Sans;
@@ -45,13 +48,135 @@ const FooterWrap = styled(Box)`
             font-size: 14px;
             font-weight: 400;
             line-height: 1.5;
-            transition: all .3s ease-in-out ;
-            &:hover{
+            transition: all 0.3s ease-in-out;
+            &:hover {
               color: ${primaryColors.colorA67033};
             }
           }
         }
       }
+    }
+    .footer_socialMedian {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .footer_brnadLogo {
+        width: 137px;
+        display: inline-block;
+        line-height: 0;
+        font-size: 0;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .social_icons {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+
+        li {
+          margin-right: 27px;
+          &:last-child {
+            margin-right: 0;
+          }
+          a {
+            display: inline-block;
+            line-height: 0px;
+            font-size: 0px;
+            transition: all 0.4s ease-in-out;
+            &:hover {
+              svg {
+                path {
+                  fill: ${primaryColors.colorA67033};
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .footer_contactDetails {
+      .footer_contactform {
+        margin-top: 50px;
+        li {
+          margin-bottom: 26px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          a,
+          .address_box {
+            display: flex;
+            &:hover {
+              opacity: 0.7;
+            }
+
+            i {
+              margin-right: 13px;
+            }
+            p {
+              color: ${primaryColors.white};
+              font-family: Nunito Sans;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 1.5;
+              &.locationtext{
+                margin-top: -5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer_bottom {
+    margin-top: 65px;
+    padding-top: 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 3;
+    .footercopyWriteWrap {
+      .copyrighttext {
+        color: ${primaryColors.white};
+        font-family: Nunito Sans;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+        a {
+          display: inline-block;
+          color: inherit;
+          font-size: inherit;
+          line-height: inherit;
+          font-family: inherit;
+          &:hover {
+            color: ${primaryColors.colorA67033};
+          }
+        }
+      }
+      .desingText {
+        color: ${primaryColors.white};
+        font-family: Nunito Sans;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+    }
+  }
+  .footer_desing{
+    position: absolute;
+    line-height: 0;
+    font-size: 0;
+
+    height: 100%;
+    top: 0;
+    left: 47%;
+    transform: translateX(-50%);
+    z-index: 2;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 `;
@@ -59,24 +184,24 @@ const FooterWrap = styled(Box)`
 const Footer = () => {
   const navItems = [
     {
-      name: "home",
+      name: "About Us",
       route: "/"
     },
     {
-      name: "About",
-      route: "/about"
+      name: "Services",
+      route: "/services"
     },
     {
-      name: "Products",
-      route: "/products"
+      name: "Conditions",
+      route: "/conditions"
     },
     {
-      name: "Package",
-      route: "/package"
+      name: "Membership",
+      route: "/membership"
     },
     {
-      name: "Contact",
-      route: "/contact"
+      name: "Shop",
+      route: "/shop"
     }
   ];
   const socialmediaSection = [
@@ -103,7 +228,7 @@ const Footer = () => {
       <Container fixed>
         <Box className="ftr-wrapper">
           <Grid container spacing={10}>
-            <Grid item lg={2}>
+            <Grid item lg={3}>
               <Box className="nave_itemWrap">
                 <Typography variant="h5" className="footerTitle_text">
                   Quick Links
@@ -117,9 +242,9 @@ const Footer = () => {
                 </List>
               </Box>
             </Grid>
-            <Grid item lg={7}>
+            <Grid item lg={6}>
               <Box className="footer_socialMedian">
-                <Link href="/">
+                <Link href="/" className="footer_brnadLogo">
                   <Image
                     src={assest.footerBrandIcon}
                     alt="footericon"
@@ -153,17 +278,17 @@ const Footer = () => {
                   <ListItem disablePadding>
                     <Link href="tel:1234567890">
                       <i className="phone_icon">
-                        <PhoneIcon />
+                        <PhoneIcon IconHeight="15" IconWidth="15" />
                       </i>
                       <Typography>1234567890</Typography>
                     </Link>
                   </ListItem>
                   <ListItem disablePadding>
-                    <Box>
+                    <Box className="address_box">
                       <i className="phone_icon">
                         <LocationIcon />
                       </i>
-                      <Typography>
+                      <Typography className="locationtext">
                         demo street, location, city country, zip
                       </Typography>
                     </Box>
@@ -173,21 +298,28 @@ const Footer = () => {
             </Grid>
           </Grid>
         </Box>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          className="footer_btn"
-        >
-          <Typography className="copyrighttext" variant="body1">
-            Copyright © 2024 <Link href="/">Gilded Leaf</Link>. All Rights
-            Reserved
-          </Typography>
-          <Typography className="desingText">
-            Website Design by Webskitters
-          </Typography>
-        </Stack>
       </Container>
+      <Box className="footer_bottom">
+        <Container fixed>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="footercopyWriteWrap"
+          >
+            <Typography className="copyrighttext" variant="body1">
+              Copyright © 2024 <Link href="/">Gilded Leaf</Link>. All Rights
+              Reserved
+            </Typography>
+            <Typography className="desingText">
+              Website Design by Webskitters
+            </Typography>
+          </Stack>
+        </Container>
+      </Box>
+      <figure className="footer_desing">
+        <Image src={assest.footerDesing} alt="image" width={603} height={449} />
+      </figure>
     </FooterWrap>
   );
 };

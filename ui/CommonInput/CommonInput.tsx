@@ -48,7 +48,7 @@ const InputWrap = styled(TextField as any)`
       border: 0;
       padding-left: 0;
       &::placeholder {
-        color: ${primaryColors?.mainFontColor};
+        color: ${primaryColors?.primary};
         opacity: 1;
       }
       &:focus {
@@ -93,7 +93,7 @@ const InputWrap = styled(TextField as any)`
       height: 39px;
       font-size: 16px;
       &::placeholder {
-        color: ${primaryColors?.mainFontColor};
+        color: ${primaryColors?.primary};
         opacity: 1;
       }
     }

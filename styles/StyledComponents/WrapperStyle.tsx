@@ -1,3 +1,4 @@
+import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
@@ -22,7 +23,7 @@ export const WrapperStyle = styled(Box)`
   }
 
   a:hover {
-    color: #00a5d0;
+    color: ${primaryColors.colorA67033};
   }
 
   a:focus {

@@ -4,8 +4,8 @@
 import { PaletteMode, PaletteOptions } from "@mui/material";
 
 export const primaryColors = {
-  primary: "#16A6DF",
-  primary1: "#C2A6F4",
+  primary: "#161D29",
+  primary1: "#6B6657",
 
   primary_600: "#5871D0",
   secondary: "#FF8EB2",
@@ -19,7 +19,7 @@ export const primaryColors = {
   white: "#fff",
   black: "#000",
   bodyColor: "#F4F6F8",
-  mainFontColor: "#161D29",
+  // primary: "#161D29",
   textPrimaryColor: "#676767",
   borderprimary: "#DBE0E8",
   border_primary: "#DBE0E8",
@@ -53,12 +53,6 @@ export const primaryColors = {
   color272F3D:"#272F3D",
   color807072:"#807072",
   colorA67033:"#A67033",
-
-
-
-
-
-
 
 
 };

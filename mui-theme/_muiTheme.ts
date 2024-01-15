@@ -89,7 +89,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "16px",
         lineHeight: "1.5em",
         color: "#676767",
-        fontFamily: "Noto Sans",
+        fontFamily: "Noto Sans"
       },
       body2: {
         fontSize: "12px",
@@ -128,10 +128,10 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
             ) {
               return {
                 backgroundColor: primaryColors?.bodyColor,
-                color: primaryColors.mainFontColor,
+                color: primaryColors.primary,
                 "&:hover": {
                   backgroundColor: primaryColors?.bodyColor,
-                  color: primaryColors.mainFontColor
+                  color: primaryColors.primary
                 }
               };
             }
@@ -267,7 +267,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
             ) {
               return {
                 // backgroundColor: primaryColors?.primary,
-                background: primaryColors.mainFontColor,
+                background: primaryColors.primary,
                 borderRadius: "50px",
 
                 "&:hover": {

@@ -24,7 +24,7 @@ const CustomTabWrapper = styled(Box)`
       padding: 12px 20px;
       width: auto;
       min-height: auto;
-      color: ${primaryColors?.mainFontColor};
+      color: ${primaryColors?.primary};
       &:hover {
         background-color: none !important;
       }
