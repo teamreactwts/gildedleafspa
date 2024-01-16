@@ -19,11 +19,19 @@ export default {
   diffIcon3: "/assets/images/diffIcon3.svg",
   diffIcon4: "/assets/images/diffIcon4.svg",
   diffIcon5: "/assets/images/diffIcon5.svg",
+  slider1:"/assets/images/slider1.png",
+  slider2:"/assets/images/slider2.png",
+  slider3:"/assets/images/slider3.png",
+  slider4:"/assets/images/slider4.png",
+  slider5:"/assets/images/slider5.png",
+
+  
 
   diffIcon6: "/assets/images/diffIcon6.svg",
 
   diffIcon7: "/assets/images/diffIcon7.svg",
   diffIcon8: "/assets/images/diffIcon8.svg",
   diffIcon9: "/assets/images/diffIcon9.svg",
-  diffIcon10: "/assets/images/diffIcon10.svg"
+  diffIcon10: "/assets/images/diffIcon10.svg",
+  qrmobile:"/assets/images/qrmobile.png"
 };

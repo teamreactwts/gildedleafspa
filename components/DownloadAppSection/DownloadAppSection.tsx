@@ -16,7 +16,7 @@ import { CommonHeader } from "../DifferentSec/DifferentSec";
 
 export const DownloadAppSectionWrap = styled(Box)`
   position: relative;
-  overflow: hidden;
+  
   .gradient_rgtSide {
     position: absolute;
     top: 0;
@@ -57,20 +57,7 @@ export const DownloadAppSectionWrap = styled(Box)`
         margin: 0 auto;
         position: relative;
         z-index: 3;
-        .downloadSeciton {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          z-index: 3;
-          transform: translateX(-50%);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 92px 50px;
-          width: 100%;
-          height: 100%;
-          flex-direction: column;
-        }
+      
       }
       .backgroun_overlay {
         position: absolute;
@@ -140,12 +127,12 @@ function DownloadAppSection() {
               <Box className="download_leftpart">
                 <figure className="phoneImage">
                   <Image
-                    src={assest.downloadPhoneImg}
+                    src={assest.qrmobile}
                     alt="phoneImage"
                     width={240}
                     height={487}
                   />
-                  <Box className="downloadSeciton">
+                  {/* <Box className="downloadSeciton">
                     <Image
                       src={assest.footerBrandIcon}
                       alt="brandLogo"
@@ -160,7 +147,7 @@ function DownloadAppSection() {
                       height={112}
                       className="Qr_img"
                     />
-                  </Box>
+                  </Box> */}
                 </figure>
                 <Box
                   className="backgroun_overlay"
