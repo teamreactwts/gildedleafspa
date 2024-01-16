@@ -8,7 +8,20 @@ import React from 'react'
 export const ServiceDetailsWrapper=styled(Box)`
     
 `
-
+export const benifitsList=[
+    {
+        name:"Lorem ipsum dolor sit amet consectetur. Imperdiet nec.",
+    },
+    {
+        name:"Pellentesque nec enim sagittis nullam purus at.",
+    },
+    {
+        name:"Lorem ipsum dolor sit amet consectetur.",
+    },
+    {
+        name:"Imperdiet lacus dis pellentesque nunc tincidunt",
+    },
+]
 
 function ServiceDetails() {
   return (
@@ -26,7 +39,11 @@ function ServiceDetails() {
                     <Box className="list_wrap">
                         <Typography variant='h4'>Benefits:</Typography>
                         <List disablePadding>
-                            <ListItem disablePadding></ListItem>
+                            {
+                                benifitsList.map((item)=>(
+                                    <ListItem disablePadding>{item.name}</ListItem>
+                                ))
+                            }
                         </List>
                     </Box>
                 </Grid>
