@@ -1,4 +1,5 @@
 /* eslint-disable react/no-array-index-key */
+import { primaryColors } from "@/themes/_muiPalette";
 import FeatureIcon1 from "@/ui/Icons/FeatureIcon1";
 import FeatureIcon2 from "@/ui/Icons/FeatureIcon2";
 import FeatureIcon3 from "@/ui/Icons/FeatureIcon3";
@@ -11,8 +12,40 @@ import Link from "next/link";
 import React, { HTMLAttributes } from "react";
 import { CommonHeader } from "../DifferentSec/DifferentSec";
 
-export const MemeberFeatureSecWrapper = styled(Box)``;
-export const FeatureCardWrapper = styled(Box)``;
+export const MemeberFeatureSecWrapper = styled(Box)`
+  margin-bottom: 90px;
+`;
+
+export const FeatureCardWrapper = styled(Box)`
+  padding: 30px 30px;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(253, 252, 248, 0.74) 3.57%,
+    rgba(253, 252, 248, 0.29) 96.74%
+  );
+  backdrop-filter: blur(2px);
+  min-height: 100%;
+  i {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    margin-bottom: 15px;
+  }
+  h3 {
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    a {
+      color: inherit;
+      &:hover {
+        color: ${primaryColors?.primary1};
+      }
+    }
+  }
+`;
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -43,15 +76,14 @@ export const featureCardList = [
   },
   {
     icon: <FeatureIcon2 />,
-    title: "Beauty Bank",
+    title: "Flexibility",
     description:
-      "Your monthly fee acts as a beauty bank. Pay monthly and bank these funds with us. Use them for services at your discretion."
+      "No fees, no contracts. Memberships can be frozen or canceled anytime."
   },
   {
     icon: <FeatureIcon3 />,
-    title: "Beauty Bank",
-    description:
-      "Your monthly fee acts as a beauty bank. Pay monthly and bank these funds with us. Use them for services at your discretion."
+    title: "Discounted Services",
+    description: "Enjoy discounted rates on our wide range of services."
   }
 ];
 

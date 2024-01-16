@@ -41,24 +41,25 @@ export const primaryColors = {
   chipErrorText: "#9B3858",
   cardShadow: "#0707070F",
   tableshadow: "rgba(7, 7, 7, 0.06)",
-  secondaryFont:"#4D4E4E",
-  tertiaryFont:"#585858",
+  secondaryFont: "#4D4E4E",
+  tertiaryFont: "#585858",
 
-
-  color6B6657:"#6B6657",
-  colorF6F4EE:"#F6F4EE",
-  themTextcolor:"#8C6034",
-  colorF3EEE8:"#F3EEE8",
-  color2B3343:"#2B3343",
-  color272F3D:"#272F3D",
-  color807072:"#807072",
-  colorA67033:"#A67033",
-  colorE8DDD0:"#E8DDD0",
+  color6B6657: "#6B6657",
+  colorF6F4EE: "#F6F4EE",
+  themTextcolor: "#8C6034",
+  colorF3EEE8: "#F3EEE8",
+  color2B3343: "#2B3343",
+  color272F3D: "#272F3D",
+  color807072: "#807072",
+  colorA67033: "#A67033",
+  colorE8DDD0: "#E8DDD0",
   colorFDFDFB: "#FDFDFB",
 
   coloreee3d3: "#eee3d3",
   color021526: "#021526",
   colorE4DDD3:"#E4DDD3",
+  colore4ddd3: "#e4ddd3",
+  colorFBF9F0: "#FBF9F0"
 };
 
 export const pallete = (mode: PaletteMode): PaletteOptions => {
