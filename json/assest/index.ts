@@ -3,11 +3,11 @@ export default {
   logo: "/vercel.svg",
   logo_img: "/assets/images/logo_img.png",
   story_img: "/assets/images/story_img.png",
-  footerBrandIcon:"/assets/images/footerBrandIcon.svg",
-  footerDesing:"/assets/images/footerDesing.png",
-  downloadPhoneImg:"/assets/images/downloadPhoneImg.png",
-  Qr_img:"/assets/images/Qr_img.png",
- 
+  footerBrandIcon: "/assets/images/footerBrandIcon.svg",
+  footerDesing: "/assets/images/footerDesing.png",
+  downloadPhoneImg: "/assets/images/downloadPhoneImg.png",
+  Qr_img: "/assets/images/Qr_img.png",
+
   banner_shape: "/assets/images/banner_shape.png",
   banner_image: "/assets/images/banner-image.png",
   banner_back_logo: "/assets/images/banner_back_logo.png",
@@ -26,4 +26,12 @@ export default {
   slider5:"/assets/images/slider5.png",
 
   
+
+  diffIcon6: "/assets/images/diffIcon6.svg",
+
+  diffIcon7: "/assets/images/diffIcon7.svg",
+  diffIcon8: "/assets/images/diffIcon8.svg",
+  diffIcon9: "/assets/images/diffIcon9.svg",
+  diffIcon10: "/assets/images/diffIcon10.svg",
+  qrmobile:"/assets/images/qrmobile.png"
 };

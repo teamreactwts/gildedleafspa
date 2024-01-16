@@ -121,7 +121,7 @@ const FooterWrap = styled(Box)`
               font-size: 14px;
               font-weight: 400;
               line-height: 1.5;
-              &.locationtext{
+              &.locationtext {
                 margin-top: -5px;
               }
             }
@@ -163,7 +163,7 @@ const FooterWrap = styled(Box)`
       }
     }
   }
-  .footer_desing{
+  .footer_desing {
     position: absolute;
     line-height: 0;
     font-size: 0;
@@ -173,7 +173,7 @@ const FooterWrap = styled(Box)`
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    img{
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -207,19 +207,19 @@ const Footer = () => {
   const socialmediaSection = [
     {
       icon: <FacebookIcon />,
-      route: "javascript:void(0)"
+      route: "#url"
     },
     {
       icon: <TictockIcon />,
-      route: "javascript:void(0)"
+      route: "#url"
     },
     {
       icon: <InstaGramIcon />,
-      route: "javascript:void(0)"
+      route: "#url"
     },
     {
       icon: <YoutubeIcon />,
-      route: "javascript:void(0)"
+      route: "#url"
     }
   ];
   // const router = useRouter();
