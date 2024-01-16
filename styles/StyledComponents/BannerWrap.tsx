@@ -1,11 +1,12 @@
 import assest from "@/json/assest";
+import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const BannerWrap = styled(Box)`
   padding: 65px 0 85px;
   position: relative;
-
+  border-bottom: 1px solid ${primaryColors?.coloreee3d3};
   &::after {
     content: "";
     width: 50vw;

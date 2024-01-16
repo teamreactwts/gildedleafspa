@@ -10,7 +10,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import React, { HTMLAttributes } from "react";
-import { CommonHeader } from "../DifferentSec/DifferentSec";
+import CommonHeader from "../CommonHeader/CommonHeader";
 
 export const MemeberFeatureSecWrapper = styled(Box)`
   margin-bottom: 90px;

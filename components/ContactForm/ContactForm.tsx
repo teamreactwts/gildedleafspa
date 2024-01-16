@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-vars */
 import { primaryColors } from "@/themes/_muiPalette";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -39,10 +41,12 @@ export const EachField = styled(Box)`
 
 interface contactProps {
   contactTitle: string;
+  stepIncr: (data: number) => void;
 }
 
 const ContactForm: React.FC<contactProps & HTMLAttributes<HTMLDivElement>> = ({
   contactTitle,
+  stepIncr,
   ...props
 }) => {
   return (
@@ -81,7 +85,11 @@ const ContactForm: React.FC<contactProps & HTMLAttributes<HTMLDivElement>> = ({
           justifyContent="flex-end"
           marginTop="50px"
         >
-          <CustomButtonPrimary variant="contained" color="primary">
+          <CustomButtonPrimary
+            variant="contained"
+            color="primary"
+            onClick={() => stepIncr(3)}
+          >
             <Typography variant="caption">Continue</Typography>
           </CustomButtonPrimary>
         </Stack>

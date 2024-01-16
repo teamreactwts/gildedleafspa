@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
 export const DifferentWrapper = styled(Box)`
-  border-top: 1px solid ${primaryColors?.coloreee3d3};
   position: relative;
   z-index: 1;
   overflow: hidden;

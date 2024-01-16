@@ -40,9 +40,12 @@ export const ServiceCardDifferent = ({
   );
 };
 
-interface props {}
+interface props {
+  showInterestSec?: boolean;
+}
 
 const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
+  showInterestSec = true,
   ...props
 }) => {
   const settings = {
@@ -81,36 +84,38 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
             </Box>
           ))}
         </IconCardStack>
-        <ServiceWrapper>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            flexWrap="wrap"
-            alignItems="center"
-            sx={{ marginBottom: { md: "50px", xs: "25px" } }}
-          >
-            <Box className="title_left">
-              <Typography variant="h2">
-                Which service are{" "}
-                <Typography variant="caption">you interested in?</Typography>
-              </Typography>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                rutrum nulla sed nisi gravida maximus.
-              </Typography>
-            </Box>
-            <CustomButtonPrimary variant="contained" color="primary">
-              <Typography variant="caption">Explore</Typography>
-            </CustomButtonPrimary>
-          </Stack>
-          <CommonSlider>
-            <Slider {...settings}>
-              {sliderList?.map((data, index) => (
-                <ServiceCardDifferent {...data} key={index} />
-              ))}
-            </Slider>
-          </CommonSlider>
-        </ServiceWrapper>
+        {showInterestSec && (
+          <ServiceWrapper>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              flexWrap="wrap"
+              alignItems="center"
+              sx={{ marginBottom: { md: "50px", xs: "25px" } }}
+            >
+              <Box className="title_left">
+                <Typography variant="h2">
+                  Which service are{" "}
+                  <Typography variant="caption">you interested in?</Typography>
+                </Typography>
+                <Typography>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  rutrum nulla sed nisi gravida maximus.
+                </Typography>
+              </Box>
+              <CustomButtonPrimary variant="contained" color="primary">
+                <Typography variant="caption">Explore</Typography>
+              </CustomButtonPrimary>
+            </Stack>
+            <CommonSlider>
+              <Slider {...settings}>
+                {sliderList?.map((data, index) => (
+                  <ServiceCardDifferent {...data} key={index} />
+                ))}
+              </Slider>
+            </CommonSlider>
+          </ServiceWrapper>
+        )}
       </Container>
     </DifferentWrapper>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import CalendarSec from "@/components/CalendarSec/CalendarSec";
 import ContactForm from "@/components/ContactForm/ContactForm";
@@ -10,6 +11,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useCallback, useState } from "react";
 
 export const BookingWrapper = styled(Box)``;
 
@@ -21,6 +23,12 @@ const breadCumbList = [
 ];
 
 const Index = () => {
+  const [step, setStep] = useState(1);
+
+  const stepIncr = useCallback((data: number) => {
+    setStep(data);
+  }, []);
+
   return (
     <Wrapper>
       <InnnerPageWrapper>
@@ -30,32 +38,48 @@ const Index = () => {
           pageName="Booking"
         />
         <BookingWrapper className="cmn_gap">
-          <MembershipPlan
-            title="Select "
-            breakTitle="Membership Plans"
-            subTitle="Embrace a world of beauty and elegance with our memberships. Join us in your journey to look as young as you feel."
-          />
-          <Container fixed>
-            <Stack
-              direction="row"
-              alignItems="center"
-              justifyContent="flex-end"
-              marginTop={{ md: "50px", xs: "25px" }}
-            >
-              <CustomButtonPrimary
-                variant="outlined"
-                color="primary"
-                sx={{ marginRight: "15px" }}
-              >
-                <Typography variant="caption">Skip</Typography>
-              </CustomButtonPrimary>
-              <CustomButtonPrimary variant="contained" color="primary">
-                <Typography variant="caption">Continue</Typography>
-              </CustomButtonPrimary>
-            </Stack>
-          </Container>
-          <ContactForm contactTitle="Personal Information" />
-          <CalendarSec />
+          {step === 1 ? (
+            <>
+              <MembershipPlan
+                title="Select "
+                breakTitle="Membership Plans"
+                subTitle="Embrace a world of beauty and elegance with our memberships. Join us in your journey to look as young as you feel."
+              />
+              <Container fixed>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="flex-end"
+                  marginTop={{ md: "50px", xs: "25px" }}
+                >
+                  <CustomButtonPrimary
+                    variant="outlined"
+                    color="primary"
+                    sx={{ marginRight: "15px" }}
+                    onClick={() => setStep((data) => data + 1)}
+                  >
+                    <Typography variant="caption">Skip</Typography>
+                  </CustomButtonPrimary>
+                  <CustomButtonPrimary
+                    variant="contained"
+                    color="primary"
+                    onClick={() =>
+                      alert("Please Click skip to go next step!!!")
+                    }
+                  >
+                    <Typography variant="caption">Continue</Typography>
+                  </CustomButtonPrimary>
+                </Stack>
+              </Container>
+            </>
+          ) : step === 2 ? (
+            <ContactForm
+              contactTitle="Personal Information"
+              stepIncr={stepIncr}
+            />
+          ) : step === 3 ? (
+            <CalendarSec stepIncr={stepIncr} />
+          ) : null}
         </BookingWrapper>
       </InnnerPageWrapper>
     </Wrapper>
