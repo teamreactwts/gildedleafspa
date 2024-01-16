@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-vars */
 /* eslint-disable unused-imports/no-unused-vars */
 
@@ -9,9 +10,9 @@ import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
 import { Box, Container } from "@mui/system";
-import Image from "next/image";
 import Slider from "react-slick";
 import { CommonSlider } from "../DifferentSec/DifferentSec";
+import ImageCard from "../ImageCard/ImageCard";
 
 export const HomeSliderWrapper = styled(Box)`
   .sliderHeading_part {
@@ -55,46 +56,6 @@ export const HomeSliderWrapper = styled(Box)`
     .slick-slider {
       .slick-list {
         .slider_card {
-          figure {
-            width: 100%;
-            height: 367px;
-            font-size: 0;
-            line-height: 0;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-            .slider_text {
-              position: absolute;
-              width: 100%;
-              bottom: 0;
-              left: 0;
-              text-align: center;
-              padding: 38px 20px;
-              h3 {
-                color: ${primaryColors.white};
-                font-family: Noto Sans;
-                font-size: 54px;
-                font-weight: 900;
-                line-height: 1.5;
-                opacity: 0.1;
-              }
-              p {
-                color: ${primaryColors.white};
-                font-family: Noto Sans;
-                font-size: 18px;
-                font-weight: 900;
-                line-height: 1;
-                margin-top: -50px;
-                text-align: left;
-                padding: 0 15px;
-              }
-            }
-          }
         }
       }
     }
@@ -135,19 +96,12 @@ function HomeSlider() {
         <CommonSlider>
           <Slider {...settings}>
             {bannerclinial?.map((data, index) => (
-              <Box className="slider_card">
-                <figure>
-                  <Image
-                    src={data.image}
-                    alt="image"
-                    width={292}
-                    height={369}
-                  />
-                  <Box className="slider_text">
-                    <Typography variant="h3">{data.title}</Typography>
-                    <Typography variant="body1">{data.description}</Typography>
-                  </Box>
-                </figure>
+              <Box className="slider_card" key={index}>
+                <ImageCard
+                  card_img={data.image}
+                  title={data.title}
+                  description={data.description}
+                />
               </Box>
             ))}
           </Slider>
