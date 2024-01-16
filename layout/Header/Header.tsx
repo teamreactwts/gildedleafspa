@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable no-console */
 import MenuIcon from "@mui/icons-material/Menu";
@@ -19,11 +20,14 @@ import { useAppSelector } from "@/hooks/useAppSelector";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
-import { HeaderWrap } from "@/styles/StyledComponents/HeaderWrapper";
+import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import BrandLogo from "@/ui/Icons/BrandLogo";
 import PhoneIcon from "@/ui/Icons/PhoneIcon";
 import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
+import Button from "@mui/material/Button";
+import Fade from "@mui/material/Fade";
+import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
 import { Container } from "@mui/system";
 import Link from "next/link";
@@ -39,16 +43,8 @@ export default function Header(props: Props) {
   console.log(props);
   const navItems = [
     {
-      name: "Services",
-      route: "#url"
-    },
-    {
-      name: "Conditions",
-      route: "#url"
-    },
-    {
       name: "Membership",
-      route: "#url"
+      route: "/membership"
     },
     {
       name: "Shop",
@@ -119,6 +115,130 @@ export default function Header(props: Props) {
   //     window.removeEventListener("scroll", detectScroll);
   //   };
   // }, []);
+
+  const conditionMenuItems = [
+    {
+      name: "All Concern",
+      route: "/all-concern"
+    },
+    {
+      name: "Wrinkles and Fine-lines",
+      route: "/wrinkles-and-fine-lines"
+    },
+    {
+      name: "Facial Volume Loss (including Lips)",
+      route: "/facial-volume-loss"
+    },
+    {
+      name: "Hair Removal",
+      route: "/hair-removal"
+    },
+    {
+      name: "Acne",
+      route: "/acne"
+    },
+    {
+      name: "Acne Scars",
+      route: "/acne-scars"
+    },
+    {
+      name: "Roseacea",
+      route: "/roseacea"
+    },
+    {
+      name: "Age Spots",
+      route: "/age-spots"
+    },
+    {
+      name: "Sun Damage",
+      route: "/sun-damage"
+    },
+    {
+      name: "Spider Veins",
+      route: "/pider-veins"
+    },
+    {
+      name: "Melasma",
+      route: "/melasma"
+    },
+    {
+      name: "Surgical Scars",
+      route: "/surgical-scars"
+    },
+    {
+      name: "Skin Tightening",
+      route: "/skin-tightening"
+    },
+    {
+      name: "Skin Texture",
+      route: "/skin-texture"
+    },
+    {
+      name: "Hyperpigmentation",
+      route: "/hyperpigmentation"
+    },
+    {
+      name: "Aging",
+      route: "/aging"
+    }
+  ];
+
+  const serviceMenuItems = [
+    {
+      name: "All Services",
+      route: "/all-services"
+    },
+    {
+      name: "Botox",
+      route: "/botox"
+    },
+    {
+      name: "Dermal Fillers",
+      route: "/dermal-fillers"
+    },
+    {
+      name: "Microneedling",
+      route: "/microneedling"
+    },
+    {
+      name: "Microdermabrasion",
+      route: "/microdermabrasion"
+    },
+    {
+      name: "Laser Hair Removal",
+      route: "/laser-hair-removal"
+    },
+    {
+      name: "Hydrafacial",
+      route: "/hydrafacial"
+    },
+    {
+      name: "Laser Skin Rejuvenation",
+      route: "/laser-skin-rejuvenation"
+    },
+    {
+      name: "Laser Skin Resurfacing",
+      route: "/laser-skin-resurfacing"
+    }
+  ];
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null);
+  const open2 = Boolean(anchorEl2);
+  const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl2(event.currentTarget);
+  };
+  const handleClose2 = () => {
+    setAnchorEl2(null);
+  };
 
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
@@ -216,6 +336,74 @@ export default function Header(props: Props) {
                   sx={{ display: { xs: "none", sm: "block" } }}
                   className="navbar"
                 >
+                  <Button
+                    id="basic-button"
+                    aria-controls={open2 ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open2 ? "true" : undefined}
+                    onClick={handleClick2}
+                    className="navDropdown"
+                  >
+                    Services
+                  </Button>
+                  <NavMenu
+                    id="basic-menu"
+                    anchorEl={anchorEl2}
+                    open={open2}
+                    onClose={handleClose2}
+                    MenuListProps={{
+                      "aria-labelledby": "basic-button"
+                    }}
+                    TransitionComponent={Fade}
+                    transformOrigin={{
+                      horizontal: 70,
+                      vertical: "top"
+                    }}
+                  >
+                    {serviceMenuItems?.map((data, index) => (
+                      <MenuItem
+                        key={index}
+                        onClick={() => router.push(data?.route)}
+                      >
+                        {data?.name}
+                      </MenuItem>
+                    ))}
+                  </NavMenu>
+
+                  <Button
+                    id="basic-button"
+                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleClick}
+                    className="navDropdown"
+                  >
+                    Conditions
+                  </Button>
+                  <NavMenu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    MenuListProps={{
+                      "aria-labelledby": "basic-button"
+                    }}
+                    TransitionComponent={Fade}
+                    transformOrigin={{
+                      horizontal: 70,
+                      vertical: "top"
+                    }}
+                  >
+                    {conditionMenuItems?.map((data, index) => (
+                      <MenuItem
+                        key={index}
+                        onClick={() => router.push(data?.route)}
+                      >
+                        {data?.name}
+                      </MenuItem>
+                    ))}
+                  </NavMenu>
+
                   {navItems.map((item) => (
                     <Link
                       href={item?.route}
