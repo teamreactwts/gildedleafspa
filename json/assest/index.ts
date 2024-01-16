@@ -33,5 +33,6 @@ export default {
   diffIcon8: "/assets/images/diffIcon8.svg",
   diffIcon9: "/assets/images/diffIcon9.svg",
   diffIcon10: "/assets/images/diffIcon10.svg",
-  qrmobile:"/assets/images/qrmobile.png"
+  qrmobile:"/assets/images/qrmobile.png",
+  diffIcon11:"/assets/images/diffIcon11.png",
 };
