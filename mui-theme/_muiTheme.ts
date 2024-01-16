@@ -328,14 +328,17 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
             ) {
               return {
                 backgroundColor: "transparent",
-                color: primaryColors?.primary,
-                border: `1px solid ${primaryColors?.primary}`,
-                borderRadius:"86px",
 
+                border: `1px solid ${primaryColors?.primary}`,
+                borderRadius: "86px",
+                "& .MuiTypography-root": {
+                  color: primaryColors?.primary
+                },
                 "&:hover": {
-                 
                   backgroundColor: primaryColors.primary,
-                  color: primaryColors?.white
+                  "& .MuiTypography-root": {
+                    color: primaryColors?.white
+                  }
                 }
               };
             }

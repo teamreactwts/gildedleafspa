@@ -146,7 +146,7 @@ export const WrapperStyle = styled(Box)`
     appearance: none;
   }
 
-  button:hover,
+  /* button:hover, */
   input[type="button"]:hover,
   input[type="submit"]:hover {
     background-color: #8c6034;

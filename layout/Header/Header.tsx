@@ -420,6 +420,7 @@ export default function Header(props: Props) {
                   type="button"
                   variant="contained"
                   color="primary"
+                  onClick={() => router.push("/booking")}
                 >
                   <Typography variant="caption">Book Now</Typography>
                 </CustomButtonPrimary>
