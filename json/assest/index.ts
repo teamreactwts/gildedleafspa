@@ -19,5 +19,11 @@ export default {
   diffIcon3: "/assets/images/diffIcon3.svg",
   diffIcon4: "/assets/images/diffIcon4.svg",
   diffIcon5: "/assets/images/diffIcon5.svg",
+  slider1:"/assets/images/slider1.png",
+  slider2:"/assets/images/slider2.png",
+  slider3:"/assets/images/slider3.png",
+  slider4:"/assets/images/slider4.png",
+  slider5:"/assets/images/slider5.png",
+
   
 };
