@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unknown-property */
 import { CustomIconProps } from "@/interface/icons.interface";
 import { primaryColors } from "@/themes/_muiPalette";
-import React from "react";
 
 export default function CartIcon({
   IconColor,
   IconWidth,
-  IconHeight
+  IconHeight,
+  ...props
 }: CustomIconProps) {
   return (
     <svg
@@ -15,6 +15,7 @@ export default function CartIcon({
       height={IconHeight || "27"}
       viewBox="0 0 23 27"
       fill="none"
+      {...props}
     >
       <path
         fill-rule="evenodd"
