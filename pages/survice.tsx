@@ -11,6 +11,7 @@ import { Box } from "@mui/system";
 
 export const SurviceWrap = styled(Box)`
   padding: 55px 0 100px 0;
+  position: relative;
  
   .titel_text {
     margin-bottom: 60px;
@@ -32,12 +33,14 @@ export const SurviceWrap = styled(Box)`
     }
   }
   .service_card {
-    position: relative;
-    .gradient_color {
+    
+   
+  }
+  .gradient_color {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      left: -250px;
+      left: 0px;
       width: 464px;
       height: 464px;
       border-radius: 464px;
@@ -47,9 +50,9 @@ export const SurviceWrap = styled(Box)`
     }
     .gradient_color2 {
       position: absolute;
-      bottom: -200px;
+      bottom: -100px;
      
-      left: -250px;
+      left: 0px;
       width: 464px;
       height: 464px;
       border-radius: 464px;
@@ -57,7 +60,6 @@ export const SurviceWrap = styled(Box)`
       filter: blur(162px);
       z-index: -1;
     }
-  }
 `;
 
 export const serviceList = [
@@ -101,10 +103,12 @@ export const serviceList = [
 function Survice() {
   return (
     <Wrapper>
-      <Container fixed>
-        <BreadcumbTitle title="Services" pageName="Services" />
+         <BreadcumbTitle title="Services" pageName="Services" />
+     
+       
 
         <SurviceWrap>
+        <Container fixed>
           <Box className="titel_text">
             <Typography variant="h2">
               Which service are
@@ -123,11 +127,13 @@ function Survice() {
                 </Grid>
               ))}
             </Grid>
-            <Box className="gradient_color" />
-            <Box className="gradient_color2" />
+            
           </Box>
+          </Container>
+          <Box className="gradient_color" />
+            <Box className="gradient_color2" />
         </SurviceWrap>
-      </Container>
+      
     </Wrapper>
   );
 }
