@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/jsx-no-useless-fragment */
 import { primaryColors } from "@/themes/_muiPalette";
 import HomeIcon from "@/ui/Icons/HomeIcon";
@@ -18,7 +20,8 @@ export const BreadcumbTitleWrapper = styled(Box)`
     font-weight: 700;
   }
   .MuiBreadcrumbs-li {
-    p {
+    p,
+    a {
       color: ${primaryColors?.textPrimaryColor};
       font-size: 16px;
     }
@@ -58,31 +61,17 @@ export default function BreadcumbTitle({
             <Link href="/">
               <HomeIcon />
             </Link>
-            {navItems!?.length > 0 ? (
-              <>
-                {navItems?.map((item, index) => (
-                  <>
-                    {index > 0 ? (
-                      <Link href={item?.linkName}>
-                        <Typography component="i">{item?.icon}</Typography>
-                        {item?.name}
-                      </Link>
-                    ) : (
-                      <Typography>
-                        <Typography component="i">{item?.icon}</Typography>
-                        {item?.name}
-                      </Typography>
-                    )}
-                  </>
-                ))}
-              </>
-            ) : (
-              <Typography>
-                {pageIcon && <Typography component="i">{pageIcon}</Typography>}
+            {navItems?.map((item, index) => (
+              <Link href={item?.linkName} key={index}>
+                <Typography component="i">{item?.icon}</Typography>
+                {item?.name}
+              </Link>
+            ))}
+            <Typography>
+              {pageIcon && <Typography component="i">{pageIcon}</Typography>}
 
-                {pageName}
-              </Typography>
-            )}
+              {pageName}
+            </Typography>
           </Breadcrumbs>
         </Stack>
       </Container>
