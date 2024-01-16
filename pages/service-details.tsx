@@ -65,6 +65,14 @@ export const ServiceDetailsWrapper = styled(Box)`
       ul{
         display: flex;
         align-items: center;
+        margin-top: 19px;
+        li{
+            width: auto;
+            margin-right: 15px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
       }
     }
   }
