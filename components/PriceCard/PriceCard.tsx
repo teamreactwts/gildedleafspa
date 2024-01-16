@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 import { PriceCardWrapper } from "@/styles/StyledComponents/PriceCardWrapper";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -15,6 +17,8 @@ export interface priceCardProps {
   description: string;
   benefitList: string[];
   perfectFor: string;
+  selectValuecallback: (data: number) => void;
+  indexNumber: number;
 }
 
 const PriceCard: React.FC<priceCardProps & HTMLAttributes<HTMLDivElement>> = ({
@@ -23,11 +27,12 @@ const PriceCard: React.FC<priceCardProps & HTMLAttributes<HTMLDivElement>> = ({
   description,
   benefitList,
   perfectFor,
+  selectValuecallback,
+  indexNumber,
   ...props
 }) => {
   return (
     <PriceCardWrapper {...props}>
-      <Box className="gradient-box" />
       <Box className="wrapper_otr">
         <Box className="wrapper">
           <Box className="title_block">
@@ -56,7 +61,11 @@ const PriceCard: React.FC<priceCardProps & HTMLAttributes<HTMLDivElement>> = ({
           <Box className="perfect_block">
             <Typography variant="h4">Perfect For</Typography>
             <Typography>{perfectFor}</Typography>
-            <CustomButtonPrimary variant="contained" color="primary">
+            <CustomButtonPrimary
+              variant="contained"
+              color="primary"
+              onClick={() => selectValuecallback(indexNumber)}
+            >
               <Typography variant="caption">Subscribe</Typography>
             </CustomButtonPrimary>
           </Box>
