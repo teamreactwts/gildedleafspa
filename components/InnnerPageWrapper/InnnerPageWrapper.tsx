@@ -10,8 +10,8 @@ const InnnerPageWrapperStyled = styled(Box)`
     content: "";
     background: url(${assest?.banner_back_logo}) no-repeat center center;
     background-size: 100% 100%;
-    width: 50vw;
-    height: 50vw;
+    width: 40vw;
+    height: 40vw;
     position: absolute;
     right: 7vw;
     top: 0;
@@ -19,13 +19,13 @@ const InnnerPageWrapperStyled = styled(Box)`
   }
   &::before {
     content: "";
-    width: 50vw;
-    height: 50vw;
+    width: 40vw;
+    height: 40vw;
     background: url(${assest?.inner_wrapper_vector}) no-repeat center center;
     background-size: cover;
     position: absolute;
-    right: -5vw;
-    top: 4vw;
+    right: -6vw;
+    top: 13vw;
     z-index: -1;
   }
 `;
