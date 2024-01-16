@@ -199,15 +199,17 @@ export const ServiceCard = ({
   );
 };
 
+export interface commonHeadderProps {
+  title?: string;
+  breakTitle?: string;
+  subTitle?: string;
+}
+
 export const CommonHeader = ({
   title,
   breakTitle,
   subTitle
-}: {
-  title: string;
-  breakTitle?: string;
-  subTitle?: string;
-}) => {
+}: commonHeadderProps) => {
   return (
     <CommonHeaderWrapper className="heading_title">
       <Typography variant="h2">
