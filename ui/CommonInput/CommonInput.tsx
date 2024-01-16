@@ -15,15 +15,19 @@ const InputWrap = styled(TextField as any)`
   .MuiInputBase-adornedEnd {
     height: auto;
     box-sizing: border-box;
-    font-size: 16px;
+    color: ${primaryColors?.primary};
+    font-family: Noto Sans;
+    font-size: 14px;
     font-weight: 400;
-    color: var(--white);
+    line-height: 1;
     border-radius: 10px;
     padding: 6.5px 16px;
-    border: 1px solid ${primaryColors?.disabledBg};
-    background: ${primaryColors?.white};
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.06);
     min-width: 300px;
+    border-radius: 10px;
+    height: 60px;
+    border: 1px solid ${primaryColors?.colore6e0d6};
+    background: ${primaryColors?.colorfcfbf8};
     @media (max-width: 600px) {
       padding: 5px 10px;
     }
@@ -44,7 +48,7 @@ const InputWrap = styled(TextField as any)`
     input[type="datetime-local"],
     input[type="color"],
     textarea {
-      color: ${primaryColors?.textPrimaryColor};
+      color: ${primaryColors?.primary};
       border: 0;
       padding-left: 0;
       &::placeholder {

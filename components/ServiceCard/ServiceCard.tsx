@@ -6,6 +6,7 @@ import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { Box, Stack } from "@mui/system";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export const ServiceCardWrap = styled(Stack)`
   border-radius: 20px;
@@ -95,14 +96,11 @@ export const ServiceCardWrap = styled(Stack)`
         }
         .book_nowbtn {
           padding: 13px;
-          span {
+          /* span {
             color: ${primaryColors.primary};
 
             font-weight: 600;
-          }
-          &:hover {
-            border-color: ${primaryColors.themTextcolor};
-          }
+          } */
         }
         .member_btn {
           padding: 13px;
@@ -123,6 +121,7 @@ function ServiceSectionCard({
   title,
   description
 }: serviceProps) {
+  const router = useRouter();
   return (
     <ServiceCardWrap direction="row" alignContent="center">
       <Box className="servie_imgWrap">
@@ -148,12 +147,12 @@ function ServiceSectionCard({
               variant="outlined"
               color="primary"
               className="book_nowbtn"
+              onClick={() => router.push("/booking")}
             >
               <Typography variant="caption">Book Now</Typography>
             </CustomButtonPrimary>
           </ListItem>
         </List>
-       
       </Box>
     </ServiceCardWrap>
   );

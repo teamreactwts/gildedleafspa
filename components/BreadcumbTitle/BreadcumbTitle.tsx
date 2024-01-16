@@ -25,6 +25,11 @@ export const BreadcumbTitleWrapper = styled(Box)`
       color: ${primaryColors?.textPrimaryColor};
       font-size: 16px;
     }
+    a {
+      &:hover {
+        color: ${primaryColors?.colorA67033};
+      }
+    }
   }
 `;
 
