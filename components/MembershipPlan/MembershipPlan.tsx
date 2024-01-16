@@ -4,7 +4,8 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
-import { CommonHeader, commonHeadderProps } from "../DifferentSec/DifferentSec";
+
+import CommonHeader, { commonHeadderProps } from "../CommonHeader/CommonHeader";
 import PriceCard from "../PriceCard/PriceCard";
 
 export const MembershipPlanWrapper = styled(Box)`

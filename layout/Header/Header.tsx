@@ -186,7 +186,7 @@ export default function Header(props: Props) {
   const serviceMenuItems = [
     {
       name: "All Services",
-      route: "/all-services"
+      route: "/service"
     },
     {
       name: "Botox",

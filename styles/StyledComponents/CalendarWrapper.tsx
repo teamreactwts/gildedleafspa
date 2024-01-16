@@ -5,6 +5,14 @@ import RadioGroup from "@mui/material/RadioGroup";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 
 export const CalendarWrapper = styled(Box)`
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(253, 252, 248, 0.74) 3.57%,
+    rgba(253, 252, 248, 0.29) 96.74%
+  );
+  backdrop-filter: blur(2px);
+  padding: 50px 40px;
   .time_slot {
     border-radius: 10px;
     height: 100%;
@@ -47,7 +55,6 @@ export const CalendarWrapper = styled(Box)`
   }
 
   .each_calendar_item {
-    
     h4 {
       font-size: 24px;
       font-weight: 700;
@@ -73,7 +80,6 @@ export const CalendarWrapper = styled(Box)`
         max-height: 100%;
         position: relative;
         padding: 26px 0;
-        
 
         border-bottom: 1px solid #e4ddd3;
         background: linear-gradient(
@@ -110,7 +116,7 @@ export const CalendarWrapper = styled(Box)`
             width: 23px;
             height: 23px;
             padding: 5px;
-
+            font-size: 15px;
             .MuiSvgIcon-root {
               path {
                 fill: ${primaryColors.white};
@@ -128,7 +134,7 @@ export const CalendarWrapper = styled(Box)`
           .MuiDayCalendar-header {
             justify-content: space-between;
             width: 100%;
-            
+
             .MuiTypography-caption {
               color: ${primaryColors.primary};
               font-family: Noto Sans;
@@ -140,12 +146,13 @@ export const CalendarWrapper = styled(Box)`
             }
           }
           .MuiPickersSlideTransition-root {
+            height: 280px;
             .MuiDayCalendar-monthContainer {
               .MuiDayCalendar-weekContainer {
                 width: 100%;
                 justify-content: space-between;
-               margin: 8px 0;
-               
+                margin: 8px 0;
+
                 .MuiPickersDay-root {
                   margin: 0;
                   color: ${primaryColors.color4e5157};
@@ -155,6 +162,7 @@ export const CalendarWrapper = styled(Box)`
                   line-height: 1;
                   &.Mui-selected {
                     background-color: rgba(166, 112, 51, 1);
+                    color: ${primaryColors?.white};
                   }
                 }
               }

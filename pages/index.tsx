@@ -24,7 +24,6 @@ export default function Home() {
       <DifferentSec className="cmn_gap" />
       <HomeSlider />
       <DownloadAppSection />
-     
     </Wrapper>
   );
 }

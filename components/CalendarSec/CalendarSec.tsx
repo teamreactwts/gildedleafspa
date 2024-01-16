@@ -1,14 +1,18 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable no-plusplus */
 import {
   CalendarWrapper,
   CustomDateCalendar,
   CustomRadioGroup
 } from "@/styles/StyledComponents/CalendarWrapper";
+import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
 import Radio from "@mui/material/Radio";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
@@ -16,16 +20,20 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs, { Dayjs } from "dayjs";
 import React, { HTMLAttributes } from "react";
 
-const CalendarSec: React.FC<HTMLAttributes<HTMLDivElement>> = ({
-  ...props
-}) => {
+interface calendarSecProps {
+  stepIncr: (data: number) => void;
+}
+
+const CalendarSec: React.FC<
+  calendarSecProps & HTMLAttributes<HTMLDivElement>
+> = ({ stepIncr, ...props }) => {
   const [value, setValue] = React.useState<Dayjs | null>(dayjs("2024-01-16"));
 
   const timeSlotList = [];
 
   const numberOfSlotsToAdd = 10;
 
-  for (let i = 1; i < numberOfSlotsToAdd; i++) {
+  for (let i = 0; i < numberOfSlotsToAdd; i++) {
     timeSlotList.push({
       time: "10:30AM - 10:55AM"
     });
@@ -42,6 +50,7 @@ const CalendarSec: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                   value={value}
                   onChange={setValue}
                   sx={{ width: "100%" }}
+                  showDaysOutsideCurrentMonth
                 />
               </LocalizationProvider>
             </Box>
@@ -73,6 +82,20 @@ const CalendarSec: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             </Box>
           </Grid>
         </Grid>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="flex-end"
+          marginTop="50px"
+        >
+          <CustomButtonPrimary
+            variant="contained"
+            color="primary"
+            onClick={() => stepIncr(1)}
+          >
+            <Typography variant="caption">Book Appointment</Typography>
+          </CustomButtonPrimary>
+        </Stack>
       </CalendarWrapper>
     </Container>
   );
