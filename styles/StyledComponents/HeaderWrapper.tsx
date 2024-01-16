@@ -1,6 +1,7 @@
 import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
+import Menu from "@mui/material/Menu";
 
 export const HeaderWrap = styled(Box)`
   .header_top {
@@ -143,6 +144,49 @@ export const HeaderWrap = styled(Box)`
       }
       &.active {
         color: ${primaryColors.themTextcolor};
+      }
+    }
+  }
+  .navDropdown {
+    padding: 0;
+    margin-right: 28px;
+    display: inline-block;
+    color: ${primaryColors?.primary};
+    font-size: 16px;
+    font-family: "Cormorant Garamond";
+    font-weight: 600;
+    line-height: 1;
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+      color: ${primaryColors?.themTextcolor};
+    }
+  }
+`;
+
+export const NavMenu = styled(Menu)`
+  .MuiPaper-root {
+    border-radius: 10px;
+    box-shadow: 0px 27px 47px 0px rgba(0, 0, 0, 0.1);
+    .MuiList-root {
+      padding: 20px 20px;
+      .MuiButtonBase-root {
+        padding: 6px 0;
+        color: ${primaryColors?.primary};
+        font-size: 16px;
+        font-family: "Cormorant Garamond";
+        font-weight: 600;
+        line-height: 1;
+        background-color: transparent;
+        &:hover {
+          color: ${primaryColors?.colorA67033};
+        }
+        &:first-child {
+          padding-top: 0;
+        }
+        &:last-child {
+          padding-bottom: 0;
+        }
       }
     }
   }
