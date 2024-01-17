@@ -56,11 +56,11 @@ export default function Header(props: Props) {
     },
     {
       name: "Affordability",
-      route: "#url"
+      route: "/affordability"
     },
     {
       name: "Blogs",
-      route: "#url"
+      route: "/blogs"
     }
   ];
 
