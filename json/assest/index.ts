@@ -37,5 +37,7 @@ export default {
 
   inner_wrapper_vector: "/assets/images/inner_wrapper_vector.png",
   about_image1: "/assets/images/about_image1.png",
-  about_image2: "/assets/images/about_image2.png"
+  about_image2: "/assets/images/about_image2.png",
+  about_image3: "/assets/images/about_image3.png",
+  about_image4: "/assets/images/about_image4.png"
 };

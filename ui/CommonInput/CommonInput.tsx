@@ -25,7 +25,7 @@ const InputWrap = styled(TextField as any)`
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.06);
     min-width: 300px;
     border-radius: 10px;
-    height: 60px;
+    min-height: 60px;
     border: 1px solid ${primaryColors?.colore6e0d6};
     background: ${primaryColors?.colorfcfbf8};
     @media (max-width: 600px) {
@@ -62,9 +62,9 @@ const InputWrap = styled(TextField as any)`
     }
     textarea {
       height: 125px !important;
-      padding: 20px 10px 20px 51px;
+      padding: 10px 10px 10px 0;
       @media (max-width: 600px) {
-        padding: 20px 10px 20px 30px;
+        padding: 5px 5px 5px 0;
       }
     }
     &.Mui-error {
