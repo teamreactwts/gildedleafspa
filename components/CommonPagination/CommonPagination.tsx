@@ -25,6 +25,17 @@ export const CommonPaginationWrap = styled(Box)`
           font-size: 16px;
           font-weight: 500;
           line-height: 1;
+          @media (max-width: 899px) {
+            width: 35px;
+          height: 35px;
+          margin: 0 5px;
+          }
+          @media (max-width: 599px) {
+            width: 30px;
+          height: 30px;
+          margin: 0 3px;
+          font-size: 14px;
+          }
           &.Mui-selected {
             background-color: #a67033;
             filter: drop-shadow(0px 1px 18px rgba(238, 238, 238, 0.78));

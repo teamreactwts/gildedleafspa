@@ -13,11 +13,25 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 export const BreadcumbTitleWrapper = styled(Box)`
+.bredcrumbs_wrap{
+  @media (max-width:599px) {
+     justify-content: center;
+    }
+}
   padding: 25px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  @media (max-width:599px) {
+    padding: 22px 0;
+    }
   h1 {
     font-size: 40px;
     font-weight: 700;
+    margin: 0 !important;
+    @media (max-width:599px) {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px !important;
+    }
   }
   .MuiBreadcrumbs-li {
     p,
@@ -60,6 +74,7 @@ export default function BreadcumbTitle({
           alignItems="center"
           flexWrap="wrap"
           justifyContent="space-between"
+          className="bredcrumbs_wrap"
         >
           <Typography variant="h1">{title}</Typography>
           <Breadcrumbs aria-label="breadcrumb" separator={<NextArrowIcon />}>

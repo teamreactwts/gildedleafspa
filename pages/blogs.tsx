@@ -222,7 +222,7 @@ function Blogs() {
               </Stack>
             </Box>
             <Box className="blogSecitonBottomPart">
-              <Grid container spacing={3.5}>
+              <Grid container spacing={{lg:3.5, xs:3.2}}>
                 {cardList1.map((item) => (
                   <Grid item lg={4} xs={12}>
                     <BlogCard
