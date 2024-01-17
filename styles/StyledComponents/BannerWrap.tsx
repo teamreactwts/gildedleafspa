@@ -8,7 +8,7 @@ export const BannerWrap = styled(Box)`
   position: relative;
   border-bottom: 1px solid ${primaryColors?.coloreee3d3};
   @media (max-width: 899px) {
-    padding: 30px 0;
+    padding: 40px 0;
   }
   &::after {
     content: "";
