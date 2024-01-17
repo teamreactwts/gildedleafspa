@@ -227,8 +227,9 @@ function Blogs() {
             <Box className="blogSecitonBottomPart">
               <Grid container spacing={{lg:3.5, xs:3.2}}>
                 {cardList1.map((item) => (
-                  <Grid item lg={4} xs={12}>
+                  <Grid item lg={4} md={6} xs={12}>
                     <BlogCard
+                    route={item.route}
                       blogimg={item.blogimg}
                       datevalue={item.date}
                       cardtitevalue={item.cardtitle}
