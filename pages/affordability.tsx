@@ -7,7 +7,12 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export const AboutUsWrapper = styled(Box)``;
+export const AboutUsWrapper = styled(Box)`
+
+
+
+
+`;
 
 export default function Index() {
   return (

@@ -153,6 +153,9 @@ export const BlogsWrapper = styled(Box)`
   }
   .blogSecitonBottomPart {
     padding-bottom: 50px;
+    @media (max-width: 899px) {
+      padding-bottom: 40px;
+    }
   }
 `;
 

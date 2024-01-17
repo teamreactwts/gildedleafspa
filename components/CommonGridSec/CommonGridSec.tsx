@@ -11,6 +11,9 @@ export const CommongridWrapper = styled(Box)`
       font-size: 45px;
       font-style: normal;
       font-weight: 700;
+      @media (max-width: 599px) {
+      font-size: 32px;
+      }
     }
     > p {
       &:not(:last-child) {
@@ -23,6 +26,9 @@ export const CommongridWrapper = styled(Box)`
       height: 450px;
       border-radius: 20px;
       overflow: hidden;
+      @media (max-width: 599px) {
+        height: 283px;
+      }
       img {
         width: 100%;
         height: 100%;
