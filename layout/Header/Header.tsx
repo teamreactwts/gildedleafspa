@@ -52,7 +52,7 @@ export default function Header(props: Props) {
     },
     {
       name: "About Us",
-      route: "#url"
+      route: "/about-us"
     },
     {
       name: "Affordability",

@@ -40,5 +40,7 @@ export default {
   profileIcon: "/assets/images/profileIcon.png",
   blogImage1:"/assets/images/blogImage1.png",
   rightArrow:"/assets/images/rightArrow.svg",
-  leftArrow:"/assets/images/leftArrow.svg"
+  leftArrow:"/assets/images/leftArrow.svg",
+  about_image1: "/assets/images/about_image1.png",
+  about_image2: "/assets/images/about_image2.png"
 };

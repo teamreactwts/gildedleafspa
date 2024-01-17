@@ -1,6 +1,4 @@
-import { priceCardProps } from "@/components/PriceCard/PriceCard";
-
-export const planCardList: priceCardProps[] = [
+export const planCardList = [
   {
     type: "Gold",
     price: 89,

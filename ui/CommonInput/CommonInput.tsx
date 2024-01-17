@@ -52,7 +52,7 @@ const InputWrap = styled(TextField as any)`
       border: 0;
       padding-left: 0;
       &::placeholder {
-        color: ${primaryColors?.primary};
+        color: ${primaryColors?.colorADADAC};
         opacity: 1;
       }
       &:focus {

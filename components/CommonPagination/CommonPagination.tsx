@@ -1,4 +1,3 @@
-import assest from "@/json/assest";
 import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import Pagination from "@mui/material/Pagination";
@@ -36,30 +35,26 @@ export const CommonPaginationWrap = styled(Box)`
             height: auto;
             background-color: transparent;
             position: relative;
-            svg{
-             path{
-              fill: ${primaryColors.color595758};
-             
-             }
-
+            svg {
+              path {
+                fill: ${primaryColors.color595758};
+              }
             }
-            &:hover{
-                svg{
-                  path{
-                    fill: ${primaryColors.colorA67033};
-                  }
+            &:hover {
+              svg {
+                path {
+                  fill: ${primaryColors.colorA67033};
                 }
               }
-              &.Mui-disabled {
-                opacity: 1;
-                svg{
-                  path{
-                    fill: ${primaryColors.colorA67033};
-                  }
+            }
+            &.Mui-disabled {
+              opacity: 1;
+              svg {
+                path {
+                  fill: ${primaryColors.colorA67033};
                 }
               }
-          
-            
+            }
           }
         }
         &:first-child {
