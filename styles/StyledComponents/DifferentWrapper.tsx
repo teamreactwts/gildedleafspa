@@ -1,3 +1,4 @@
+import assest from "@/json/assest";
 import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
@@ -38,6 +39,10 @@ export const IconCardStack = styled(Stack)`
     width: 20%;
     padding: 10px 15px;
     text-align: center;
+    @media (max-width: 899px) {
+      width: 50%;
+    }
+
     i {
       display: inline-flex;
       justify-content: center;
@@ -71,6 +76,9 @@ export const ServiceWrapper = styled(Box)`
     rgba(253, 252, 248, 0.29) 96.74%
   );
   backdrop-filter: blur(2px);
+  @media (max-width: 1199px) {
+    padding: 25px;
+  }
   .title_left {
     h2 {
       span {
@@ -82,6 +90,10 @@ export const ServiceWrapper = styled(Box)`
         line-height: inherit;
       }
     }
+    @media (max-width: 1199px) {
+      width: 100%;
+      margin-bottom: 15px;
+    }
   }
 `;
 
@@ -91,9 +103,67 @@ export const CommonSlider = styled(Box)`
   }
   .slick-list {
     margin: 0 -14px;
+    @media (max-width: 899px) {
+      padding-left: 0 !important;
+    }
   }
   .slick-slider {
     padding-bottom: 50px;
+  }
+  .slick-arrow {
+    width: 30px;
+    height: 30px;
+    background-color: ${primaryColors.colorA67033};
+    border-radius: 100%;
+
+    &:hover {
+      opacity: 0.5;
+    }
+    &::before {
+      display: none;
+    }
+    &.slick-prev {
+      left: -45px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: url(${assest.leftArrow}) no-repeat center left;
+        width: 6px;
+        height: 10px;
+        background-size: 100% 100%;
+      }
+      @media (max-width: 899px) {
+        left: 40%;
+        transform: translateX(-40%);
+        bottom: 0;
+        right: auto;
+        top: auto;
+      }
+    }
+    &.slick-next {
+      right: -45px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: url(${assest.rightArrow}) no-repeat center left;
+        width: 6px;
+        height: 10px;
+        background-size: 100% 100%;
+      }
+      @media (max-width: 899px) {
+        left: 60%;
+        transform: translateX(-60%);
+        bottom: 0;
+        right: auto;
+        top: auto;
+      }
+    }
   }
   .slick-dots {
     display: inline-flex !important;
@@ -151,6 +221,9 @@ export const ServiceCardDifferentWrap = styled(Box)`
     backdrop-filter: blur(32px);
     min-height: 190px;
     padding: 10px 10px;
+    @media (max-width: 1199px) {
+      min-height: 150px;
+    }
   }
   > h4 {
     color: ${primaryColors?.color021526};
@@ -171,6 +244,10 @@ export const DifferentInnerWrapper = styled(Box, {
   shouldForwardProp: (data) => data !== "forNoInterestSection"
 })<{ forNoInterestSection: boolean }>`
   margin-bottom: 100px;
+  @media (max-width: 899px) {
+    margin-bottom: 40px;
+  }
+
   ${({ forNoInterestSection }) =>
     !forNoInterestSection &&
     `padding:70px 40px; 

@@ -26,8 +26,11 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         color: `${primaryColors?.color6B6657}`,
         fontStyle: "italic",
         fontFamily: "Cormorant Garamond",
-        "@media(max-width:991px)": {
-          fontSize: "22px",
+        "@media(max-width:1199px)": {
+          fontSize: "50px"
+        },
+        "@media(max-width:899px)": {
+          fontSize: "40px",
           lineHeight: "1.1em"
         }
       },
@@ -35,19 +38,19 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "45px",
         lineHeight: "1em",
         fontWeight: "400",
-        color: "#161D29",
+        color: `${primaryColors?.primary}`,
         fontStyle: "italic",
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
-          fontSize: "22px",
-          lineHeight: "1.1em"
+          fontSize: "32px",
+          lineHeight: "1em"
         }
       },
       h3: {
         fontSize: "20px",
         lineHeight: "1.1em",
         fontWeight: "700",
-        color: "#161D29",
+        color: `${primaryColors?.primary}`,
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
           fontSize: "18px",
@@ -58,7 +61,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "18px",
         lineHeight: "1.3",
         fontWeight: "500",
-        color: "#161D29",
+        color: `${primaryColors?.color6B6657}`,
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
           fontSize: "16px",
@@ -69,7 +72,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "15px",
         lineHeight: "1.4",
         fontWeight: "500",
-        color: "#161D29",
+        color: `${primaryColors?.primary}`,
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
           fontSize: "12px",
@@ -80,7 +83,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "12px",
         lineHeight: "1.5",
         fontWeight: "500",
-        color: "#161D29",
+        color: `${primaryColors?.primary}`,
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
           fontSize: "12px",
@@ -131,7 +134,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
               return {
                 backgroundColor: `rgba(166, 112, 51, 0.15)`,
                 color: primaryColors.colorA67033,
-                borderRadius:"3px",
+                borderRadius: "3px",
                 "&:hover": {
                   backgroundColor: `rgba(166, 112, 51, 0.15)`,
                   color: primaryColors.colorA67033

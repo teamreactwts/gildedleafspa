@@ -23,7 +23,38 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 5,
-  slidesToScroll: 5
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1199,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3
+      }
+    },
+    {
+      breakpoint: 899,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        centerMode: true,
+        centerPadding: "30px",
+        dots: false,
+        arrows: true
+      }
+    },
+    {
+      breakpoint: 599,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: "30px",
+        dots: false,
+        arrows: true
+      }
+    }
+  ]
 };
 function HomeSlider() {
   return (
@@ -31,7 +62,7 @@ function HomeSlider() {
       <Container fixed>
         <Box className="sliderHeading_part">
           <Typography variant="h2">
-            What are your
+            What are your{" "}
             <Typography variant="caption">clinical concerns?</Typography>
           </Typography>
           <Typography variant="body1">

@@ -19,7 +19,7 @@ function DownloadAppSection() {
     <DownloadAppSectionWrap className="cmn_gap">
       <Container fixed>
         <Box className="downloadapp_wrap">
-          <Grid container spacing={10} alignItems="center">
+          <Grid container spacing={{ md: 10, xs: 5 }} alignItems="center">
             <Grid item lg={6} xs={12}>
               <Box className="download_leftpart">
                 <figure className="phoneImage">
@@ -86,7 +86,6 @@ function DownloadAppSection() {
           </Grid>
         </Box>
       </Container>
-     
     </DownloadAppSectionWrap>
   );
 }

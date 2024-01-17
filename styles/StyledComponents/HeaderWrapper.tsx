@@ -37,16 +37,27 @@ export const HeaderWrap = styled(Box)`
             font-weight: 400;
             line-height: 1.6;
             letter-spacing: 0.32px;
+            @media (max-width: 599px) {
+              font-size: 13px;
+            }
           }
         }
       }
       .lableContact_rgt {
+        @media (max-width: 599px) {
+          flex-direction: column;
+          align-items: flex-end;
+        }
         .title_descriptoion {
           color: ${primaryColors.white};
           font-size: 12px;
           line-height: 1.6;
           letter-spacing: 0.24px;
           margin-right: 19px;
+
+          @media (max-width: 599px) {
+            margin-right: 0;
+          }
         }
         ul {
           display: flex;
@@ -92,13 +103,21 @@ export const HeaderWrap = styled(Box)`
     min-height: auto;
     padding: 0;
     padding: 23px 0;
+    @media (max-width: 899px) {
+      padding: 14px 0;
+    }
   }
   .hdr_rgt {
     margin-left: 32px;
     display: flex;
     align-items: center;
-    button {
+    @media (max-width: 1199px) {
+      margin-left: 20px;
     }
+    @media (max-width: 899px) {
+      display: none;
+    }
+
     .MuiBadge-badge {
       right: 4px;
       top: 5px;
@@ -122,6 +141,12 @@ export const HeaderWrap = styled(Box)`
     line-height: 0;
     font-size: 0;
     transition: all 0.4s;
+    @media (max-width: 1199px) {
+      width: 170px;
+      svg {
+        width: 100%;
+      }
+    }
   }
   .navbar {
     margin-left: auto;
@@ -133,6 +158,9 @@ export const HeaderWrap = styled(Box)`
       font-family: "Cormorant Garamond";
       font-weight: 600;
       line-height: 1;
+      @media (max-width: 1199px) {
+        margin-right: 10px;
+      }
       &:hover {
         color: ${primaryColors.themTextcolor};
       }
@@ -161,6 +189,14 @@ export const HeaderWrap = styled(Box)`
       background-color: transparent;
       color: ${primaryColors?.themTextcolor};
     }
+    @media (max-width: 1199px) {
+      margin-right: 10px;
+    }
+  }
+  .menu_btn {
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0;
   }
 `;
 

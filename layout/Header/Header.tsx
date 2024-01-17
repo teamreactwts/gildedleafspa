@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable no-console */
-import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -23,6 +22,7 @@ import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import BrandLogo from "@/ui/Icons/BrandLogo";
+import MenuIcon from "@/ui/Icons/MenuIcon";
 import PhoneIcon from "@/ui/Icons/PhoneIcon";
 import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
 import Button from "@mui/material/Button";
@@ -297,18 +297,20 @@ export default function Header(props: Props) {
         <Box className="header_btm">
           <Container fixed>
             <Toolbar>
+              <Link href="/" className="headerLogo">
+                <BrandLogo />
+              </Link>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: "none" } }}
+                sx={{ mr: 2, display: { md: "none" } }}
+                className="menu_btn"
               >
                 <MenuIcon />
               </IconButton>
-              <Link href="/" className="headerLogo">
-                <BrandLogo />
-              </Link>
+
               {isLoggedIn ? (
                 <Box
                   sx={{ display: { xs: "none", sm: "block" } }}
@@ -333,7 +335,7 @@ export default function Header(props: Props) {
                 </Box>
               ) : (
                 <Box
-                  sx={{ display: { xs: "none", sm: "block" } }}
+                  sx={{ display: { xs: "none", md: "block" } }}
                   className="navbar"
                 >
                   <Button
@@ -438,7 +440,7 @@ export default function Header(props: Props) {
             keepMounted: true // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", lg: "none" },
+            display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth

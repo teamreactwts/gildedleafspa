@@ -3,10 +3,17 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const HomeSliderWrapper = styled(Box)`
+  @media (max-width: 1199px) {
+    &.cmn_gap {
+      padding-top: 0 !important;
+    }
+  }
   .sliderHeading_part {
     display: flex;
     align-items: center;
-
+    @media (max-width: 1199px) {
+      flex-wrap: wrap;
+    }
     h2 {
       color: ${primaryColors.primary};
       font-size: 45px;
@@ -22,6 +29,15 @@ export const HomeSliderWrapper = styled(Box)`
         font-style: inherit;
         font-family: inherit;
       }
+      @media (max-width: 1199px) {
+        width: 100%;
+        margin: 0;
+      }
+      @media (max-width: 899px) {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+      }
     }
     p {
       color: ${primaryColors.textPrimaryColor};
@@ -31,6 +47,10 @@ export const HomeSliderWrapper = styled(Box)`
       line-height: 1.2;
       max-width: 404px;
       margin-right: 16px;
+      @media (max-width: 1199px) {
+        max-width: 100%;
+        margin-bottom: 15px;
+      }
     }
     .explore_btn {
       padding: 18px 20px;
@@ -42,8 +62,18 @@ export const HomeSliderWrapper = styled(Box)`
     margin-top: 50px;
     padding: 0 10px;
     .slick-slider {
-      .slick-list {
-        .slider_card {
+      .slick-arrow {
+        &.slick-prev {
+          @media (max-width: 899px) {
+            left: 42%;
+            transform: translateX(-42%);
+          }
+        }
+        &.slick-next {
+          @media (max-width: 899px) {
+            left: 58%;
+            transform: translateX(-58%);
+          }
         }
       }
     }
