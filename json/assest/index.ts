@@ -42,5 +42,6 @@ export default {
   rightArrow:"/assets/images/rightArrow.svg",
   leftArrow:"/assets/images/leftArrow.svg",
   about_image1: "/assets/images/about_image1.png",
-  about_image2: "/assets/images/about_image2.png"
+  about_image2: "/assets/images/about_image2.png",
+  blogDetailsImg:"/assets/images/blogDetailsImg.png"
 };

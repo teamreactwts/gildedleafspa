@@ -143,3 +143,47 @@ export const conditionList = [
   },
   
 ];
+export const cardList1 = [
+  {
+    blogimg: assest.blogImage1,
+    date: "15.01.2024",
+    cardtitle: "Lorem ipsum dolor sit amet...",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
+  },
+  {
+    blogimg: assest.blogImage1,
+    date: "15.01.2024",
+    cardtitle: "Lorem ipsum dolor sit amet...",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
+  },
+  {
+    blogimg: assest.blogImage1,
+    date: "15.01.2024",
+    cardtitle: "Lorem ipsum dolor sit amet...",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
+  },
+  {
+    blogimg: assest.blogImage1,
+    date: "15.01.2024",
+    cardtitle: "Lorem ipsum dolor sit amet...",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
+  },
+  {
+    blogimg: assest.blogImage1,
+    date: "15.01.2024",
+    cardtitle: "Lorem ipsum dolor sit amet...",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
+  },
+  {
+    blogimg: assest.blogImage1,
+    date: "15.01.2024",
+    cardtitle: "Lorem ipsum dolor sit amet...",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
+  }
+];

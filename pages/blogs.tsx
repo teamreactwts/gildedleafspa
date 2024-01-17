@@ -4,6 +4,7 @@ import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import CommonPagination from "@/components/CommonPagination/CommonPagination";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import assest from "@/json/assest";
+import { cardList1 } from "@/json/mock/homeslider.mock";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { primaryColors } from "@/themes/_muiPalette";
 import ArrowIcon from "@/ui/Icons/ArrowIcon";
@@ -126,50 +127,7 @@ export const BlogsWrapper = styled(Box)`
     padding-bottom: 50px;
   }
 `;
-export const cardList = [
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  }
-];
+
 
 function Blogs() {
   return (
@@ -237,7 +195,7 @@ function Blogs() {
             </Box>
             <Box className="blogSecitonBottomPart">
               <Grid container spacing={3.5}>
-                {cardList.map((item) => (
+                {cardList1.map((item) => (
                   <Grid item lg={4} xs={12}>
                     <BlogCard
                       blogimg={item.blogimg}
@@ -249,7 +207,7 @@ function Blogs() {
                 ))}
               </Grid>
             </Box>
-            <CommonPagination pages={5} currentPage={1} />
+            <CommonPagination  />
           </BlogsWrapper>
         </Container>
       </InnnerPageWrapper>
