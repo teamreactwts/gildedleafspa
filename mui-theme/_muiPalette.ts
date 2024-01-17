@@ -64,7 +64,10 @@ export const primaryColors = {
   colorfcfbf8: "#fcfbf8",
   color4e5157: "#4e5157",
   colorADADAC: "#ADADAC",
-  color66635e: "#66635e"
+  color66635e: "#66635e",
+  color958e86: " #958e86",
+  color8F8F8F: "#8F8F8F",
+  color595758: "#595758"
 };
 
 export const pallete = (mode: PaletteMode): PaletteOptions => {
