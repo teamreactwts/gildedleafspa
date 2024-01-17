@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useRouter } from "next/router";
 import React from "react";
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 interface wrapperProps {
@@ -63,7 +64,7 @@ const Wrapper = (props: wrapperProps) => {
 
       <Box className="body_content">{children}</Box>
 
-      {/* <Footer /> */}
+      <Footer />
 
       <Backdrop
         sx={{

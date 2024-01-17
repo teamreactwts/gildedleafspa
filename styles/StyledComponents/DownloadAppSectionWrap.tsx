@@ -4,8 +4,12 @@ import Box from "@mui/material/Box";
 
 export const DownloadAppSectionWrap = styled(Box)`
   position: relative;
+  @media (max-width: 599px) {
+    &.cmn_gap {
+      padding-top: 0 !important;
+    }
+  }
 
- 
   .downloadapp_wrap {
     padding: 37px 100px 37px 71px;
     border-radius: 20px;
