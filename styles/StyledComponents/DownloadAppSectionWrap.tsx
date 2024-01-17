@@ -36,6 +36,9 @@ export const DownloadAppSectionWrap = styled(Box)`
     backdrop-filter: blur(2px);
     z-index: 4;
     position: relative;
+    @media (max-width: 1199px) {
+      padding: 30px 50px;
+    }
     .download_leftpart {
       position: relative;
       .phoneImage {
@@ -48,9 +51,10 @@ export const DownloadAppSectionWrap = styled(Box)`
       }
       .backgroun_overlay {
         position: absolute;
+        left: 0;
         top: 50%;
         transform: translateY(-50%);
-        width: 425px;
+        width: 100%;
         height: 306px;
         border-radius: 21px;
         opacity: 0.2;

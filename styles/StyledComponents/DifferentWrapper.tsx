@@ -71,6 +71,9 @@ export const ServiceWrapper = styled(Box)`
     rgba(253, 252, 248, 0.29) 96.74%
   );
   backdrop-filter: blur(2px);
+  @media (max-width: 1199px) {
+    padding: 25px;
+  }
   .title_left {
     h2 {
       span {
@@ -81,6 +84,10 @@ export const ServiceWrapper = styled(Box)`
         font-family: inherit;
         line-height: inherit;
       }
+    }
+    @media (max-width: 1199px) {
+      width: 100%;
+      margin-bottom: 15px;
     }
   }
 `;
@@ -151,6 +158,9 @@ export const ServiceCardDifferentWrap = styled(Box)`
     backdrop-filter: blur(32px);
     min-height: 190px;
     padding: 10px 10px;
+    @media (max-width: 1199px) {
+      min-height: 150px;
+    }
   }
   > h4 {
     color: ${primaryColors?.color021526};

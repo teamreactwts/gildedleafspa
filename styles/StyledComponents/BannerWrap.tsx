@@ -81,6 +81,9 @@ export const BannerWrap = styled(Box)`
       overflow: hidden;
       box-shadow: 0px 25px 71px 0px #dfceb1;
       position: relative;
+      @media (max-width: 1199px) {
+        height: 385px;
+      }
       &::after {
         content: "";
         width: 100%;

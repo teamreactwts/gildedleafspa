@@ -97,6 +97,9 @@ export const HeaderWrap = styled(Box)`
     margin-left: 32px;
     display: flex;
     align-items: center;
+    @media (max-width: 1199px) {
+      margin-left: 20px;
+    }
     button {
     }
     .MuiBadge-badge {
@@ -122,6 +125,12 @@ export const HeaderWrap = styled(Box)`
     line-height: 0;
     font-size: 0;
     transition: all 0.4s;
+    @media (max-width: 1199px) {
+      width: 150px;
+      svg {
+        width: 100%;
+      }
+    }
   }
   .navbar {
     margin-left: auto;
@@ -133,6 +142,9 @@ export const HeaderWrap = styled(Box)`
       font-family: "Cormorant Garamond";
       font-weight: 600;
       line-height: 1;
+      @media (max-width: 1199px) {
+        margin-right: 10px;
+      }
       &:hover {
         color: ${primaryColors.themTextcolor};
       }
@@ -160,6 +172,9 @@ export const HeaderWrap = styled(Box)`
     &:hover {
       background-color: transparent;
       color: ${primaryColors?.themTextcolor};
+    }
+    @media (max-width: 1199px) {
+      margin-right: 10px;
     }
   }
 `;

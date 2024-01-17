@@ -21,7 +21,23 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 5,
-  slidesToScroll: 5
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1199,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
 };
 function HomeSlider() {
   return (

@@ -3,10 +3,17 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const HomeSliderWrapper = styled(Box)`
+  @media (max-width: 1199px) {
+    &.cmn_gap {
+      padding-top: 0 !important;
+    }
+  }
   .sliderHeading_part {
     display: flex;
     align-items: center;
-
+    @media (max-width: 1199px) {
+      flex-wrap: wrap;
+    }
     h2 {
       color: ${primaryColors.primary};
       font-size: 45px;
@@ -22,6 +29,10 @@ export const HomeSliderWrapper = styled(Box)`
         font-style: inherit;
         font-family: inherit;
       }
+      @media (max-width: 1199px) {
+        width: 100%;
+        margin: 0;
+      }
     }
     p {
       color: ${primaryColors.textPrimaryColor};
@@ -31,6 +42,10 @@ export const HomeSliderWrapper = styled(Box)`
       line-height: 1.2;
       max-width: 404px;
       margin-right: 16px;
+      @media (max-width: 1199px) {
+        max-width: 100%;
+        margin-bottom: 15px;
+      }
     }
     .explore_btn {
       padding: 18px 20px;
