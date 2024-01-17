@@ -31,9 +31,14 @@ export default {
   diffIcon8: "/assets/images/diffIcon8.svg",
   diffIcon9: "/assets/images/diffIcon9.svg",
   diffIcon10: "/assets/images/diffIcon10.svg",
-  qrmobile:"/assets/images/qrmobile.png",
-  diffIcon11:"/assets/images/diffIcon11.png",
-  result_img:"/assets/images/result_img.png",
-  
-  inner_wrapper_vector: "/assets/images/inner_wrapper_vector.png"
+  qrmobile: "/assets/images/qrmobile.png",
+  diffIcon11: "/assets/images/diffIcon11.png",
+  result_img: "/assets/images/result_img.png",
+
+  inner_wrapper_vector: "/assets/images/inner_wrapper_vector.png",
+  blogImage: "/assets/images/blogImage.png",
+  profileIcon: "/assets/images/profileIcon.png",
+  blogImage1:"/assets/images/blogImage1.png",
+  rightArrow:"/assets/images/rightArrow.svg",
+  leftArrow:"/assets/images/leftArrow.svg"
 };

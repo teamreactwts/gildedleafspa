@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/no-array-index-key */
+import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { primaryColors } from "@/themes/_muiPalette";
@@ -304,6 +305,9 @@ export const ServiceDetailsWrapper = styled(Box)`
             .MuiPaper-root {
               background-color: transparent;
               box-shadow: none;
+              &.Mui-expanded {
+                margin-top: 0;
+              }
               &::before {
                 display: none;
               }
@@ -320,6 +324,10 @@ export const ServiceDetailsWrapper = styled(Box)`
                 padding: 0;
                 .MuiAccordionSummary-content {
                   margin: 42px 0;
+                  &.Mui-expanded {
+                    margin: 25px 0;
+                  }
+
                   p {
                     color: ${primaryColors.primary};
                     font-family: Noto Sans;
@@ -436,6 +444,7 @@ function ServiceDetails() {
   return (
     <Wrapper>
       <ServiceDetailsWrapper>
+        <InnnerPageWrapper>
         <Container fixed>
           <Stack
             direction="row"
@@ -665,6 +674,7 @@ function ServiceDetails() {
             </Box>
           </Box>
         </Container>
+        </InnnerPageWrapper>
       </ServiceDetailsWrapper>
     </Wrapper>
   );

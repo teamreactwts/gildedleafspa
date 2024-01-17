@@ -129,11 +129,12 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
               ownerState.color === "default"
             ) {
               return {
-                backgroundColor: primaryColors?.bodyColor,
-                color: primaryColors.primary,
+                backgroundColor: `rgba(166, 112, 51, 0.15)`,
+                color: primaryColors.colorA67033,
+                borderRadius:"3px",
                 "&:hover": {
-                  backgroundColor: primaryColors?.bodyColor,
-                  color: primaryColors.primary
+                  backgroundColor: `rgba(166, 112, 51, 0.15)`,
+                  color: primaryColors.colorA67033
                 }
               };
             }
