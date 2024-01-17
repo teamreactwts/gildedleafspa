@@ -18,6 +18,9 @@ import "slick-carousel/slick/slick.css";
 
 export const BlogDetailsWrapper = styled(Box)`
   padding: 100px 0;
+  @media (max-width: 899px) {
+    padding: 40px 0;
+  }
   position: relative;
   .blog_detailsTopPart {
     h3 {
@@ -25,11 +28,21 @@ export const BlogDetailsWrapper = styled(Box)`
       font-weight: 700;
       line-height: 1;
       margin-bottom: 30px;
+      @media (max-width: 899px) {
+        font-size: 32px;
+      }
     }
     .blog_detailsPublisherWrapper {
       margin-bottom: 35px;
+      @media (max-width: 899px) {
+        margin-bottom: 22px;
+      }
       .userSection {
         margin-right: 36px;
+        @media (max-width: 599px) {
+          margin: 0 0 15px 0;
+          width: 100%;
+        }
         figure {
           width: 44px;
           height: 44px;
@@ -84,6 +97,12 @@ export const BlogDetailsWrapper = styled(Box)`
       height: 539px;
       border-radius: 20px;
       overflow: hidden;
+      @media (max-width: 899px) {
+        height: 340px;
+      }
+      @media (max-width: 599px) {
+        height: 240px;
+      }
 
       img {
         width: 100%;
@@ -93,6 +112,12 @@ export const BlogDetailsWrapper = styled(Box)`
     }
     .blog_detailsText {
       margin: 55px 0 80px 0;
+      @media (max-width: 899px) {
+        margin: 40px 0 50px 0;
+      }
+      @media (max-width: 599px) {
+        margin: 35px 0 40px 0;
+      }
       p {
         color: ${primaryColors.textPrimaryColor};
         font-family: Noto Sans;
@@ -109,11 +134,17 @@ export const BlogDetailsWrapper = styled(Box)`
   .blog_detailsBottomPart {
     .relatedBlog_topPart {
       margin-bottom: 37px;
+      @media (max-width: 899px) {
+        margin-bottom: 25px;
+      }
       h3 {
         font-size: 45px;
         font-weight: 700;
         line-height: 1;
         margin: 0;
+        @media (max-width: 899px) {
+          font-size: 32px;
+        }
       }
       button {
         min-width: 147px;
@@ -126,6 +157,9 @@ export const BlogDetailsWrapper = styled(Box)`
         }
         .slick-list {
           margin: 0 -13px;
+          @media (max-width: 899px) {
+            padding-left: 0 !important;
+          }
         }
         .slick-arrow {
           width: 30px;
@@ -151,6 +185,13 @@ export const BlogDetailsWrapper = styled(Box)`
               height: 10px;
               background-size: 100% 100%;
             }
+            @media (max-width: 1199px) {
+              left: 40%;
+              transform: translateX(-40%);
+              bottom: -40px;
+              right: auto;
+              top: auto;
+            }
           }
           &.slick-next {
             right: -45px;
@@ -165,13 +206,18 @@ export const BlogDetailsWrapper = styled(Box)`
               height: 10px;
               background-size: 100% 100%;
             }
+            @media (max-width: 1199px) {
+              left: 60%;
+              transform: translateX(-60%);
+              bottom: -40px;
+              right: auto;
+              top: auto;
+            }
           }
         }
       }
     }
   }
- 
-
 `;
 const settings = {
   dots: false,
@@ -186,7 +232,7 @@ const settings = {
       breakpoint: 1199,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 3
+        slidesToScroll: 1
       }
     },
     {
@@ -197,7 +243,10 @@ const settings = {
         centerMode: true,
         centerPadding: "30px",
         dots: false,
-        arrows: true
+        arrows: false,
+        autoPlay: true,
+
+        autoplaySpeed: 1500
       }
     },
     {
@@ -208,7 +257,9 @@ const settings = {
         centerMode: true,
         centerPadding: "30px",
         dots: false,
-        arrows: true
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 1500
       }
     }
   ]
@@ -229,6 +280,7 @@ function BlogDetails() {
                 direction="row"
                 alignItems="center"
                 className="blog_detailsPublisherWrapper"
+                flexWrap="wrap"
               >
                 <Stack
                   alignItems="center"
@@ -335,6 +387,7 @@ function BlogDetails() {
                 alignItems="center"
                 justifyContent="space-between"
                 className="relatedBlog_topPart"
+                flexWrap="wrap"
               >
                 <Typography variant="h3">Related Blogs</Typography>
                 <CustomButtonPrimary variant="contained" color="primary">
@@ -357,7 +410,6 @@ function BlogDetails() {
               </Box>
             </Box>
           </Container>
-          
         </BlogDetailsWrapper>
       </InnnerPageWrapper>
     </Wrapper>

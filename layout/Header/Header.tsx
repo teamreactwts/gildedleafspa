@@ -8,8 +8,6 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
@@ -80,20 +78,22 @@ export default function Header(props: Props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{ textAlign: "center" }}
+      className="drawer_section"
+    >
+      <Link href="/" className="brandLogo">
+        <BrandLogo />
+      </Link>
       <Divider />
-      <List>
+      <List disablePadding className="navitems">
         {navItems.map((item) => (
-          <Link href={item?.route} key={item.name}>
-            <ListItem disablePadding>
-              <ListItemButton sx={{ textAlign: "center" }}>
-                <ListItemText primary={item.name} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
+          <ListItem disablePadding>
+            <Link href={item?.route} key={item.name}>
+              {item.name}
+            </Link>
+          </ListItem>
         ))}
       </List>
     </Box>

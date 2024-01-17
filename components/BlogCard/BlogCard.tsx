@@ -19,7 +19,7 @@ export const BlogCardWrapper = styled(Box)`
   backdrop-filter: blur(2px);
   border-radius: 15px;
   .blogfigure {
-    width: 321px;
+    width: 100%;
     height: 201px;
     line-height: 0;
     font-size: 0;
