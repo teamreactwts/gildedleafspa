@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import CommonHeader, { commonHeadderProps } from "../CommonHeader/CommonHeader";
 import PriceCard from "../PriceCard/PriceCard";
@@ -22,6 +22,10 @@ interface membershipInterface extends commonHeadderProps {}
 export default function MembershipPlan({ ...props }: membershipInterface) {
   const [selectPanel, setSelectPanel] = useState<number>(0);
 
+  const selectValuecallback = useCallback((data: number) => {
+    setSelectPanel(data + 1);
+  }, []);
+
   return (
     <MembershipPlanWrapper>
       <Container fixed>
@@ -39,7 +43,8 @@ export default function MembershipPlan({ ...props }: membershipInterface) {
               <PriceCard
                 {...data}
                 className={index + 1 === selectPanel ? "active" : ""}
-                onClick={() => setSelectPanel(index + 1)}
+                selectValuecallback={selectValuecallback}
+                indexNumber={index}
               />
             </Grid>
           ))}

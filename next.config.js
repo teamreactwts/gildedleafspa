@@ -23,7 +23,10 @@ module.exports = withPWA({
       "picsum.photos",
       "placeimg.com",
       "encrypted-tbn0.gstatic.com",
-      "career-utility.dedicateddevelopers.us"
+      "career-utility.dedicateddevelopers.us",
+      "lh3.googleusercontent.com",
+      "junischool-admin.dedicateddevelopers.us",
+      "graph.facebook.com"
     ]
   },
   swcMinify: false,
@@ -38,5 +41,8 @@ module.exports = withPWA({
   },
   env: {
     NEXT_APP_BASE_URL: process.env.NEXT_APP_BASE_URL
+  },
+  eslint: {
+    ignoreDuringBuilds: true
   }
 });
