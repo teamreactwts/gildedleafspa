@@ -30,7 +30,7 @@ export default function BannerSec({
           </Grid>
           <Grid item md={5} xs={12}>
             <Box className="banner_fig">
-              
+              <Box className="gradient-box" />
               <figure>
                 <Image
                   src={bannerImage}
