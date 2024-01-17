@@ -86,8 +86,7 @@ function DownloadAppSection() {
           </Grid>
         </Box>
       </Container>
-      <Box className="gradient_rgtSide" />
-      <Box className="gradient_lftSide" />
+     
     </DownloadAppSectionWrap>
   );
 }

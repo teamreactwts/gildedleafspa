@@ -4,6 +4,7 @@ import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import CommonPagination from "@/components/CommonPagination/CommonPagination";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import assest from "@/json/assest";
+import { cardList1 } from "@/json/mock/homeslider.mock";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { primaryColors } from "@/themes/_muiPalette";
 import ArrowIcon from "@/ui/Icons/ArrowIcon";
@@ -19,9 +20,24 @@ import Link from "next/link";
 
 export const BlogsWrapper = styled(Box)`
   padding: 50px 0 100px 0;
+  @media (max-width:1199px) {
+    padding: 50px 0 ;
+  }
+  @media (max-width:599px) {
+    padding: 40px 0 ;
+  }
   .blogSectionTopWrapper {
     padding-bottom: 80px;
+    @media (max-width:1199px) {
+    padding-bottom: 50px  ;
+  }
+  @media (max-width:599px) {
+    padding-bottom: 40px  ;
+  }
     .blogSecitoWrap {
+      @media (max-width:1199px) {
+        flex-wrap: wrap;
+      }
       .blogMain_img {
         line-height: 0;
         font-size: 0;
@@ -30,6 +46,10 @@ export const BlogsWrapper = styled(Box)`
         height: 410px;
         border-radius: 20px;
         overflow: hidden;
+        @media (max-width:1199px) {
+        width: 100%;
+        flex-basis: 100%;
+      }
         img {
           width: 100%;
           height: 100%;
@@ -40,6 +60,15 @@ export const BlogsWrapper = styled(Box)`
         width: calc(100% - 585px);
         flex-basis: calc(100% - 585px);
         padding-left: 45px;
+        @media (max-width:1199px) {
+        width: 100%;
+        flex-basis: 100%;
+        padding: 40px 0 0 0;
+      }
+      @media (max-width:599px) {
+       
+        padding: 25px 0 0 0;
+      }
         .MuiChip-root {
           padding: 8px 11px;
           min-height: auto;
@@ -126,50 +155,7 @@ export const BlogsWrapper = styled(Box)`
     padding-bottom: 50px;
   }
 `;
-export const cardList = [
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  },
-  {
-    blogimg: assest.blogImage1,
-    date: "15.01.2024",
-    cardtitle: "Lorem ipsum dolor sit amet...",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pharetra interdum arcu ac vulputate tristique. Porta neque nunc aenean."
-  }
-];
+
 
 function Blogs() {
   return (
@@ -237,7 +223,7 @@ function Blogs() {
             </Box>
             <Box className="blogSecitonBottomPart">
               <Grid container spacing={3.5}>
-                {cardList.map((item) => (
+                {cardList1.map((item) => (
                   <Grid item lg={4} xs={12}>
                     <BlogCard
                       blogimg={item.blogimg}
@@ -249,7 +235,7 @@ function Blogs() {
                 ))}
               </Grid>
             </Box>
-            <CommonPagination pages={5} currentPage={1} />
+            <CommonPagination  />
           </BlogsWrapper>
         </Container>
       </InnnerPageWrapper>

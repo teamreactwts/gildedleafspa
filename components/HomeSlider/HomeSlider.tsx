@@ -9,6 +9,8 @@ import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Typography from "@mui/material/Typography";
 import { Box, Container } from "@mui/system";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 import { CommonSlider } from "@/styles/StyledComponents/DifferentWrapper";
 import { HomeSliderWrapper } from "@/styles/StyledComponents/HomeSliderWrapper";

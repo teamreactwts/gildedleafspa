@@ -1,12 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 import assest from "@/json/assest";
 import { primaryColors } from "@/themes/_muiPalette";
+import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import FacebookIcon from "@/ui/Icons/FacebookIcon";
 import InstaGramIcon from "@/ui/Icons/InstaGramIcon";
 import LocationIcon from "@/ui/Icons/LocationIcon";
 import MailIcon from "@/ui/Icons/MailIcon";
 import PhoneIcon from "@/ui/Icons/PhoneIcon";
 import TictockIcon from "@/ui/Icons/TictockIcon";
+import UppArrowIcon from "@/ui/Icons/UppArrowIcon";
 import YoutubeIcon from "@/ui/Icons/YoutubeIcon";
 import styled from "@emotion/styled";
 import Container from "@mui/material/Container";
@@ -22,6 +24,12 @@ import Link from "next/link";
 const FooterWrap = styled(Box)`
   background-color: ${primaryColors.primary};
   padding: 92px 0 37px 0;
+  @media (max-width:1199px) {
+    padding: 60px 0 57px 0;
+  }
+  @media (max-width:599px) {
+    padding: 40px 0 57px 0;
+  }
   position: relative;
   .ftr-wrapper {
     position: relative;
@@ -32,6 +40,7 @@ const FooterWrap = styled(Box)`
       font-size: 15px;
       font-weight: 400;
       line-height: 1.5;
+      margin: 0;
     }
     .nave_itemWrap {
       ul {
@@ -57,9 +66,7 @@ const FooterWrap = styled(Box)`
       }
     }
     .footer_socialMedian {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      
       .footer_brnadLogo {
         width: 137px;
         display: inline-block;
@@ -72,11 +79,11 @@ const FooterWrap = styled(Box)`
         }
       }
       .social_icons {
-        margin-top: 40px;
         display: flex;
         align-items: center;
 
         li {
+          width: auto;
           margin-right: 27px;
           &:last-child {
             margin-right: 0;
@@ -96,10 +103,51 @@ const FooterWrap = styled(Box)`
           }
         }
       }
+      .newsletterSignUp {
+        padding: 30px 0;
+        p {
+          color: ${primaryColors.color807072};
+          font-family: Noto Sans;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 1;
+          margin-bottom: 22px;
+        }
+        .MuiFormControl-root {
+          .MuiInputBase-root {
+            border-radius: 4px;
+            border: 1px solid rgba(166, 112, 51, 0.1);
+            background: ${primaryColors.color292F3A};
+            padding: 4px 11px;
+            min-height: 40px;
+            input {
+              color: ${primaryColors.white};
+              font-family: Noto Sans;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 1;
+              border-right: 1px solid rgba(166, 112, 51, .1);
+              &::placeholder {
+                color: ${primaryColors.white} ;
+              }
+
+              &::-ms-input-placeholder {
+                /* Edge 12 -18 */
+                color: ${primaryColors.white} ;
+              }
+            }
+            .MuiInputAdornment-root {
+              button{
+                padding: 5px;
+              }
+            }
+          }
+        }
+      }
     }
     .footer_contactDetails {
       .footer_contactform {
-        margin-top: 50px;
+        margin-top: 25px;
         li {
           margin-bottom: 26px;
           &:last-child {
@@ -136,7 +184,18 @@ const FooterWrap = styled(Box)`
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     z-index: 3;
+    @media (max-width:1199px) {
+      margin-top: 50px;
+      
+    }
+    @media (max-width:899px) {
+      padding-top: 25px;
+      
+    }
     .footercopyWriteWrap {
+      @media (max-width: 899px) {
+        flex-wrap: wrap;
+      }
       .copyrighttext {
         color: ${primaryColors.white};
         font-family: Nunito Sans;
@@ -153,6 +212,10 @@ const FooterWrap = styled(Box)`
             color: ${primaryColors.colorA67033};
           }
         }
+        @media (max-width: 899px) {
+        width: 100%;
+        margin-bottom: 10px;
+      }
       }
       .desingText {
         color: ${primaryColors.white};
@@ -160,6 +223,17 @@ const FooterWrap = styled(Box)`
         font-size: 14px;
         font-weight: 400;
         line-height: 1.5;
+        & a{
+          font-family: inherit;
+          font-size: inherit;
+          line-height: inherit;
+          font-weight: inherit;
+          color: inherit;
+          display: inline-block;
+          &:hover{
+            color: ${primaryColors.colorA67033};
+          }
+        }
       }
     }
   }
@@ -198,10 +272,24 @@ const Footer = () => {
     {
       name: "Membership",
       route: "/membership"
-    },
+    }
+  ];
+  const moreItems = [
     {
       name: "Shop",
       route: "/shop"
+    },
+    {
+      name: "Affordability",
+      route: "/affordability"
+    },
+    {
+      name: "Blogs",
+      route: "/blogs"
+    },
+    {
+      name: "Contact Us",
+      route: "/contact-us"
     }
   ];
   const socialmediaSection = [
@@ -227,8 +315,31 @@ const Footer = () => {
     <FooterWrap>
       <Container fixed>
         <Box className="ftr-wrapper">
-          <Grid container spacing={10}>
-            <Grid item lg={3}>
+          <Grid container spacing={{md:10 , xs:6.9}}>
+            <Grid item lg={4} md={6} xs={12}>
+              <Box className="footer_socialMedian">
+                <Link href="/" className="footer_brnadLogo">
+                  <Image
+                    src={assest.footerBrandIcon}
+                    alt="footericon"
+                    width={137}
+                    height={87}
+                  />
+                </Link>
+                <Box className="newsletterSignUp">
+                  <Typography variant="body1">Newsletter Sign up</Typography>
+                  <InputFieldCommon adorMentIcon={<UppArrowIcon />} placeholder="Enter email"/>
+                </Box>
+                <List disablePadding className="social_icons">
+                  {socialmediaSection.map((item, index) => (
+                    <ListItem disablePadding key={index}>
+                      <Link href={item.route}>{item.icon}</Link>
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Grid>
+            <Grid item lg={2.5} md={6} xs={6}>
               <Box className="nave_itemWrap">
                 <Typography variant="h5" className="footerTitle_text">
                   Quick Links
@@ -242,29 +353,24 @@ const Footer = () => {
                 </List>
               </Box>
             </Grid>
-            <Grid item lg={6}>
-              <Box className="footer_socialMedian">
-                <Link href="/" className="footer_brnadLogo">
-                  <Image
-                    src={assest.footerBrandIcon}
-                    alt="footericon"
-                    width={137}
-                    height={87}
-                  />
-                </Link>
-                <List disablePadding className="social_icons">
-                  {socialmediaSection.map((item, index) => (
+            <Grid item lg={2.5} md={6} xs={6}>
+              <Box className="nave_itemWrap">
+                <Typography variant="h5" className="footerTitle_text">
+                  More
+                </Typography>
+                <List disablePadding>
+                  {moreItems.map((item, index) => (
                     <ListItem disablePadding key={index}>
-                      <Link href={item.route}>{item.icon}</Link>
+                      <Link href={item.route}>{item.name}</Link>
                     </ListItem>
                   ))}
                 </List>
               </Box>
             </Grid>
-            <Grid item lg={3}>
+            <Grid item lg={3} md={6} xs={12}>
               <Box className="footer_contactDetails">
                 <Typography variant="h5" className="footerTitle_text">
-                  Quick Links
+                  Contact
                 </Typography>
                 <List disablePadding className="footer_contactform">
                   <ListItem disablePadding>
@@ -312,7 +418,7 @@ const Footer = () => {
               Reserved
             </Typography>
             <Typography className="desingText">
-              Website Design by Webskitters
+              Website Design by <Link href="https://www.webskitters.com/">Webskitters</Link>
             </Typography>
           </Stack>
         </Container>
