@@ -5,26 +5,7 @@ import Box from "@mui/material/Box";
 export const DownloadAppSectionWrap = styled(Box)`
   position: relative;
 
-  .gradient_rgtSide {
-    position: absolute;
-    top: 0;
-    left: -200px;
-    border-radius: 464px;
-    background: ${primaryColors.colorE8DDD0};
-    filter: blur(162px);
-    width: 464px;
-    height: 464px;
-  }
-  .gradient_lftSide {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-radius: 464px;
-    background: ${primaryColors.colorE8DDD0};
-    filter: blur(162px);
-    width: 464px;
-    height: 464px;
-  }
+ 
   .downloadapp_wrap {
     padding: 37px 100px 37px 71px;
     border-radius: 20px;

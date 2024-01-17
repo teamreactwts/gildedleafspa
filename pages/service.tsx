@@ -36,30 +36,7 @@ export const SurviceWrap = styled(Box)`
     
    
   }
-  .gradient_color {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 0px;
-      width: 464px;
-      height: 464px;
-      border-radius: 464px;
-      background: #e8ddd0;
-      filter: blur(162px);
-      z-index: -1;
-    }
-    .gradient_color2 {
-      position: absolute;
-      bottom: -100px;
-     
-      left: 0px;
-      width: 464px;
-      height: 464px;
-      border-radius: 464px;
-      background: #e8ddd0;
-      filter: blur(162px);
-      z-index: -1;
-    }
+
 `;
 
 export const serviceList = [
@@ -130,8 +107,7 @@ function Survice() {
             
           </Box>
           </Container>
-          <Box className="gradient_color" />
-            <Box className="gradient_color2" />
+          
         </SurviceWrap>
       
     </Wrapper>
