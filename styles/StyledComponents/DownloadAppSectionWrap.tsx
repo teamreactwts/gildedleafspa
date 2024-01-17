@@ -24,6 +24,9 @@ export const DownloadAppSectionWrap = styled(Box)`
     @media (max-width: 1199px) {
       padding: 30px 50px;
     }
+    @media (max-width: 599px) {
+      padding: 30px 20px;
+    }
     .download_leftpart {
       position: relative;
       .phoneImage {
@@ -78,11 +81,20 @@ export const DownloadAppSectionWrap = styled(Box)`
         @media (max-width: 899px) {
           justify-content: center;
         }
+        @media (max-width: 599px) {
+          flex-wrap: wrap;
+        }
         li {
           width: auto;
           margin-right: 17px;
+          @media (max-width: 599px) {
+            margin: 0 0 20px 0;
+          }
           &:last-child {
             margin-right: 0;
+            @media (max-width: 599px) {
+              margin-bottom: 0;
+            }
           }
           button {
             min-width: 187px;

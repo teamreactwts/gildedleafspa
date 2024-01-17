@@ -136,8 +136,9 @@ export const CommonSlider = styled(Box)`
         background-size: 100% 100%;
       }
       @media (max-width: 899px) {
-        left: 45%;
-        bottom: -15px;
+        left: 40%;
+        transform: translateX(-40%);
+        bottom: 0;
         right: auto;
         top: auto;
       }
@@ -156,8 +157,9 @@ export const CommonSlider = styled(Box)`
         background-size: 100% 100%;
       }
       @media (max-width: 899px) {
-        left: 55%;
-        bottom: -15px;
+        left: 60%;
+        transform: translateX(-60%);
+        bottom: 0;
         right: auto;
         top: auto;
       }

@@ -62,7 +62,7 @@ function HomeSlider() {
       <Container fixed>
         <Box className="sliderHeading_part">
           <Typography variant="h2">
-            What are your
+            What are your{" "}
             <Typography variant="caption">clinical concerns?</Typography>
           </Typography>
           <Typography variant="body1">

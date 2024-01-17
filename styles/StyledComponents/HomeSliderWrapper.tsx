@@ -33,6 +33,11 @@ export const HomeSliderWrapper = styled(Box)`
         width: 100%;
         margin: 0;
       }
+      @media (max-width: 899px) {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+      }
     }
     p {
       color: ${primaryColors.textPrimaryColor};
@@ -57,8 +62,18 @@ export const HomeSliderWrapper = styled(Box)`
     margin-top: 50px;
     padding: 0 10px;
     .slick-slider {
-      .slick-list {
-        .slider_card {
+      .slick-arrow {
+        &.slick-prev {
+          @media (max-width: 899px) {
+            left: 42%;
+            transform: translateX(-42%);
+          }
+        }
+        &.slick-next {
+          @media (max-width: 899px) {
+            left: 58%;
+            transform: translateX(-58%);
+          }
         }
       }
     }

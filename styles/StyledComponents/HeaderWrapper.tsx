@@ -37,16 +37,27 @@ export const HeaderWrap = styled(Box)`
             font-weight: 400;
             line-height: 1.6;
             letter-spacing: 0.32px;
+            @media (max-width: 599px) {
+              font-size: 13px;
+            }
           }
         }
       }
       .lableContact_rgt {
+        @media (max-width: 599px) {
+          flex-direction: column;
+          align-items: flex-end;
+        }
         .title_descriptoion {
           color: ${primaryColors.white};
           font-size: 12px;
           line-height: 1.6;
           letter-spacing: 0.24px;
           margin-right: 19px;
+
+          @media (max-width: 599px) {
+            margin-right: 0;
+          }
         }
         ul {
           display: flex;
