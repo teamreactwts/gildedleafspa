@@ -26,9 +26,12 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         color: `${primaryColors?.color6B6657}`,
         fontStyle: "italic",
         fontFamily: "Cormorant Garamond",
-        "@media(max-width:991px)": {
-          fontSize: "50px",
-          lineHeight: "1em"
+        "@media(max-width:1199px)": {
+          fontSize: "50px"
+        },
+        "@media(max-width:899px)": {
+          fontSize: "40px",
+          lineHeight: "1.1em"
         }
       },
       h2: {

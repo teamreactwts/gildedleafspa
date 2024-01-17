@@ -92,6 +92,9 @@ export const HeaderWrap = styled(Box)`
     min-height: auto;
     padding: 0;
     padding: 23px 0;
+    @media (max-width: 899px) {
+      padding: 14px 0;
+    }
   }
   .hdr_rgt {
     margin-left: 32px;
@@ -100,8 +103,10 @@ export const HeaderWrap = styled(Box)`
     @media (max-width: 1199px) {
       margin-left: 20px;
     }
-    button {
+    @media (max-width: 899px) {
+      display: none;
     }
+
     .MuiBadge-badge {
       right: 4px;
       top: 5px;
@@ -126,7 +131,7 @@ export const HeaderWrap = styled(Box)`
     font-size: 0;
     transition: all 0.4s;
     @media (max-width: 1199px) {
-      width: 150px;
+      width: 170px;
       svg {
         width: 100%;
       }
@@ -176,6 +181,11 @@ export const HeaderWrap = styled(Box)`
     @media (max-width: 1199px) {
       margin-right: 10px;
     }
+  }
+  .menu_btn {
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0;
   }
 `;
 

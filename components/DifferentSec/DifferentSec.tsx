@@ -58,7 +58,25 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
     infinite: true,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 5
+    slidesToScroll: 5,
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      },
+      {
+        breakpoint: 899,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          arrows: true,
+          dots: false
+        }
+      }
+    ]
   };
   return (
     <DifferentWrapper {...props}>

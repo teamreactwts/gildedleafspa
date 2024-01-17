@@ -62,9 +62,16 @@ export const DownloadAppSectionWrap = styled(Box)`
       }
     }
     .download_rgtPart {
+      @media (max-width: 899px) {
+        text-align: center;
+      }
+
       .heading_title {
         text-align: left;
         margin-bottom: 35px;
+        @media (max-width: 899px) {
+          text-align: center;
+        }
         p {
           color: ${primaryColors.textPrimaryColor};
           font-family: Noto Sans;
@@ -74,12 +81,18 @@ export const DownloadAppSectionWrap = styled(Box)`
           line-height: 1.5;
           margin-top: 35px;
           max-width: 399px;
+          @media (max-width: 899px) {
+            margin: 0 auto;
+          }
         }
       }
 
       ul {
         display: flex;
         align-items: center;
+        @media (max-width: 899px) {
+          justify-content: center;
+        }
         li {
           width: auto;
           margin-right: 17px;

@@ -7,6 +7,9 @@ export const BannerWrap = styled(Box)`
   padding: 65px 0 85px;
   position: relative;
   border-bottom: 1px solid ${primaryColors?.coloreee3d3};
+  @media (max-width: 899px) {
+    padding: 30px 0;
+  }
   &::after {
     content: "";
     width: 50vw;
@@ -19,6 +22,15 @@ export const BannerWrap = styled(Box)`
     z-index: -1;
   }
   .banner_wrap {
+    @media (max-width: 899px) {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
     h1 {
       max-width: 590px;
       margin-bottom: 40px;
@@ -35,6 +47,9 @@ export const BannerWrap = styled(Box)`
       max-width: 600px;
       margin-bottom: 35px;
       font-size: 20px;
+      @media (max-width: 899px) {
+        font-size: 16px;
+      }
     }
   }
 
@@ -83,6 +98,9 @@ export const BannerWrap = styled(Box)`
       position: relative;
       @media (max-width: 1199px) {
         height: 385px;
+      }
+      @media (max-width: 899px) {
+        height: auto;
       }
       &::after {
         content: "";

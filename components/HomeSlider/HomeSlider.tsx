@@ -31,10 +31,25 @@ const settings = {
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 899,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        centerMode: true,
+        centerPadding: "30px",
+        dots: false,
+        arrows: true
+      }
+    },
+    {
+      breakpoint: 599,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: "30px",
+        dots: false,
+        arrows: true
       }
     }
   ]

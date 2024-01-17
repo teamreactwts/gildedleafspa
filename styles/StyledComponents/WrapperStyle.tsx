@@ -161,6 +161,9 @@ export const WrapperStyle = styled(Box)`
 
   .cmn_gap {
     padding: 50px 0;
+    @media (max-width: 899px) {
+      padding: 40px 0;
+    }
   }
 
   .cmn_gap_top {
