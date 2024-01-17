@@ -34,7 +34,6 @@ export const CommonHeaderWrapper = styled(Box)`
 
 export const IconCardStack = styled(Stack)`
   margin: -10px -15px;
-  padding-bottom: 100px;
   .each_icon_card {
     width: 20%;
     padding: 10px 15px;
@@ -166,4 +165,18 @@ export const ServiceCardDifferentWrap = styled(Box)`
       }
     }
   }
+`;
+
+export const DifferentInnerWrapper = styled(Box, {
+  shouldForwardProp: (data) => data !== "forNoInterestSection"
+})<{ forNoInterestSection: boolean }>`
+  margin-bottom: 100px;
+  ${({ forNoInterestSection }) =>
+    !forNoInterestSection &&
+    `padding:70px 40px; 
+    margin:80px 0;
+    border-radius: 20px;
+    background: linear-gradient(120deg, rgba(253, 252, 248, 0.74) 3.57%, rgba(253, 252, 248, 0.29) 96.74%);
+
+    backdrop-filter: blur(2px);`}
 `;

@@ -3,6 +3,7 @@ import assest from "@/json/assest";
 import { iconList, sliderList } from "@/json/mock/iconList.mock";
 import {
   CommonSlider,
+  DifferentInnerWrapper,
   DifferentWrapper,
   IconCardStack,
   ServiceCardDifferentWrap,
@@ -48,6 +49,8 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
   showInterestSec = true,
   ...props
 }) => {
+  const forNoInterestSection = showInterestSec;
+
   const settings = {
     dots: true,
     arrows: false,
@@ -67,23 +70,26 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
         className="crcl_vector"
       />
       <Container fixed>
-        <CommonHeader
-          title="What makes"
-          breakTitle="us different?"
-          subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nulla sed nisi gravida maximus."
-        />
-        <IconCardStack direction="row" flexWrap="wrap">
-          {iconList?.map((item, index) => (
-            <Box className="each_icon_card" key={index}>
-              <Typography component="i">
-                <Image src={item?.icon} alt="icon" width={66} height={66} />
-              </Typography>
-              <Typography variant="h4">
-                <Link href="#url">{item?.title}</Link>
-              </Typography>
-            </Box>
-          ))}
-        </IconCardStack>
+        <DifferentInnerWrapper forNoInterestSection={forNoInterestSection}>
+          <CommonHeader
+            title="What makes"
+            breakTitle="us different?"
+            subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nulla sed nisi gravida maximus."
+          />
+          <IconCardStack direction="row" flexWrap="wrap">
+            {iconList?.map((item, index) => (
+              <Box className="each_icon_card" key={index}>
+                <Typography component="i">
+                  <Image src={item?.icon} alt="icon" width={66} height={66} />
+                </Typography>
+                <Typography variant="h4">
+                  <Link href="#url">{item?.title}</Link>
+                </Typography>
+              </Box>
+            ))}
+          </IconCardStack>
+        </DifferentInnerWrapper>
+
         {showInterestSec && (
           <ServiceWrapper>
             <Stack
