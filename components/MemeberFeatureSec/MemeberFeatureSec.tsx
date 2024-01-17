@@ -14,6 +14,9 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 export const MemeberFeatureSecWrapper = styled(Box)`
   margin-bottom: 90px;
+  @media (max-width: 899px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const FeatureCardWrapper = styled(Box)`

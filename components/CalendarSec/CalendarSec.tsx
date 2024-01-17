@@ -41,7 +41,7 @@ const CalendarSec: React.FC<
   return (
     <Container fixed>
       <CalendarWrapper {...props}>
-        <Grid container spacing={{ md: 3, xs: 12 }}>
+        <Grid container spacing={{ md: 3, xs: 5 }}>
           <Grid item md={6} xs={12}>
             <Box className="each_calendar_item">
               <Typography variant="h4"> Select your date</Typography>
