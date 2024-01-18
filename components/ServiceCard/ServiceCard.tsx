@@ -28,7 +28,7 @@ function ServiceSectionCard({
       <Box className="service_details">
         <Typography variant="h4">{title}</Typography>
         <Typography variant="body1">{description}</Typography>
-        <List disablePadding>
+        <List disablePadding className="button_wrap">
           <ListItem disablePadding>
             <CustomButtonPrimary
               variant="contained"

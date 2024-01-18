@@ -12,9 +12,18 @@ import { Box } from "@mui/system";
 export const SurviceWrap = styled(Box)`
   padding: 55px 0 100px 0;
   position: relative;
+  @media (max-width:899px) {
+    padding: 40px 0 50px 0;
+      }
+      @media (max-width:599px) {
+        padding: 40px 0 ;
+      }
  
   .titel_text {
     margin-bottom: 60px;
+    @media (max-width:899px) {
+      margin-bottom: 40px;
+      }
     h2 {
       color: ${primaryColors.primary};
       font-size: 45px;
@@ -22,6 +31,12 @@ export const SurviceWrap = styled(Box)`
       font-weight: 400;
       line-height: 1;
       margin-bottom: 0;
+      @media (max-width:899px) {
+        font-size: 40px;
+      }
+      @media (max-width:599px) {
+        font-size: 32px;
+      }
       span {
         color: inherit;
         line-height: inherit;

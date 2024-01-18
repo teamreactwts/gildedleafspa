@@ -2,6 +2,7 @@ import { primaryColors } from "@/themes/_muiPalette";
 import { Stack, styled } from "@mui/system";
 
 export const ServiceCardWrap = styled(Stack)`
+position: relative;
   border-radius: 20px;
   width: 100%;
   background: linear-gradient(
@@ -15,6 +16,10 @@ export const ServiceCardWrap = styled(Stack)`
   backdrop-filter: blur(2px);
   padding: 24px 32px 24px 20px;
   transition: all 0.4s ease-in-out;
+  @media (max-width:599px) {
+    padding: 24px 20px 100px 20px ;
+      
+    }
   cursor: pointer;
   &:hover {
     background: var(
@@ -45,6 +50,11 @@ export const ServiceCardWrap = styled(Stack)`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width:599px) {
+      width: 110px;
+      height: 128px;
+
+    }
 
     figure {
       line-height: 0;
@@ -61,12 +71,21 @@ export const ServiceCardWrap = styled(Stack)`
   .service_details {
     width: calc(100% - 130px);
     margin-left: 32px;
+    @media (max-width:599px) {
+      width: calc(100% - 110px);
+      margin-left: 15px;
+      
+    }
     h4 {
       color: ${primaryColors.primary};
       font-size: 26px;
       font-weight: 700;
       line-height: 1.5;
       margin-bottom: 10px;
+       @media (max-width:599px) {
+      line-height: 1.2;
+      
+    }
     }
     p {
       color: ${primaryColors.textPrimaryColor};
@@ -77,10 +96,18 @@ export const ServiceCardWrap = styled(Stack)`
       line-height: 1.5;
       max-width: 338px;
     }
-    ul {
+    .button_wrap {
       margin-top: 20px;
       display: flex;
       align-items: center;
+      @media (max-width:599px) {
+        position: absolute;
+        left: 17px;
+        bottom: 31px;
+        width: 100%;
+      
+      
+    }
       li {
         width: auto;
         margin-right: 15px;
@@ -98,6 +125,11 @@ export const ServiceCardWrap = styled(Stack)`
         .member_btn {
           padding: 13px;
           min-width: 185px;
+        }
+        button{
+          @media (max-width:599px) {
+            min-width: auto;
+          }
         }
       }
     }
