@@ -5,10 +5,13 @@ import HomeSlider from "@/components/HomeSlider/HomeSlider";
 import assest from "@/json/assest";
 
 import Wrapper from "@/layout/wrapper/Wrapper";
-import CartIcon from "@/ui/Icons/cartIcon";
+import InputFieldCommon from "@/ui/CommonInput/CommonInput";
+import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
 import { useCallback, useState } from "react";
 
 export default function Home() {
@@ -43,20 +46,52 @@ export default function Home() {
       <DifferentSec className="cmn_gap" />
       <HomeSlider />
       <DownloadAppSection />
-      <MuiModalWrapper
-        open={open}
-        onClose={handleClose}
-        title="Ask an anonymous question"
-      >
-        <Box className="modal_mainWrap">
-          <i>
-            <CartIcon />
-          </i>
-          <Typography variant="h5">Thank you</Typography>
-          <Typography variant="body1">
-            Your slot has been booked on 10 Jan Wednesday from 10:30 AM to 10:55
-            AM
-          </Typography>
+      <MuiModalWrapper open={open} onClose={handleClose} className="newsletter">
+        <Box className="modal_sectionWrap">
+          <Grid container spacing={{ md: 3, xs: 2 }}>
+            <Grid item md={6} xs={12}>
+              <Box className="modalabout">
+               <figure>
+               <Image
+                  src={assest.modal_femal}
+                  alt="Image"
+                  width={297}
+                  height={357}
+                />
+               </figure>
+                <Typography variant="body1">
+                  Embark on a journey of beauty and wellness with our exclusive
+                  membership.
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <Box className="leterBoxWrap">
+                <Typography variant="h2">
+                  Subscribe our
+                  <Typography variant="caption"> Newsletter</Typography>
+                </Typography>
+                <Grid container spacing={{ xs: 1.8 }}>
+                  <Grid item xs={12}>
+                    <InputFieldCommon placeholder="Name" />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <InputFieldCommon placeholder="Email" />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <InputFieldCommon placeholder="Phone No" />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Box className="modal_btn">
+                      <CustomButtonPrimary variant="contained" color="primary">
+                        <Typography variant="caption">Submit</Typography>
+                      </CustomButtonPrimary>
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
       </MuiModalWrapper>
     </Wrapper>

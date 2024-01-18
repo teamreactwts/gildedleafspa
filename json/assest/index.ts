@@ -46,5 +46,7 @@ export default {
   blogDetailsImg: "/assets/images/blogDetailsImg.png",
   about_image3: "/assets/images/about_image3.png",
   about_image4: "/assets/images/about_image4.png",
-  newsletter_image: "/assets/images/newsletter_image.png"
+  newsletter_image: "/assets/images/newsletter_image.png",
+  modalbackground:"/assets/images/modalbackground.png",
+  modal_femal:"/assets/images/modal_femal.png"
 };

@@ -52,7 +52,7 @@ export default function MuiModalWrapper({
           spacing={2}
         >
           <Typography>{title}</Typography>
-          <IconButton onClick={onClose} autoFocus>
+          <IconButton className="closeIcon" onClick={onClose} autoFocus>
             <CloseIcon />
           </IconButton>
         </Stack>
