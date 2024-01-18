@@ -92,7 +92,7 @@ const ContactForm: React.FC<contactProps & HTMLAttributes<HTMLDivElement>> = ({
             variant="contained"
             color="primary"
             onClick={() => stepIncr(3)}
-            
+            className="cmn_btn_booking"
           >
             <Typography variant="caption">Continue</Typography>
           </CustomButtonPrimary>
