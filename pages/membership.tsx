@@ -13,6 +13,9 @@ export const MemebershipWrapper = styled(Box)`
     max-width: 936px;
     text-align: center;
     margin: 0 auto 75px !important;
+    @media (max-width: 899px) {
+      margin: 0 auto 40px !important;
+    }
   }
 `;
 

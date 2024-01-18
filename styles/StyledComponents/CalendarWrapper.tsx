@@ -13,6 +13,9 @@ export const CalendarWrapper = styled(Box)`
   );
   backdrop-filter: blur(2px);
   padding: 50px 40px;
+  @media (max-width: 599px) {
+    padding: 30px 15px;
+  }
   .time_slot {
     border-radius: 10px;
     height: 100%;
@@ -27,11 +30,14 @@ export const CalendarWrapper = styled(Box)`
     );
     padding: 1px;
     .wrapper_otr {
-      background-color: #fff;
+      background-color: ${primaryColors?.white};
       border-radius: 10px;
       position: relative;
       height: 100%;
       padding: 40px;
+      @media (max-width: 599px) {
+        padding: 30px 50px;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -130,7 +136,9 @@ export const CalendarWrapper = styled(Box)`
       .MuiPickersFadeTransitionGroup-root {
         .MuiDayCalendar-root {
           margin: 0 44px;
-
+          @media (max-width: 599px) {
+            margin: 0;
+          }
           .MuiDayCalendar-header {
             justify-content: space-between;
             width: 100%;
@@ -181,6 +189,9 @@ export const CustomRadioGroup = styled(RadioGroup)`
   .each_radio {
     width: 50%;
     padding: 8px;
+    @media (max-width: 899px) {
+      width: 100%;
+    }
   }
   .MuiFormControlLabel-root {
     margin: 0;

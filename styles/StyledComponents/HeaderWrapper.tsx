@@ -67,6 +67,7 @@ export const HeaderWrap = styled(Box)`
             width: auto;
             padding: 0 13px;
             border-right: 1px solid ${primaryColors.color272F3D};
+
             &:last-child {
               border-right: 0;
             }
@@ -74,6 +75,7 @@ export const HeaderWrap = styled(Box)`
               display: inline-flex;
               display: flex;
               align-items: center;
+              color: ${primaryColors.white};
               &:hover {
                 opacity: 0.7;
               }

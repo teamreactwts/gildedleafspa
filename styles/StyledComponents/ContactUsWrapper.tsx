@@ -7,6 +7,9 @@ export const ContactUsWrapper = styled(Box)`
     h3 {
       font-size: 45px;
       font-weight: 700;
+      @media (max-width: 599px) {
+        font-size: 32px;
+      }
     }
     ul {
       margin-top: 50px;
@@ -54,9 +57,15 @@ export const ContactUsWrapper = styled(Box)`
     padding: 35px 30px;
     border-radius: 10px;
     border: 1px solid ${primaryColors?.colore6e0d6};
+    @media (max-width: 599px) {
+      padding: 20px 20px;
+    }
     h3 {
       font-size: 45px;
       font-weight: 700;
+      @media (max-width: 599px) {
+        font-size: 32px;
+      }
     }
     .each_input_field {
       &:not(:last-child) {

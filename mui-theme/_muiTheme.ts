@@ -43,7 +43,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
           fontSize: "32px",
-          lineHeight: "1em"
+          lineHeight: "1.1em"
         }
       },
       h3: {
@@ -61,7 +61,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "18px",
         lineHeight: "1.3",
         fontWeight: "500",
-        color: `${primaryColors?.color6B6657}`,
+        color: `${primaryColors?.primary}`,
         fontFamily: "Cormorant Garamond",
         "@media(max-width:991px)": {
           fontSize: "16px",

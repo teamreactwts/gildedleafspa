@@ -20,6 +20,9 @@ export const ContactFormWrapper = styled(Box)`
     rgba(253, 252, 248, 0.29) 96.74%
   );
   backdrop-filter: blur(2px);
+  @media (max-width: 599px) {
+    padding: 25px 20px;
+  }
   h4 {
     font-size: 24px;
     font-weight: 700;
