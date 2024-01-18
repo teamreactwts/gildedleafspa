@@ -110,7 +110,7 @@ const CalendarSec: React.FC<
       <MuiModalWrapper
         open={open}
         onClose={handleClose}
-        
+        className="main_modalWrap"
        
       >
        <Box className="modal_mainWrap">
