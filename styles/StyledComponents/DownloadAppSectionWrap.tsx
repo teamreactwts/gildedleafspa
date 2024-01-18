@@ -57,7 +57,7 @@ export const DownloadAppSectionWrap = styled(Box)`
       .heading_title {
         text-align: left;
         margin-bottom: 35px;
-        @media (max-width: 899px) {
+        @media (max-width: 1199px) {
           text-align: center;
         }
         p {
@@ -69,7 +69,7 @@ export const DownloadAppSectionWrap = styled(Box)`
           line-height: 1.5;
           margin-top: 35px;
           max-width: 399px;
-          @media (max-width: 899px) {
+          @media (max-width: 1199px) {
             margin: 0 auto;
           }
         }
@@ -78,7 +78,7 @@ export const DownloadAppSectionWrap = styled(Box)`
       ul {
         display: flex;
         align-items: center;
-        @media (max-width: 899px) {
+        @media (max-width: 1199px) {
           justify-content: center;
         }
         @media (max-width: 599px) {
