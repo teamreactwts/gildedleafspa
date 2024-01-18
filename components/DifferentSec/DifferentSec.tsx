@@ -32,7 +32,11 @@ export const ServiceCardDifferent = ({
   return (
     <ServiceCardDifferentWrap>
       <Box className="service_card_icon">
-        <Image src={icon} alt="icon" width={66} height={66} />
+        <Box className="wrapper_otr">
+          <Box className="wrapper">
+            <Image src={icon} alt="icon" width={66} height={66} />
+          </Box>
+        </Box>
       </Box>
       <Typography variant="h4">
         <Link href="#url">{title}</Link>

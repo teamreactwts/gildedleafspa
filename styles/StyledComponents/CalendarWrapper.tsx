@@ -34,7 +34,7 @@ export const CalendarWrapper = styled(Box)`
       border-radius: 10px;
       position: relative;
       height: 100%;
-      padding: 40px;
+      padding: 40px 40px 120px 40px;
       @media (max-width: 599px) {
         padding: 30px 50px;
       }
@@ -82,8 +82,8 @@ export const CalendarWrapper = styled(Box)`
       backdrop-filter: blur(32px);
       .MuiPickersCalendarHeader-root {
         margin: 0 0 35px 0;
-        min-height: auto;
-        max-height: 100%;
+        min-height: 71px;
+
         position: relative;
         padding: 26px 0;
 
@@ -168,9 +168,15 @@ export const CalendarWrapper = styled(Box)`
                   font-size: 14px;
                   font-weight: 500;
                   line-height: 1;
+
                   &.Mui-selected {
                     background-color: rgba(166, 112, 51, 1);
                     color: ${primaryColors?.white};
+                  }
+                  &.MuiPickersDay-today {
+                    background-color: rgba(166, 112, 51, 1);
+                    color: ${primaryColors?.white};
+                    border: 0;
                   }
                 }
               }
