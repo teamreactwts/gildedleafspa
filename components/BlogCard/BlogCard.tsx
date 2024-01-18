@@ -18,7 +18,9 @@ export const BlogCardWrapper = styled(Box)`
   );
   backdrop-filter: blur(2px);
   border-radius: 15px;
-  .blogfigure {
+  .imgSectionWrap{
+    width: 100%;
+    .blogfigure {
     width: 100%;
     height: 201px;
     line-height: 0;
@@ -31,6 +33,8 @@ export const BlogCardWrapper = styled(Box)`
       object-fit: cover;
     }
   }
+  }
+  
   .blog_details {
     margin-top: 14px;
     .MuiChip-root {
@@ -94,19 +98,23 @@ export interface blogcardprops {
   datevalue: string;
   cardtitevalue: string;
   blogDescription: string;
+  route:string;
 }
 
 function BlogCard({
   blogimg,
   datevalue,
   cardtitevalue,
-  blogDescription
+  blogDescription,
+  route
 }: blogcardprops) {
   return (
     <BlogCardWrapper>
-      <figure className="blogfigure">
+     <Link href={route} className="imgSectionWrap">
+     <figure className="blogfigure">
         <Image src={blogimg} alt="blogimage" width={321} height={201} />
       </figure>
+     </Link>
       <Box className="blog_details">
         <Chip
           icon={<Calender />}
@@ -114,12 +122,12 @@ function BlogCard({
           variant="filled"
           color="default"
         />
-        <Link href="javascript:void(0)" className="title_text">
+        <Link href={route} className="title_text">
           {cardtitevalue}
         </Link>
         <Typography variant="body1">{blogDescription}</Typography>
 
-        <Link href="javascript:void(0)" className="redmore_section">
+        <Link href={route} className="redmore_section">
           <Typography variant="body1">Read More</Typography>
           <i>
             <ArrowIcon />

@@ -399,6 +399,7 @@ function BlogDetails() {
                   {cardList1?.map((data, index) => (
                     <Box className="blog_siderCard" key={index}>
                       <BlogCard
+                      route={data.route}
                         blogimg={data.blogimg}
                         datevalue={data.date}
                         cardtitevalue={data.cardtitle}
