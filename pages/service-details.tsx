@@ -119,7 +119,7 @@ function ServiceDetails() {
               direction="row"
               alignItems="center"
               className="service_details_top"
-              flexWrap="wrap"
+             
             >
               <Box className="service_imgSection">
                 <figure>
@@ -209,7 +209,7 @@ function ServiceDetails() {
               </Typography>
               <Grid container spacing={3.8}>
                 {servicedetailsList.map((itme) => (
-                  <Grid item lg={6} xs={12}>
+                  <Grid item md={6} xs={12}>
                     <Stack
                       direction="row"
                       alignItems="center"
@@ -279,7 +279,7 @@ function ServiceDetails() {
                 </Typography>
               </Box>
               <Box className="frequentWrap">
-                <Grid container spacing={11.8}>
+                <Grid container spacing={{lg:11.8 , xs: 0}}>
                   <Grid item lg={6} xs={12}>
                     <Box className="frequent_listsection">
                       {fequent_questionListSection.map((item, index) => (

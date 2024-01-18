@@ -7,6 +7,8 @@ import {
   CustomRadioGroup
 } from "@/styles/StyledComponents/CalendarWrapper";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+import ThankYouIocn from "@/ui/Icons/ThankYouIocn";
+import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -18,7 +20,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs, { Dayjs } from "dayjs";
-import React, { HTMLAttributes } from "react";
+import React, { HTMLAttributes, useState } from "react";
 
 interface calendarSecProps {
   stepIncr: (data: number) => void;
@@ -37,6 +39,14 @@ const CalendarSec: React.FC<
     timeSlotList.push({
       time: "10:30AM - 10:55AM"
     });
+  }
+  const [open, setopen] = useState(false);
+
+  const handelOpen = () => {
+    setopen(true);
+  };
+  const handleClose = () =>{
+    setopen(false);
   }
   return (
     <Container fixed>
@@ -91,12 +101,27 @@ const CalendarSec: React.FC<
           <CustomButtonPrimary
             variant="contained"
             color="primary"
-            onClick={() => stepIncr(1)}
+            onClick={handelOpen}
           >
             <Typography variant="caption">Book Appointment</Typography>
           </CustomButtonPrimary>
         </Stack>
       </CalendarWrapper>
+      <MuiModalWrapper
+        open={open}
+        onClose={handleClose}
+        
+       
+      >
+       <Box className="modal_mainWrap">
+       <i>
+            <ThankYouIocn/>
+        </i>
+        <Typography variant="h5">Thank you</Typography>
+        <Typography variant="body1">Your slot has been booked on 10 Jan Wednesday from 10:30 AM to 10:55 AM</Typography>
+       </Box>
+       
+      </MuiModalWrapper>
     </Container>
   );
 };

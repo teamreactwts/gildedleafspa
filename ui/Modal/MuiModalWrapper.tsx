@@ -1,20 +1,22 @@
 import { borderRadius } from "@/themes/themeConstant";
-import CloseIcon from "@mui/icons-material/Close";
-import Box from "@mui/material/Box";
-import Dialog from "@mui/material/Dialog";
+
+import { MuiDilogModalWrap } from "@/styles/StyledComponents/MuiDilogModalWrap";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
-import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Box } from "@mui/system";
+import CloseIcon from "../Icons/CloseIcon";
 
 interface MuiModalWrapperProps {
   open: boolean;
   onClose?: () => void;
   scroll?: "paper" | "body";
   children: JSX.Element | JSX.Element[];
-  title: string;
+  title?: string;
+  className?: string;
 }
 
 export default function MuiModalWrapper({
@@ -22,13 +24,14 @@ export default function MuiModalWrapper({
   onClose,
   scroll,
   children,
-  title
+  title,
+  className
 }: MuiModalWrapperProps) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Dialog
+    <MuiDilogModalWrap
       fullScreen={fullScreen}
       open={open}
       onClose={onClose}
@@ -37,10 +40,11 @@ export default function MuiModalWrapper({
       PaperProps={{
         style: {
           borderRadius
-        }
+        },
+        className: `${className}`
       }}
     >
-      <Box>
+      <Box className="modalTitleWrap">
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -54,7 +58,7 @@ export default function MuiModalWrapper({
         </Stack>
       </Box>
 
-      <DialogContent>{children}</DialogContent>
-    </Dialog>
+      <DialogContent className="modalBodySection">{children}</DialogContent>
+    </MuiDilogModalWrap>
   );
 }

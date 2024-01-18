@@ -12,6 +12,9 @@ export const ServiceDetailsWrapper = styled(Box)`
   }
   .service_details_top {
     margin-bottom: 50px;
+    @media (max-width: 899px) {
+       flex-wrap: wrap;
+      }
     .service_imgSection {
       width: 234px;
       flex-basis: 234px;
@@ -61,8 +64,8 @@ export const ServiceDetailsWrapper = styled(Box)`
         line-height: 1;
         margin-bottom: 20px;
         @media (max-width: 899px) {
-            font-size: 32px;
-      }
+          font-size: 32px;
+        }
       }
       p {
         color: ${primaryColors.textPrimaryColor};
@@ -92,7 +95,7 @@ export const ServiceDetailsWrapper = styled(Box)`
   .benifits_use {
     margin-bottom: 70px;
     @media (max-width: 899px) {
-        margin-bottom: 40px;
+      margin-bottom: 40px;
     }
     .list_wrap {
       padding: 32px 58px 32px 34px;
@@ -145,7 +148,7 @@ export const ServiceDetailsWrapper = styled(Box)`
       @media (max-width: 899px) {
         font-size: 32px;
         margin-bottom: 20px;
-    }
+      }
     }
     figure {
       line-height: 0;
@@ -156,12 +159,19 @@ export const ServiceDetailsWrapper = styled(Box)`
   }
   .botox_section_wrap {
     margin-top: 70px;
+    @media (max-width: 899px) {
+      margin-top: 40px;
+    }
     h4 {
       font-size: 45px;
       font-style: italic;
       font-weight: 400;
       line-height: 1;
       margin-bottom: 54px;
+      @media (max-width: 899px) {
+        margin-bottom: 25px;
+        font-size: 32px;
+      }
       span {
         line-height: inherit;
         font-size: inherit;
@@ -198,12 +208,18 @@ export const ServiceDetailsWrapper = styled(Box)`
         width: calc(100% - 140px);
         flex-basis: calc(100% - 140px);
         padding-left: 33px;
+        @media (max-width: 899px) {
+          padding-left: 20px;
+        }
         h5 {
           color: ${primaryColors.primary};
           font-size: 30px;
           font-weight: 700;
           line-height: 1;
           margin-bottom: 15px;
+          @media (max-width: 899px) {
+            font-size: 26px;
+          }
         }
         p {
           max-width: 330px;
@@ -211,19 +227,35 @@ export const ServiceDetailsWrapper = styled(Box)`
           font-family: Noto Sans;
           font-size: 16px;
           font-weight: 400;
-          line-height: 1;
+          line-height: 1.4;
+          @media (max-width: 599px) {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 4;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+          }
         }
       }
     }
   }
   .pricingTable {
     padding: 80px 0;
+    @media (max-width: 899px) {
+        padding:40px 0
+          }
     .pricing_text {
       margin-bottom: 50px;
+      @media (max-width: 899px) {
+        margin-bottom: 25px;
+          }
       h3 {
         font-size: 45px;
         line-height: 1;
         margin: 0;
+        @media (max-width: 899px) {
+            font-size: 32px;
+          }
       }
     }
     .MuiTableContainer-root {
@@ -246,6 +278,10 @@ export const ServiceDetailsWrapper = styled(Box)`
               line-height: 1;
               padding: 30px 20px;
               border-bottom: 1px solid rgba(75, 74, 74, 0.1);
+              @media (max-width: 899px) {
+            font-size: 24px;
+            padding: 21px 20px;
+          }
             }
           }
         }
@@ -266,6 +302,10 @@ export const ServiceDetailsWrapper = styled(Box)`
               text-transform: capitalize;
               list-style-type: decimal;
               border-bottom: 1px solid rgba(75, 74, 74, 0.1);
+              @media (max-width: 899px) {
+          
+            padding: 21px 20px;
+          }
 
               span {
                 width: 7px;
@@ -282,6 +322,7 @@ export const ServiceDetailsWrapper = styled(Box)`
   }
   .frequent_askQuestion {
     .titleSection {
+        margin-bottom: 20px;
       h3 {
         font-size: 45px;
         font-style: italic;
@@ -295,7 +336,7 @@ export const ServiceDetailsWrapper = styled(Box)`
           font-family: inherit;
           color: inherit;
         }
-        margin-bottom: 20px;
+     
       }
     }
     .frequentWrap {
@@ -324,6 +365,9 @@ export const ServiceDetailsWrapper = styled(Box)`
                 padding: 0;
                 .MuiAccordionSummary-content {
                   margin: 42px 0;
+                  @media (max-width:899px) {
+                    margin: 25px 0;
+                  }
                   &.Mui-expanded {
                     margin: 25px 0;
                   }
@@ -341,6 +385,9 @@ export const ServiceDetailsWrapper = styled(Box)`
                 .MuiCollapse-wrapper {
                   .MuiAccordionDetails-root {
                     padding: 0 0 36px 0;
+                    @media (max-width: 899px) {
+                        padding: 0 0 23px 0; 
+                    }
                     p {
                       color: ${primaryColors.textPrimaryColor};
                       font-family: Noto Sans;

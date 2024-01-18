@@ -2,8 +2,7 @@
 import ServiceSectionCard from "@/components/ServiceCard/ServiceCard";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
-import { primaryColors } from "@/themes/_muiPalette";
-import styled from "@emotion/styled";
+import { WrinkleFinelinesWrapper } from "@/styles/StyledComponents/WrinkleFineLineWrap";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
@@ -11,52 +10,6 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
 
-export const WrinkleFinelinesWrapper = styled(Box)`
-  padding: 100px 0;
-  .desciption_section {
-    figure {
-      width: 297px;
-      flex-basis: 297px;
-      height: 321px;
-      line-height: 0;
-      font-size: 0;
-      overflow: hidden;
-      border-radius: 20px;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    .product_details_wrap {
-      width: calc(100% - 297px);
-      flex-basis: calc(100% - 297px);
-      margin-left: 50px;
-      h3 {
-        color: ${primaryColors.primary};
-        font-family: Cormorant Garamond;
-        font-size: 45px;
-        font-weight: 700;
-        line-height: 1;
-      }
-      p {
-        color: ${primaryColors.textPrimaryColor};
-        font-family: Noto Sans;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.5;
-        max-width: 529px;
-        margin-bottom: 26px;
-        &:last-child{
-            margin-bottom: 0;
-        }
-      }
-    }
-  }
-  .section_card{
-    margin-top: 50px;
-  }
-`;
 export const sectioncardList = [
   {
     serviceImage: assest.diffIcon6,
@@ -92,6 +45,7 @@ function WrinkleFinelines() {
             direction="row"
             alignItems="center"
             className="desciption_section"
+            
           >
             <figure>
               <Image
