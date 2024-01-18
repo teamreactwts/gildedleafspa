@@ -19,6 +19,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Footer = () => {
   const navItems = [
@@ -75,7 +76,7 @@ const Footer = () => {
       route: "#url"
     }
   ];
-  // const router = useRouter();
+  const router = useRouter();
   return (
     <FooterWrap>
       <Container fixed>
@@ -115,7 +116,14 @@ const Footer = () => {
                 <List disablePadding>
                   {navItems.map((item, index) => (
                     <ListItem disablePadding key={index}>
-                      <Link href={item.route}>{item.name}</Link>
+                      <Link
+                        href={item.route}
+                        className={
+                          router.pathname === item.route ? "active" : ""
+                        }
+                      >
+                        {item.name}
+                      </Link>
                     </ListItem>
                   ))}
                 </List>
@@ -129,7 +137,14 @@ const Footer = () => {
                 <List disablePadding>
                   {moreItems.map((item, index) => (
                     <ListItem disablePadding key={index}>
-                      <Link href={item.route}>{item.name}</Link>
+                      <Link
+                        href={item.route}
+                        className={
+                          router.pathname === item.route ? "active" : ""
+                        }
+                      >
+                        {item.name}
+                      </Link>
                     </ListItem>
                   ))}
                 </List>

@@ -15,7 +15,7 @@ export const PriceCardWrapper = styled(Box)`
     rgba(243, 241, 230, 0.48) 96.06%
   );
   padding: 1px;
-  padding: 1px;
+
   &.active {
     padding: 0;
     .wrapper_otr {
@@ -48,6 +48,7 @@ export const PriceCardWrapper = styled(Box)`
   .wrapper {
     position: relative;
     z-index: 2;
+    height: 100%;
   }
 
   .title_block {
@@ -112,7 +113,10 @@ export const PriceCardWrapper = styled(Box)`
   }
   .perfect_block {
     padding: 10px 30px 30px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 230px;
     h4 {
       font-family: Nunito Sans;
       font-size: 18px;

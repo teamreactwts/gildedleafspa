@@ -59,8 +59,10 @@ const PriceCard: React.FC<priceCardProps & HTMLAttributes<HTMLDivElement>> = ({
             </List>
           </Box>
           <Box className="perfect_block">
-            <Typography variant="h4">Perfect For</Typography>
-            <Typography>{perfectFor}</Typography>
+            <Box className="perfect_block_top">
+              <Typography variant="h4">Perfect For</Typography>
+              <Typography>{perfectFor}</Typography>
+            </Box>
             <CustomButtonPrimary
               variant="contained"
               color="primary"

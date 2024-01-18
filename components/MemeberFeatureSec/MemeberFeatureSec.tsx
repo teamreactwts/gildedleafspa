@@ -95,7 +95,7 @@ export default function MemeberFeatureSec() {
     <MemeberFeatureSecWrapper>
       <CommonHeader title="Membership" breakTitle="Features:" />
       <Container fixed>
-        <Grid container spacing={{ md: 2, xs: 2 }}>
+        <Grid container spacing={{ md: 4, xs: 2 }}>
           {featureCardList?.map((data, index) => (
             <Grid item md={4} xs={12} key={index}>
               <FatureCard {...data} />

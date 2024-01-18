@@ -29,7 +29,7 @@ interface calendarSecProps {
 const CalendarSec: React.FC<
   calendarSecProps & HTMLAttributes<HTMLDivElement>
 > = ({ stepIncr, ...props }) => {
-  const [value, setValue] = React.useState<Dayjs | null>(dayjs("2024-01-16"));
+  const [value, setValue] = React.useState<Dayjs | null>(dayjs());
 
   const timeSlotList = [];
 
@@ -45,9 +45,9 @@ const CalendarSec: React.FC<
   const handelOpen = () => {
     setopen(true);
   };
-  const handleClose = () =>{
+  const handleClose = () => {
     setopen(false);
-  }
+  };
   return (
     <Container fixed>
       <CalendarWrapper {...props}>
@@ -111,16 +111,17 @@ const CalendarSec: React.FC<
         open={open}
         onClose={handleClose}
         className="main_modalWrap"
-       
       >
-       <Box className="modal_mainWrap">
-       <i>
-            <ThankYouIocn/>
-        </i>
-        <Typography variant="h5">Thank you</Typography>
-        <Typography variant="body1">Your slot has been booked on 10 Jan Wednesday from 10:30 AM to 10:55 AM</Typography>
-       </Box>
-       
+        <Box className="modal_mainWrap">
+          <i>
+            <ThankYouIocn />
+          </i>
+          <Typography variant="h5">Thank you</Typography>
+          <Typography variant="body1">
+            Your slot has been booked on 10 Jan Wednesday from 10:30 AM to 10:55
+            AM
+          </Typography>
+        </Box>
       </MuiModalWrapper>
     </Container>
   );

@@ -13,8 +13,8 @@ export const ServiceDetailsWrapper = styled(Box)`
   .service_details_top {
     margin-bottom: 50px;
     @media (max-width: 899px) {
-       flex-wrap: wrap;
-      }
+      flex-wrap: wrap;
+    }
     .service_imgSection {
       width: 234px;
       flex-basis: 234px;
@@ -242,20 +242,20 @@ export const ServiceDetailsWrapper = styled(Box)`
   .pricingTable {
     padding: 80px 0;
     @media (max-width: 899px) {
-        padding:40px 0
-          }
+      padding: 40px 0;
+    }
     .pricing_text {
       margin-bottom: 50px;
       @media (max-width: 899px) {
         margin-bottom: 25px;
-          }
+      }
       h3 {
         font-size: 45px;
         line-height: 1;
         margin: 0;
         @media (max-width: 899px) {
-            font-size: 32px;
-          }
+          font-size: 32px;
+        }
       }
     }
     .MuiTableContainer-root {
@@ -279,9 +279,9 @@ export const ServiceDetailsWrapper = styled(Box)`
               padding: 30px 20px;
               border-bottom: 1px solid rgba(75, 74, 74, 0.1);
               @media (max-width: 899px) {
-            font-size: 24px;
-            padding: 21px 20px;
-          }
+                font-size: 24px;
+                padding: 21px 20px;
+              }
             }
           }
         }
@@ -303,9 +303,8 @@ export const ServiceDetailsWrapper = styled(Box)`
               list-style-type: decimal;
               border-bottom: 1px solid rgba(75, 74, 74, 0.1);
               @media (max-width: 899px) {
-          
-            padding: 21px 20px;
-          }
+                padding: 21px 20px;
+              }
 
               span {
                 width: 7px;
@@ -322,7 +321,7 @@ export const ServiceDetailsWrapper = styled(Box)`
   }
   .frequent_askQuestion {
     .titleSection {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
       h3 {
         font-size: 45px;
         font-style: italic;
@@ -337,9 +336,9 @@ export const ServiceDetailsWrapper = styled(Box)`
           line-height: inherit;
           font-size: inherit;
           font-family: inherit;
+          font-style: normal;
           color: inherit;
         }
-     
       }
     }
     .frequentWrap {
@@ -368,7 +367,7 @@ export const ServiceDetailsWrapper = styled(Box)`
                 padding: 0;
                 .MuiAccordionSummary-content {
                   margin: 42px 0;
-                  @media (max-width:899px) {
+                  @media (max-width: 899px) {
                     margin: 25px 0;
                   }
                   &.Mui-expanded {
@@ -389,7 +388,7 @@ export const ServiceDetailsWrapper = styled(Box)`
                   .MuiAccordionDetails-root {
                     padding: 0 0 36px 0;
                     @media (max-width: 899px) {
-                        padding: 0 0 23px 0; 
+                      padding: 0 0 23px 0;
                     }
                     p {
                       color: ${primaryColors.textPrimaryColor};

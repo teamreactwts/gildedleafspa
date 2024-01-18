@@ -208,21 +208,49 @@ export const CommonSlider = styled(Box)`
 export const ServiceCardDifferentWrap = styled(Box)`
   text-align: center;
   .service_card_icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 10px;
-    border: 1px solid #e4ddd3;
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+    height: 100%;
+    position: relative;
     background: linear-gradient(
-      139deg,
-      #f3f1e6 6.74%,
+      280deg,
+      #e4ddd3 6.74%,
       rgba(243, 241, 230, 0.48) 96.06%
     );
-    backdrop-filter: blur(32px);
-    min-height: 190px;
-    padding: 10px 10px;
+    padding: 1px;
+    height: 190px;
+    margin-bottom: 25px;
     @media (max-width: 1199px) {
       min-height: 150px;
+    }
+    .wrapper_otr {
+      border-radius: 10px;
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+        background: linear-gradient(
+          280deg,
+          #f3f1e6 6.74%,
+          rgba(243, 241, 230, 0.48) 96.06%
+        );
+        z-index: 1;
+      }
+    }
+    .wrapper {
+      position: relative;
+      z-index: 2;
     }
   }
   > h4 {

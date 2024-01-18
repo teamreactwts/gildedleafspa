@@ -16,19 +16,11 @@ import { useCallback, useState } from "react";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
+  // const [count, setCount] = useState(0);
 
   const handleClose = useCallback(() => {
     setOpen(false);
   }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("isFirstTime", "true");
-  //   const isFirstTime = localStorage.getItem("isFirstTime");
-  //   if (isFirstTime) {
-  //     setOpen(true);
-  //     localStorage.setItem("isFirstTime", "false");
-  //   }
-  // }, []);
 
   return (
     <Wrapper>
@@ -51,14 +43,14 @@ export default function Home() {
           <Grid container spacing={{ md: 3, xs: 2 }}>
             <Grid item md={6} xs={12}>
               <Box className="modalabout">
-               <figure>
-               <Image
-                  src={assest.modal_femal}
-                  alt="Image"
-                  width={297}
-                  height={357}
-                />
-               </figure>
+                <figure>
+                  <Image
+                    src={assest.modal_femal}
+                    alt="Image"
+                    width={297}
+                    height={357}
+                  />
+                </figure>
                 <Typography variant="body1">
                   Embark on a journey of beauty and wellness with our exclusive
                   membership.

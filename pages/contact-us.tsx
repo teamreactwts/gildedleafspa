@@ -29,7 +29,7 @@ const Index = () => {
               spacing={{ lg: 17, md: 10, xs: 3 }}
               alignItems="center"
             >
-              <Grid item md={6} xs={12}>
+              <Grid item md={5.5} xs={12}>
                 <Box className="contact_form_content">
                   <Typography variant="h3">Contact details</Typography>
                   <Typography>
@@ -83,7 +83,7 @@ const Index = () => {
                   </List>
                 </Box>
               </Grid>
-              <Grid item md={6} xs={12}>
+              <Grid item md={6.5} xs={12}>
                 <Box className="contact_form">
                   <Typography variant="h3">Get in touch</Typography>
                   <Box className="each_input_field">

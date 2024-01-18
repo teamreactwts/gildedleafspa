@@ -7,6 +7,7 @@ export const ContactUsWrapper = styled(Box)`
     h3 {
       font-size: 45px;
       font-weight: 700;
+      text-transform: capitalize;
       @media (max-width: 599px) {
         font-size: 32px;
       }

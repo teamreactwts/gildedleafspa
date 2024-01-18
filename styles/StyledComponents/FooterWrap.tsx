@@ -42,6 +42,9 @@ export const FooterWrap = styled(Box)`
             &:hover {
               color: ${primaryColors.colorA67033};
             }
+            &.active {
+              color: ${primaryColors.colorA67033};
+            }
           }
         }
       }
@@ -136,9 +139,6 @@ export const FooterWrap = styled(Box)`
           a,
           .address_box {
             display: flex;
-            &:hover {
-              opacity: 0.7;
-            }
 
             i {
               margin-right: 13px;
@@ -152,6 +152,11 @@ export const FooterWrap = styled(Box)`
               &.locationtext {
                 margin-top: -5px;
               }
+            }
+          }
+          a {
+            &:hover {
+              opacity: 0.7;
             }
           }
         }
