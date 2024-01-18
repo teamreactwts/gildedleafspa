@@ -9,23 +9,24 @@ import CartIcon from "@/ui/Icons/cartIcon";
 import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Home() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  // const [count, setCount] = useState(0);
 
   const handleClose = useCallback(() => {
     setOpen(false);
   }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("isFirstTime", "true");
-  //   const isFirstTime = localStorage.getItem("isFirstTime");
-  //   if (isFirstTime) {
-  //     setOpen(true);
-  //     localStorage.setItem("isFirstTime", "false");
-  //   }
-  // }, []);
+  useEffect(() => {
+    const isFirstTime = localStorage.getItem("isFirstTime") === null;
+
+    if (isFirstTime) {
+      setOpen(true);
+      localStorage.setItem("isFirstTime", "false");
+    }
+  }, []);
 
   return (
     <Wrapper>
