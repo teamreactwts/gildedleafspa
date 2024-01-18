@@ -75,6 +75,13 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
         breakpoint: 899,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 599,
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 2,
           arrows: true,
           dots: false

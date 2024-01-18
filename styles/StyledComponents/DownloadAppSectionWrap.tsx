@@ -81,18 +81,18 @@ export const DownloadAppSectionWrap = styled(Box)`
         @media (max-width: 1199px) {
           justify-content: center;
         }
-        @media (max-width: 599px) {
+        @media (max-width: 1199px) {
           flex-wrap: wrap;
         }
         li {
           width: auto;
           margin-right: 17px;
-          @media (max-width: 599px) {
+          @media (max-width: 1199px) {
             margin: 0 0 20px 0;
           }
           &:last-child {
             margin-right: 0;
-            @media (max-width: 599px) {
+            @media (max-width: 1199px) {
               margin-bottom: 0;
             }
           }

@@ -116,6 +116,7 @@ export const PriceCardWrapper = styled(Box)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
     min-height: 230px;
     h4 {
       font-family: Nunito Sans;
@@ -133,6 +134,7 @@ export const PriceCardWrapper = styled(Box)`
     button {
       margin-top: 50px;
       padding: 11px 25px;
+      width: auto;
     }
   }
 `;
