@@ -196,8 +196,6 @@ export default function Header(props: Props) {
     }
   );
 
-  console.log(serviceList?.data.data.docs, "serviceList");
-
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
       <AppBar
