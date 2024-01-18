@@ -156,7 +156,7 @@ export const HeaderWrap = styled(Box)`
       margin-right: 28px;
       display: inline-block;
       color: ${primaryColors.primary};
-      font-size: 16px;
+      font-size: 17px;
       font-family: "Cormorant Garamond";
       font-weight: 600;
       line-height: 1;

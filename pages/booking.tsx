@@ -13,7 +13,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useCallback, useState } from "react";
 
-export const BookingWrapper = styled(Box)``;
+export const BookingWrapper = styled(Box)`
+.cmn_btn_booking{
+  min-width: auto;
+}
+
+`;
 
 const breadCumbList = [
   {
@@ -55,6 +60,7 @@ const Index = () => {
                   <CustomButtonPrimary
                     variant="outlined"
                     color="primary"
+                    className="cmn_btn_booking"
                     sx={{ marginRight: "15px" }}
                     onClick={() => setStep((data) => data + 1)}
                   >
@@ -63,6 +69,7 @@ const Index = () => {
                   <CustomButtonPrimary
                     variant="contained"
                     color="primary"
+                    className="cmn_btn_booking"
                     onClick={() =>
                       alert("Please Click skip to go next step!!!")
                     }

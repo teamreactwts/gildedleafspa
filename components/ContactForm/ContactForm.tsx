@@ -92,6 +92,7 @@ const ContactForm: React.FC<contactProps & HTMLAttributes<HTMLDivElement>> = ({
             variant="contained"
             color="primary"
             onClick={() => stepIncr(3)}
+            
           >
             <Typography variant="caption">Continue</Typography>
           </CustomButtonPrimary>
