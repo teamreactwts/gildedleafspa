@@ -329,6 +329,9 @@ export const ServiceDetailsWrapper = styled(Box)`
         font-weight: 400;
         line-height: 1;
         margin-bottom: 0;
+        @media (max-width: 899px) {
+          font-size: 32px;
+        }
         span {
           font-weight: 700;
           line-height: inherit;
