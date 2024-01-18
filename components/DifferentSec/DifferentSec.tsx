@@ -1,6 +1,9 @@
 /* eslint-disable react/no-array-index-key */
+import { mediaUrl } from "@/api/endpoints";
+import { GetAboutData } from "@/api/functions/cms.api";
+import { IAboutDetails } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
-import { iconList, sliderList } from "@/json/mock/iconList.mock";
+import { sliderList } from "@/json/mock/iconList.mock";
 import {
   CommonSlider,
   DifferentInnerWrapper,
@@ -17,6 +20,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
 import React, { HTMLAttributes } from "react";
+import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -43,6 +47,7 @@ export const ServiceCardDifferent = ({
 
 interface props {
   showInterestSec?: boolean;
+  aboutData?: IAboutDetails;
 }
 
 const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
@@ -78,6 +83,10 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
       }
     ]
   };
+
+  const { data: aboutData } = useQuery("aboutDetails", GetAboutData, {
+    refetchOnWindowFocus: false
+  });
   return (
     <DifferentWrapper {...props}>
       <Image
@@ -90,21 +99,98 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
       <Container fixed>
         <DifferentInnerWrapper forNoInterestSection={forNoInterestSection}>
           <CommonHeader
-            title="What makes"
-            breakTitle="us different?"
-            subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nulla sed nisi gravida maximus."
+            title={aboutData?.data?.data?.make_us_different_title}
+            breakTitle=""
+            subTitle={
+              aboutData?.data?.data?.make_us_different_short_description
+            }
           />
           <IconCardStack direction="row" flexWrap="wrap">
-            {iconList?.map((item, index) => (
-              <Box className="each_icon_card" key={index}>
-                <Typography component="i">
-                  <Image src={item?.icon} alt="icon" width={66} height={66} />
-                </Typography>
-                <Typography variant="h4">
-                  <Link href="#url">{item?.title}</Link>
-                </Typography>
-              </Box>
-            ))}
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_1}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_1}
+                </Link>
+              </Typography>
+            </Box>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_2}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_2}
+                </Link>
+              </Typography>
+            </Box>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_3}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_3}
+                </Link>
+              </Typography>
+            </Box>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_4}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_4}
+                </Link>
+              </Typography>
+            </Box>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_5}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_5}
+                </Link>
+              </Typography>
+            </Box>
           </IconCardStack>
         </DifferentInnerWrapper>
 

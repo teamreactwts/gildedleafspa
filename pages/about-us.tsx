@@ -1,55 +1,57 @@
+import { mediaUrl } from "@/api/endpoints";
+import { GetAboutData } from "@/api/functions/cms.api";
 import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import CommonGridSec from "@/components/CommonGridSec/CommonGridSec";
 import DifferentSec from "@/components/DifferentSec/DifferentSec";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
-import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import Loader from "@/ui/Loader/Loder";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { useQuery } from "react-query";
 
 export const AboutUsWrapper = styled(Box)``;
 
 export default function Index() {
+  const { isLoading, data: aboutData } = useQuery(
+    "aboutDetails",
+    GetAboutData,
+    {
+      refetchOnWindowFocus: false
+    }
+  );
+  if (isLoading) {
+    return <Loader isLoading={isLoading} />;
+  }
   return (
     <Wrapper>
       <InnnerPageWrapper>
         <BreadcumbTitle pageName="About Us" title="About Us" />
         <AboutUsWrapper className="cmn_gap">
-          <CommonGridSec image={assest?.about_image1}>
-            <Typography variant="h2">Our story</Typography>
-            <Typography>
-              Lorem ipsum dolor sit amet consectetur. Aliquet est interdum at
-              commodo enim amet nibh sem enim. Netus orci massa lacinia tellus
-              eget est fermentum. Aliquam viverra quam aliquet blandit. Vel nam
-              congue interdum lectus.
-            </Typography>
-            <Typography>
-              Aliquet est interdum at commodo enim amet nibh sem enim. Netus
-              orci massa lacinia tellus eget est fermentum. Aliquam viverra quam
-              aliquet blandit. Vel nam congue interdum lectus. Lorem ipsum dolor
-              sit amet consectetur.
-            </Typography>
-            <Typography>
-              Netus orci massa lacinia tellus eget est fermentum. Aliquam
-              viverra quam aliquet blandit.
-            </Typography>
+          <CommonGridSec
+            image={mediaUrl(`about/${aboutData?.data?.data?.image}`)}
+          >
+            <Typography variant="h2">{aboutData?.data?.data?.title}</Typography>
+            <Typography
+              dangerouslySetInnerHTML={{
+                __html: aboutData?.data?.data?.description as string
+              }}
+            />
           </CommonGridSec>
           <DifferentSec showInterestSec={false} />
-          <CommonGridSec image={assest?.about_image2} isReverse>
-            <Typography variant="h2">Our impact</Typography>
-            <Typography>
-              Lorem ipsum dolor sit amet consectetur. Aliquet est interdum at
-              commodo enim amet nibh sem enim. Netus orci massa lacinia tellus
-              eget est ferm entum. Aliquam viverra quam aliquet blandit. Vel nam
-              congue interdum lectus.
+          <CommonGridSec
+            image={mediaUrl(`about/${aboutData?.data?.data?.impact_image}`)}
+            isReverse
+          >
+            <Typography variant="h2">
+              {aboutData?.data?.data?.impact_title}
             </Typography>
-            <Typography>
-              Aliquet est interdum at commodo enim amet nibh sem enim. Netus
-              orci massa lacinia tellus eget est fermentum. Aliquam viverra quam
-              aliquet blandit. Vel nam congue interdum lectus. Lorem ipsum dolor
-              sit amet consectetur.
-            </Typography>
+            <Typography
+              dangerouslySetInnerHTML={{
+                __html: aboutData?.data?.data?.impact_description as string
+              }}
+            />
           </CommonGridSec>
         </AboutUsWrapper>
       </InnnerPageWrapper>

@@ -38,7 +38,6 @@ interface Props {
 const drawerWidth = 240;
 
 export default function Header(props: Props) {
-  console.log(props);
   const navItems = [
     {
       name: "Membership",

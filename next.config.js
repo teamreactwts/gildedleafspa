@@ -23,9 +23,8 @@ module.exports = withPWA({
       "picsum.photos",
       "placeimg.com",
       "encrypted-tbn0.gstatic.com",
-      "career-utility.dedicateddevelopers.us",
       "lh3.googleusercontent.com",
-      "junischool-admin.dedicateddevelopers.us",
+      "medspa.dedicateddevelopers.us",
       "graph.facebook.com"
     ]
   },

@@ -1,4 +1,5 @@
 /* eslint-disable react/no-array-index-key */
+import { GetSettingsDetails } from "@/api/functions/cms.api";
 import assest from "@/json/assest";
 import { FooterWrap } from "@/styles/StyledComponents/FooterWrap";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
@@ -19,6 +20,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
+import { useQuery } from "react-query";
 
 const Footer = () => {
   const navItems = [
@@ -57,25 +59,10 @@ const Footer = () => {
       route: "/contact-us"
     }
   ];
-  const socialmediaSection = [
-    {
-      icon: <FacebookIcon />,
-      route: "#url"
-    },
-    {
-      icon: <TictockIcon />,
-      route: "#url"
-    },
-    {
-      icon: <InstaGramIcon />,
-      route: "#url"
-    },
-    {
-      icon: <YoutubeIcon />,
-      route: "#url"
-    }
-  ];
-  // const router = useRouter();
+
+  const { data } = useQuery("settingsDetails", GetSettingsDetails, {
+    refetchOnWindowFocus: false
+  });
   return (
     <FooterWrap>
       <Container fixed>
@@ -99,11 +86,46 @@ const Footer = () => {
                   />
                 </Box>
                 <List disablePadding className="social_icons">
-                  {socialmediaSection.map((item, index) => (
-                    <ListItem disablePadding key={index}>
-                      <Link href={item.route}>{item.icon}</Link>
-                    </ListItem>
-                  ))}
+                  <ListItem disablePadding>
+                    <Link
+                      href="#"
+                      onClick={() =>
+                        window.open(data?.data?.data?.socialLinks?.fb)
+                      }
+                    >
+                      <FacebookIcon />
+                    </Link>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <Link
+                      href="#"
+                      onClick={() =>
+                        window.open(data?.data?.data?.socialLinks?.tiktok)
+                      }
+                    >
+                      <TictockIcon />
+                    </Link>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <Link
+                      href="#"
+                      onClick={() =>
+                        window.open(data?.data?.data?.socialLinks?.insta)
+                      }
+                    >
+                      <InstaGramIcon />
+                    </Link>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <Link
+                      href="#"
+                      onClick={() =>
+                        window.open(data?.data?.data?.socialLinks?.yt)
+                      }
+                    >
+                      <YoutubeIcon />
+                    </Link>
+                  </ListItem>
                 </List>
               </Box>
             </Grid>
@@ -142,11 +164,11 @@ const Footer = () => {
                 </Typography>
                 <List disablePadding className="footer_contactform">
                   <ListItem disablePadding>
-                    <Link href="mailto:demomail@gmail.com">
+                    <Link href="#">
                       <i className="phone_icon">
                         <MailIcon />
                       </i>
-                      <Typography>demomail@gmail.com</Typography>
+                      <Typography>{data?.data?.data?.email}</Typography>
                     </Link>
                   </ListItem>
                   <ListItem disablePadding>
@@ -154,7 +176,7 @@ const Footer = () => {
                       <i className="phone_icon">
                         <PhoneIcon IconHeight="15" IconWidth="15" />
                       </i>
-                      <Typography>1234567890</Typography>
+                      <Typography>{data?.data?.data?.contactNumber}</Typography>
                     </Link>
                   </ListItem>
                   <ListItem disablePadding>
@@ -163,7 +185,7 @@ const Footer = () => {
                         <LocationIcon />
                       </i>
                       <Typography className="locationtext">
-                        demo street, location, city country, zip
+                        {data?.data?.data?.address}
                       </Typography>
                     </Box>
                   </ListItem>
