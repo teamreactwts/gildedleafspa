@@ -99,16 +99,22 @@ export const DownloadAppSectionWrap = styled(Box)`
           button {
             min-width: 187px;
             padding: 12px;
+            color: ${primaryColors.primary};
             &.downloadapp_btn {
               span {
-                color: ${primaryColors.primary};
+                /* color: ${primaryColors.primary}; */
                 font-family: Cormorant Garamond;
                 font-size: 15px;
                 font-weight: 500;
                 line-height: 1;
               }
+              .MuiButton-startIcon {
+                color: ${primaryColors.primary};
+              }
               &:hover {
-                border: 1px solid ${primaryColors.colorA67033};
+                .MuiButton-startIcon {
+                  color: ${primaryColors.white};
+                }
               }
             }
           }

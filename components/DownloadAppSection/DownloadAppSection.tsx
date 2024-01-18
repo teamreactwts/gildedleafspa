@@ -50,11 +50,7 @@ function DownloadAppSection() {
                   <ListItem disablePadding>
                     <CustomButtonPrimary
                       startIcon={
-                        <PlaysoreIcon
-                          IconWidth="21"
-                          IconHeight="24"
-                          IconColor={primaryColors.primary}
-                        />
+                        <PlaysoreIcon IconWidth="21" IconHeight="24" />
                       }
                       variant="outlined"
                       color="primary"
