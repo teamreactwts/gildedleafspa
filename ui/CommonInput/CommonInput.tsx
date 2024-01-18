@@ -28,9 +28,13 @@ const InputWrap = styled(TextField as any)`
     min-height: 60px;
     border: 1px solid ${primaryColors?.colore6e0d6};
     background: ${primaryColors?.colorfcfbf8};
+    @media (max-width:899px) {
+      font-size: 16px;
+    }
     @media (max-width: 599px) {
       padding: 5px 10px;
       min-width: auto;
+      
     }
 
     input[type="text"],
