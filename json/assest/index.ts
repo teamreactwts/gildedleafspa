@@ -38,12 +38,13 @@ export default {
   inner_wrapper_vector: "/assets/images/inner_wrapper_vector.png",
   blogImage: "/assets/images/blogImage.png",
   profileIcon: "/assets/images/profileIcon.png",
-  blogImage1:"/assets/images/blogImage1.png",
-  rightArrow:"/assets/images/rightArrow.svg",
-  leftArrow:"/assets/images/leftArrow.svg",
+  blogImage1: "/assets/images/blogImage1.png",
+  rightArrow: "/assets/images/rightArrow.svg",
+  leftArrow: "/assets/images/leftArrow.svg",
   about_image1: "/assets/images/about_image1.png",
   about_image2: "/assets/images/about_image2.png",
-  blogDetailsImg:"/assets/images/blogDetailsImg.png",
+  blogDetailsImg: "/assets/images/blogDetailsImg.png",
   about_image3: "/assets/images/about_image3.png",
-  about_image4: "/assets/images/about_image4.png"
+  about_image4: "/assets/images/about_image4.png",
+  newsletter_image: "/assets/images/newsletter_image.png"
 };
