@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import ImageCard from "@/components/ImageCard/ImageCard";
+import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import { conditionList } from "@/json/mock/homeslider.mock";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { ConditionWrap } from "@/styles/StyledComponents/ConditionWrap";
@@ -56,6 +57,7 @@ function Condition() {
   };
   return (
     <Wrapper>
+        <InnnerPageWrapper>
       <BreadcumbTitle title="Conditions" pageName="Condition" />
       <ConditionWrap>
         <Container fixed>
@@ -96,6 +98,7 @@ function Condition() {
           </CommonSlider>
         </Container>
       </ConditionWrap>
+      </InnnerPageWrapper>
     </Wrapper>
   );
 }

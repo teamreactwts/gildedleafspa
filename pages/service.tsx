@@ -1,4 +1,5 @@
 import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
+import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import ServiceSectionCard from "@/components/ServiceCard/ServiceCard";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
@@ -95,6 +96,7 @@ export const serviceList = [
 function Survice() {
   return (
     <Wrapper>
+      <InnnerPageWrapper>
          <BreadcumbTitle title="Services" pageName="Services" />
      
        
@@ -124,6 +126,7 @@ function Survice() {
           </Container>
           
         </SurviceWrap>
+        </InnnerPageWrapper>
       
     </Wrapper>
   );
