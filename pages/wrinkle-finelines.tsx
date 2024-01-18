@@ -1,4 +1,5 @@
 /* eslint-disable react/no-array-index-key */
+import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import ServiceSectionCard from "@/components/ServiceCard/ServiceCard";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
@@ -39,6 +40,7 @@ export const sectioncardList = [
 function WrinkleFinelines() {
   return (
     <Wrapper>
+      <InnnerPageWrapper>
       <WrinkleFinelinesWrapper>
         <Container fixed>
           <Stack
@@ -86,6 +88,7 @@ function WrinkleFinelines() {
           </Box>
         </Container>
       </WrinkleFinelinesWrapper>
+      </InnnerPageWrapper>
     </Wrapper>
   );
 }

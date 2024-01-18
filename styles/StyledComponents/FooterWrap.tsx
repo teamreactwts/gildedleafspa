@@ -110,6 +110,9 @@ export const FooterWrap = styled(Box)`
               font-weight: 400;
               line-height: 1;
               border-right: 1px solid rgba(166, 112, 51, 0.1);
+              @media (max-width: 899px) {
+                font-size: 16px;
+              }
               &::placeholder {
                 color: ${primaryColors.white};
               }
