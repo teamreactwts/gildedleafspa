@@ -27,6 +27,9 @@ export interface IhomeDetails {
   status: string;
   createdAt: string;
   updatedAt: string;
+  bold_title: string;
+  interested_in_bold_title: string;
+  concerns_bold_title: string;
 }
 export interface IgetAboutResponse extends BaseApiResponse {
   data: IAboutDetails;
@@ -56,6 +59,7 @@ export interface IAboutDetails {
   status: string;
   createdAt: string;
   updatedAt: string;
+  make_us_different_bold_title: string;
 }
 export interface IgetAffortResponse extends BaseApiResponse {
   data: IAffortDetails;
@@ -93,4 +97,34 @@ export interface SocialLinks {
   tiktok: string;
   insta: string;
   yt: string;
+}
+
+export interface IgetServiceResponse {
+  data: IgetServiceData;
+}
+
+export interface IgetServiceData {
+  docs: Doc[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
+}
+
+export interface Doc {
+  _id: string;
+  faqId: string[];
+  conditionId: string[];
+  title: string;
+  description: string;
+  icon: string;
+  benefits_options: string[];
+  how_to_use_options: string[];
+  result_image: string;
+  button_text1: string;
+  button_text2: string;
+  isDeleted: boolean;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
 }

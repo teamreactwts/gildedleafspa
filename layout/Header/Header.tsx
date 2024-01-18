@@ -17,6 +17,7 @@ import { useAppSelector } from "@/hooks/useAppSelector";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
+import { GetServiceList } from "@/api/functions/cms.api";
 import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import BrandLogo from "@/ui/Icons/BrandLogo";
@@ -30,6 +31,7 @@ import Stack from "@mui/material/Stack";
 import { Container } from "@mui/system";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useQuery } from "react-query";
 
 interface Props {
   window?: () => Window;
@@ -165,45 +167,6 @@ export default function Header(props: Props) {
     }
   ];
 
-  const serviceMenuItems = [
-    {
-      name: "All Services",
-      route: "/service"
-    },
-    {
-      name: "Botox",
-      route: "/botox"
-    },
-    {
-      name: "Dermal Fillers",
-      route: "/dermal-fillers"
-    },
-    {
-      name: "Microneedling",
-      route: "/microneedling"
-    },
-    {
-      name: "Microdermabrasion",
-      route: "/microdermabrasion"
-    },
-    {
-      name: "Laser Hair Removal",
-      route: "/laser-hair-removal"
-    },
-    {
-      name: "Hydrafacial",
-      route: "/hydrafacial"
-    },
-    {
-      name: "Laser Skin Rejuvenation",
-      route: "/laser-skin-rejuvenation"
-    },
-    {
-      name: "Laser Skin Resurfacing",
-      route: "/laser-skin-resurfacing"
-    }
-  ];
-
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -221,6 +184,19 @@ export default function Header(props: Props) {
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
+  const [page, setPage] = React.useState(0);
+  const [per_page, setPageLimit] = React.useState(0);
+
+  const { data: serviceList } = useQuery(
+    ["serviceList", page],
+
+    {
+      queryFn: () => GetServiceList({ page, per_page }),
+      refetchOnWindowFocus: false
+    }
+  );
+
+  console.log(serviceList?.data.data.docs, "serviceList");
 
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
@@ -344,14 +320,20 @@ export default function Header(props: Props) {
                       vertical: "top"
                     }}
                   >
-                    {serviceMenuItems?.map((data, index) => (
-                      <MenuItem
-                        key={index}
-                        onClick={() => router.push(data?.route)}
-                      >
-                        {data?.name}
-                      </MenuItem>
-                    ))}
+                    <MenuItem onClick={() => router.push("/service")}>
+                      All Services
+                    </MenuItem>
+                    {!!serviceList &&
+                      !!serviceList?.data?.data?.docs &&
+                      serviceList?.data?.data?.docs.length > 0 &&
+                      serviceList?.data?.data?.docs?.map((data, index) => (
+                        <MenuItem
+                          key={index}
+                          // onClick={() => router.push(data?.route)}
+                        >
+                          {data?.title}
+                        </MenuItem>
+                      ))}
                   </NavMenu>
 
                   <Button

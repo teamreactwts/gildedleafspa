@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
 import { GetAboutData } from "@/api/functions/cms.api";
-import { IAboutDetails } from "@/interface/apiresp.interfaces";
+import { IAboutDetails, IhomeDetails } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
 import { sliderList } from "@/json/mock/iconList.mock";
 import {
@@ -48,6 +48,7 @@ export const ServiceCardDifferent = ({
 interface props {
   showInterestSec?: boolean;
   aboutData?: IAboutDetails;
+  homeData?: IhomeDetails;
 }
 
 const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
@@ -100,7 +101,7 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
         <DifferentInnerWrapper forNoInterestSection={forNoInterestSection}>
           <CommonHeader
             title={aboutData?.data?.data?.make_us_different_title}
-            breakTitle=""
+            breakTitle={aboutData?.data?.data?.make_us_different_bold_title}
             subTitle={
               aboutData?.data?.data?.make_us_different_short_description
             }
@@ -205,13 +206,16 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
             >
               <Box className="title_left">
                 <Typography variant="h2">
-                  Which service are{" "}
-                  <Typography variant="caption">you interested in?</Typography>
+                  {props.homeData?.interested_in_title}{" "}
+                  <Typography variant="caption">
+                    {props.homeData?.interested_in_bold_title}
+                  </Typography>
                 </Typography>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                  rutrum nulla sed nisi gravida maximus.
-                </Typography>
+                <Typography
+                  dangerouslySetInnerHTML={{
+                    __html: props.homeData?.interested_in_description as string
+                  }}
+                />
               </Box>
               <CustomButtonPrimary variant="contained" color="primary">
                 <Typography variant="caption">Explore</Typography>

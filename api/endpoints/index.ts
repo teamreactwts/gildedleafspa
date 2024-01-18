@@ -22,6 +22,9 @@ export const endpoints = {
     about: "aboutUs/get-data",
     affort: "affordability/details",
     setting: "settings/details"
+  },
+  service: {
+    list: "service/list"
   }
 };
 
