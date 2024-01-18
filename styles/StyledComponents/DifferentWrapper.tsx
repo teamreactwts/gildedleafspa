@@ -255,5 +255,10 @@ export const DifferentInnerWrapper = styled(Box, {
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(253, 252, 248, 0.74) 3.57%, rgba(253, 252, 248, 0.29) 96.74%);
 
-    backdrop-filter: blur(2px);`}
+    backdrop-filter: blur(2px);
+    
+    @media(max-width:599px){
+      padding:25px 20px;
+    }
+    `}
 `;
