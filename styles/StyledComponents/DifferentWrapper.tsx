@@ -113,7 +113,7 @@ export const CommonSlider = styled(Box)`
   .slick-arrow {
     width: 30px;
     height: 30px;
-    background-color: ${primaryColors.colorA67033};
+    background: ${primaryColors.colorA67033} !important;
     border-radius: 100%;
 
     &:hover {

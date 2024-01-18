@@ -230,10 +230,20 @@ export const FooterWrap = styled(Box)`
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    @media (max-width: 899px) {
+      height: 50%;
+      width: 100%;
+      top: 9%;
+      left: 90%;
+      transform: translateX(-50%);
+    }
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      @media (max-width: 899px) {
+        object-fit: contain;
+      }
     }
   }
 `;
