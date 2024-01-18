@@ -218,6 +218,9 @@ export const CustomRadioGroup = styled(RadioGroup)`
       @media (max-width: 1199px) {
         font-size: 12px;
       }
+      @media (max-width: 899px) {
+        font-size: 16px;
+      }
     }
     .MuiRadio-root {
       position: absolute;
