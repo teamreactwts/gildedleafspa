@@ -18,6 +18,7 @@ import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
 import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
+import { primaryColors } from "@/themes/_muiPalette";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import BrandLogo from "@/ui/Icons/BrandLogo";
 import MenuIcon from "@/ui/Icons/MenuIcon";
@@ -169,7 +170,7 @@ export default function Header(props: Props) {
   const serviceMenuItems = [
     {
       name: "All Services",
-      route: "/service"
+      route: "/services"
     },
     {
       name: "Botox",
@@ -222,6 +223,8 @@ export default function Header(props: Props) {
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
+
+  console.log(router.pathname.includes("/services"), "abhisek");
 
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
@@ -328,6 +331,13 @@ export default function Header(props: Props) {
                     aria-expanded={open2 ? "true" : undefined}
                     onClick={handleClick2}
                     className="navDropdown"
+                    sx={{
+                      color: `${
+                        router.pathname.includes("/services")
+                          ? `${primaryColors?.colorA67033} !important`
+                          : ""
+                      }`
+                    }}
                   >
                     Services
                   </Button>
