@@ -36,9 +36,9 @@ function Condition() {
           slidesToShow: 2,
           slidesToScroll: 2,
           centerMode: true,
-          centerPadding: "30px",
-          dots: false,
-          arrows: true
+          centerPadding: "30px"
+          // dots: false,
+          // arrows: true
         }
       },
       {

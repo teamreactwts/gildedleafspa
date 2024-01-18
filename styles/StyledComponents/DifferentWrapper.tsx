@@ -135,7 +135,7 @@ export const CommonSlider = styled(Box)`
         height: 10px;
         background-size: 100% 100%;
       }
-      @media (max-width: 899px) {
+      @media (max-width: 599px) {
         left: 40%;
         transform: translateX(-40%);
         bottom: 0;
@@ -156,7 +156,7 @@ export const CommonSlider = styled(Box)`
         height: 10px;
         background-size: 100% 100%;
       }
-      @media (max-width: 899px) {
+      @media (max-width: 599px) {
         left: 60%;
         transform: translateX(-60%);
         bottom: 0;

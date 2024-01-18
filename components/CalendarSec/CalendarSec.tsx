@@ -73,7 +73,7 @@ const CalendarSec: React.FC<
                   <Box className="wrapper">
                     <CustomRadioGroup
                       aria-labelledby="demo-radio-buttons-group-label"
-                      defaultValue="1"
+                      defaultValue="0"
                       name="radio-buttons-group"
                     >
                       {timeSlotList?.map((data, index) => (

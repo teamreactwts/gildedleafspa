@@ -4,7 +4,7 @@ import Button, { ButtonProps } from "@mui/material/Button";
 
 const CustomButtonWrapper = styled(Button)`
   display: flex;
-  padding: 18px 27px;
+  padding: 17px 32px;
   border-radius: 50px;
   min-width: 145px;
   justify-content: center;
