@@ -12,13 +12,22 @@ export const endpoints = {
   auth: {
     signup: "user/existence",
     signUpProfile: "user/signup",
-    login:"user/login",
+    login: "user/login",
     profileDetails: "user/profile/get",
     profileUpdate: "user/profile/update"
   },
   cms: {
-    about: "aboutpolicy/details",
-    faq: "faq/all"
+    faq: "faq/all",
+    home: "home/content-data",
+    about: "aboutUs/get-data",
+    affort: "affordability/details",
+    setting: "settings/details"
+  },
+  service: {
+    list: "service/list"
+  },
+  condition: {
+    list: "condition/get-data"
   }
 };
 
@@ -26,5 +35,5 @@ export const sucessNotificationEndPoints = [
   // endpoints.auth.signup,
   endpoints.auth.signUpProfile,
   endpoints.auth.login,
-  endpoints.auth.profileUpdate,
+  endpoints.auth.profileUpdate
 ];

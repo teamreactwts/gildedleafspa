@@ -1,3 +1,4 @@
+import { GetHomeDetails } from "@/api/functions/cms.api";
 import BannerSec from "@/components/BannerSec/BannerSec";
 import DifferentSec from "@/components/DifferentSec/DifferentSec";
 import DownloadAppSection from "@/components/DownloadAppSection/DownloadAppSection";
@@ -7,12 +8,14 @@ import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+import Loader from "@/ui/Loader/Loder";
 import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { useCallback, useState } from "react";
+import { useQuery } from "react-query";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
@@ -22,21 +25,34 @@ export default function Home() {
     setOpen(false);
   }, []);
 
+  const { isLoading, data } = useQuery("homeDetails", GetHomeDetails, {
+    refetchOnWindowFocus: false
+  });
+
+  if (isLoading) {
+    return <Loader isLoading={isLoading} />;
+  }
+
   return (
     <Wrapper>
-      <BannerSec bannerImage={assest?.banner_image}>
+      <BannerSec
+        bannerImage={data?.data?.data?.image as string}
+        buttonText={data?.data?.data?.button_text as string}
+      >
         <Typography variant="h1">
-          Join our Membership today to receive{" "}
-          <Typography variant="caption">exclusive benefits.</Typography>
+          {data?.data?.data?.title}{" "}
+          <Typography variant="caption">
+            {data?.data?.data?.bold_title}
+          </Typography>
         </Typography>
-        <Typography>
-          Receive up to 30% savings on all services. Botox/Xeomin starting at $9
-          per unit*.No long term contract. Cancel or pause membership at
-          anytime.
-        </Typography>
+        <Typography
+          dangerouslySetInnerHTML={{
+            __html: data?.data?.data?.description as string
+          }}
+        />
       </BannerSec>
-      <DifferentSec className="cmn_gap" />
-      <HomeSlider />
+      <DifferentSec className="cmn_gap" homeData={data?.data?.data} />
+      <HomeSlider homeData={data?.data?.data} />
       <DownloadAppSection />
       <MuiModalWrapper open={open} onClose={handleClose} className="newsletter">
         <Box className="modal_sectionWrap">

@@ -1,3 +1,4 @@
+import { mediaUrl } from "@/api/endpoints";
 import { BannerWrap } from "@/styles/StyledComponents/BannerWrap";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Box from "@mui/material/Box";
@@ -9,10 +10,12 @@ import React from "react";
 
 export default function BannerSec({
   bannerImage,
-  children
+  children,
+  buttonText
 }: {
   children: React.ReactNode;
   bannerImage: string;
+  buttonText: string;
 }) {
   return (
     <BannerWrap>
@@ -22,9 +25,7 @@ export default function BannerSec({
             <Box className="banner_wrap">
               {children}
               <CustomButtonPrimary variant="contained" color="primary">
-                <Typography variant="caption">
-                  Click here to learn more
-                </Typography>
+                <Typography variant="caption">{buttonText}</Typography>
               </CustomButtonPrimary>
             </Box>
           </Grid>
@@ -33,7 +34,7 @@ export default function BannerSec({
               <Box className="gradient-box" />
               <figure>
                 <Image
-                  src={bannerImage}
+                  src={mediaUrl(`home/${bannerImage}`)}
                   alt="banner image"
                   width={480}
                   height={550}
