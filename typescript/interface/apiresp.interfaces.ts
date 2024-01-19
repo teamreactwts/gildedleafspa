@@ -102,6 +102,9 @@ export interface SocialLinks {
 export interface IgetServiceResponse {
   data: IgetServiceData;
 }
+export interface IgetServiceDetailsResponse {
+  data: Doc;
+}
 
 export interface IgetServiceData {
   docs: Doc[];
@@ -113,8 +116,8 @@ export interface IgetServiceData {
 
 export interface Doc {
   _id: string;
-  faqId: string[];
-  conditionId: string[];
+  faqId: Faq[];
+  conditionId: ConditionDoc[];
   title: string;
   description: string;
   icon: string;
@@ -145,4 +148,26 @@ export interface ConditionDoc {
   isDeleted: boolean;
   status: string;
   _id: string;
+  description?: string;
+  serivce?: IserviceCondition[];
+}
+export interface Faq {
+  _id: string;
+  question: string;
+  answer: string;
+  isDeleted: boolean;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface IserviceCondition {
+  _id: string;
+  title: string;
+  description: string;
+  icon: string;
+  button_text1: string;
+  button_text2: string;
+}
+export interface IgetConditionDetailsResponse {
+  data: ConditionDoc;
 }

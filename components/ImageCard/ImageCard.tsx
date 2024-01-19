@@ -1,8 +1,10 @@
+import { ConditionDoc } from "@/interface/apiresp.interfaces";
 import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export const ImageCardWrap = styled(Box)`
   figure {
@@ -51,12 +53,16 @@ export interface imageprops {
   card_img: string;
   title: string;
   description: string;
+  item?: ConditionDoc;
 }
 
-function ImageCard({ card_img, title, description }: imageprops) {
+function ImageCard({ card_img, title, description, item }: imageprops) {
+  const router = useRouter();
   return (
     <ImageCardWrap>
-      <figure>
+      <figure
+        onClick={() => !!item && router.push(`/condition-details/${item._id}`)}
+      >
         <Image src={card_img} alt="image" width={292} height={369} />
         <Box className="slider_text">
           <Typography variant="h3">{title}</Typography>

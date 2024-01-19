@@ -1,15 +1,20 @@
 /* eslint-disable react/no-array-index-key */
+import { mediaUrl } from "@/api/endpoints";
+import { GetConditionDetails } from "@/api/functions/cms.api";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import ServiceSectionCard from "@/components/ServiceCard/ServiceCard";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { WrinkleFinelinesWrapper } from "@/styles/StyledComponents/WrinkleFineLineWrap";
+import Loader from "@/ui/Loader/Loder";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useQuery } from "react-query";
 
 export const sectioncardList = [
   {
@@ -37,7 +42,20 @@ export const sectioncardList = [
       "A versatile laser solution, the Neo Elite by Aerolase excels in skin..."
   }
 ];
-function WrinkleFinelines() {
+function ConditionDetails() {
+  const router = useRouter();
+  const { isLoading, data } = useQuery(
+    ["conditionDetails", router.query.id],
+
+    {
+      queryFn: () => GetConditionDetails({ _id: router.query.id as string }),
+      refetchOnWindowFocus: false
+    }
+  );
+  if (isLoading) {
+    return <Loader isLoading={isLoading} />;
+  }
+
   return (
     <Wrapper>
       <InnnerPageWrapper>
@@ -57,32 +75,28 @@ function WrinkleFinelines() {
                 />
               </figure>
               <Box className="product_details_wrap">
-                <Typography variant="h3">Wrinkles and fine lines</Typography>
-                <Typography variant="body1">
-                  Lorem ipsum dolor sit amet consectetur. Aliquet est interdum
-                  at commodo enim amet nibh sem enim. Netus orci massa lacinia
-                  tellus eget est fermentum. Aliquam viverra quam aliquet
-                  blandit. Vel nam congue interdum lectus.
-                </Typography>
-                <Typography variant="body1">
-                  Aliquet est interdum at commodo enim amet nibh sem enim. Lorem
-                  ipsum dolor sit amet consectetur. Netus orci massa lacinia
-                  tellus eget est fermentum. Aliquam viverra quam aliquet
-                  blandit. Vel nam congue interdum lectus.
-                </Typography>
+                <Typography variant="h3">{data?.data?.data?.title}</Typography>
+                <Typography
+                  variant="body1"
+                  dangerouslySetInnerHTML={{
+                    __html: data?.data?.data?.description as string
+                  }}
+                />
               </Box>
             </Stack>
             <Box className="section_card">
               <Grid container spacing={3.8}>
-                {sectioncardList.map((item, index) => (
-                  <Grid item xs={12} lg={6} key={index}>
-                    <ServiceSectionCard
-                      serviceImage={item.serviceImage}
-                      title={item.title}
-                      description={item.description}
-                    />
-                  </Grid>
-                ))}
+                {!!data?.data?.data?.serivce &&
+                  data?.data?.data?.serivce.length > 0 &&
+                  data?.data?.data?.serivce.map((item, index) => (
+                    <Grid item xs={12} lg={6} key={index}>
+                      <ServiceSectionCard
+                        serviceImage={mediaUrl(`service/${item?.icon}`)}
+                        title={item.title}
+                        description={item.description}
+                      />
+                    </Grid>
+                  ))}
               </Grid>
             </Box>
           </Container>
@@ -92,4 +106,4 @@ function WrinkleFinelines() {
   );
 }
 
-export default WrinkleFinelines;
+export default ConditionDetails;

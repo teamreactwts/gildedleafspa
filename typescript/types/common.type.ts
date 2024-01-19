@@ -51,4 +51,7 @@ export type Ipagination = {
   per_page: number;
 };
 
+export type IQueryProps = {
+  _id: string;
+};
 export {};

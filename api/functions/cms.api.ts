@@ -1,12 +1,14 @@
 import {
   IgetAboutResponse,
   IgetAffortResponse,
+  IgetConditionDetailsResponse,
   IgetConditionResponse,
   IgetHomeResponse,
+  IgetServiceDetailsResponse,
   IgetServiceResponse,
   IgetSettingsResponse
 } from "@/interface/apiresp.interfaces";
-import { Ipagination } from "@/types/common.type";
+import { IQueryProps, Ipagination } from "@/types/common.type";
 import axiosInstance from "../axiosInstance";
 import ApiRequest from "../axiosInstance/request";
 import { endpoints } from "../endpoints";
@@ -60,6 +62,18 @@ export const GetConditionList = async (body: Ipagination) => {
   const res = await axiosInstance.post<IgetConditionResponse>(
     endpoints.condition.list,
     body
+  );
+  return res;
+};
+export const GetServiceDetails = async (data: IQueryProps) => {
+  const res = await axiosInstance.get<IgetServiceDetailsResponse>(
+    `${endpoints.service.details}/${data?._id}`
+  );
+  return res;
+};
+export const GetConditionDetails = async (data: IQueryProps) => {
+  const res = await axiosInstance.get<IgetConditionDetailsResponse>(
+    `${endpoints.condition.details}/${data?._id}`
   );
   return res;
 };
