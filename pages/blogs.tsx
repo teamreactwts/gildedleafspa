@@ -166,7 +166,7 @@ export const BlogsWrapper = styled(Box)`
 
 function Blogs() {
   const [page, setPage] = React.useState(1);
-  const [per_page, setPageLimit] = React.useState(1);
+  const [per_page, setPageLimit] = React.useState(3);
   const [totalPage, setTotalPage] = React.useState<number>(0);
   const [blogList, setBlogList] = useState<blogDoc[]>();
 
@@ -296,7 +296,7 @@ function Blogs() {
             <Box className="blogSecitonBottomPart">
               <Grid container spacing={{ lg: 3.5, xs: 3.2 }}>
                 {!!blogList && blogList.length > 0 && page == 1
-                  ? blogList.slice(0, 1).map((data, index) => (
+                  ? blogList.slice(1).map((data, index) => (
                       <Grid item lg={4} md={6} xs={12}>
                         <BlogCard
                           item={data}
