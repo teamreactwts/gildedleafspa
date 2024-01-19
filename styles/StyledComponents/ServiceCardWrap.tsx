@@ -2,7 +2,7 @@ import { primaryColors } from "@/themes/_muiPalette";
 import { Stack, styled } from "@mui/system";
 
 export const ServiceCardWrap = styled(Stack)`
-position: relative;
+  position: relative;
   border-radius: 20px;
   width: 100%;
   background: linear-gradient(
@@ -16,10 +16,9 @@ position: relative;
   backdrop-filter: blur(2px);
   padding: 24px 32px 24px 20px;
   transition: all 0.4s ease-in-out;
-  @media (max-width:599px) {
-    padding: 24px 20px 100px 20px ;
-      
-    }
+  @media (max-width: 599px) {
+    padding: 24px 20px 100px 20px;
+  }
   cursor: pointer;
   &:hover {
     background: var(
@@ -50,10 +49,9 @@ position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    @media (max-width:599px) {
+    @media (max-width: 599px) {
       width: 110px;
       height: 128px;
-
     }
 
     figure {
@@ -71,10 +69,9 @@ position: relative;
   .service_details {
     width: calc(100% - 130px);
     margin-left: 32px;
-    @media (max-width:599px) {
+    @media (max-width: 599px) {
       width: calc(100% - 110px);
       margin-left: 15px;
-      
     }
     h4 {
       color: ${primaryColors.primary};
@@ -82,10 +79,9 @@ position: relative;
       font-weight: 700;
       line-height: 1.5;
       margin-bottom: 10px;
-       @media (max-width:599px) {
-      line-height: 1.2;
-      
-    }
+      @media (max-width: 599px) {
+        line-height: 1.2;
+      }
     }
     p {
       color: ${primaryColors.textPrimaryColor};
@@ -95,19 +91,23 @@ position: relative;
       font-weight: 400;
       line-height: 1.5;
       max-width: 338px;
+      /* white-space: nowrap; */
+      overflow: hidden;
+      /* text-overflow: ellipsis; */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
     .button_wrap {
       margin-top: 20px;
       display: flex;
       align-items: center;
-      @media (max-width:599px) {
+      @media (max-width: 599px) {
         position: absolute;
         left: 17px;
         bottom: 31px;
         width: 100%;
-      
-      
-    }
+      }
       li {
         width: auto;
         margin-right: 15px;
@@ -126,8 +126,8 @@ position: relative;
           padding: 13px;
           min-width: 185px;
         }
-        button{
-          @media (max-width:599px) {
+        button {
+          @media (max-width: 599px) {
             min-width: auto;
           }
         }

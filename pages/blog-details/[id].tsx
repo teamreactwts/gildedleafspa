@@ -9,6 +9,7 @@ import { primaryColors } from "@/themes/_muiPalette";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Calender from "@/ui/Icons/CalenderIcon";
 import styled from "@emotion/styled";
+import { Grid } from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Box, Stack } from "@mui/system";
@@ -223,51 +224,6 @@ export const BlogDetailsWrapper = styled(Box)`
     }
   }
 `;
-const settings = {
-  dots: false,
-  arrows: true,
-  navigator: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1199,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 899,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        centerMode: true,
-        centerPadding: "30px",
-        dots: false,
-        arrows: false,
-        autoPlay: true,
-
-        autoplaySpeed: 1500
-      }
-    },
-    {
-      breakpoint: 599,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "30px",
-        dots: false,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 1500
-      }
-    }
-  ]
-};
 
 function BlogDetails() {
   const router = useRouter();
@@ -280,6 +236,62 @@ function BlogDetails() {
       refetchOnWindowFocus: false
     }
   );
+
+  const settings = {
+    dots: false,
+    arrows: true,
+    navigator: false,
+    infinite: true,
+    speed: 500,
+    // slidesToShow:
+    //   !!data?.data?.data &&
+    //   !!data?.data?.data.related_blogs &&
+    //   data?.data?.data.related_blogs?.length > 4
+    //     ? 3
+    //     : !!data?.data?.data &&
+    //       !!data?.data?.data.related_blogs &&
+    //       data?.data?.data.related_blogs?.length - 1,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 899,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          centerMode: true,
+          centerPadding: "30px",
+          dots: false,
+          arrows: false,
+          autoPlay: true,
+
+          autoplaySpeed: 1500
+        }
+      },
+      {
+        breakpoint: 599,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "30px",
+          dots: false,
+          arrows: false,
+          autoplay: true,
+          autoplaySpeed: 1500
+        }
+      }
+    ]
+  };
+
+  // console.log(data?.data?.data.related_blogs, "abhisek");
   return (
     <Wrapper>
       <InnnerPageWrapper>
@@ -373,8 +385,7 @@ function BlogDetails() {
                 </CustomButtonPrimary>
               </Stack>
               <Box className="blog_section_slider">
-                <Slider {...settings}>
-                  {/* {cardList1?.map((data, index) => (
+                {/* {cardList1?.map((data, index) => (
                     <Box className="blog_siderCard" key={index}>
                       <BlogCard
                         blogimg={data.blogimg}
@@ -385,23 +396,47 @@ function BlogDetails() {
                     </Box>
                   ))} */}
 
-                  {!!data?.data?.data &&
-                    !!data?.data?.data.related_blogs &&
-                    data?.data?.data.related_blogs.length > 0 &&
-                    data?.data?.data.related_blogs.map((data, index) => (
-                      <Box className="blog_siderCard" key={index}>
-                        <BlogCard
-                          blogimg={mediaUrl(`blog/${data?.image}`)}
-                          datevalue={moment(data.published_date).format(
-                            "DD.MM.YYYY"
-                          )}
-                          cardtitevalue={data?.title}
-                          blogDescription={data?.description}
-                          item={data}
-                        />
-                      </Box>
-                    ))}
-                </Slider>
+                {!!data?.data?.data &&
+                !!data?.data?.data.related_blogs &&
+                data?.data?.data.related_blogs.length > 3 ? (
+                  <Slider {...(settings as any)}>
+                    {!!data?.data?.data &&
+                      !!data?.data?.data.related_blogs &&
+                      data?.data?.data.related_blogs.length > 0 &&
+                      data?.data?.data.related_blogs.map((data, index) => (
+                        <Box className="blog_siderCard" key={index}>
+                          <BlogCard
+                            blogimg={mediaUrl(`blog/${data?.image}`)}
+                            datevalue={moment(data.published_date).format(
+                              "DD.MM.YYYY"
+                            )}
+                            cardtitevalue={data?.title}
+                            blogDescription={data?.description}
+                            item={data}
+                          />
+                        </Box>
+                      ))}
+                  </Slider>
+                ) : (
+                  <Grid container spacing={{ md: 3, xs: 2 }}>
+                    {!!data?.data?.data &&
+                      !!data?.data?.data.related_blogs &&
+                      data?.data?.data.related_blogs.length > 0 &&
+                      data?.data?.data.related_blogs.map((data, index) => (
+                        <Grid item lg={4} md={6} xs={12} key={index}>
+                          <BlogCard
+                            blogimg={mediaUrl(`blog/${data?.image}`)}
+                            datevalue={moment(data.published_date).format(
+                              "DD.MM.YYYY"
+                            )}
+                            cardtitevalue={data?.title}
+                            blogDescription={data?.description}
+                            item={data}
+                          />
+                        </Grid>
+                      ))}
+                  </Grid>
+                )}
               </Box>
             </Box>
           </Container>

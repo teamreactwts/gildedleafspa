@@ -228,9 +228,9 @@ const Footer = () => {
           </Stack>
         </Container>
       </Box>
-      <figure className="footer_desing">
+      {/* <figure className="footer_desing">
         <Image src={assest.footerDesing} alt="image" width={603} height={449} />
-      </figure>
+      </figure> */}
     </FooterWrap>
   );
 };

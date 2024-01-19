@@ -10,6 +10,7 @@ import { ConditionWrap } from "@/styles/StyledComponents/ConditionWrap";
 import { CommonSlider } from "@/styles/StyledComponents/DifferentWrapper";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Loader from "@/ui/Loader/Loder";
+import { Stack } from "@mui/material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -137,16 +138,23 @@ function Condition() {
               </Slider>
             </CommonSlider>
             {!!conditionList && conditionList.length < totalPage && (
-              <Box className="view_btn">
-                <CustomButtonPrimary
-                  variant="contained"
-                  color="primary"
-                  className="member_btn"
-                  onClick={() => handleViewMore()}
-                >
-                  <Typography variant="caption">View More</Typography>
-                </CustomButtonPrimary>
-              </Box>
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="center"
+                marginTop={{ md: "50px", xs: "25px" }}
+              >
+                <Box className="view_btn">
+                  <CustomButtonPrimary
+                    variant="contained"
+                    color="primary"
+                    className="member_btn"
+                    onClick={() => handleViewMore()}
+                  >
+                    <Typography variant="caption">View More</Typography>
+                  </CustomButtonPrimary>
+                </Box>
+              </Stack>
             )}
           </Container>
         </ConditionWrap>
