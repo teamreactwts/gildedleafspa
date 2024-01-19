@@ -312,10 +312,7 @@ function BlogDetails() {
                 >
                   <figure>
                     <Image
-                      src={mediaUrl(
-                        `blog/${data?.data?.data?.author_image}
-                    }`
-                      )}
+                      src={mediaUrl(`blog/${data?.data?.data?.author_image}`)}
                       alt="profileImage"
                       width={44}
                       height={44}
@@ -352,10 +349,7 @@ function BlogDetails() {
               </Stack>
               <figure className="blog_detailsImgWrap">
                 <Image
-                  src={mediaUrl(
-                    `blog/${data?.data?.data?.image}
-                }`
-                  )}
+                  src={mediaUrl(`blog/${data?.data?.data?.image}`)}
                   alt="blog_detailsImg"
                   width={1135}
                   height={539}

@@ -300,10 +300,7 @@ function Blogs() {
                       <Grid item lg={4} md={6} xs={12}>
                         <BlogCard
                           item={data}
-                          blogimg={mediaUrl(
-                            `blog/${data?.image}
-                        }`
-                          )}
+                          blogimg={mediaUrl(`blog/${data?.image}`)}
                           datevalue={moment(data.published_date).format(
                             "DD.MM.YYYY"
                           )}
@@ -318,10 +315,7 @@ function Blogs() {
                       <Grid item lg={4} md={6} xs={12}>
                         <BlogCard
                           item={data}
-                          blogimg={mediaUrl(
-                            `blog/${data?.image}
-                          }`
-                          )}
+                          blogimg={mediaUrl(`blog/${data?.image}`)}
                           datevalue={moment(data.published_date).format(
                             "DD.MM.YYYY"
                           )}
