@@ -39,7 +39,7 @@ export const endpoints = {
     details: "blog/get-details"
   },
   newsletter: {
-    save: ""
+    save: "news-letter/store"
   }
 };
 

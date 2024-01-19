@@ -68,6 +68,7 @@ export default function Home() {
         if (data?.data?.status === 200) {
           toastSuccess(data?.data?.message);
           reset();
+          handleClose();
         }
       }
     });
@@ -179,8 +180,8 @@ export default function Home() {
                         <CustomButtonPrimary
                           variant="contained"
                           color="primary"
-                          loading={isLoading}
-                          disabled={isLoading}
+                          loading={isLoadingSubmit}
+                          disabled={isLoadingSubmit}
                           type="submit"
                         >
                           <Typography variant="caption">Submit</Typography>
