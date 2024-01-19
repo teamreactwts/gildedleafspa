@@ -17,6 +17,7 @@ import { useAppSelector } from "@/hooks/useAppSelector";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
+import { GetConditionList, GetServiceList } from "@/api/functions/cms.api";
 import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import BrandLogo from "@/ui/Icons/BrandLogo";
@@ -30,6 +31,7 @@ import Stack from "@mui/material/Stack";
 import { Container } from "@mui/system";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useQuery } from "react-query";
 
 interface Props {
   window?: () => Window;
@@ -98,112 +100,6 @@ export default function Header(props: Props) {
     </Box>
   );
 
-  const conditionMenuItems = [
-    {
-      name: "All Concern",
-      route: "/all-concern"
-    },
-    {
-      name: "Wrinkles and Fine-lines",
-      route: "/wrinkles-and-fine-lines"
-    },
-    {
-      name: "Facial Volume Loss (including Lips)",
-      route: "/facial-volume-loss"
-    },
-    {
-      name: "Hair Removal",
-      route: "/hair-removal"
-    },
-    {
-      name: "Acne",
-      route: "/acne"
-    },
-    {
-      name: "Acne Scars",
-      route: "/acne-scars"
-    },
-    {
-      name: "Roseacea",
-      route: "/roseacea"
-    },
-    {
-      name: "Age Spots",
-      route: "/age-spots"
-    },
-    {
-      name: "Sun Damage",
-      route: "/sun-damage"
-    },
-    {
-      name: "Spider Veins",
-      route: "/pider-veins"
-    },
-    {
-      name: "Melasma",
-      route: "/melasma"
-    },
-    {
-      name: "Surgical Scars",
-      route: "/surgical-scars"
-    },
-    {
-      name: "Skin Tightening",
-      route: "/skin-tightening"
-    },
-    {
-      name: "Skin Texture",
-      route: "/skin-texture"
-    },
-    {
-      name: "Hyperpigmentation",
-      route: "/hyperpigmentation"
-    },
-    {
-      name: "Aging",
-      route: "/aging"
-    }
-  ];
-
-  const serviceMenuItems = [
-    {
-      name: "All Services",
-      route: "/service"
-    },
-    {
-      name: "Botox",
-      route: "/botox"
-    },
-    {
-      name: "Dermal Fillers",
-      route: "/dermal-fillers"
-    },
-    {
-      name: "Microneedling",
-      route: "/microneedling"
-    },
-    {
-      name: "Microdermabrasion",
-      route: "/microdermabrasion"
-    },
-    {
-      name: "Laser Hair Removal",
-      route: "/laser-hair-removal"
-    },
-    {
-      name: "Hydrafacial",
-      route: "/hydrafacial"
-    },
-    {
-      name: "Laser Skin Rejuvenation",
-      route: "/laser-skin-rejuvenation"
-    },
-    {
-      name: "Laser Skin Resurfacing",
-      route: "/laser-skin-resurfacing"
-    }
-  ];
-
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -221,6 +117,25 @@ export default function Header(props: Props) {
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
+  const [page, setPage] = React.useState(0);
+  const [per_page, setPageLimit] = React.useState(0);
+
+  const { data: serviceList } = useQuery(
+    ["serviceList", page],
+
+    {
+      queryFn: () => GetServiceList({ page, per_page }),
+      refetchOnWindowFocus: false
+    }
+  );
+  const { data: conditionList } = useQuery(
+    ["conditionList", page],
+
+    {
+      queryFn: () => GetConditionList({ page, per_page }),
+      refetchOnWindowFocus: false
+    }
+  );
 
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
@@ -344,14 +259,20 @@ export default function Header(props: Props) {
                       vertical: "top"
                     }}
                   >
-                    {serviceMenuItems?.map((data, index) => (
-                      <MenuItem
-                        key={index}
-                        onClick={() => router.push(data?.route)}
-                      >
-                        {data?.name}
-                      </MenuItem>
-                    ))}
+                    <MenuItem onClick={() => router.push("/service")}>
+                      All Services
+                    </MenuItem>
+                    {!!serviceList &&
+                      !!serviceList?.data?.data?.docs &&
+                      serviceList?.data?.data?.docs.length > 0 &&
+                      serviceList?.data?.data?.docs?.map((data, index) => (
+                        <MenuItem
+                          key={index}
+                          // onClick={() => router.push(data?.route)}
+                        >
+                          {data?.title}
+                        </MenuItem>
+                      ))}
                   </NavMenu>
 
                   <Button
@@ -378,14 +299,20 @@ export default function Header(props: Props) {
                       vertical: "top"
                     }}
                   >
-                    {conditionMenuItems?.map((data, index) => (
-                      <MenuItem
-                        key={index}
-                        onClick={() => router.push(data?.route)}
-                      >
-                        {data?.name}
-                      </MenuItem>
-                    ))}
+                    <MenuItem onClick={() => router.push("/condition")}>
+                      All Concerns
+                    </MenuItem>
+                    {!!conditionList &&
+                      !!conditionList?.data?.data?.docs &&
+                      conditionList?.data?.data?.docs.length > 0 &&
+                      conditionList?.data?.data?.docs?.map((data, index) => (
+                        <MenuItem
+                          key={index}
+                          // onClick={() => router.push(data?.route)}
+                        >
+                          {data?.title}
+                        </MenuItem>
+                      ))}
                   </NavMenu>
 
                   {navItems.map((item) => (

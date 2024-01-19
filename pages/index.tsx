@@ -1,4 +1,4 @@
-import { GetAboutData, GetHomeDetails } from "@/api/functions/cms.api";
+import { GetHomeDetails } from "@/api/functions/cms.api";
 import BannerSec from "@/components/BannerSec/BannerSec";
 import DifferentSec from "@/components/DifferentSec/DifferentSec";
 import DownloadAppSection from "@/components/DownloadAppSection/DownloadAppSection";
@@ -8,6 +8,7 @@ import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+import Loader from "@/ui/Loader/Loder";
 import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -23,9 +24,13 @@ export default function Home() {
     setOpen(false);
   }, []);
 
-  const { isLoading, refetch, data } = useQuery("homeDetails", GetHomeDetails, {
+  const { isLoading, data } = useQuery("homeDetails", GetHomeDetails, {
     refetchOnWindowFocus: false
   });
+
+  if (isLoading) {
+    return <Loader isLoading={isLoading} />;
+  }
 
   return (
     <Wrapper>
@@ -35,7 +40,9 @@ export default function Home() {
       >
         <Typography variant="h1">
           {data?.data?.data?.title}{" "}
-          {/* <Typography variant="caption">exclusive benefits.</Typography> */}
+          <Typography variant="caption">
+            {data?.data?.data?.bold_title}
+          </Typography>
         </Typography>
         <Typography
           dangerouslySetInnerHTML={{
@@ -43,8 +50,8 @@ export default function Home() {
           }}
         />
       </BannerSec>
-      <DifferentSec className="cmn_gap" />
-      <HomeSlider />
+      <DifferentSec className="cmn_gap" homeData={data?.data?.data} />
+      <HomeSlider homeData={data?.data?.data} />
       <DownloadAppSection />
       <MuiModalWrapper open={open} onClose={handleClose} className="newsletter">
         <Box className="modal_sectionWrap">

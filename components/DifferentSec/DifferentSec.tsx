@@ -1,9 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
-import { GetAboutData } from "@/api/functions/cms.api";
-import { IAboutDetails } from "@/interface/apiresp.interfaces";
+import { GetAboutData, GetServiceList } from "@/api/functions/cms.api";
+import { IAboutDetails, IhomeDetails } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
-import { sliderList } from "@/json/mock/iconList.mock";
 import {
   CommonSlider,
   DifferentInnerWrapper,
@@ -36,7 +35,12 @@ export const ServiceCardDifferent = ({
   return (
     <ServiceCardDifferentWrap>
       <Box className="service_card_icon">
-        <Image src={icon} alt="icon" width={66} height={66} />
+        <Image
+          src={mediaUrl(`service/${icon}`)}
+          alt="icon"
+          width={66}
+          height={66}
+        />
       </Box>
       <Typography variant="h4">
         <Link href="#url">{title}</Link>
@@ -48,6 +52,7 @@ export const ServiceCardDifferent = ({
 interface props {
   showInterestSec?: boolean;
   aboutData?: IAboutDetails;
+  homeData?: IhomeDetails;
 }
 
 const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
@@ -87,6 +92,19 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
   const { data: aboutData } = useQuery("aboutDetails", GetAboutData, {
     refetchOnWindowFocus: false
   });
+
+  const [page, setPage] = React.useState(0);
+  const [per_page, setPageLimit] = React.useState(0);
+
+  const { data: serviceList } = useQuery(
+    ["serviceList", page],
+
+    {
+      queryFn: () => GetServiceList({ page, per_page }),
+      refetchOnWindowFocus: false
+    }
+  );
+
   return (
     <DifferentWrapper {...props}>
       <Image
@@ -100,7 +118,7 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
         <DifferentInnerWrapper forNoInterestSection={forNoInterestSection}>
           <CommonHeader
             title={aboutData?.data?.data?.make_us_different_title}
-            breakTitle=""
+            breakTitle={aboutData?.data?.data?.make_us_different_bold_title}
             subTitle={
               aboutData?.data?.data?.make_us_different_short_description
             }
@@ -205,13 +223,16 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
             >
               <Box className="title_left">
                 <Typography variant="h2">
-                  Which service are{" "}
-                  <Typography variant="caption">you interested in?</Typography>
+                  {props.homeData?.interested_in_title}{" "}
+                  <Typography variant="caption">
+                    {props.homeData?.interested_in_bold_title}
+                  </Typography>
                 </Typography>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                  rutrum nulla sed nisi gravida maximus.
-                </Typography>
+                <Typography
+                  dangerouslySetInnerHTML={{
+                    __html: props.homeData?.interested_in_description as string
+                  }}
+                />
               </Box>
               <CustomButtonPrimary variant="contained" color="primary">
                 <Typography variant="caption">Explore</Typography>
@@ -219,9 +240,12 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
             </Stack>
             <CommonSlider>
               <Slider {...settings}>
-                {sliderList?.map((data, index) => (
-                  <ServiceCardDifferent {...data} key={index} />
-                ))}
+                {!!serviceList &&
+                  !!serviceList?.data?.data?.docs &&
+                  serviceList?.data?.data?.docs.length > 0 &&
+                  serviceList?.data?.data?.docs?.map((data, index) => (
+                    <ServiceCardDifferent {...data} key={index} />
+                  ))}
               </Slider>
             </CommonSlider>
           </ServiceWrapper>

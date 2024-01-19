@@ -45,8 +45,10 @@ export type userData = {
   about_title?: string;
   about_description?: string;
   cover_picture?: string;
-}
-
-
+};
+export type Ipagination = {
+  page: number;
+  per_page: number;
+};
 
 export {};
