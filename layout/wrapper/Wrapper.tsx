@@ -1,11 +1,18 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-undef */
 import Seo from "@/components/Seo/Seo";
 import useOnlineStatus from "@/hooks/useDetectOnline";
 import { WrapperStyle } from "@/styles/StyledComponents/WrapperStyle";
 import { primaryColors } from "@/themes/_muiPalette";
+import BooknowIcon from "@/ui/Icons/BooknowIcon";
+import CallUsIcon from "@/ui/Icons/CallUsIcon";
+import Membership from "@/ui/Icons/Membership";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import Footer from "../Footer/Footer";
@@ -63,6 +70,24 @@ const Wrapper = (props: wrapperProps) => {
       <Header />
 
       <Box className="body_content">{children}</Box>
+
+      <List disablePadding className="batch_iconWrapper">
+        <ListItem disableGutters>
+          <Link href="javascript:void(0)">
+            <Membership />
+          </Link>
+        </ListItem>
+        <ListItem disableGutters>
+          <Link href="javascript:void(0)">
+            <BooknowIcon />
+          </Link>
+        </ListItem>
+        <ListItem disableGutters>
+          <Link href="javascript:void(0)">
+            <CallUsIcon />
+          </Link>
+        </ListItem>
+      </List>
 
       <Footer />
 
