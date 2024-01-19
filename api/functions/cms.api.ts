@@ -1,6 +1,7 @@
 import {
   IgetAboutResponse,
   IgetAffortResponse,
+  IgetConditionResponse,
   IgetHomeResponse,
   IgetServiceResponse,
   IgetSettingsResponse
@@ -51,6 +52,13 @@ export const GetSettingsDetails = async () => {
 export const GetServiceList = async (body: Ipagination) => {
   const res = await axiosInstance.post<IgetServiceResponse>(
     endpoints.service.list,
+    body
+  );
+  return res;
+};
+export const GetConditionList = async (body: Ipagination) => {
+  const res = await axiosInstance.post<IgetConditionResponse>(
+    endpoints.condition.list,
     body
   );
   return res;

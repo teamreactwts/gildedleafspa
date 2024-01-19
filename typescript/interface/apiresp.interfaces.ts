@@ -128,3 +128,21 @@ export interface Doc {
   createdAt: string;
   updatedAt: string;
 }
+export interface IgetConditionResponse {
+  data: IgetConditionData;
+}
+export interface IgetConditionData {
+  docs: ConditionDoc[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
+}
+
+export interface ConditionDoc {
+  title: string;
+  image: string;
+  isDeleted: boolean;
+  status: string;
+  _id: string;
+}

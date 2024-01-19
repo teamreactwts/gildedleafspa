@@ -25,6 +25,9 @@ export const endpoints = {
   },
   service: {
     list: "service/list"
+  },
+  condition: {
+    list: "condition/get-data"
   }
 };
 

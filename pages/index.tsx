@@ -41,7 +41,7 @@ export default function Home() {
         <Typography variant="h1">
           {data?.data?.data?.title}{" "}
           <Typography variant="caption">
-            {data?.data?.data?.bold_title}.
+            {data?.data?.data?.bold_title}
           </Typography>
         </Typography>
         <Typography

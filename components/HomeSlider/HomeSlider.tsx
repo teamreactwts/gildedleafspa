@@ -4,7 +4,6 @@
 
 /* eslint-disable no-plusplus */
 
-import { bannerclinial } from "@/json/mock/homeslider.mock";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Typography from "@mui/material/Typography";
 import { Box, Container } from "@mui/system";
@@ -12,9 +11,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
+import { mediaUrl } from "@/api/endpoints";
+import { GetConditionList } from "@/api/functions/cms.api";
 import { IhomeDetails } from "@/interface/apiresp.interfaces";
 import { CommonSlider } from "@/styles/StyledComponents/DifferentWrapper";
 import { HomeSliderWrapper } from "@/styles/StyledComponents/HomeSliderWrapper";
+import React from "react";
+import { useQuery } from "react-query";
 import ImageCard from "../ImageCard/ImageCard";
 
 const settings = {
@@ -61,6 +64,16 @@ interface Iprops {
   homeData?: IhomeDetails;
 }
 function HomeSlider({ homeData }: Iprops) {
+  const [page, setPage] = React.useState(0);
+  const [per_page, setPageLimit] = React.useState(0);
+  const { data: conditionList } = useQuery(
+    ["conditionList", page],
+
+    {
+      queryFn: () => GetConditionList({ page, per_page }),
+      refetchOnWindowFocus: false
+    }
+  );
   return (
     <HomeSliderWrapper className="cmn_gap">
       <Container fixed>
@@ -90,15 +103,18 @@ function HomeSlider({ homeData }: Iprops) {
       <Box className="sliderSectionWrap">
         <CommonSlider>
           <Slider {...settings}>
-            {bannerclinial?.map((data, index) => (
-              <Box className="slider_card" key={index}>
-                <ImageCard
-                  card_img={data.image}
-                  title={data.title}
-                  description={data.description}
-                />
-              </Box>
-            ))}
+            {!!conditionList &&
+              !!conditionList?.data?.data?.docs &&
+              conditionList?.data?.data?.docs.length > 0 &&
+              conditionList?.data?.data?.docs?.map((data, index) => (
+                <Box className="slider_card" key={index}>
+                  <ImageCard
+                    card_img={mediaUrl(`condition/${data?.image}`)}
+                    title={"Concern"}
+                    description={data.title}
+                  />
+                </Box>
+              ))}
           </Slider>
         </CommonSlider>
       </Box>
