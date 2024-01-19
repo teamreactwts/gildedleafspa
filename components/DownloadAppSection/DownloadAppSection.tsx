@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-import assest from "@/json/assest";
 import { primaryColors } from "@/themes/_muiPalette";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
+import { mediaUrl } from "@/api/endpoints";
+import { IhomeDetails } from "@/interface/apiresp.interfaces";
 import { DownloadAppSectionWrap } from "@/styles/StyledComponents/DownloadAppSectionWrap";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
@@ -13,8 +14,10 @@ import Typography from "@mui/material/Typography";
 import { Box, Container } from "@mui/system";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
-
-function DownloadAppSection() {
+interface Iprops {
+  homeData?: IhomeDetails;
+}
+function DownloadAppSection({ homeData }: Iprops) {
   return (
     <DownloadAppSectionWrap className="cmn_gap">
       <Container fixed>
@@ -24,7 +27,7 @@ function DownloadAppSection() {
               <Box className="download_leftpart">
                 <figure className="phoneImage">
                   <Image
-                    src={assest.qrmobile}
+                    src={mediaUrl(`home/${homeData?.app_image}`)}
                     alt="phoneImage"
                     width={240}
                     height={487}
@@ -42,9 +45,9 @@ function DownloadAppSection() {
             <Grid item lg={6} xs={12}>
               <Box className="download_rgtPart">
                 <CommonHeader
-                  title="Download"
-                  breakTitle="our new app"
-                  subTitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                  title={homeData?.app_title}
+                  breakTitle={homeData?.app_bold_title}
+                  subTitle={homeData?.app_description}
                 />
                 <List disablePadding>
                   <ListItem disablePadding>

@@ -4,11 +4,12 @@ export default {
     enter_email: "Enter email",
     email_format: "Email format is not correct",
     enter_password: "Enter password",
-    phone: "Enter phone",
+    phone: "Please Enter Phone Number",
     username: "Enter username",
-    fullName: "Enter Full Name",
+    fullName: "Please Enter Full Name",
     first_name: "Enter First Name",
-    last_name: "Enter Last Name"
+    last_name: "Enter Last Name",
+    message: "Please Enter Any Message"
   },
   warn: {},
   info: {}

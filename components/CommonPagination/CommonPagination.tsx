@@ -27,14 +27,14 @@ export const CommonPaginationWrap = styled(Box)`
           line-height: 1;
           @media (max-width: 899px) {
             width: 35px;
-          height: 35px;
-          margin: 0 5px;
+            height: 35px;
+            margin: 0 5px;
           }
           @media (max-width: 599px) {
             width: 30px;
-          height: 30px;
-          margin: 0 3px;
-          font-size: 14px;
+            height: 30px;
+            margin: 0 3px;
+            font-size: 14px;
           }
           &.Mui-selected {
             background-color: #a67033;
@@ -82,11 +82,15 @@ export const CommonPaginationWrap = styled(Box)`
     }
   }
 `;
-
-function CommonPagination() {
+interface IProps {
+  count: number;
+  page: number;
+  handleChange: any;
+}
+function CommonPagination({ count, page, handleChange }: IProps) {
   return (
     <CommonPaginationWrap>
-      <Pagination count={5} />
+      <Pagination count={count} page={page} onChange={handleChange} />
     </CommonPaginationWrap>
   );
 }

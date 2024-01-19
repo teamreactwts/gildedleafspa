@@ -1,23 +1,52 @@
-import { GetHomeDetails } from "@/api/functions/cms.api";
+import {
+  GetHomeDetails,
+  createNewsLetterMutation
+} from "@/api/functions/cms.api";
 import BannerSec from "@/components/BannerSec/BannerSec";
 import DifferentSec from "@/components/DifferentSec/DifferentSec";
 import DownloadAppSection from "@/components/DownloadAppSection/DownloadAppSection";
 import HomeSlider from "@/components/HomeSlider/HomeSlider";
+import useNotiStack from "@/hooks/useNotistack";
 import assest from "@/json/assest";
+import validationText from "@/json/messages/validationText";
 
 import Wrapper from "@/layout/wrapper/Wrapper";
+import { INewsData } from "@/types/common.type";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Loader from "@/ui/Loader/Loder";
 import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { useCallback, useState } from "react";
-import { useQuery } from "react-query";
+import { Controller, useForm } from "react-hook-form";
+import { useMutation, useQuery } from "react-query";
+import * as yup from "yup";
+const schema = yup.object().shape({
+  full_name: yup.string().trim().required(validationText.error.fullName),
+  email: yup
+    .string()
+    .trim()
+    .email(validationText.error.email_format)
+    .required(validationText.error.enter_email),
+  phone: yup.string().required(validationText.error.phone).min(10).max(15)
+});
 
 export default function Home() {
+  const {
+    handleSubmit,
+    control,
+    setValue,
+    reset,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "all",
+    defaultValues: { full_name: "", email: "", phone: "" }
+  });
   const [open, setOpen] = useState(true);
   // const [count, setCount] = useState(0);
 
@@ -29,10 +58,23 @@ export default function Home() {
     refetchOnWindowFocus: false
   });
 
+  const { isLoading: isLoadingSubmit, mutate } = useMutation(
+    createNewsLetterMutation
+  );
+  const { toastSuccess, toastError } = useNotiStack();
+  const onSubmit = (data: INewsData) => {
+    mutate(data, {
+      onSuccess: (data) => {
+        if (data?.data?.status === 200) {
+          toastSuccess(data?.data?.message);
+          reset();
+        }
+      }
+    });
+  };
   if (isLoading) {
     return <Loader isLoading={isLoading} />;
   }
-
   return (
     <Wrapper>
       <BannerSec
@@ -53,7 +95,7 @@ export default function Home() {
       </BannerSec>
       <DifferentSec className="cmn_gap" homeData={data?.data?.data} />
       <HomeSlider homeData={data?.data?.data} />
-      <DownloadAppSection />
+      <DownloadAppSection homeData={data?.data?.data} />
       <MuiModalWrapper open={open} onClose={handleClose} className="newsletter">
         <Box className="modal_sectionWrap">
           <Grid container spacing={{ md: 3, xs: 2 }}>
@@ -79,24 +121,74 @@ export default function Home() {
                   Subscribe our
                   <Typography variant="caption"> Newsletter</Typography>
                 </Typography>
-                <Grid container spacing={{ xs: 1.8 }}>
-                  <Grid item xs={12}>
-                    <InputFieldCommon placeholder="Name" />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <Grid container spacing={{ xs: 1.8 }}>
+                    <Grid item xs={12}>
+                      <Controller
+                        control={control}
+                        name="full_name"
+                        render={({
+                          field: { onChange, onBlur, value, name, ref }
+                        }) => (
+                          <InputFieldCommon
+                            placeholder="Name"
+                            onChange={onChange}
+                            value={value}
+                            error={Boolean(errors?.full_name)}
+                            helperText={errors?.full_name?.message}
+                          />
+                        )}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Controller
+                        control={control}
+                        name="email"
+                        render={({
+                          field: { onChange, onBlur, value, name, ref }
+                        }) => (
+                          <InputFieldCommon
+                            placeholder="Email"
+                            onChange={onChange}
+                            value={value}
+                            error={Boolean(errors?.email)}
+                            helperText={errors?.email?.message}
+                          />
+                        )}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Controller
+                        control={control}
+                        name="phone"
+                        render={({
+                          field: { onChange, onBlur, value, name, ref }
+                        }) => (
+                          <InputFieldCommon
+                            placeholder="Phone No"
+                            onChange={onChange}
+                            value={value}
+                            error={Boolean(errors?.phone)}
+                            helperText={errors?.phone?.message}
+                          />
+                        )}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Box className="modal_btn">
+                        <CustomButtonPrimary
+                          variant="contained"
+                          color="primary"
+                          loading={isLoading}
+                          disabled={isLoading}
+                          type="submit"
+                        >
+                          <Typography variant="caption">Submit</Typography>
+                        </CustomButtonPrimary>
+                      </Box>
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12}>
-                    <InputFieldCommon placeholder="Email" />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <InputFieldCommon placeholder="Phone No" />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Box className="modal_btn">
-                      <CustomButtonPrimary variant="contained" color="primary">
-                        <Typography variant="caption">Submit</Typography>
-                      </CustomButtonPrimary>
-                    </Box>
-                  </Grid>
-                </Grid>
+                </form>
               </Box>
             </Grid>
           </Grid>

@@ -30,6 +30,7 @@ export interface IhomeDetails {
   bold_title: string;
   interested_in_bold_title: string;
   concerns_bold_title: string;
+  app_bold_title: string;
 }
 export interface IgetAboutResponse extends BaseApiResponse {
   data: IAboutDetails;
@@ -170,4 +171,43 @@ export interface IserviceCondition {
 }
 export interface IgetConditionDetailsResponse {
   data: ConditionDoc;
+}
+export interface IgetBlogDetailsResponse {
+  data: blogDoc;
+}
+
+export interface IgetContactResponse extends BaseApiResponse {
+  data: ISettingsDetails;
+}
+
+export interface IgetBlogResponse {
+  data: IgetBlogData;
+}
+export interface IgetBlogData {
+  docs: blogDoc[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
+}
+export interface blogDoc {
+  title: string;
+  image: string;
+  description: string;
+  author_name: string;
+  category_id: string;
+  author_type: string;
+  isDeleted: boolean;
+  status: string;
+  _id: string;
+  published_date: string;
+  author_image: string;
+  related_blogs?: IrelateBlog[];
+}
+export interface IrelateBlog {
+  _id: string;
+  image: string;
+  title: string;
+  description: string;
+  published_date: string;
 }

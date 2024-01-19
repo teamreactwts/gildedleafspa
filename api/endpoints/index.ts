@@ -30,6 +30,16 @@ export const endpoints = {
   condition: {
     list: "condition/get-data",
     details: "condition/get-details"
+  },
+  contact: {
+    contactus: "contact-us/store"
+  },
+  blog: {
+    list: "blog/list",
+    details: "blog/get-details"
+  },
+  newsletter: {
+    save: ""
   }
 };
 

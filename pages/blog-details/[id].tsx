@@ -1,8 +1,9 @@
 /* eslint-disable react/no-array-index-key */
+import { mediaUrl } from "@/api/endpoints";
+import { GetBlogDetails } from "@/api/functions/cms.api";
 import BlogCard from "@/components/BlogCard/BlogCard";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import assest from "@/json/assest";
-import { cardList1 } from "@/json/mock/homeslider.mock";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { primaryColors } from "@/themes/_muiPalette";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -11,7 +12,10 @@ import styled from "@emotion/styled";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Box, Stack } from "@mui/system";
+import moment from "moment";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -266,16 +270,23 @@ const settings = {
 };
 
 function BlogDetails() {
+  const router = useRouter();
+
+  const { isLoading, data } = useQuery(
+    ["blogDetails", router.query.id],
+
+    {
+      queryFn: () => GetBlogDetails({ _id: router.query.id as string }),
+      refetchOnWindowFocus: false
+    }
+  );
   return (
     <Wrapper>
       <InnnerPageWrapper>
         <BlogDetailsWrapper>
           <Container fixed>
             <Box className="blog_detailsTopPart">
-              <Typography variant="h3">
-                Lorem ipsum dolor sit amet consectetur. Pharetra tincidunt
-                pulvinar faucibus lacus donec ipsum eget...
-              </Typography>
+              <Typography variant="h3">{data?.data?.data?.title}</Typography>
               <Stack
                 direction="row"
                 alignItems="center"
@@ -289,7 +300,10 @@ function BlogDetails() {
                 >
                   <figure>
                     <Image
-                      src={assest.profileIcon}
+                      src={mediaUrl(
+                        `blog/${data?.data?.data?.author_image}
+                    }`
+                      )}
                       alt="profileImage"
                       width={44}
                       height={44}
@@ -300,8 +314,12 @@ function BlogDetails() {
                     alignItems="center"
                     className="profile_details"
                   >
-                    <Typography variant="h4">Abram George,</Typography>
-                    <Typography variant="body1">Manager</Typography>
+                    <Typography variant="h4">
+                      {data?.data?.data?.author_name},
+                    </Typography>
+                    <Typography variant="body1">
+                      {data?.data?.data?.author_type}
+                    </Typography>
                   </Stack>
                 </Stack>
                 <Stack
@@ -313,13 +331,19 @@ function BlogDetails() {
                     <Calender />
                   </i>
                   <Typography variant="body1">
-                    Published on January 15, 2024
+                    Published on{" "}
+                    {moment(data?.data?.data?.published_date).format(
+                      "MMM DD, YYYY"
+                    )}
                   </Typography>
                 </Stack>
               </Stack>
               <figure className="blog_detailsImgWrap">
                 <Image
-                  src={assest.blogDetailsImg}
+                  src={mediaUrl(
+                    `blog/${data?.data?.data?.image}
+                }`
+                  )}
                   alt="blog_detailsImg"
                   width={1135}
                   height={539}
@@ -327,57 +351,7 @@ function BlogDetails() {
               </figure>
               <Box className="blog_detailsText">
                 <Typography variant="body1">
-                  Lorem ipsum dolor sit amet consectetur. Arcu id arcu varius
-                  lacus eleifend cursus facilisis. A porttitor proin sed euismod
-                  mauris nec felis varius adipiscing. Consectetur enim interdum
-                  faucibus malesuada nunc a. Nisl sed ac aliquam dictum enim sed
-                  amet vulputate eu. Egestas cursus hendrerit odio duis. Sed
-                  ornare viverra eget pellentesque pellentesque pellentesque.
-                  Egestas varius massa amet dolor eros. Eget pulvinar nibh purus
-                  tellus ultricies ultrices enim turpis. Tempor adipiscing
-                  aliquet duis leo ut morbi odio eleifend accumsan. Laoreet
-                  faucibus sem nam ut diam urna. Eu purus vitae vitae cursus.
-                </Typography>
-                <Typography variant="body1">
-                  Viverra mauris auctor at a. Tincidunt ut lectus vitae vitae
-                  amet eros aliquam. Ut accumsan viverra pharetra eu tristique
-                  vitae neque. Molestie molestie euismod laoreet egestas.
-                  Ultrices in convallis pellentesque diam.
-                </Typography>
-                <Typography variant="body1">
-                  Enim lectus urna maecenas morbi feugiat laoreet quis
-                  suspendisse. Arcu nisi nulla enim magna. Lectus dui ipsum
-                  netus sem lectus commodo. Velit et proin pellentesque augue.
-                  Velit tristique ipsum pellentesque enim eu. Ut diam adipiscing
-                  quam diam nisl morbi faucibus consectetur lacus. Lorem
-                  consequat varius leo ut scelerisque nisi proin nibh pharetra.
-                  Tortor sagittis non malesuada ut duis laoreet gravida amet
-                  nisl. Ut eros lobortis nunc eget vestibulum senectus risus.
-                  Sem ullamcorper sodales et risus.
-                </Typography>
-                <Typography variant="body1">
-                  Tempor faucibus sit ante convallis. Adipiscing gravida sed
-                  arcu sagittis enim. Sit nunc urna blandit sed eu sit mauris.
-                  Feugiat id purus risus elementum sit phasellus duis nibh
-                  morbi. Lobortis lectus nec quam orci pellentesque. Non eget
-                  tellus vulputate odio. Sed lectus id eget non ligula a
-                  bibendum.
-                </Typography>
-                <Typography variant="body1">
-                  Et eget non at mattis id tristique in. Sem nisl sagittis
-                  commodo vulputate risus magna pretium. Ut et euismod dui
-                  posuere enim est id tellus. Et pharetra imperdiet amet magna
-                  proin sed vulputate. Augue egestas ipsum urna commodo. Neque
-                  ornare phasellus sapien sollicitudin lectus porta faucibus
-                  bibendum sed. Bibendum hac adipiscing lectus consectetur nisi
-                  suscipit. Eget molestie vestibulum nunc arcu mus pellentesque
-                  fermentum euismod. Senectus etiam volutpat gravida nisl
-                  blandit ac interdum purus varius. Blandit urna semper diam
-                  feugiat. Turpis placerat ipsum nulla rutrum consectetur sed
-                  ullamcorper. Erat malesuada sit mauris nullam scelerisque. Sit
-                  donec nullam commodo nibh sed donec suspendisse. A cras vitae
-                  elementum sed nulla sodales sed quisque turpis. Id dui commodo
-                  volutpat eget hendrerit.
+                  {data?.data?.data?.description}
                 </Typography>
               </Box>
             </Box>
@@ -390,23 +364,43 @@ function BlogDetails() {
                 flexWrap="wrap"
               >
                 <Typography variant="h3">Related Blogs</Typography>
-                <CustomButtonPrimary variant="contained" color="primary">
+                <CustomButtonPrimary
+                  variant="contained"
+                  color="primary"
+                  onClick={() => router.push("/blogs")}
+                >
                   <Typography variant="caption">View All</Typography>
                 </CustomButtonPrimary>
               </Stack>
               <Box className="blog_section_slider">
                 <Slider {...settings}>
-                  {cardList1?.map((data, index) => (
+                  {/* {cardList1?.map((data, index) => (
                     <Box className="blog_siderCard" key={index}>
                       <BlogCard
-                      route={data.route}
                         blogimg={data.blogimg}
                         datevalue={data.date}
                         cardtitevalue={data.cardtitle}
                         blogDescription={data.description}
                       />
                     </Box>
-                  ))}
+                  ))} */}
+
+                  {!!data?.data?.data &&
+                    !!data?.data?.data.related_blogs &&
+                    data?.data?.data.related_blogs.length > 0 &&
+                    data?.data?.data.related_blogs.map((data, index) => (
+                      <Box className="blog_siderCard" key={index}>
+                        <BlogCard
+                          blogimg={mediaUrl(`blog/${data?.image}`)}
+                          datevalue={moment(data.published_date).format(
+                            "DD.MM.YYYY"
+                          )}
+                          cardtitevalue={data?.title}
+                          blogDescription={data?.description}
+                          item={data}
+                        />
+                      </Box>
+                    ))}
                 </Slider>
               </Box>
             </Box>
