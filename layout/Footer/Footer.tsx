@@ -2,14 +2,12 @@
 import { GetSettingsDetails } from "@/api/functions/cms.api";
 import assest from "@/json/assest";
 import { FooterWrap } from "@/styles/StyledComponents/FooterWrap";
-import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import FacebookIcon from "@/ui/Icons/FacebookIcon";
 import InstaGramIcon from "@/ui/Icons/InstaGramIcon";
 import LocationIcon from "@/ui/Icons/LocationIcon";
 import MailIcon from "@/ui/Icons/MailIcon";
 import PhoneIcon from "@/ui/Icons/PhoneIcon";
 import TictockIcon from "@/ui/Icons/TictockIcon";
-import UppArrowIcon from "@/ui/Icons/UppArrowIcon";
 import YoutubeIcon from "@/ui/Icons/YoutubeIcon";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -81,11 +79,11 @@ const Footer = () => {
                   />
                 </Link>
                 <Box className="newsletterSignUp">
-                  <Typography variant="body1">Newsletter Sign up</Typography>
+                  {/* <Typography variant="body1">Newsletter Sign up</Typography>
                   <InputFieldCommon
                     adorMentIcon={<UppArrowIcon />}
                     placeholder="Enter email"
-                  />
+                  /> */}
                 </Box>
                 <List disablePadding className="social_icons">
                   <ListItem disablePadding>
@@ -230,9 +228,9 @@ const Footer = () => {
           </Stack>
         </Container>
       </Box>
-      <figure className="footer_desing">
+      {/* <figure className="footer_desing">
         <Image src={assest.footerDesing} alt="image" width={603} height={449} />
-      </figure>
+      </figure> */}
     </FooterWrap>
   );
 };

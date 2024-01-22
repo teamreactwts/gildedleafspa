@@ -51,4 +51,19 @@ export type Ipagination = {
   per_page: number;
 };
 
+export type IQueryProps = {
+  _id: string;
+};
+export type IContactData = {
+  full_name: string;
+  email: string;
+  message: string;
+  phone: string;
+};
+export type INewsData = {
+  full_name: string;
+  email: string;
+  phone: string;
+};
+
 export {};

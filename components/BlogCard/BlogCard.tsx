@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { IrelateBlog, blogDoc } from "@/interface/apiresp.interfaces";
 import { primaryColors } from "@/themes/_muiPalette";
 import ArrowIcon from "@/ui/Icons/ArrowIcon";
 import Calender from "@/ui/Icons/CalenderIcon";
@@ -8,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const BlogCardWrapper = styled(Box)`
   padding: 20px 20px 27px;
@@ -18,23 +20,23 @@ export const BlogCardWrapper = styled(Box)`
   );
   backdrop-filter: blur(2px);
   border-radius: 15px;
-  .imgSectionWrap{
+  .imgSectionWrap {
     width: 100%;
     .blogfigure {
-    width: 100%;
-    height: 201px;
-    line-height: 0;
-    font-size: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 201px;
+      line-height: 0;
+      font-size: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
-  }
-  
+
   .blog_details {
     margin-top: 14px;
     .MuiChip-root {
@@ -54,7 +56,8 @@ export const BlogCardWrapper = styled(Box)`
       font-weight: 700;
       line-height: 1;
       margin: 15px 0;
-      &:hover{
+      display: block;
+      &:hover {
         color: ${primaryColors.colorA67033};
       }
     }
@@ -98,7 +101,7 @@ export interface blogcardprops {
   datevalue: string;
   cardtitevalue: string;
   blogDescription: string;
-  route:string;
+  item?: blogDoc | IrelateBlog;
 }
 
 function BlogCard({
@@ -106,15 +109,16 @@ function BlogCard({
   datevalue,
   cardtitevalue,
   blogDescription,
-  route
+  item
 }: blogcardprops) {
+  const router = useRouter();
   return (
     <BlogCardWrapper>
-     <Link href={route} className="imgSectionWrap">
-     <figure className="blogfigure">
-        <Image src={blogimg} alt="blogimage" width={321} height={201} />
-      </figure>
-     </Link>
+      <Link href="#" className="imgSectionWrap">
+        <figure className="blogfigure">
+          <Image src={blogimg} alt="blogimage" width={321} height={201} />
+        </figure>
+      </Link>
       <Box className="blog_details">
         <Chip
           icon={<Calender />}
@@ -122,12 +126,16 @@ function BlogCard({
           variant="filled"
           color="default"
         />
-        <Link href={route} className="title_text">
+        <Link href="#" className="title_text">
           {cardtitevalue}
         </Link>
         <Typography variant="body1">{blogDescription}</Typography>
 
-        <Link href={route} className="redmore_section">
+        <Link
+          href={`/blog-details/${item?._id}`}
+          // onClick={() => router.push(`/blog-details/${item?._id}`)}
+          className="redmore_section"
+        >
           <Typography variant="body1">Read More</Typography>
           <i>
             <ArrowIcon />

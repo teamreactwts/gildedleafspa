@@ -1,41 +1,47 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { mediaUrl } from "@/api/endpoints";
+import { GetBlogList } from "@/api/functions/cms.api";
 import BlogCard from "@/components/BlogCard/BlogCard";
 import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import CommonPagination from "@/components/CommonPagination/CommonPagination";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
-import assest from "@/json/assest";
-import { cardList1 } from "@/json/mock/homeslider.mock";
+import { blogDoc } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { primaryColors } from "@/themes/_muiPalette";
 import ArrowIcon from "@/ui/Icons/ArrowIcon";
 import Calender from "@/ui/Icons/CalenderIcon";
+import Loader from "@/ui/Loader/Loder";
 import styled from "@emotion/styled";
 import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Box, Stack } from "@mui/system";
+import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { useQuery } from "react-query";
 
 export const BlogsWrapper = styled(Box)`
   padding: 50px 0 100px 0;
-  @media (max-width:1199px) {
-    padding: 50px 0 ;
+  @media (max-width: 1199px) {
+    padding: 50px 0;
   }
-  @media (max-width:599px) {
-    padding: 40px 0 ;
+  @media (max-width: 599px) {
+    padding: 40px 0;
   }
   .blogSectionTopWrapper {
     padding-bottom: 80px;
-    @media (max-width:1199px) {
-    padding-bottom: 50px  ;
-  }
-  @media (max-width:599px) {
-    padding-bottom: 40px  ;
-  }
+    @media (max-width: 1199px) {
+      padding-bottom: 50px;
+    }
+    @media (max-width: 599px) {
+      padding-bottom: 40px;
+    }
     .blogSecitoWrap {
-      @media (max-width:1199px) {
+      @media (max-width: 1199px) {
         flex-wrap: wrap;
       }
       .blogMain_img {
@@ -46,10 +52,10 @@ export const BlogsWrapper = styled(Box)`
         height: 410px;
         border-radius: 20px;
         overflow: hidden;
-        @media (max-width:1199px) {
-        width: 100%;
-        flex-basis: 100%;
-      }
+        @media (max-width: 1199px) {
+          width: 100%;
+          flex-basis: 100%;
+        }
         img {
           width: 100%;
           height: 100%;
@@ -60,15 +66,14 @@ export const BlogsWrapper = styled(Box)`
         width: calc(100% - 585px);
         flex-basis: calc(100% - 585px);
         padding-left: 45px;
-        @media (max-width:1199px) {
-        width: 100%;
-        flex-basis: 100%;
-        padding: 40px 0 0 0;
-      }
-      @media (max-width:599px) {
-       
-        padding: 25px 0 0 0;
-      }
+        @media (max-width: 1199px) {
+          width: 100%;
+          flex-basis: 100%;
+          padding: 40px 0 0 0;
+        }
+        @media (max-width: 599px) {
+          padding: 25px 0 0 0;
+        }
         .MuiChip-root {
           padding: 8px 11px;
           min-height: auto;
@@ -159,87 +164,173 @@ export const BlogsWrapper = styled(Box)`
   }
 `;
 
-
 function Blogs() {
+  const [page, setPage] = React.useState(1);
+  const [per_page, setPageLimit] = React.useState(3);
+  const [totalPage, setTotalPage] = React.useState<number>(0);
+  const [blogList, setBlogList] = useState<blogDoc[]>();
+
+  const { isLoading } = useQuery(
+    ["blogList", page],
+
+    {
+      queryFn: () => GetBlogList({ page, per_page }),
+      refetchOnWindowFocus: false,
+      onSuccess(data) {
+        if (data.status === 200) {
+          setTotalPage(data?.data?.data?.pages);
+          // !!blogList && blogList?.length > 0
+          //   ? setBlogList([...blogList, ...data?.data?.data?.docs])
+          setBlogList(data?.data?.data?.docs);
+        }
+      }
+    }
+  );
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
+  if (isLoading) {
+    return <Loader isLoading={isLoading} />;
+  }
+  const router = useRouter();
   return (
     <Wrapper>
       <InnnerPageWrapper>
         <BreadcumbTitle title="Blogs" pageName="Blogs" />
         <Container fixed>
           <BlogsWrapper>
-            <Box className="blogSectionTopWrapper">
-              <Stack
-                direction="row"
-                alignItems="center"
-                className="blogSecitoWrap"
-              >
-                <figure className="blogMain_img">
-                  <Image
-                    src={assest.blogImage}
-                    alt="blog_details"
-                    width={585}
-                    height={410}
-                  />
-                </figure>
-                <Box className="blog_desctiptions">
-                  <Chip
-                    icon={<Calender />}
-                    label="15.01.2024"
-                    variant="filled"
-                    color="default"
-                  />
-                  <Typography variant="h3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                  </Typography>
-                  <Typography variant="body1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Fringilla egestas ullamcorper sollicitudin volutpat
-                    pellentesque leo sed. Dolor facilisis habitant euismod
-                    amet...
-                  </Typography>
-                  <Stack
-                    direction="row"
-                    alignItems="center"
-                    className="profilesection"
-                  >
-                    <figure className="profileIcon">
-                      <Image
-                        src={assest.profileIcon}
-                        alt="profile_icon"
-                        width={44}
-                        height={44}
-                      />
-                    </figure>
-                    <Box className="profile_details">
-                      <Typography variant="h5">Abram George</Typography>
-                      <Typography variant="body1">Manager</Typography>
-                    </Box>
-                  </Stack>
-                  <Link href="javascript:void(0)" className="redmore_section">
-                    <Typography variant="body1">Read More</Typography>
-                    <i>
-                      <ArrowIcon />
-                    </i>
-                  </Link>
-                </Box>
-              </Stack>
-            </Box>
-            <Box className="blogSecitonBottomPart">
-              <Grid container spacing={{lg:3.5, xs:3.2}}>
-                {cardList1.map((item) => (
-                  <Grid item lg={4} md={6} xs={12}>
-                    <BlogCard
-                    route={item.route}
-                      blogimg={item.blogimg}
-                      datevalue={item.date}
-                      cardtitevalue={item.cardtitle}
-                      blogDescription={item.description}
+            {page == 1 && (
+              <Box className="blogSectionTopWrapper">
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  className="blogSecitoWrap"
+                >
+                  <figure className="blogMain_img">
+                    <Image
+                      src={mediaUrl(
+                        `blog/${
+                          !!blogList && blogList.length > 0 && blogList[0].image
+                        }`
+                      )}
+                      alt="blog_details"
+                      width={585}
+                      height={410}
                     />
-                  </Grid>
-                ))}
+                  </figure>
+                  <Box className="blog_desctiptions">
+                    <Chip
+                      icon={<Calender />}
+                      label={
+                        !!blogList && blogList.length > 0
+                          ? moment(blogList[0].published_date).format(
+                              "DD.MM.YYYY"
+                            )
+                          : ""
+                      }
+                      variant="filled"
+                      color="default"
+                    />
+                    <Typography variant="h3">
+                      {!!blogList && blogList.length > 0 && blogList[0].title}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          !!blogList && blogList.length > 0
+                            ? (blogList[0].description as string)
+                            : ""
+                      }}
+                    />
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      className="profilesection"
+                    >
+                      <figure className="profileIcon">
+                        <Image
+                          src={mediaUrl(
+                            `blog/${
+                              !!blogList &&
+                              blogList.length > 0 &&
+                              blogList[0].author_image
+                            }`
+                          )}
+                          alt="profile_icon"
+                          width={44}
+                          height={44}
+                        />
+                      </figure>
+                      <Box className="profile_details">
+                        <Typography variant="h5">
+                          {!!blogList &&
+                            blogList.length > 0 &&
+                            blogList[0].author_name}
+                        </Typography>
+                        <Typography variant="body1">
+                          {" "}
+                          {!!blogList &&
+                            blogList.length > 0 &&
+                            blogList[0].author_type}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                    <Link
+                      href={`/blog-details/${
+                        !!blogList && blogList.length > 0 && blogList[0]._id
+                      }`}
+                      className="redmore_section"
+                    >
+                      <Typography variant="body1">Read More</Typography>
+                      <i>
+                        <ArrowIcon />
+                      </i>
+                    </Link>
+                  </Box>
+                </Stack>
+              </Box>
+            )}
+
+            <Box className="blogSecitonBottomPart">
+              <Grid container spacing={{ lg: 3.5, xs: 3.2 }}>
+                {!!blogList && blogList.length > 0 && page == 1
+                  ? blogList.slice(1).map((data, index) => (
+                      <Grid item lg={4} md={6} xs={12}>
+                        <BlogCard
+                          item={data}
+                          blogimg={mediaUrl(`blog/${data?.image}`)}
+                          datevalue={moment(data.published_date).format(
+                            "DD.MM.YYYY"
+                          )}
+                          cardtitevalue={data?.title}
+                          blogDescription={data?.description}
+                        />
+                      </Grid>
+                    ))
+                  : !!blogList &&
+                    blogList.length > 0 &&
+                    blogList.map((data, index) => (
+                      <Grid item lg={4} md={6} xs={12}>
+                        <BlogCard
+                          item={data}
+                          blogimg={mediaUrl(`blog/${data?.image}`)}
+                          datevalue={moment(data.published_date).format(
+                            "DD.MM.YYYY"
+                          )}
+                          cardtitevalue={data?.title}
+                          blogDescription={data?.description}
+                        />
+                      </Grid>
+                    ))}
               </Grid>
             </Box>
-            <CommonPagination  />
+            <CommonPagination
+              count={totalPage}
+              page={page}
+              handleChange={handleChange}
+            />
           </BlogsWrapper>
         </Container>
       </InnnerPageWrapper>

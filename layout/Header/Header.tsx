@@ -138,8 +138,6 @@ export default function Header(props: Props) {
     }
   );
 
-  console.log(router.pathname.includes("/services"), "abhisek");
-
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
       <AppBar
@@ -269,7 +267,7 @@ export default function Header(props: Props) {
                       vertical: "top"
                     }}
                   >
-                    <MenuItem onClick={() => router.push("/service")}>
+                    <MenuItem onClick={() => router.push("/services")}>
                       All Services
                     </MenuItem>
                     {!!serviceList &&
@@ -278,7 +276,9 @@ export default function Header(props: Props) {
                       serviceList?.data?.data?.docs?.map((data, index) => (
                         <MenuItem
                           key={index}
-                          // onClick={() => router.push(data?.route)}
+                          onClick={() =>
+                            router.push(`/service-details/${data._id}`)
+                          }
                         >
                           {data?.title}
                         </MenuItem>
@@ -318,7 +318,9 @@ export default function Header(props: Props) {
                       conditionList?.data?.data?.docs?.map((data, index) => (
                         <MenuItem
                           key={index}
-                          // onClick={() => router.push(data?.route)}
+                          onClick={() =>
+                            router.push(`/condition-details/${data._id}`)
+                          }
                         >
                           {data?.title}
                         </MenuItem>

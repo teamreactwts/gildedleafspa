@@ -24,10 +24,22 @@ export const endpoints = {
     setting: "settings/details"
   },
   service: {
-    list: "service/list"
+    list: "service/list",
+    details: "service/details"
   },
   condition: {
-    list: "condition/get-data"
+    list: "condition/get-data",
+    details: "condition/get-details"
+  },
+  contact: {
+    contactus: "contact-us/store"
+  },
+  blog: {
+    list: "blog/list",
+    details: "blog/get-details"
+  },
+  newsletter: {
+    save: "news-letter/store"
   }
 };
 

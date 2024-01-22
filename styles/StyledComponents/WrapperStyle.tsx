@@ -291,6 +291,45 @@ export const WrapperStyle = styled(Box)`
   .errSpan {
     color: red;
   }
+  .batch_iconWrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 99;
+    li{
+      margin-bottom: 15px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      a{
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        background-color:  #A67033;
+        @media (max-width: 599px) {
+          width: 30px;
+          height: 30px;
+        }
+        svg{
+          @media (max-width: 599px) {
+          width: 15px;
+          height: 15px;
+        }
+        }
+        &:hover{
+          background-color: #161D29;
+        }
+      }
+    }
+  }
 
   // ========================================
   //   .global_slick {
@@ -421,3 +460,5 @@ export const WrapperStyle = styled(Box)`
   }
   //   ======================
 `;
+
+
