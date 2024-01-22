@@ -25,6 +25,7 @@ import { useCallback, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useMutation, useQuery } from "react-query";
 import * as yup from "yup";
+import ComminSoon from "./coming-soon";
 const schema = yup.object().shape({
   full_name: yup.string().trim().required(validationText.error.fullName),
   email: yup
@@ -35,7 +36,9 @@ const schema = yup.object().shape({
   phone: yup.string().required(validationText.error.phone).min(10).max(15)
 });
 
-export default function Home() {
+export default ComminSoon;
+
+function Home() {
   const {
     handleSubmit,
     control,
