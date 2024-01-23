@@ -78,27 +78,26 @@ export const MuiDilogModalWrap = styled(Dialog)`
     @media (max-width: 599px) {
       max-width: 100%;
       width: calc(100vw - 30px);
-     
     }
-    .closeIcon{
+    .closeIcon {
       top: 20px;
-      right:20px;
+      right: 20px;
     }
     .modalBodySection {
       padding: 20px 52px 65px;
       .modalabout {
         height: 100%;
-       figure{
-        line-height: 0;
-        font-size: 0;
-        width: 297px;
-        margin: 0 auto;
-        img{
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        figure {
+          line-height: 0;
+          font-size: 0;
+          width: 297px;
+          margin: 0 auto;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         }
-       }
         p {
           color: ${primaryColors.textPrimaryColor};
           text-align: center;
@@ -123,9 +122,9 @@ export const MuiDilogModalWrap = styled(Dialog)`
           max-width: 227px;
           margin-bottom: 21px;
           @media (max-width: 899px) {
-             text-align: center;
-             margin: 0 auto 34px;
-            }
+            text-align: center;
+            margin: 0 auto 34px;
+          }
           span {
             color: inherit;
             font-family: inherit;
@@ -151,12 +150,22 @@ export const MuiDilogModalWrap = styled(Dialog)`
             }
             .modal_btn {
               margin-top: 10px;
+              > p {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                color: ${primaryColors?.color6B6657};
+                text-decoration: underline;
+                cursor: pointer;
+                &:hover {
+                  color: ${primaryColors?.primary};
+                }
+              }
               @media (max-width: 899px) {
-             display: flex;
-             align-items: center;
-             justify-content: center;
-           
-            }
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
               button {
                 min-width: 186px;
 

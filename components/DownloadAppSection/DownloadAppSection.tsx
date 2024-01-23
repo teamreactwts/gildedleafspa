@@ -59,7 +59,9 @@ function DownloadAppSection({ homeData }: Iprops) {
                       color="primary"
                       className="downloadapp_btn"
                     >
-                      <Typography variant="caption">Download App</Typography>
+                      <Typography variant="caption">
+                        {homeData?.app_button_text}
+                      </Typography>
                     </CustomButtonPrimary>
                   </ListItem>
                   <ListItem disablePadding>
@@ -76,7 +78,9 @@ function DownloadAppSection({ homeData }: Iprops) {
                       color="primary"
                       className="download_btn"
                     >
-                      <Typography variant="caption">Download App</Typography>
+                      <Typography variant="caption">
+                        {homeData?.app_button_text1}
+                      </Typography>
                     </CustomButtonPrimary>
                   </ListItem>
                 </List>

@@ -35,6 +35,7 @@ export default function BannerSec({
               <figure>
                 <Image
                   src={mediaUrl(`home/${bannerImage}`)}
+                  // src={bannerImage}
                   alt="banner image"
                   width={480}
                   height={550}

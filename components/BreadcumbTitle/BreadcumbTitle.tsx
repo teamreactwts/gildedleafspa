@@ -13,21 +13,21 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 export const BreadcumbTitleWrapper = styled(Box)`
-.bredcrumbs_wrap{
-  @media (max-width:599px) {
-     justify-content: center;
+  .bredcrumbs_wrap {
+    @media (max-width: 599px) {
+      justify-content: center;
     }
-}
+  }
   padding: 25px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  @media (max-width:599px) {
+  @media (max-width: 599px) {
     padding: 22px 0;
-    }
+  }
   h1 {
     font-size: 40px;
     font-weight: 700;
     margin: 0 !important;
-    @media (max-width:599px) {
+    @media (max-width: 599px) {
       width: 100%;
       text-align: center;
       margin-bottom: 10px !important;

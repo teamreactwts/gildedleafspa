@@ -1,14 +1,14 @@
 export default {
   success: {},
   error: {
-    enter_email: "Enter email",
+    enter_email: "Please Enter email",
     email_format: "Email format is not correct",
-    enter_password: "Enter password",
+    enter_password: "Please Enter password",
     phone: "Please Enter Phone Number",
-    username: "Enter username",
+    username: "Please Enter username",
     fullName: "Please Enter Full Name",
-    first_name: "Enter First Name",
-    last_name: "Enter Last Name",
+    first_name: "Please Enter First Name",
+    last_name: "Please Enter Last Name",
     message: "Please Enter Any Message"
   },
   warn: {},

@@ -44,7 +44,7 @@ const Footer = () => {
   const moreItems = [
     {
       name: "Shop",
-      route: "/shop"
+      route: "#url"
     },
     {
       name: "Affordability",

@@ -21,18 +21,22 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useMutation, useQuery } from "react-query";
 import * as yup from "yup";
 const schema = yup.object().shape({
-  full_name: yup.string().trim().required(validationText.error.fullName),
+  full_name: yup.string().trim().required("Please Enter Name"),
   email: yup
     .string()
     .trim()
     .email(validationText.error.email_format)
     .required(validationText.error.enter_email),
-  phone: yup.string().required(validationText.error.phone).min(10).max(15)
+  phone: yup
+    .string()
+    .required("Please Enter Phone No")
+    .min(10, "Phone must be at least 10 characters")
+    .max(15, "Phone must be at most 15 characters")
 });
 
 // export default ComminSoon;
@@ -51,8 +55,25 @@ export default function Home() {
   });
   const [open, setOpen] = useState(true);
   // const [count, setCount] = useState(0);
+  useEffect(() => {
+    const hasClosedPopup = localStorage.getItem("hasClosedPopup");
+
+    if (hasClosedPopup) {
+      setOpen(false);
+    }
+    // const handleBeforeUnload = () => {
+    //   localStorage.removeItem("hasClosedPopup");
+    // };
+
+    // window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // return () => {
+    //   window.removeEventListener("beforeunload", handleBeforeUnload);
+    // };
+  }, []);
 
   const handleClose = useCallback(() => {
+    // localStorage.setItem("hasClosedPopup", "true");
     setOpen(false);
   }, []);
 
@@ -75,13 +96,20 @@ export default function Home() {
       }
     });
   };
+  const dontshow = () => {
+    localStorage.setItem("hasClosedPopup", "true");
+    setOpen(false);
+  };
+
   if (isLoading) {
     return <Loader isLoading={isLoading} />;
   }
+
   return (
     <Wrapper>
       <BannerSec
         bannerImage={data?.data?.data?.image as string}
+        // bannerImage={assest?.banner_image}
         buttonText={data?.data?.data?.button_text as string}
       >
         <Typography variant="h1">
@@ -99,6 +127,7 @@ export default function Home() {
       <DifferentSec className="cmn_gap" homeData={data?.data?.data} />
       <HomeSlider homeData={data?.data?.data} />
       <DownloadAppSection homeData={data?.data?.data} />
+
       <MuiModalWrapper open={open} onClose={handleClose} className="newsletter">
         <Box className="modal_sectionWrap">
           <Grid container spacing={{ md: 3, xs: 2 }}>
@@ -125,7 +154,7 @@ export default function Home() {
                   <Typography variant="caption"> Newsletter</Typography>
                 </Typography>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <Grid container spacing={{ xs: 1.8 }}>
+                  <Grid container spacing={{ xs: 1.8 }} alignItems="center">
                     <Grid item xs={12}>
                       <Controller
                         control={control}
@@ -177,7 +206,7 @@ export default function Home() {
                         )}
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={6}>
                       <Box className="modal_btn">
                         <CustomButtonPrimary
                           variant="contained"
@@ -188,6 +217,13 @@ export default function Home() {
                         >
                           <Typography variant="caption">Submit</Typography>
                         </CustomButtonPrimary>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Box className="modal_btn">
+                        <Typography onClick={() => dontshow()}>
+                          Don't show again
+                        </Typography>
                       </Box>
                     </Grid>
                   </Grid>

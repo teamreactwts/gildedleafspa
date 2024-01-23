@@ -29,13 +29,13 @@ import { useMutation, useQuery } from "react-query";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  full_name: yup.string().trim().required(validationText.error.fullName),
+  full_name: yup.string().trim().required("Please Enter Name"),
   email: yup
     .string()
     .trim()
     .email(validationText.error.email_format)
     .required(validationText.error.enter_email),
-  phone: yup.string().required(validationText.error.phone).min(10).max(15),
+  phone: yup.string().required("Please Enter Phone No").min(10).max(15),
   message: yup.string().trim().required(validationText.error.message)
 });
 
