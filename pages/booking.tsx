@@ -1,9 +1,11 @@
 /* eslint-disable no-nested-ternary */
+import { GetMembershipDetails } from "@/api/functions/cms.api";
 import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import CalendarSec from "@/components/CalendarSec/CalendarSec";
 import ContactForm from "@/components/ContactForm/ContactForm";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import MembershipPlan from "@/components/MembershipPlan/MembershipPlan";
+import { IMembershipDetails } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import styled from "@emotion/styled";
@@ -12,12 +14,12 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useCallback, useState } from "react";
+import { useQuery } from "react-query";
 
 export const BookingWrapper = styled(Box)`
-.cmn_btn_booking{
-  min-width: auto;
-}
-
+  .cmn_btn_booking {
+    min-width: auto;
+  }
 `;
 
 const breadCumbList = [
@@ -33,7 +35,13 @@ const Index = () => {
   const stepIncr = useCallback((data: number) => {
     setStep(data);
   }, []);
-
+  const { isLoading, data: membershipDetails } = useQuery(
+    "membershipdetails",
+    GetMembershipDetails,
+    {
+      refetchOnWindowFocus: false
+    }
+  );
   return (
     <Wrapper>
       <InnnerPageWrapper>
@@ -46,9 +54,9 @@ const Index = () => {
           {step === 1 ? (
             <>
               <MembershipPlan
-                title="Select "
-                breakTitle="Membership Plans"
-                subTitle="Embrace a world of beauty and elegance with our memberships. Join us in your journey to look as young as you feel."
+                membershipDetails={
+                  membershipDetails?.data?.data as IMembershipDetails
+                }
               />
               <Container fixed>
                 <Stack
