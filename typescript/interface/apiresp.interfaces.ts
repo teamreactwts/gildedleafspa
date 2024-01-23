@@ -211,3 +211,32 @@ export interface IrelateBlog {
   description: string;
   published_date: string;
 }
+export interface IgetMembershipDetailsResponse extends BaseApiResponse {
+  data: IMembershipDetails;
+}
+export interface IMembershipDetails {
+  _id: string;
+  isDeleted: boolean;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  bold_title: string;
+  bold_title_1: string;
+  description_1: string;
+  head_description: string;
+  title: string;
+  title_1: string;
+}
+export interface IgetSettingsFeaturesResponse extends BaseApiResponse {
+  data: IMembershipFeatures[];
+}
+export interface IMembershipFeatures {
+  _id: string;
+  title: string;
+  description: string;
+  icon: string;
+  isDeleted: boolean;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+}

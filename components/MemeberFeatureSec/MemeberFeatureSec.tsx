@@ -1,8 +1,8 @@
 /* eslint-disable react/no-array-index-key */
+import { mediaUrl } from "@/api/endpoints";
+import { GetMembershipFeatures } from "@/api/functions/cms.api";
+import { IMembershipDetails } from "@/interface/apiresp.interfaces";
 import { primaryColors } from "@/themes/_muiPalette";
-import FeatureIcon1 from "@/ui/Icons/FeatureIcon1";
-import FeatureIcon2 from "@/ui/Icons/FeatureIcon2";
-import FeatureIcon3 from "@/ui/Icons/FeatureIcon3";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import React, { HTMLAttributes } from "react";
+import { useQuery } from "react-query";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
 export const MemeberFeatureSecWrapper = styled(Box)`
@@ -61,46 +62,48 @@ export const FatureCard: React.FC<
 > = ({ icon, title, description, ...props }) => {
   return (
     <FeatureCardWrapper {...props}>
-      <Typography component="i">{icon}</Typography>
-      <Typography variant="h3">
-        <Link href="#url">{title}</Link>
+      <Typography component="i">
+        {/* {mediaUrl(`membership-feature/${icon}`)} */}
+        <img src={mediaUrl(`membership-feature/${icon}`)} alt="icon" />
       </Typography>
-      <Typography>{description}</Typography>
+      <Typography variant="h3">
+        <Link href="#">{title}</Link>
+      </Typography>
+      <Typography
+        dangerouslySetInnerHTML={{
+          __html: description as string
+        }}
+      />
     </FeatureCardWrapper>
   );
 };
 
-export const featureCardList = [
-  {
-    icon: <FeatureIcon1 />,
-    title: "Beauty Bank",
-    description:
-      "Your monthly fee acts as a beauty bank. Pay monthly and bank these funds with us. Use them for services at your discretion."
-  },
-  {
-    icon: <FeatureIcon2 />,
-    title: "Flexibility",
-    description:
-      "No fees, no contracts. Memberships can be frozen or canceled anytime."
-  },
-  {
-    icon: <FeatureIcon3 />,
-    title: "Discounted Services",
-    description: "Enjoy discounted rates on our wide range of services."
-  }
-];
-
-export default function MemeberFeatureSec() {
+interface Iprops {
+  membershipDetails: IMembershipDetails;
+}
+export default function MemeberFeatureSec({ membershipDetails }: Iprops) {
+  const { data: membershipFeatures } = useQuery(
+    "membershipfeature",
+    GetMembershipFeatures,
+    {
+      refetchOnWindowFocus: false
+    }
+  );
   return (
     <MemeberFeatureSecWrapper>
-      <CommonHeader title="Membership" breakTitle="Features:" />
+      <CommonHeader
+        title={membershipDetails?.title}
+        breakTitle={membershipDetails?.bold_title}
+      />
       <Container fixed>
         <Grid container spacing={{ md: 4, xs: 2 }}>
-          {featureCardList?.map((data, index) => (
-            <Grid item md={4} xs={12} key={index}>
-              <FatureCard {...data} />
-            </Grid>
-          ))}
+          {!!membershipFeatures &&
+            membershipFeatures.data.data.length > 0 &&
+            membershipFeatures.data.data?.map((data, index) => (
+              <Grid item md={4} xs={12} key={index}>
+                <FatureCard {...data} />
+              </Grid>
+            ))}
         </Grid>
       </Container>
     </MemeberFeatureSecWrapper>

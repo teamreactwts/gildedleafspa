@@ -162,6 +162,15 @@ export const BlogsWrapper = styled(Box)`
       padding-bottom: 40px;
     }
   }
+  .description_block {
+    p {
+      display: -webkit-box;
+      max-width: 100%;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
 `;
 
 function Blogs() {
@@ -204,7 +213,7 @@ function Blogs() {
               <Box className="blogSectionTopWrapper">
                 <Stack
                   direction="row"
-                  alignItems="center"
+                  // alignItems="center"
                   className="blogSecitoWrap"
                 >
                   <figure className="blogMain_img">
@@ -235,15 +244,17 @@ function Blogs() {
                     <Typography variant="h3">
                       {!!blogList && blogList.length > 0 && blogList[0].title}
                     </Typography>
-                    <Typography
-                      variant="body1"
-                      dangerouslySetInnerHTML={{
-                        __html:
-                          !!blogList && blogList.length > 0
-                            ? (blogList[0].description as string)
-                            : ""
-                      }}
-                    />
+                    <Box className="description_block">
+                      <Typography
+                        variant="body1"
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            !!blogList && blogList.length > 0
+                              ? (blogList[0].description as string)
+                              : ""
+                        }}
+                      />
+                    </Box>
                     <Stack
                       direction="row"
                       alignItems="center"

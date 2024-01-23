@@ -40,6 +40,10 @@ export const endpoints = {
   },
   newsletter: {
     save: "news-letter/store"
+  },
+  membership: {
+    features: "membership-feature/details",
+    details: "membership/details"
   }
 };
 

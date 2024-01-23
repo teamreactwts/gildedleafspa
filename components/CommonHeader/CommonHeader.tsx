@@ -13,7 +13,11 @@ const CommonHeader = ({ title, breakTitle, subTitle }: commonHeadderProps) => {
       <Typography variant="h2">
         {title} <Typography variant="caption">{breakTitle}</Typography>
       </Typography>
-      <Typography>{subTitle}</Typography>
+      <Typography
+        dangerouslySetInnerHTML={{
+          __html: subTitle as string
+        }}
+      />
     </CommonHeaderWrapper>
   );
 };

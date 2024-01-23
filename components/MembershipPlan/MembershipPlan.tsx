@@ -5,6 +5,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useCallback, useState } from "react";
 
+import { IMembershipDetails } from "@/interface/apiresp.interfaces";
 import CommonHeader, { commonHeadderProps } from "../CommonHeader/CommonHeader";
 import PriceCard from "../PriceCard/PriceCard";
 
@@ -17,7 +18,9 @@ export const MembershipPlanWrapper = styled(Box)`
   }
 `;
 
-interface membershipInterface extends commonHeadderProps {}
+interface membershipInterface extends commonHeadderProps {
+  membershipDetails: IMembershipDetails;
+}
 
 export default function MembershipPlan({ ...props }: membershipInterface) {
   const [selectPanel, setSelectPanel] = useState<number>(0);
@@ -30,12 +33,9 @@ export default function MembershipPlan({ ...props }: membershipInterface) {
     <MembershipPlanWrapper>
       <Container fixed>
         <CommonHeader
-          title={props?.title || "Gilded Leaf Med Spa "}
-          breakTitle={props?.breakTitle || "Membership Plans"}
-          subTitle={
-            props?.subTitle ||
-            "Embrace a world of beauty and elegance with our memberships. Join us in your journey to look as young as you feel."
-          }
+          title={props.membershipDetails?.title_1}
+          breakTitle={props.membershipDetails?.bold_title_1}
+          subTitle={props.membershipDetails?.description_1}
         />
         <Grid container spacing={{ lg: 4, md: 3, xs: 2 }}>
           {planCardList?.map((data, index) => (

@@ -61,7 +61,13 @@ export const BlogCardWrapper = styled(Box)`
         color: ${primaryColors.colorA67033};
       }
     }
-
+    > p {
+      display: -webkit-box;
+      max-width: 100%;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
     .redmore_section {
       display: flex;
       align-items: center;
@@ -129,7 +135,13 @@ function BlogCard({
         <Link href="#" className="title_text">
           {cardtitevalue}
         </Link>
-        <Typography variant="body1">{blogDescription}</Typography>
+
+        <Typography
+          variant="body1"
+          dangerouslySetInnerHTML={{
+            __html: blogDescription as string
+          }}
+        />
 
         <Link
           href={`/blog-details/${item?._id}`}

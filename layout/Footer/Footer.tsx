@@ -34,7 +34,7 @@ const Footer = () => {
     },
     {
       name: "Conditions",
-      route: "/conditions"
+      route: "/condition"
     },
     {
       name: "Membership",
