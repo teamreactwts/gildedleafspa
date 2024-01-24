@@ -362,7 +362,12 @@ function BlogDetails() {
                 />
               </Box>
             </Box>
-            <Box className="blog_detailsBottomPart">
+            {
+              !!data?.data?.data &&
+              !!data?.data?.data.related_blogs &&
+              data?.data?.data.related_blogs.length > 0
+              &&
+              <Box className="blog_detailsBottomPart">
               <Stack
                 direction="row"
                 alignItems="center"
@@ -371,13 +376,18 @@ function BlogDetails() {
                 flexWrap="wrap"
               >
                 <Typography variant="h3">Related Blogs</Typography>
-                <CustomButtonPrimary
+                {
+                  data?.data?.data.related_blogs.length > 3
+                  &&
+                  <CustomButtonPrimary
                   variant="contained"
                   color="primary"
                   onClick={() => router.push("/blogs")}
                 >
                   <Typography variant="caption">View All</Typography>
                 </CustomButtonPrimary>
+                }
+               
               </Stack>
               <Box className="blog_section_slider">
                 {/* {cardList1?.map((data, index) => (
@@ -434,6 +444,8 @@ function BlogDetails() {
                 )}
               </Box>
             </Box>
+            }
+           
           </Container>
         </BlogDetailsWrapper>
       </InnnerPageWrapper>
