@@ -9,8 +9,8 @@ import { primaryColors } from "@/themes/_muiPalette";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Calender from "@/ui/Icons/CalenderIcon";
 import styled from "@emotion/styled";
-import { Grid } from "@mui/material";
 import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Box, Stack } from "@mui/system";
 import moment from "moment";
@@ -356,9 +356,10 @@ function BlogDetails() {
                 />
               </figure>
               <Box className="blog_detailsText">
-                <Typography variant="body1">
-                  {data?.data?.data?.description}
-                </Typography>
+                <Typography variant="body1" dangerouslySetInnerHTML={{
+                    __html: data?.data?.data?.description as string
+                  }}
+                />
               </Box>
             </Box>
             <Box className="blog_detailsBottomPart">

@@ -120,7 +120,7 @@ function BlogCard({
   const router = useRouter();
   return (
     <BlogCardWrapper>
-      <Link href="#" className="imgSectionWrap">
+      <Link href={`/blog-details/${item?._id}`} className="imgSectionWrap">
         <figure className="blogfigure">
           <Image src={blogimg} alt="blogimage" width={321} height={201} />
         </figure>
@@ -132,7 +132,7 @@ function BlogCard({
           variant="filled"
           color="default"
         />
-        <Link href="#" className="title_text">
+        <Link href={`/blog-details/${item?._id}`} className="title_text">
           {cardtitevalue}
         </Link>
 
