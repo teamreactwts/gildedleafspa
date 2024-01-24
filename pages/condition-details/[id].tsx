@@ -68,7 +68,7 @@ function ConditionDetails() {
             >
               <figure>
                 <Image
-                  src={assest.slider1}
+                  src={mediaUrl(`condition/${data?.data?.data?.image}`)}
                   alt="Image"
                   width={279}
                   height={321}
