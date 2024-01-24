@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
@@ -128,6 +129,8 @@ function ServiceDetails() {
   if (isLoading) {
     return <Loader isLoading={isLoading} />;
   }
+
+  console.log(data?.data?.data?.faqId, "abhisek");
   return (
     <Wrapper>
       <ServiceDetailsWrapper>
@@ -237,7 +240,7 @@ function ServiceDetails() {
                 {!!data?.data?.data?.conditionId &&
                   data?.data?.data?.conditionId.length > 0 &&
                   data?.data?.data?.conditionId.map((item, index) => (
-                    <Grid item md={6} xs={12}>
+                    <Grid item md={6} xs={12} key={index}>
                       <Stack
                         direction="row"
                         alignItems="center"
@@ -310,8 +313,37 @@ function ServiceDetails() {
                 </Typography>
               </Box>
               <Box className="frequentWrap">
-                <Grid container spacing={{ lg: 11.8, xs: 0 }}>
-                  <Grid item lg={6} xs={12}>
+                <Grid container columnSpacing={{ lg: 11.8, md: 5 }}>
+                  {!!data?.data?.data?.faqId &&
+                    data?.data?.data?.faqId.length > 0 &&
+                    data?.data?.data?.faqId?.map((item, index) => (
+                      <Grid item md={6} xs={12}>
+                        <Box className="frequent_listsection" key={index}>
+                          <Accordion
+                            expanded={expanded === `panel${index + 1}`}
+                            onChange={handleChange(`panel${index + 1}`)}
+                          >
+                            <AccordionSummary
+                              expandIcon={
+                                expanded ? <MinusIcon /> : <PlusIcon />
+                              }
+                              aria-controls={`panel${index + 1}bh-content`}
+                              id={`panel${index + 1}bh-header`}
+                            >
+                              <Typography className="title_accrodian">
+                                {item.question}
+                              </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                              <Typography className="title_description">
+                                {item.answer}
+                              </Typography>
+                            </AccordionDetails>
+                          </Accordion>
+                        </Box>
+                      </Grid>
+                    ))}
+                  {/* <Grid item lg={6} xs={12}>
                     <Box className="frequent_listsection">
                       {!!data?.data?.data?.faqId &&
                         data?.data?.data?.faqId.length > 0 &&
@@ -376,7 +408,7 @@ function ServiceDetails() {
                         </>
                       ))}
                     </Box>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Box>
             </Box>
