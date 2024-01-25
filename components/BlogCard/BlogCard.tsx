@@ -57,6 +57,7 @@ export const BlogCardWrapper = styled(Box)`
       line-height: 1;
       margin: 15px 0;
       display: block;
+      min-height: 44px;
       &:hover {
         color: ${primaryColors.colorA67033};
       }
