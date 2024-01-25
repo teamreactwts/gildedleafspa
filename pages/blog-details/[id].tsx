@@ -356,41 +356,40 @@ function BlogDetails() {
                 />
               </figure>
               <Box className="blog_detailsText">
-                <Typography variant="body1" dangerouslySetInnerHTML={{
+                <Typography
+                  variant="body1"
+                  dangerouslySetInnerHTML={{
                     __html: data?.data?.data?.description as string
                   }}
                 />
               </Box>
             </Box>
-            {
-              !!data?.data?.data &&
+            {!!data?.data?.data &&
               !!data?.data?.data.related_blogs &&
-              data?.data?.data.related_blogs.length > 0
-              &&
-              <Box className="blog_detailsBottomPart">
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-                className="relatedBlog_topPart"
-                flexWrap="wrap"
-              >
-                <Typography variant="h3">Related Blogs</Typography>
-                {
-                  data?.data?.data.related_blogs.length > 3
-                  &&
-                  <CustomButtonPrimary
-                  variant="contained"
-                  color="primary"
-                  onClick={() => router.push("/blogs")}
-                >
-                  <Typography variant="caption">View All</Typography>
-                </CustomButtonPrimary>
-                }
-               
-              </Stack>
-              <Box className="blog_section_slider">
-                {/* {cardList1?.map((data, index) => (
+              data?.data?.data.related_blogs.length > 0 && (
+                <Box className="blog_detailsBottomPart">
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    className="relatedBlog_topPart"
+                    flexWrap="wrap"
+                  >
+                    <Typography variant="h3">Related Blogs</Typography>
+                    {data?.data?.data.related_blogs.length > 3 && (
+                      <CustomButtonPrimary
+                        variant="contained"
+                        color="primary"
+                        onClick={() => router.push("/blogs")}
+                      >
+                        <Typography variant="caption">
+                          View All Blogs
+                        </Typography>
+                      </CustomButtonPrimary>
+                    )}
+                  </Stack>
+                  <Box className="blog_section_slider">
+                    {/* {cardList1?.map((data, index) => (
                     <Box className="blog_siderCard" key={index}>
                       <BlogCard
                         blogimg={data.blogimg}
@@ -401,51 +400,50 @@ function BlogDetails() {
                     </Box>
                   ))} */}
 
-                {!!data?.data?.data &&
-                !!data?.data?.data.related_blogs &&
-                data?.data?.data.related_blogs.length > 3 ? (
-                  <Slider {...(settings as any)}>
                     {!!data?.data?.data &&
-                      !!data?.data?.data.related_blogs &&
-                      data?.data?.data.related_blogs.length > 0 &&
-                      data?.data?.data.related_blogs.map((data, index) => (
-                        <Box className="blog_siderCard" key={index}>
-                          <BlogCard
-                            blogimg={mediaUrl(`blog/${data?.image}`)}
-                            datevalue={moment(data.published_date).format(
-                              "DD.MM.YYYY"
-                            )}
-                            cardtitevalue={data?.title}
-                            blogDescription={data?.description}
-                            item={data}
-                          />
-                        </Box>
-                      ))}
-                  </Slider>
-                ) : (
-                  <Grid container spacing={{ md: 3, xs: 2 }}>
-                    {!!data?.data?.data &&
-                      !!data?.data?.data.related_blogs &&
-                      data?.data?.data.related_blogs.length > 0 &&
-                      data?.data?.data.related_blogs.map((data, index) => (
-                        <Grid item lg={4} md={6} xs={12} key={index}>
-                          <BlogCard
-                            blogimg={mediaUrl(`blog/${data?.image}`)}
-                            datevalue={moment(data.published_date).format(
-                              "DD.MM.YYYY"
-                            )}
-                            cardtitevalue={data?.title}
-                            blogDescription={data?.description}
-                            item={data}
-                          />
-                        </Grid>
-                      ))}
-                  </Grid>
-                )}
-              </Box>
-            </Box>
-            }
-           
+                    !!data?.data?.data.related_blogs &&
+                    data?.data?.data.related_blogs.length > 3 ? (
+                      <Slider {...(settings as any)}>
+                        {!!data?.data?.data &&
+                          !!data?.data?.data.related_blogs &&
+                          data?.data?.data.related_blogs.length > 0 &&
+                          data?.data?.data.related_blogs.map((data, index) => (
+                            <Box className="blog_siderCard" key={index}>
+                              <BlogCard
+                                blogimg={mediaUrl(`blog/${data?.image}`)}
+                                datevalue={moment(data.published_date).format(
+                                  "DD.MM.YYYY"
+                                )}
+                                cardtitevalue={data?.title}
+                                blogDescription={data?.description}
+                                item={data}
+                              />
+                            </Box>
+                          ))}
+                      </Slider>
+                    ) : (
+                      <Grid container spacing={{ md: 3, xs: 2 }}>
+                        {!!data?.data?.data &&
+                          !!data?.data?.data.related_blogs &&
+                          data?.data?.data.related_blogs.length > 0 &&
+                          data?.data?.data.related_blogs.map((data, index) => (
+                            <Grid item lg={4} md={6} xs={12} key={index}>
+                              <BlogCard
+                                blogimg={mediaUrl(`blog/${data?.image}`)}
+                                datevalue={moment(data.published_date).format(
+                                  "DD.MM.YYYY"
+                                )}
+                                cardtitevalue={data?.title}
+                                blogDescription={data?.description}
+                                item={data}
+                              />
+                            </Grid>
+                          ))}
+                      </Grid>
+                    )}
+                  </Box>
+                </Box>
+              )}
           </Container>
         </BlogDetailsWrapper>
       </InnnerPageWrapper>

@@ -8,6 +8,7 @@ import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { ServiceDetailsWrapper } from "@/styles/StyledComponents/ServiceDetailsWrapper";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+import ArrowIcon from "@/ui/Icons/ArrowIcon";
 import MinusIcon from "@/ui/Icons/MinusIcon";
 import PlusIcon from "@/ui/Icons/PlusIcon";
 import TickIcon from "@/ui/Icons/TickIcon";
@@ -29,6 +30,7 @@ import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useQuery } from "react-query";
@@ -144,7 +146,7 @@ function ServiceDetails() {
               <Box className="service_imgSection">
                 <figure>
                   <Image
-                    src={assest.diffIcon6}
+                    src={mediaUrl(`service/${data?.data?.data?.icon}`)}
                     alt="serviceImg"
                     width={89}
                     height={106}
@@ -221,17 +223,20 @@ function ServiceDetails() {
                 </Grid>
               </Grid>
             </Box>
-            <Box className="result_section">
-              <Typography variant="h4">Result</Typography>
-              <figure>
-                <Image
-                  src={mediaUrl(`service/${data?.data?.data?.result_image}`)}
-                  alt="result_Image"
-                  width={1135}
-                  height={470}
-                />
-              </figure>
-            </Box>
+            {!!data?.data?.data?.result_image && (
+              <Box className="result_section">
+                <Typography variant="h4">Result</Typography>
+                <figure>
+                  <Image
+                    src={mediaUrl(`service/${data?.data?.data?.result_image}`)}
+                    alt="result_Image"
+                    width={1135}
+                    height={470}
+                  />
+                </figure>
+              </Box>
+            )}
+
             <Box className="botox_section_wrap">
               <Typography variant="h4">
                 Botox <Typography variant="caption">can treat</Typography>
@@ -262,6 +267,18 @@ function ServiceDetails() {
                               __html: item?.description as string
                             }}
                           />
+                        </Box>
+                        <Box>
+                          <Link
+                            href={`/condition-details/${item?._id}`}
+                            // onClick={() => router.push(`/blog-details/${item?._id}`)}
+                            className="redmore_section"
+                          >
+                            <Typography variant="body1">Read More</Typography>
+                            <i>
+                              <ArrowIcon />
+                            </i>
+                          </Link>
                         </Box>
                       </Stack>
                     </Grid>
@@ -305,54 +322,25 @@ function ServiceDetails() {
                 </Table>
               </TableContainer>
             </Box>
-            <Box className="frequent_askQuestion">
-              <Box className="titleSection">
-                <Typography variant="h3">
-                  Frequently{" "}
-                  <Typography variant="caption"> asked questions</Typography>
-                </Typography>
-              </Box>
-              <Box className="frequentWrap">
-                <Grid container columnSpacing={{ lg: 11.8, md: 5 }}>
-                  {!!data?.data?.data?.faqId &&
-                    data?.data?.data?.faqId.length > 0 &&
-                    data?.data?.data?.faqId?.map((item, index) => (
-                      <Grid item md={6} xs={12}>
-                        <Box className="frequent_listsection" key={index}>
-                          <Accordion
-                            expanded={expanded === `panel${index + 1}`}
-                            onChange={handleChange(`panel${index + 1}`)}
-                          >
-                            <AccordionSummary
-                              expandIcon={
-                                expanded ? <MinusIcon /> : <PlusIcon />
-                              }
-                              aria-controls={`panel${index + 1}bh-content`}
-                              id={`panel${index + 1}bh-header`}
-                            >
-                              <Typography className="title_accrodian">
-                                {item.question}
-                              </Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                              <Typography className="title_description">
-                                {item.answer}
-                              </Typography>
-                            </AccordionDetails>
-                          </Accordion>
-                        </Box>
-                      </Grid>
-                    ))}
-                  {/* <Grid item lg={6} xs={12}>
-                    <Box className="frequent_listsection">
+            {!!data?.data?.data?.faqId &&
+              data?.data?.data?.faqId.length > 0 && (
+                <Box className="frequent_askQuestion">
+                  <Box className="titleSection">
+                    <Typography variant="h3">
+                      Frequently{" "}
+                      <Typography variant="caption">
+                        {" "}
+                        asked questions
+                      </Typography>
+                    </Typography>
+                  </Box>
+                  <Box className="frequentWrap">
+                    <Grid container columnSpacing={{ lg: 11.8, md: 5 }}>
                       {!!data?.data?.data?.faqId &&
                         data?.data?.data?.faqId.length > 0 &&
-                        data?.data?.data?.faqId.map((item, index) => (
-                          <>
-                            {index <
-                            Math.floor(
-                              fequent_questionListSection.length / 2
-                            ) ? (
+                        data?.data?.data?.faqId?.map((item, index) => (
+                          <Grid item md={6} xs={12}>
+                            <Box className="frequent_listsection" key={index}>
                               <Accordion
                                 expanded={expanded === `panel${index + 1}`}
                                 onChange={handleChange(`panel${index + 1}`)}
@@ -374,44 +362,13 @@ function ServiceDetails() {
                                   </Typography>
                                 </AccordionDetails>
                               </Accordion>
-                            ) : null}
-                          </>
+                            </Box>
+                          </Grid>
                         ))}
-                    </Box>
-                  </Grid>
-                  <Grid item lg={6} xs={12}>
-                    <Box className="frequent_listsection">
-                      {fequent_questionListSection.map((item, index) => (
-                        <>
-                          {index >=
-                          Math.floor(fequent_questionListSection.length / 2) ? (
-                            <Accordion
-                              expanded={expanded === `panel${index + 1}`}
-                              onChange={handleChange(`panel${index + 1}`)}
-                            >
-                              <AccordionSummary
-                                expandIcon={<PlusIcon />}
-                                aria-controls={`panel${index + 1}bh-content`}
-                                id={`panel${index + 1}bh-header`}
-                              >
-                                <Typography className="title_accrodian">
-                                  {item.title}
-                                </Typography>
-                              </AccordionSummary>
-                              <AccordionDetails>
-                                <Typography className="title_description">
-                                  {item.description}
-                                </Typography>
-                              </AccordionDetails>
-                            </Accordion>
-                          ) : null}
-                        </>
-                      ))}
-                    </Box>
-                  </Grid> */}
-                </Grid>
-              </Box>
-            </Box>
+                    </Grid>
+                  </Box>
+                </Box>
+              )}
           </Container>
         </InnnerPageWrapper>
       </ServiceDetailsWrapper>
