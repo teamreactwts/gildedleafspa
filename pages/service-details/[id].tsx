@@ -236,55 +236,62 @@ function ServiceDetails() {
                 </figure>
               </Box>
             )}
-
-            <Box className="botox_section_wrap">
-              <Typography variant="h4">
-                Botox <Typography variant="caption">can treat</Typography>
-              </Typography>
-              <Grid container spacing={3.8}>
-                {!!data?.data?.data?.conditionId &&
-                  data?.data?.data?.conditionId.length > 0 &&
-                  data?.data?.data?.conditionId.map((item, index) => (
-                    <Grid item md={6} xs={12} key={index}>
-                      <Stack
-                        direction="row"
-                        alignItems="center"
-                        className="botex_section"
-                      >
-                        <figure>
-                          <Image
-                            src={mediaUrl(`condition/${item?.image}`)}
-                            alt="treatment_img"
-                            width={140}
-                            height={148}
-                          />
-                        </figure>
-                        <Box className="text_section">
-                          <Typography variant="h5">{item?.title}</Typography>
-                          <Typography
-                            variant="body1"
-                            dangerouslySetInnerHTML={{
-                              __html: item?.description as string
-                            }}
-                          />
-                        </Box>
-                        <Box>
-                          <Link
-                            href={`/condition-details/${item?._id}`}
-                            // onClick={() => router.push(`/blog-details/${item?._id}`)}
-                            className="redmore_section"
+            {!!data?.data?.data?.conditionId &&
+              data?.data?.data?.conditionId.length > 0 && (
+                <Box className="botox_section_wrap">
+                  <Typography variant="h4">
+                    {data?.data?.data?.title}{" "}
+                    <Typography variant="caption">can treat</Typography>
+                  </Typography>
+                  <Grid container spacing={3.8}>
+                    {!!data?.data?.data?.conditionId &&
+                      data?.data?.data?.conditionId.length > 0 &&
+                      data?.data?.data?.conditionId.map((item, index) => (
+                        <Grid item md={6} xs={12} key={index}>
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            className="botex_section"
                           >
-                            <Typography variant="body1">Read More</Typography>
-                            <i>
-                              <ArrowIcon />
-                            </i>
-                          </Link>
-                        </Box>
-                      </Stack>
-                    </Grid>
-                  ))}
-              </Grid>
-            </Box>
+                            <figure>
+                              <Image
+                                src={mediaUrl(`condition/${item?.image}`)}
+                                alt="treatment_img"
+                                width={140}
+                                height={148}
+                              />
+                            </figure>
+                            <Box className="text_section">
+                              <Typography variant="h5">
+                                {item?.title}
+                              </Typography>
+                              <Typography
+                                variant="body1"
+                                dangerouslySetInnerHTML={{
+                                  __html: item?.description as string
+                                }}
+                              />
+                            </Box>
+                            <Box>
+                              <Link
+                                href={`/condition-details/${item?._id}`}
+                                // onClick={() => router.push(`/blog-details/${item?._id}`)}
+                                className="redmore_section"
+                              >
+                                <Typography variant="body1">
+                                  Read More
+                                </Typography>
+                                <i>
+                                  <ArrowIcon />
+                                </i>
+                              </Link>
+                            </Box>
+                          </Stack>
+                        </Grid>
+                      ))}
+                  </Grid>
+                </Box>
+              )}
             <Box className="pricingTable">
               <Box className="pricing_text">
                 <Typography variant="h3">Pricing</Typography>
