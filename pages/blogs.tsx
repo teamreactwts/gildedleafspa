@@ -245,7 +245,7 @@ function Blogs() {
                       {!!blogList && blogList.length > 0 && blogList[0].title}
                     </Typography>
                     <Box className="description_block">
-                      <Typography
+                      {/* <Typography
                         variant="body1"
                         dangerouslySetInnerHTML={{
                           __html:
@@ -253,7 +253,12 @@ function Blogs() {
                               ? (blogList[0].description as string)
                               : ""
                         }}
-                      />
+                      /> */}
+                      <Typography variant="body1">
+                        {!!blogList && blogList.length > 0
+                          ? (blogList[0].short_description as string)
+                          : ""}
+                      </Typography>
                     </Box>
                     <Stack
                       direction="row"

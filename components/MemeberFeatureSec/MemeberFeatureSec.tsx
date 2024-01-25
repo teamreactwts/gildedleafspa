@@ -1,7 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
-import { GetMembershipFeatures } from "@/api/functions/cms.api";
-import { IMembershipDetails } from "@/interface/apiresp.interfaces";
+import {
+  IMembershipDetails,
+  IMembershipFeatures
+} from "@/interface/apiresp.interfaces";
 import { primaryColors } from "@/themes/_muiPalette";
 import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
 import styled from "@emotion/styled";
@@ -12,7 +14,6 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import React, { HTMLAttributes, useCallback, useState } from "react";
-import { useQuery } from "react-query";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
 export const MemeberFeatureSecWrapper = styled(Box)`
@@ -121,15 +122,12 @@ export const FeatureCard: React.FC<
 
 interface Iprops {
   membershipDetails: IMembershipDetails;
+  membershipFeatures: IMembershipFeatures[];
 }
-export default function MemeberFeatureSec({ membershipDetails }: Iprops) {
-  const { data: membershipFeatures } = useQuery(
-    "membershipfeature",
-    GetMembershipFeatures,
-    {
-      refetchOnWindowFocus: false
-    }
-  );
+export default function MemeberFeatureSec({
+  membershipDetails,
+  membershipFeatures
+}: Iprops) {
   return (
     <MemeberFeatureSecWrapper>
       <CommonHeader
@@ -139,8 +137,8 @@ export default function MemeberFeatureSec({ membershipDetails }: Iprops) {
       <Container fixed>
         <Grid container spacing={{ md: 4, xs: 2 }}>
           {!!membershipFeatures &&
-            membershipFeatures.data.data.length > 0 &&
-            membershipFeatures.data.data?.map((data, index) => (
+            membershipFeatures.length > 0 &&
+            membershipFeatures.map((data, index) => (
               <Grid item md={4} xs={12} key={index}>
                 <FeatureCard {...data} />
               </Grid>

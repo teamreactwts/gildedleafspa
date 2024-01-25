@@ -203,6 +203,7 @@ export interface blogDoc {
   published_date: string;
   author_image: string;
   related_blogs?: IrelateBlog[];
+  short_description: string;
 }
 export interface IrelateBlog {
   _id: string;

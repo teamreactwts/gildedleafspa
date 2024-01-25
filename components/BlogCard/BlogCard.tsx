@@ -142,7 +142,6 @@ function BlogCard({
             __html: blogDescription as string
           }}
         />
-
         <Link
           href={`/blog-details/${item?._id}`}
           // onClick={() => router.push(`/blog-details/${item?._id}`)}
