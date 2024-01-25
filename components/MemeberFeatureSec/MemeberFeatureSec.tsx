@@ -3,13 +3,15 @@ import { mediaUrl } from "@/api/endpoints";
 import { GetMembershipFeatures } from "@/api/functions/cms.api";
 import { IMembershipDetails } from "@/interface/apiresp.interfaces";
 import { primaryColors } from "@/themes/_muiPalette";
+import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
 import styled from "@emotion/styled";
+import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import React, { HTMLAttributes } from "react";
+import React, { HTMLAttributes, useCallback, useState } from "react";
 import { useQuery } from "react-query";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
@@ -49,6 +51,13 @@ export const FeatureCardWrapper = styled(Box)`
       }
     }
   }
+  .read_more_btn_otr {
+    button {
+      padding: 5px 15px;
+      font-size: 12px;
+      height: auto;
+    }
+  }
 `;
 
 interface FeatureCardProps {
@@ -57,9 +66,19 @@ interface FeatureCardProps {
   description: string;
 }
 
-export const FatureCard: React.FC<
+export const FeatureCard: React.FC<
   FeatureCardProps & HTMLAttributes<HTMLDivElement>
 > = ({ icon, title, description, ...props }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, []);
+
   return (
     <FeatureCardWrapper {...props}>
       <Typography component="i">
@@ -71,9 +90,31 @@ export const FatureCard: React.FC<
       </Typography>
       <Typography
         dangerouslySetInnerHTML={{
-          __html: description as string
+          __html: description.slice(0, 120) as string
         }}
       />
+      {description.length > 120 && (
+        <Box className="read_more_btn_otr" sx={{ marginTop: "15px" }}>
+          <Button variant="contained" color="primary" onClick={handleOpen}>
+            Read More
+          </Button>
+        </Box>
+      )}
+
+      <MuiModalWrapper
+        open={open}
+        onClose={handleClose}
+        className="main_modalWrap membership_modal"
+      >
+        <Box className="membership_content">
+          {/* <Typography variant="h2">Details</Typography> */}
+          <Typography
+            dangerouslySetInnerHTML={{
+              __html: description.slice(121, description.length) as string
+            }}
+          />
+        </Box>
+      </MuiModalWrapper>
     </FeatureCardWrapper>
   );
 };
@@ -101,7 +142,7 @@ export default function MemeberFeatureSec({ membershipDetails }: Iprops) {
             membershipFeatures.data.data.length > 0 &&
             membershipFeatures.data.data?.map((data, index) => (
               <Grid item md={4} xs={12} key={index}>
-                <FatureCard {...data} />
+                <FeatureCard {...data} />
               </Grid>
             ))}
         </Grid>

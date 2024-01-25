@@ -63,6 +63,17 @@ export const MuiDilogModalWrap = styled(Dialog)`
         line-height: 1.4;
       }
     }
+    &.membership_modal {
+      min-width: 500px;
+      @media (max-width: 599px) {
+        min-width: auto;
+      }
+      .membership_content {
+        h2 {
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
   .newsletter {
     max-width: 901px;

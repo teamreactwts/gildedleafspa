@@ -78,13 +78,13 @@ const Footer = () => {
                     height={87}
                   />
                 </Link>
-                <Box className="newsletterSignUp">
-                  {/* <Typography variant="body1">Newsletter Sign up</Typography>
+                {/* <Box className="newsletterSignUp">
+                  <Typography variant="body1">Newsletter Sign up</Typography>
                   <InputFieldCommon
                     adorMentIcon={<UppArrowIcon />}
                     placeholder="Enter email"
-                  /> */}
-                </Box>
+                  />
+                </Box> */}
                 <List disablePadding className="social_icons">
                   <ListItem disablePadding>
                     <Link

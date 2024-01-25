@@ -221,13 +221,19 @@ export const ServiceDetailsWrapper = styled(Box)`
             font-size: 26px;
           }
         }
-        p {
+        > p {
           max-width: 330px;
           color: ${primaryColors.textPrimaryColor};
           font-family: Noto Sans;
           font-size: 16px;
           font-weight: 400;
           line-height: 1.4;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+
           @media (max-width: 599px) {
             overflow: hidden;
             text-overflow: ellipsis;
@@ -401,6 +407,38 @@ export const ServiceDetailsWrapper = styled(Box)`
                 }
               }
             }
+          }
+        }
+      }
+    }
+  }
+  .redmore_section {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    margin-top: 17px;
+    p {
+      color: ${primaryColors.colorA67033};
+      font-family: Cormorant Garamond;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    i {
+      line-height: 0;
+      font-size: 0;
+      display: inline-block;
+      margin-left: 6px;
+    }
+    &:hover {
+      p {
+        color: ${primaryColors.primary};
+      }
+      i {
+        svg {
+          path {
+            fill: ${primaryColors.primary};
           }
         }
       }

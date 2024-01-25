@@ -55,6 +55,7 @@ export const FooterWrap = styled(Box)`
         display: inline-block;
         line-height: 0;
         font-size: 0;
+        margin-left: 25px;
         img {
           width: 100%;
           height: 100%;
@@ -64,7 +65,7 @@ export const FooterWrap = styled(Box)`
       .social_icons {
         display: flex;
         align-items: center;
-
+        margin-top: 15px;
         li {
           width: auto;
           margin-right: 27px;

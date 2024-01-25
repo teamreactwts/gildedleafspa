@@ -271,8 +271,6 @@ function ServiceDetails() {
                                   __html: item?.description as string
                                 }}
                               />
-                            </Box>
-                            <Box>
                               <Link
                                 href={`/condition-details/${item?._id}`}
                                 // onClick={() => router.push(`/blog-details/${item?._id}`)}
