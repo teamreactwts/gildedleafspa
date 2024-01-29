@@ -63,6 +63,11 @@ const Footer = () => {
   const { data } = useQuery("settingsDetails", GetSettingsDetails, {
     refetchOnWindowFocus: false
   });
+
+  const handleLinkClick = (event: any, url?: string) => {
+    event.preventDefault();
+    window.open(url);
+  };
   return (
     <FooterWrap>
       <Container fixed>
@@ -88,9 +93,9 @@ const Footer = () => {
                 <List disablePadding className="social_icons">
                   <ListItem disablePadding>
                     <Link
-                      href="#"
-                      onClick={() =>
-                        window.open(data?.data?.data?.socialLinks?.fb)
+                      href={data?.data?.data?.socialLinks?.fb || "#"}
+                      onClick={(e) =>
+                        handleLinkClick(e, data?.data?.data?.socialLinks?.fb)
                       }
                     >
                       <FacebookIcon />
@@ -98,9 +103,12 @@ const Footer = () => {
                   </ListItem>
                   <ListItem disablePadding>
                     <Link
-                      href="#"
-                      onClick={() =>
-                        window.open(data?.data?.data?.socialLinks?.tiktok)
+                      href={data?.data?.data?.socialLinks?.tiktok || "#"}
+                      onClick={(e) =>
+                        handleLinkClick(
+                          e,
+                          data?.data?.data?.socialLinks?.tiktok
+                        )
                       }
                     >
                       <TictockIcon />
@@ -108,9 +116,9 @@ const Footer = () => {
                   </ListItem>
                   <ListItem disablePadding>
                     <Link
-                      href="#"
-                      onClick={() =>
-                        window.open(data?.data?.data?.socialLinks?.insta)
+                      href={data?.data?.data?.socialLinks?.insta || "#"}
+                      onClick={(e) =>
+                        handleLinkClick(e, data?.data?.data?.socialLinks?.insta)
                       }
                     >
                       <InstaGramIcon />
@@ -118,9 +126,9 @@ const Footer = () => {
                   </ListItem>
                   <ListItem disablePadding>
                     <Link
-                      href="#"
-                      onClick={() =>
-                        window.open(data?.data?.data?.socialLinks?.yt)
+                      href={data?.data?.data?.socialLinks?.yt || "#"}
+                      onClick={(e) =>
+                        handleLinkClick(e, data?.data?.data?.socialLinks?.yt)
                       }
                     >
                       <YoutubeIcon />
