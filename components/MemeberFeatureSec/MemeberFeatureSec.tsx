@@ -108,7 +108,7 @@ export const FeatureCard: React.FC<
         className="main_modalWrap membership_modal"
       >
         <Box className="membership_content">
-          {/* <Typography variant="h2">Details</Typography> */}
+          <Typography variant="h2">{title}</Typography>
           <Typography
             dangerouslySetInnerHTML={{
               __html: description as string
