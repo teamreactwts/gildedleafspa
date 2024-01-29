@@ -87,9 +87,34 @@ function Condition() {
   const handleViewMore = () => {
     setPage(page + 1);
   };
+
+  // const [windowWidth, setWindowWidth] = useState(null);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setWindowWidth(window.innerWidth as any);
+  //   };
+
+  //   if (typeof window !== "undefined") {
+  //     handleResize();
+
+  //     window.addEventListener("resize", handleResize);
+
+  //     return () => {
+  //       window.removeEventListener("resize", handleResize);
+  //     };
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   if (!!windowWidth && windowWidth < 899) {
+  //   }
+  // }, [windowWidth]);
+
   if (isLoading && page == 1) {
     return <Loader isLoading={isLoading} />;
   }
+
   return (
     <Wrapper>
       <InnnerPageWrapper>
@@ -144,7 +169,7 @@ function Condition() {
                 justifyContent="center"
                 marginTop={{ md: "50px", xs: "25px" }}
               >
-                <Box className="view_btn" >
+                <Box className="view_btn">
                   <CustomButtonPrimary
                     variant="contained"
                     color="primary"
