@@ -25,6 +25,7 @@ import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export const benifitsList = [
@@ -110,6 +111,7 @@ function ServiceDetails() {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
+  const router = useRouter();
   return (
     <Wrapper>
       <ServiceDetailsWrapper>
@@ -119,7 +121,6 @@ function ServiceDetails() {
               direction="row"
               alignItems="center"
               className="service_details_top"
-             
             >
               <Box className="service_imgSection">
                 <figure>
@@ -147,7 +148,11 @@ function ServiceDetails() {
                     </CustomButtonPrimary>
                   </ListItem>
                   <ListItem disablePadding>
-                    <CustomButtonPrimary color="primary" variant="outlined">
+                    <CustomButtonPrimary
+                      color="primary"
+                      variant="outlined"
+                      onClick={() => router.push("/booking")}
+                    >
                       <Typography variant="caption">Book Now</Typography>
                     </CustomButtonPrimary>
                   </ListItem>
@@ -155,7 +160,7 @@ function ServiceDetails() {
               </Box>
             </Stack>
             <Box className="benifits_use">
-              <Grid container spacing={{md:3.8, xs:3.1}}>
+              <Grid container spacing={{ md: 3.8, xs: 3.1 }}>
                 <Grid item lg={6} xs={12}>
                   <Box className="list_wrap">
                     <Typography variant="h4">Benefits:</Typography>
@@ -279,7 +284,7 @@ function ServiceDetails() {
                 </Typography>
               </Box>
               <Box className="frequentWrap">
-                <Grid container spacing={{lg:11.8 , xs: 0}}>
+                <Grid container spacing={{ lg: 11.8, xs: 0 }}>
                   <Grid item lg={6} xs={12}>
                     <Box className="frequent_listsection">
                       {fequent_questionListSection.map((item, index) => (

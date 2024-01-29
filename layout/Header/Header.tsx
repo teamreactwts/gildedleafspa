@@ -59,6 +59,14 @@ export default function Header(props: Props) {
       route: "/affordability"
     },
     {
+      name: "Service",
+      route: "/services"
+    },
+    {
+      name: "Condition",
+      route: "/condition"
+    },
+    {
       name: "Blogs",
       route: "/blogs"
     }
@@ -98,7 +106,12 @@ export default function Header(props: Props) {
           </ListItem>
         ))}
       </List>
-      <CustomButtonPrimary variant="contained" color="primary" className="booknow_btn">
+      <CustomButtonPrimary
+        variant="contained"
+        color="primary"
+        className="booknow_btn"
+        onClick={() => router.push("/booking")}
+      >
         <Typography variant="caption">Book Now</Typography>
       </CustomButtonPrimary>
     </Box>

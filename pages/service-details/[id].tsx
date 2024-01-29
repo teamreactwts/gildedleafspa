@@ -132,7 +132,6 @@ function ServiceDetails() {
     return <Loader isLoading={isLoading} />;
   }
 
-  console.log(data?.data?.data?.faqId, "abhisek");
   return (
     <Wrapper>
       <ServiceDetailsWrapper>
@@ -170,7 +169,11 @@ function ServiceDetails() {
                     </CustomButtonPrimary>
                   </ListItem>
                   <ListItem disablePadding>
-                    <CustomButtonPrimary color="primary" variant="outlined">
+                    <CustomButtonPrimary
+                      color="primary"
+                      variant="outlined"
+                      onClick={() => router.push("/booking")}
+                    >
                       <Typography variant="caption">Book Now</Typography>
                     </CustomButtonPrimary>
                   </ListItem>
