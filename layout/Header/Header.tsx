@@ -33,6 +33,8 @@ import { Container } from "@mui/system";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import PlusIcon from "@/ui/Icons/PlusIcon";
 
 interface Props {
   window?: () => Window;
@@ -58,14 +60,145 @@ export default function Header(props: Props) {
       name: "Affordability",
       route: "/affordability"
     },
+
     {
-      name: "Service",
-      route: "/services"
+      name: "Blogs",
+      route: "/blogs"
+    }
+  ];
+
+  const navItems2 = [
+    {
+      name: "Services",
+      
+      subnaveitem: [
+        {
+          subname: "All Services",
+          subroute: "/"
+        },
+        {
+          subname: "Botox",
+          subroute: "/"
+        },
+        {
+          subname: "Dermal Fillers",
+          subroute: "/"
+        },
+        {
+          subname: "Microneedling",
+          subroute: "/"
+        },
+        {
+          subname: "Microdermabrasion",
+          subroute: "/"
+        },
+        {
+          subname: "Laser hair removal",
+          subroute: "/"
+        },
+        {
+          subname: "Hydrafacial",
+          subroute: "/"
+        },
+        {
+          subname: "Laser Skin Rejuvenation",
+          subroute: "/"
+        },
+        {
+          subname: "Laser Skin Resurfacing",
+          subroute: "/"
+        }
+      ]
     },
     {
-      name: "Condition",
-      route: "/condition"
+      name: "Conditions",
+      
+      subnaveitem: [
+        {
+          subname: "All Concern",
+          subroute: "/"
+        },
+        {
+          subname: "Wrinkles and Fine-lines",
+          subroute: "/"
+        },
+        {
+          subname: "Facial Volume Loss (including Lips)",
+          subroute: "/"
+        },
+        {
+          subname: "Hair Removal",
+          subroute: "/"
+        },
+        {
+          subname: "Acne",
+          subroute: "/"
+        },
+        {
+          subname: "Acne Scars",
+          subroute: "/"
+        },
+        {
+          subname: "Roseacea",
+          subroute: "/"
+        },
+        {
+          subname: "Age Spots",
+          subroute: "/"
+        },
+        {
+          subname: "Sun Damage",
+          subroute: "/"
+        },
+        {
+          subname: "Spider Veins",
+          subroute: "/"
+        },
+        {
+          subname: "Melasma",
+          subroute: "/"
+        },
+        {
+          subname: "Surgical Scars",
+          subroute: "/"
+        },
+        {
+          subname: "Skin Tightening",
+          subroute: "/"
+        },
+        {
+          subname: "Skin Texture",
+          subroute: "/"
+        },
+        {
+          subname: "Hyperpigmentation",
+          subroute: "/"
+        },
+        {
+          subname: "Aging",
+          subroute: "/"
+        },
+      
+      ]
     },
+
+    {
+      name: "Membership",
+      route: "/membership"
+    },
+    {
+      name: "Shop",
+      route: "#url"
+    },
+    {
+      name: "About Us",
+      route: "/about-us"
+    },
+    {
+      name: "Affordability",
+      route: "/affordability"
+    },
+
     {
       name: "Blogs",
       route: "/blogs"
@@ -98,11 +231,39 @@ export default function Header(props: Props) {
       </Link>
       <Divider />
       <List disablePadding className="navitems">
-        {navItems.map((item) => (
+        {navItems2.map((item,index) => (
           <ListItem disablePadding>
-            <Link href={item?.route} key={item.name}>
-              {item.name}
-            </Link>
+            {
+              !Array.isArray(item.subnaveitem) &&
+              (<Link href={item?.route} key={item.name}>
+                {item.name}
+              </Link>)
+            }
+            {item.subnaveitem &&
+              Array.isArray(item.subnaveitem) &&
+              item.subnaveitem.length > 0 && (
+                
+                  
+                    
+                      <Accordion>
+                        <AccordionSummary
+                          expandIcon={<PlusIcon />}
+                          aria-controls={`panel${index+1}-content`}
+                          id={`panel${index+1}-header`}
+                        >
+                         {item.name}
+                        </AccordionSummary>
+                        {item.subnaveitem.map((subItem, subIndex) => (
+                        <AccordionDetails key={subIndex}>
+                          <Link href={subItem.subroute}>{subItem.subname}</Link>
+                        </AccordionDetails>
+                         ))}
+                      </Accordion>
+                      
+                    
+                 
+               
+              )}
           </ListItem>
         ))}
       </List>

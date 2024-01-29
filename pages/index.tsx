@@ -207,7 +207,7 @@ export default function Home() {
                         )}
                       />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item sm={6} xs={12}>
                       <Box className="modal_btn">
                         <CustomButtonPrimary
                           variant="contained"
@@ -220,7 +220,7 @@ export default function Home() {
                         </CustomButtonPrimary>
                       </Box>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item sm={6} xs={12}>
                       <Box className="modal_btn">
                         <Typography onClick={() => dontshow()}>
                           Don't show again
