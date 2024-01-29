@@ -6,6 +6,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 export default function BannerSec({
@@ -17,6 +18,7 @@ export default function BannerSec({
   bannerImage: string;
   buttonText: string;
 }) {
+  const router = useRouter();
   return (
     <BannerWrap>
       <Container fixed>
@@ -24,7 +26,11 @@ export default function BannerSec({
           <Grid item md={7} xs={12}>
             <Box className="banner_wrap">
               {children}
-              <CustomButtonPrimary variant="contained" color="primary">
+              <CustomButtonPrimary
+                variant="contained"
+                color="primary"
+                onClick={() => router.push("/membership")}
+              >
                 <Typography variant="caption">{buttonText}</Typography>
               </CustomButtonPrimary>
             </Box>

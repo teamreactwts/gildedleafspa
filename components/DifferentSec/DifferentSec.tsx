@@ -18,6 +18,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { HTMLAttributes } from "react";
 import { useQuery } from "react-query";
 import Slider from "react-slick";
@@ -27,16 +28,22 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 export const ServiceCardDifferent = ({
   icon,
-  title
+  title,
+  _id
 }: {
   icon: string;
   title: string;
+  _id: string;
 }) => {
+  const router = useRouter();
   return (
     <ServiceCardDifferentWrap>
       <Box className="service_card_icon">
         <Box className="wrapper_otr">
-          <Box className="wrapper">
+          <Box
+            className="wrapper"
+            onClick={() => router.push(`/service-details/${_id}`)}
+          >
             {/* <Image src={icon} alt="icon" width={66} height={66} /> */}
             <Image
               src={mediaUrl(`service/${icon}`)}
@@ -47,8 +54,11 @@ export const ServiceCardDifferent = ({
           </Box>
         </Box>
       </Box>
-      <Typography variant="h4">
-        <Link href="#url">{title}</Link>
+      <Typography
+        variant="h4"
+        onClick={() => router.push(`/service-details/${_id}`)}
+      >
+        {title}
       </Typography>
     </ServiceCardDifferentWrap>
   );
@@ -116,7 +126,7 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
       refetchOnWindowFocus: false
     }
   );
-
+  const router = useRouter();
   return (
     <DifferentWrapper {...props}>
       <Image
@@ -246,7 +256,11 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
                   }}
                 />
               </Box>
-              <CustomButtonPrimary variant="contained" color="primary">
+              <CustomButtonPrimary
+                variant="contained"
+                color="primary"
+                onClick={() => router.push("/services")}
+              >
                 <Typography variant="caption">Explore</Typography>
               </CustomButtonPrimary>
             </Stack>

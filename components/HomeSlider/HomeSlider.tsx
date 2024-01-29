@@ -16,6 +16,7 @@ import { GetConditionList } from "@/api/functions/cms.api";
 import { IhomeDetails } from "@/interface/apiresp.interfaces";
 import { CommonSlider } from "@/styles/StyledComponents/DifferentWrapper";
 import { HomeSliderWrapper } from "@/styles/StyledComponents/HomeSliderWrapper";
+import { useRouter } from "next/router";
 import React from "react";
 import { useQuery } from "react-query";
 import ImageCard from "../ImageCard/ImageCard";
@@ -74,6 +75,8 @@ function HomeSlider({ homeData }: Iprops) {
       refetchOnWindowFocus: false
     }
   );
+  const router = useRouter();
+
   return (
     <HomeSliderWrapper className="cmn_gap">
       <Container fixed>
@@ -95,6 +98,7 @@ function HomeSlider({ homeData }: Iprops) {
             variant="contained"
             color="primary"
             className="explore_btn"
+            onClick={() => router.push("/condition")}
           >
             <Typography variant="caption">Explore</Typography>
           </CustomButtonPrimary>
@@ -112,6 +116,7 @@ function HomeSlider({ homeData }: Iprops) {
                     card_img={mediaUrl(`condition/${data?.image}`)}
                     title={"Concern"}
                     description={data.title}
+                    item={data}
                   />
                 </Box>
               ))}

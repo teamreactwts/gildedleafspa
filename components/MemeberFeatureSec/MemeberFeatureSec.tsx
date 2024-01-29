@@ -111,7 +111,7 @@ export const FeatureCard: React.FC<
           {/* <Typography variant="h2">Details</Typography> */}
           <Typography
             dangerouslySetInnerHTML={{
-              __html: description.slice(121, description.length) as string
+              __html: description as string
             }}
           />
         </Box>
