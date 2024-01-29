@@ -73,4 +73,36 @@ body {
     min-height: auto;
     margin: 0 20px;
   }
+  .MuiAccordion-root{
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+    .MuiAccordionSummary-root {
+      padding: 0;
+      min-height: auto;
+      box-shadow: none;
+      &.Mui-expanded{
+        padding: 10px 0;
+      }
+      .MuiAccordionSummary-content{
+        margin: 0;
+          display: inline-block;
+          width: 100%;
+          text-decoration: none;
+          color: #021526;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1;
+          
+      
+      }
+    }
+    .MuiCollapse-wrapper{
+      .MuiAccordionDetails-root {
+        a{
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
