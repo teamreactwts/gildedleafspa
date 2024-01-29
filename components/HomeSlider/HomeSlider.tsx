@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick.css";
 
 import { mediaUrl } from "@/api/endpoints";
 import { GetConditionList } from "@/api/functions/cms.api";
-import { IhomeDetails } from "@/interface/apiresp.interfaces";
+import { ConditionDoc, IhomeDetails } from "@/interface/apiresp.interfaces";
 import { CommonSlider } from "@/styles/StyledComponents/DifferentWrapper";
 import { HomeSliderWrapper } from "@/styles/StyledComponents/HomeSliderWrapper";
 import { useRouter } from "next/router";
@@ -110,16 +110,18 @@ function HomeSlider({ homeData }: Iprops) {
             {!!conditionList &&
               !!conditionList?.data?.data?.docs &&
               conditionList?.data?.data?.docs.length > 0 &&
-              conditionList?.data?.data?.docs?.map((data, index) => (
-                <Box className="slider_card" key={index}>
-                  <ImageCard
-                    card_img={mediaUrl(`condition/${data?.image}`)}
-                    title={"Concern"}
-                    description={data.title}
-                    item={data}
-                  />
-                </Box>
-              ))}
+              conditionList?.data?.data?.docs?.map(
+                (data: ConditionDoc, index: number) => (
+                  <Box className="slider_card" key={index}>
+                    <ImageCard
+                      card_img={mediaUrl(`condition/${data?.image}`)}
+                      title={"Concern"}
+                      description={data.title}
+                      item={data}
+                    />
+                  </Box>
+                )
+              )}
           </Slider>
         </CommonSlider>
       </Box>

@@ -18,6 +18,7 @@ import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
 import { GetConditionList, GetServiceList } from "@/api/functions/cms.api";
+import { ConditionDoc, Doc } from "@/interface/apiresp.interfaces";
 import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
 import { primaryColors } from "@/themes/_muiPalette";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
@@ -25,6 +26,8 @@ import BrandLogo from "@/ui/Icons/BrandLogo";
 import MenuIcon from "@/ui/Icons/MenuIcon";
 import PhoneIcon from "@/ui/Icons/PhoneIcon";
 import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
+import PlusIcon from "@/ui/Icons/PlusIcon";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import Button from "@mui/material/Button";
 import Fade from "@mui/material/Fade";
 import MenuItem from "@mui/material/MenuItem";
@@ -33,8 +36,7 @@ import { Container } from "@mui/system";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-import PlusIcon from "@/ui/Icons/PlusIcon";
+import DropDownIcon from "@/ui/Icons/DropdownIcon";
 
 interface Props {
   window?: () => Window;
@@ -66,120 +68,37 @@ export default function Header(props: Props) {
       route: "/blogs"
     }
   ];
+  const [page, setPage] = React.useState(0);
+  const [per_page, setPageLimit] = React.useState(0);
 
+  const { data: serviceList } = useQuery(
+    ["serviceList", page],
+
+    {
+      queryFn: () => GetServiceList({ page, per_page }),
+      refetchOnWindowFocus: false
+    }
+  );
+  const { data: conditionList } = useQuery(
+    ["conditionList", page],
+
+    {
+      queryFn: () => GetConditionList({ page, per_page }),
+      refetchOnWindowFocus: false
+    }
+  );
+
+  console.log(!!serviceList && serviceList?.data?.data);
   const navItems2 = [
     {
       name: "Services",
-      
-      subnaveitem: [
-        {
-          subname: "All Services",
-          subroute: "/"
-        },
-        {
-          subname: "Botox",
-          subroute: "/"
-        },
-        {
-          subname: "Dermal Fillers",
-          subroute: "/"
-        },
-        {
-          subname: "Microneedling",
-          subroute: "/"
-        },
-        {
-          subname: "Microdermabrasion",
-          subroute: "/"
-        },
-        {
-          subname: "Laser hair removal",
-          subroute: "/"
-        },
-        {
-          subname: "Hydrafacial",
-          subroute: "/"
-        },
-        {
-          subname: "Laser Skin Rejuvenation",
-          subroute: "/"
-        },
-        {
-          subname: "Laser Skin Resurfacing",
-          subroute: "/"
-        }
-      ]
+
+      subnaveitem: !!serviceList && serviceList?.data?.data
     },
     {
       name: "Conditions",
-      
-      subnaveitem: [
-        {
-          subname: "All Concern",
-          subroute: "/"
-        },
-        {
-          subname: "Wrinkles and Fine-lines",
-          subroute: "/"
-        },
-        {
-          subname: "Facial Volume Loss (including Lips)",
-          subroute: "/"
-        },
-        {
-          subname: "Hair Removal",
-          subroute: "/"
-        },
-        {
-          subname: "Acne",
-          subroute: "/"
-        },
-        {
-          subname: "Acne Scars",
-          subroute: "/"
-        },
-        {
-          subname: "Roseacea",
-          subroute: "/"
-        },
-        {
-          subname: "Age Spots",
-          subroute: "/"
-        },
-        {
-          subname: "Sun Damage",
-          subroute: "/"
-        },
-        {
-          subname: "Spider Veins",
-          subroute: "/"
-        },
-        {
-          subname: "Melasma",
-          subroute: "/"
-        },
-        {
-          subname: "Surgical Scars",
-          subroute: "/"
-        },
-        {
-          subname: "Skin Tightening",
-          subroute: "/"
-        },
-        {
-          subname: "Skin Texture",
-          subroute: "/"
-        },
-        {
-          subname: "Hyperpigmentation",
-          subroute: "/"
-        },
-        {
-          subname: "Aging",
-          subroute: "/"
-        },
-      
-      ]
+
+      subnaveitem: !!conditionList && conditionList?.data?.data
     },
 
     {
@@ -222,7 +141,7 @@ export default function Header(props: Props) {
 
   const drawer = (
     <Box
-      onClick={handleDrawerToggle}
+      // onClick={handleDrawerToggle}
       sx={{ textAlign: "center" }}
       className="drawer_section"
     >
@@ -231,38 +150,51 @@ export default function Header(props: Props) {
       </Link>
       <Divider />
       <List disablePadding className="navitems">
-        {navItems2.map((item,index) => (
+        {navItems2.map((item, index) => (
           <ListItem disablePadding>
-            {
-              !Array.isArray(item.subnaveitem) &&
-              (<Link href={item?.route} key={item.name}>
-                {item.name}
-              </Link>)
-            }
+            {!Array.isArray(item.subnaveitem) && (
+              <>
+                {" "}
+                {console.log("hi")}
+                <Link
+                  href={!!item?.route ? (item?.route as string) : "#"}
+                  key={item.name}
+                  onClick={handleDrawerToggle}
+                >
+                  {item.name}
+                </Link>
+              </>
+            )}
             {item.subnaveitem &&
               Array.isArray(item.subnaveitem) &&
               item.subnaveitem.length > 0 && (
-                
-                  
-                    
-                      <Accordion>
-                        <AccordionSummary
-                          expandIcon={<PlusIcon />}
-                          aria-controls={`panel${index+1}-content`}
-                          id={`panel${index+1}-header`}
-                        >
-                         {item.name}
-                        </AccordionSummary>
-                        {item.subnaveitem.map((subItem, subIndex) => (
-                        <AccordionDetails key={subIndex}>
-                          <Link href={subItem.subroute}>{subItem.subname}</Link>
-                        </AccordionDetails>
-                         ))}
-                      </Accordion>
-                      
-                    
-                 
-               
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<DropDownIcon IconHeight="15" IconWidth="20" />}
+                    aria-controls={`panel${index + 1}-content`}
+                    id={`panel${index + 1}-header`}
+                  >
+                    {item.name}
+                  </AccordionSummary>
+                  {item.subnaveitem.map((subItem, subIndex) => (
+                    <AccordionDetails key={subIndex}>
+                      <Link
+                        href={"#"}
+                        // onClick={handleDrawerToggle}
+                        onClick={() => {
+                          router.push(
+                            item.name == "Services"
+                              ? `/service-details/${subItem._id}`
+                              : `/condition-details/${subItem._id}`
+                          );
+                          handleDrawerToggle();
+                        }}
+                      >
+                        {subItem.title}
+                      </Link>
+                    </AccordionDetails>
+                  ))}
+                </Accordion>
               )}
           </ListItem>
         ))}
@@ -295,25 +227,6 @@ export default function Header(props: Props) {
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
-  const [page, setPage] = React.useState(0);
-  const [per_page, setPageLimit] = React.useState(0);
-
-  const { data: serviceList } = useQuery(
-    ["serviceList", page],
-
-    {
-      queryFn: () => GetServiceList({ page, per_page }),
-      refetchOnWindowFocus: false
-    }
-  );
-  const { data: conditionList } = useQuery(
-    ["conditionList", page],
-
-    {
-      queryFn: () => GetConditionList({ page, per_page }),
-      refetchOnWindowFocus: false
-    }
-  );
 
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
@@ -448,18 +361,20 @@ export default function Header(props: Props) {
                       All Services
                     </MenuItem>
                     {!!serviceList &&
-                      !!serviceList?.data?.data?.docs &&
-                      serviceList?.data?.data?.docs.length > 0 &&
-                      serviceList?.data?.data?.docs?.map((data, index) => (
-                        <MenuItem
-                          key={index}
-                          onClick={() =>
-                            router.push(`/service-details/${data._id}`)
-                          }
-                        >
-                          {data?.title}
-                        </MenuItem>
-                      ))}
+                      !!serviceList?.data?.data &&
+                      serviceList?.data?.data.length > 0 &&
+                      serviceList?.data?.data.map(
+                        (data: Doc, index: number) => (
+                          <MenuItem
+                            key={index}
+                            onClick={() =>
+                              router.push(`/service-details/${data._id}`)
+                            }
+                          >
+                            {data?.title}
+                          </MenuItem>
+                        )
+                      )}
                   </NavMenu>
 
                   <Button
@@ -490,18 +405,20 @@ export default function Header(props: Props) {
                       All Concerns
                     </MenuItem>
                     {!!conditionList &&
-                      !!conditionList?.data?.data?.docs &&
-                      conditionList?.data?.data?.docs.length > 0 &&
-                      conditionList?.data?.data?.docs?.map((data, index) => (
-                        <MenuItem
-                          key={index}
-                          onClick={() =>
-                            router.push(`/condition-details/${data._id}`)
-                          }
-                        >
-                          {data?.title}
-                        </MenuItem>
-                      ))}
+                      !!conditionList?.data?.data &&
+                      conditionList?.data?.data.length > 0 &&
+                      conditionList?.data?.data.map(
+                        (data: ConditionDoc, index: number) => (
+                          <MenuItem
+                            key={index}
+                            onClick={() =>
+                              router.push(`/condition-details/${data._id}`)
+                            }
+                          >
+                            {data?.title}
+                          </MenuItem>
+                        )
+                      )}
                   </NavMenu>
 
                   {navItems.map((item) => (

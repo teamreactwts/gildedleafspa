@@ -101,13 +101,20 @@ export interface SocialLinks {
 }
 
 export interface IgetServiceResponse {
-  data: IgetServiceData;
+  data: any;
 }
 export interface IgetServiceDetailsResponse {
   data: Doc;
 }
 
 export interface IgetServiceData {
+  docs: Doc[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
+}
+export interface IgetServiceDataNoPage {
   docs: Doc[];
   total: number;
   limit: number;
@@ -133,7 +140,7 @@ export interface Doc {
   updatedAt: string;
 }
 export interface IgetConditionResponse {
-  data: IgetConditionData;
+  data: any;
 }
 export interface IgetConditionData {
   docs: ConditionDoc[];

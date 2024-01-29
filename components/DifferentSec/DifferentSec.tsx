@@ -1,7 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
 import { GetAboutData, GetServiceList } from "@/api/functions/cms.api";
-import { IAboutDetails, IhomeDetails } from "@/interface/apiresp.interfaces";
+import {
+  Doc,
+  IAboutDetails,
+  IhomeDetails
+} from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
 import {
   CommonSlider,
@@ -269,9 +273,11 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
                 {!!serviceList &&
                   !!serviceList?.data?.data?.docs &&
                   serviceList?.data?.data?.docs.length > 0 &&
-                  serviceList?.data?.data?.docs?.map((data, index) => (
-                    <ServiceCardDifferent {...data} key={index} />
-                  ))}
+                  serviceList?.data?.data?.docs?.map(
+                    (data: Doc, index: number) => (
+                      <ServiceCardDifferent {...data} key={index} />
+                    )
+                  )}
               </Slider>
             </CommonSlider>
           </ServiceWrapper>
