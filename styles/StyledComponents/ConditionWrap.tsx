@@ -41,4 +41,9 @@ export const ConditionWrap = styled(Box)`
       }
     }
   }
+  .view_btn{
+    @media (max-width: 899px) {
+      display: none;
+    }
+  }
 `;

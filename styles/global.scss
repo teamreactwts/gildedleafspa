@@ -67,4 +67,10 @@ body {
       }
     }
   }
+  .booknow_btn{
+    min-width: auto;
+    width: calc(100% - 40px);
+    min-height: auto;
+    margin: 0 20px;
+  }
 }

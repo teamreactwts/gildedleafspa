@@ -98,6 +98,9 @@ export default function Header(props: Props) {
           </ListItem>
         ))}
       </List>
+      <CustomButtonPrimary variant="contained" color="primary" className="booknow_btn">
+        <Typography variant="caption">Book Now</Typography>
+      </CustomButtonPrimary>
     </Box>
   );
 

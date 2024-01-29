@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 export const ImageCardWrap = styled(Box)`
+cursor: pointer;
   figure {
     width: 100%;
     height: 367px;

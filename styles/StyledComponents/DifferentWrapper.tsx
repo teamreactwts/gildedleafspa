@@ -209,6 +209,7 @@ export const ServiceCardDifferentWrap = styled(Box)`
   text-align: center;
   .service_card_icon {
     border-radius: 10px;
+    cursor: pointer;
     height: 100%;
     position: relative;
     border-radius: 10px;
@@ -259,6 +260,7 @@ export const ServiceCardDifferentWrap = styled(Box)`
     font-size: 15px;
     font-weight: 500;
     margin-top: 25px;
+    cursor: pointer;
     a {
       color: inherit;
       &:hover {

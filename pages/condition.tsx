@@ -144,7 +144,7 @@ function Condition() {
                 justifyContent="center"
                 marginTop={{ md: "50px", xs: "25px" }}
               >
-                <Box className="view_btn">
+                <Box className="view_btn" >
                   <CustomButtonPrimary
                     variant="contained"
                     color="primary"

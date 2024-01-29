@@ -155,6 +155,17 @@ export const ServiceDetailsWrapper = styled(Box)`
       font-size: 0;
       overflow: hidden;
       border-radius: 20px;
+      width: 1135px;
+      height: 470px;
+      @media (max-width: 1199px) {
+        width: auto;
+        height:auto;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
   .botox_section_wrap {
