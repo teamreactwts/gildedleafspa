@@ -321,7 +321,7 @@ function Blogs() {
                             "DD.MM.YYYY"
                           )}
                           cardtitevalue={data?.title}
-                          blogDescription={data?.description}
+                          blogDescription={data?.short_description}
                         />
                       </Grid>
                     ))
@@ -336,7 +336,7 @@ function Blogs() {
                             "DD.MM.YYYY"
                           )}
                           cardtitevalue={data?.title}
-                          blogDescription={data?.description}
+                          blogDescription={data?.short_description}
                         />
                       </Grid>
                     ))}

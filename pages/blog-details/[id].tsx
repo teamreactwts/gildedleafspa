@@ -415,7 +415,7 @@ function BlogDetails() {
                                   "DD.MM.YYYY"
                                 )}
                                 cardtitevalue={data?.title}
-                                blogDescription={data?.description}
+                                blogDescription={data?.short_description}
                                 item={data}
                               />
                             </Box>
@@ -434,7 +434,7 @@ function BlogDetails() {
                                   "DD.MM.YYYY"
                                 )}
                                 cardtitevalue={data?.title}
-                                blogDescription={data?.description}
+                                blogDescription={data?.short_description}
                                 item={data}
                               />
                             </Grid>

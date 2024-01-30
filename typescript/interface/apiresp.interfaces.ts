@@ -213,6 +213,7 @@ export interface blogDoc {
   short_description: string;
 }
 export interface IrelateBlog {
+  short_description: string;
   _id: string;
   image: string;
   title: string;
