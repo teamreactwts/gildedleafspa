@@ -271,13 +271,11 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
             <CommonSlider>
               <Slider {...settings}>
                 {!!serviceList &&
-                  !!serviceList?.data?.data?.docs &&
-                  serviceList?.data?.data?.docs.length > 0 &&
-                  serviceList?.data?.data?.docs?.map(
-                    (data: Doc, index: number) => (
-                      <ServiceCardDifferent {...data} key={index} />
-                    )
-                  )}
+                  !!serviceList?.data?.data &&
+                  serviceList?.data?.data.length > 0 &&
+                  serviceList?.data?.data.map((data: Doc, index: number) => (
+                    <ServiceCardDifferent {...data} key={index} />
+                  ))}
               </Slider>
             </CommonSlider>
           </ServiceWrapper>

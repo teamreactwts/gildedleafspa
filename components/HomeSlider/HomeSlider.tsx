@@ -108,9 +108,9 @@ function HomeSlider({ homeData }: Iprops) {
         <CommonSlider>
           <Slider {...settings}>
             {!!conditionList &&
-              !!conditionList?.data?.data?.docs &&
-              conditionList?.data?.data?.docs.length > 0 &&
-              conditionList?.data?.data?.docs?.map(
+              !!conditionList?.data?.data &&
+              conditionList?.data?.data.length > 0 &&
+              conditionList?.data?.data.map(
                 (data: ConditionDoc, index: number) => (
                   <Box className="slider_card" key={index}>
                     <ImageCard
