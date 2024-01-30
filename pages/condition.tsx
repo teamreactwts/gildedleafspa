@@ -15,7 +15,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -77,9 +77,18 @@ function Condition() {
       onSuccess(data) {
         if (data.status === 200) {
           setTotalPage(data?.data?.data?.total);
-          !!conditionList && conditionList?.length > 0
-            ? setConditionList([...conditionList, ...data?.data?.data?.docs])
-            : setConditionList(data?.data?.data?.docs);
+          if (!!windowWidth && windowWidth <= 899) {
+            setConditionList(data?.data?.data);
+          } else {
+            !!conditionList && conditionList?.length > 0
+              ? page == 1
+                ? setConditionList(data?.data?.data?.docs)
+                : setConditionList([
+                    ...conditionList,
+                    ...data?.data?.data?.docs
+                  ])
+              : setConditionList(data?.data?.data?.docs);
+          }
         }
       }
     }
@@ -88,28 +97,32 @@ function Condition() {
     setPage(page + 1);
   };
 
-  // const [windowWidth, setWindowWidth] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(null);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setWindowWidth(window.innerWidth as any);
-  //   };
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth as any);
+    };
 
-  //   if (typeof window !== "undefined") {
-  //     handleResize();
+    if (typeof window !== "undefined") {
+      handleResize();
 
-  //     window.addEventListener("resize", handleResize);
+      window.addEventListener("resize", handleResize);
 
-  //     return () => {
-  //       window.removeEventListener("resize", handleResize);
-  //     };
-  //   }
-  // }, []);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
 
-  // useEffect(() => {
-  //   if (!!windowWidth && windowWidth < 899) {
-  //   }
-  // }, [windowWidth]);
+  useEffect(() => {
+    if (!!windowWidth && windowWidth <= 899) {
+      setPage(0);
+      setTotalPage(0);
+    } else {
+      setPage(1);
+    }
+  }, [windowWidth]);
 
   if (isLoading && page == 1) {
     return <Loader isLoading={isLoading} />;
