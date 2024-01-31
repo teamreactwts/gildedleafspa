@@ -1,17 +1,15 @@
+import {
+  globalCatchSucess,
+  globalCatchWarning
+} from "@/lib/functions/_helpers.lib";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { parseCookies } from "nookies";
-import { setCookieClient } from "@/lib/functions/storage.lib";
-import {
-  globalCatchError,
-  globalCatchSucess,
-  globalCatchWarning,
-} from "@/lib/functions/_helpers.lib";
 import { baseUrlApi, sucessNotificationEndPoints } from "../endpoints";
 // import { refreshAccessToken } from "../functions/user.api";
 import { BaseApiResponse } from "@/interface/common.interface";
 
 const axiosInstance = axios.create({
-  baseURL: baseUrlApi,
+  baseURL: baseUrlApi
 });
 
 axiosInstance.interceptors.request.use((config) => {
@@ -40,7 +38,7 @@ axiosInstance.interceptors.response.use(
     return res;
   },
   async (error: AxiosError<BaseApiResponse>) => {
-    globalCatchError(error);
+    // globalCatchError(error);
     // const { data, status, config } = error.response!;
     const originalRequest = error.config;
 

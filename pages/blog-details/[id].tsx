@@ -8,6 +8,7 @@ import Wrapper from "@/layout/wrapper/Wrapper";
 import { primaryColors } from "@/themes/_muiPalette";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Calender from "@/ui/Icons/CalenderIcon";
+import Loader from "@/ui/Loader/Loder";
 import styled from "@emotion/styled";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -16,6 +17,7 @@ import { Box, Stack } from "@mui/system";
 import moment from "moment";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -228,7 +230,7 @@ export const BlogDetailsWrapper = styled(Box)`
 function BlogDetails() {
   const router = useRouter();
 
-  const { isLoading, data } = useQuery(
+  const { isLoading, data, isError } = useQuery(
     ["blogDetails", router.query.id],
 
     {
@@ -290,12 +292,15 @@ function BlogDetails() {
       }
     ]
   };
+  useEffect(() => {
+    if (isError) {
+      router.push("/404");
+    }
+  }, [isError]);
 
-  // useEffect(() => {
-  //   if (data?.status == undefined) {
-  //     router.push("/404");
-  //   }
-  // }, [data]);
+  if (isLoading) {
+    return <Loader isLoading={isLoading} />;
+  }
   return (
     <Wrapper>
       <InnnerPageWrapper>
