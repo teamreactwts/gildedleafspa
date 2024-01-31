@@ -68,6 +68,7 @@ export const BlogCardWrapper = styled(Box)`
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 50px;
     }
     .redmore_section {
       display: flex;
