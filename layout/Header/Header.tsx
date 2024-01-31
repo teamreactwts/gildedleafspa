@@ -23,10 +23,10 @@ import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
 import { primaryColors } from "@/themes/_muiPalette";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import BrandLogo from "@/ui/Icons/BrandLogo";
+import DropDownIcon from "@/ui/Icons/DropdownIcon";
 import MenuIcon from "@/ui/Icons/MenuIcon";
 import PhoneIcon from "@/ui/Icons/PhoneIcon";
 import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
-import PlusIcon from "@/ui/Icons/PlusIcon";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import Button from "@mui/material/Button";
 import Fade from "@mui/material/Fade";
@@ -36,7 +36,6 @@ import { Container } from "@mui/system";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
-import DropDownIcon from "@/ui/Icons/DropdownIcon";
 
 interface Props {
   window?: () => Window;
@@ -155,7 +154,6 @@ export default function Header(props: Props) {
             {!Array.isArray(item.subnaveitem) && (
               <>
                 {" "}
-                {console.log("hi")}
                 <Link
                   href={!!item?.route ? (item?.route as string) : "#"}
                   key={item.name}
@@ -176,6 +174,21 @@ export default function Header(props: Props) {
                   >
                     {item.name}
                   </AccordionSummary>
+                  <AccordionDetails>
+                    <Link
+                      href={"#"}
+                      onClick={() => {
+                        router.push(
+                          item.name == "Services" ? `/services` : `/condition`
+                        );
+                        handleDrawerToggle();
+                      }}
+                    >
+                      {item.name == "Services"
+                        ? "All Services"
+                        : "All Concerns"}
+                    </Link>
+                  </AccordionDetails>
                   {item.subnaveitem.map((subItem, subIndex) => (
                     <AccordionDetails key={subIndex}>
                       <Link

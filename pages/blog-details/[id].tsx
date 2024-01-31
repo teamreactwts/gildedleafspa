@@ -291,7 +291,11 @@ function BlogDetails() {
     ]
   };
 
-  // console.log(data?.data?.data.related_blogs, "abhisek");
+  // useEffect(() => {
+  //   if (data?.status == undefined) {
+  //     router.push("/404");
+  //   }
+  // }, [data]);
   return (
     <Wrapper>
       <InnnerPageWrapper>
