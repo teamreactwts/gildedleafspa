@@ -93,7 +93,12 @@ export default function Home() {
           toastSuccess(data?.data?.message);
           reset();
           handleClose();
+        } else {
+          toastError(data?.data.message);
         }
+      },
+      onError: (error: any) => {
+        toastError(error.response.data.message);
       }
     });
   };

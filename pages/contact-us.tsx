@@ -68,7 +68,12 @@ const Index = () => {
         if (data?.data?.status === 200) {
           toastSuccess(data?.data?.message);
           reset();
+        } else {
+          toastError(data?.data.message);
         }
+      },
+      onError: (error: any) => {
+        toastError(error.response.data.message);
       }
     });
   };
