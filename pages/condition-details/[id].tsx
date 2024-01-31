@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 
 export const sectioncardList = [
@@ -44,7 +45,7 @@ export const sectioncardList = [
 ];
 function ConditionDetails() {
   const router = useRouter();
-  const { isLoading, data } = useQuery(
+  const { isLoading, data, isError } = useQuery(
     ["conditionDetails", router.query.id],
 
     {
@@ -52,6 +53,12 @@ function ConditionDetails() {
       refetchOnWindowFocus: false
     }
   );
+  useEffect(() => {
+    if (isError) {
+      router.push("/404");
+    }
+  }, [isError]);
+
   if (isLoading) {
     return <Loader isLoading={isLoading} />;
   }

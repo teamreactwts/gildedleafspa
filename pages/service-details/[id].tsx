@@ -32,7 +32,7 @@ import { Box } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 
 export const benifitsList = [
@@ -120,7 +120,7 @@ function ServiceDetails() {
       setExpanded(isExpanded ? panel : false);
     };
 
-  const { isLoading, data } = useQuery(
+  const { isLoading, data, isError } = useQuery(
     ["serviceDetails", router.query.id],
 
     {
@@ -128,6 +128,12 @@ function ServiceDetails() {
       refetchOnWindowFocus: false
     }
   );
+  useEffect(() => {
+    if (isError) {
+      router.push("/404");
+    }
+  }, [isError]);
+
   if (isLoading) {
     return <Loader isLoading={isLoading} />;
   }
