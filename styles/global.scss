@@ -41,7 +41,6 @@ body {
     width: 200px;
     line-height: 0;
     margin-bottom: 20px;
-    
 
     svg {
       width: 100%;
@@ -60,49 +59,51 @@ body {
         font-size: 16px;
         font-weight: 500;
         line-height: 1;
-        transition: all .3s ease-in-out ;
-        &:hover{
-          color: #A67033;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          color: #a67033;
         }
       }
     }
   }
-  .booknow_btn{
+  .booknow_btn {
     min-width: auto;
     width: calc(100% - 40px);
     min-height: auto;
     margin: 0 20px;
   }
-  .MuiAccordion-root{
-  border-radius: 0;
-  box-shadow: none;
-  width: 100%;
+  .MuiAccordion-root {
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
     .MuiAccordionSummary-root {
       padding: 0;
       min-height: auto;
       box-shadow: none;
-      &.Mui-expanded{
+      &.Mui-expanded {
         padding: 10px 0;
       }
-      .MuiAccordionSummary-content{
+      .MuiAccordionSummary-content {
         margin: 0;
-          display: inline-block;
-          width: 100%;
-          text-decoration: none;
-          color: #021526;
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 1;
-          
-      
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        color: #021526;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1;
       }
     }
-    .MuiCollapse-wrapper{
+    .MuiCollapse-wrapper {
       .MuiAccordionDetails-root {
-        a{
+        a {
           font-size: 14px;
         }
       }
     }
   }
+}
+
+.faq-ans li {
+  list-style: disc !important;
 }

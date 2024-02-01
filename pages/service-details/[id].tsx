@@ -371,8 +371,13 @@ function ServiceDetails() {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography className="title_description">
-                                    {item.answer}
+                                  <Typography
+                                    dangerouslySetInnerHTML={{
+                                      __html: item.answer as string
+                                    }}
+                                    className="title_description faq-ans"
+                                  >
+                                    {/* {item.answer} */}
                                   </Typography>
                                 </AccordionDetails>
                               </Accordion>
