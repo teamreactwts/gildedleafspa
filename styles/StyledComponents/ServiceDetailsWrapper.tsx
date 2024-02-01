@@ -116,6 +116,8 @@ export const ServiceDetailsWrapper = styled(Box)`
       }
       ul {
         margin-top: 15px;
+        max-height: 181px;
+        overflow-y: auto;
         li {
           width: auto;
           margin-bottom: 23px;
@@ -159,9 +161,9 @@ export const ServiceDetailsWrapper = styled(Box)`
       height: 470px;
       @media (max-width: 1199px) {
         width: auto;
-        height:auto;
+        height: auto;
       }
-      img{
+      img {
         width: 100%;
         height: 100%;
         object-fit: cover;
