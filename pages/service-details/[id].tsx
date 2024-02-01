@@ -356,15 +356,15 @@ function ServiceDetails() {
                           <Grid item md={6} xs={12}>
                             <Box className="frequent_listsection" key={index}>
                               <Accordion
-                                expanded={expanded === `panel${index + 1}`}
-                                onChange={handleChange(`panel${index + 1}`)}
+                                expanded={expanded === `panel${index}`}
+                                onChange={handleChange(`panel${index}`)}
                               >
                                 <AccordionSummary
                                   expandIcon={
-                                    expanded ? <MinusIcon /> : <PlusIcon />
+                                    expanded ==  `panel${index}` ? <MinusIcon /> : <PlusIcon />
                                   }
-                                  aria-controls={`panel${index + 1}bh-content`}
-                                  id={`panel${index + 1}bh-header`}
+                                  aria-controls={`panel${index}bh-content`}
+                                  id={`panel${index}bh-header`}
                                 >
                                   <Typography className="title_accrodian">
                                     {item.question}
