@@ -79,6 +79,12 @@ export const ServiceCardWrap = styled(Stack)`
       font-weight: 700;
       line-height: 1.5;
       margin-bottom: 10px;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      min-height: 117px;
       @media (max-width: 599px) {
         line-height: 1.2;
       }
@@ -97,6 +103,10 @@ export const ServiceCardWrap = styled(Stack)`
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
+    }
+    > p {
+      max-height: 117px;
+      overflow-y: auto;
     }
     .button_wrap {
       margin-top: 20px;
