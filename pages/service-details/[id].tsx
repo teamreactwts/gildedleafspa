@@ -190,7 +190,9 @@ function ServiceDetails() {
               <Grid container spacing={{ md: 3.8, xs: 3.1 }}>
                 <Grid item lg={6} xs={12}>
                   <Box className="list_wrap">
-                    <Typography variant="h4">Benefits:</Typography>
+                    <Typography variant="h4">
+                      {data?.data?.data?.benefit_heading}
+                    </Typography>
                     <List disablePadding>
                       {!!data?.data?.data?.benefits_options &&
                         data?.data?.data?.benefits_options.length > 0 &&
@@ -211,7 +213,9 @@ function ServiceDetails() {
                 </Grid>
                 <Grid item lg={6} xs={12}>
                   <Box className="list_wrap">
-                    <Typography variant="h4">How to use:</Typography>
+                    <Typography variant="h4">
+                      {data?.data?.data?.how_to_use_heading}
+                    </Typography>
                     <List disablePadding>
                       {!!data?.data?.data?.how_to_use_options &&
                         data?.data?.data?.how_to_use_options.length > 0 &&
@@ -234,7 +238,22 @@ function ServiceDetails() {
             </Box>
             {!!data?.data?.data?.result_image && (
               <Box className="result_section">
-                <Typography variant="h4">Result</Typography>
+                <Typography variant="h4">
+                  {data?.data?.data?.short_title} Before and After Results
+                </Typography>
+                <figure>
+                  <Image
+                    src={mediaUrl(`service/${data?.data?.data?.before_image}`)}
+                    alt="result_Image"
+                    width={1135}
+                    height={470}
+                  />
+                </figure>
+              </Box>
+            )}
+            {!!data?.data?.data?.result_image && (
+              <Box className="result_section">
+                <Typography variant="h4"></Typography>
                 <figure>
                   <Image
                     src={mediaUrl(`service/${data?.data?.data?.result_image}`)}
@@ -249,7 +268,7 @@ function ServiceDetails() {
               data?.data?.data?.conditionId.length > 0 && (
                 <Box className="botox_section_wrap">
                   <Typography variant="h4">
-                    {data?.data?.data?.title}{" "}
+                    {data?.data?.data?.short_title}{" "}
                     <Typography variant="caption">can treat</Typography>
                   </Typography>
                   <Grid container spacing={3.8}>
@@ -300,41 +319,53 @@ function ServiceDetails() {
                 </Box>
               )}
             <Box className="pricingTable">
-              <Box className="pricing_text">
-                <Typography variant="h3">Pricing</Typography>
-              </Box>
-              <TableContainer>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell align="left"> Treatment Type</TableCell>
-                      <TableCell align="center">Gold</TableCell>
-                      <TableCell align="center">Diamond</TableCell>
-                      <TableCell align="center">Platinum</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows.map((row) => (
-                      <TableRow
-                        key={row.type}
-                        sx={{
-                          "&:last-child td, &:last-child th": { border: 0 }
-                        }}
-                      >
-                        <TableCell component="td" scope="row">
-                          <Stack direction="row" alignItems="center">
-                            <Typography variant="caption" />
-                            {row.type}
-                          </Stack>
-                        </TableCell>
-                        <TableCell align="center">${row.Gold}</TableCell>
-                        <TableCell align="center">${row.Platinum}</TableCell>
-                        <TableCell align="center">${row.Diamond}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
+              {!!data?.data?.data?.pricings &&
+                data?.data?.data?.pricings.length > 0 && (
+                  <>
+                    {" "}
+                    <Box className="pricing_text">
+                      <Typography variant="h3">Pricing</Typography>
+                    </Box>
+                    <TableContainer>
+                      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                          <TableRow>
+                            <TableCell align="left"> Treatment Type</TableCell>
+                            <TableCell align="center">Regular</TableCell>
+                            <TableCell align="center">Membership</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {!!data?.data?.data?.pricings &&
+                            data?.data?.data?.pricings.length > 0 &&
+                            data?.data?.data?.pricings?.map((item, index) => (
+                              <TableRow
+                                key={index}
+                                sx={{
+                                  "&:last-child td, &:last-child th": {
+                                    border: 0
+                                  }
+                                }}
+                              >
+                                <TableCell component="td" scope="row">
+                                  <Stack direction="row" alignItems="center">
+                                    <Typography variant="caption" />
+                                    {item?.type}
+                                  </Stack>
+                                </TableCell>
+                                <TableCell align="center">
+                                  ${item?.regualr_price}
+                                </TableCell>
+                                <TableCell align="center">
+                                  ${item?.membership_price}
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </>
+                )}
             </Box>
             {!!data?.data?.data?.faqId &&
               data?.data?.data?.faqId.length > 0 && (
@@ -361,7 +392,11 @@ function ServiceDetails() {
                               >
                                 <AccordionSummary
                                   expandIcon={
-                                    expanded ==  `panel${index}` ? <MinusIcon /> : <PlusIcon />
+                                    expanded == `panel${index}` ? (
+                                      <MinusIcon />
+                                    ) : (
+                                      <PlusIcon />
+                                    )
                                   }
                                   aria-controls={`panel${index}bh-content`}
                                   id={`panel${index}bh-header`}

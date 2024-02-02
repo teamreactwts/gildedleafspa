@@ -194,7 +194,7 @@ const Footer = () => {
                     </Link>
                   </ListItem>
                   <ListItem disablePadding>
-                    <Link href="tel:1234567890">
+                    <Link href="#">
                       <i className="phone_icon">
                         <PhoneIcon IconHeight="15" IconWidth="15" />
                       </i>

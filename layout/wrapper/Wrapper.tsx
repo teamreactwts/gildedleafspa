@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-undef */
+import { GetSettingsDetails } from "@/api/functions/cms.api";
 import Seo from "@/components/Seo/Seo";
 import useOnlineStatus from "@/hooks/useDetectOnline";
 import { WrapperStyle } from "@/styles/StyledComponents/WrapperStyle";
@@ -15,6 +16,7 @@ import ListItem from "@mui/material/ListItem";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { useQuery } from "react-query";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
@@ -52,6 +54,9 @@ const Wrapper = (props: wrapperProps) => {
   const projectName = "Gilded Leaf";
 
   useOnlineStatus();
+  const { data } = useQuery("settingsDetails", GetSettingsDetails, {
+    refetchOnWindowFocus: false
+  });
 
   return (
     <WrapperStyle>
@@ -73,17 +78,23 @@ const Wrapper = (props: wrapperProps) => {
 
       <List disablePadding className="batch_iconWrapper">
         <ListItem disableGutters>
-          <Link href="javascript:void(0)">
+          <Link
+            href="javascript:void(0)"
+            onClick={() => router.push("/membership")}
+          >
             <Membership />
           </Link>
         </ListItem>
         <ListItem disableGutters>
-          <Link href="javascript:void(0)">
+          <Link
+            href="javascript:void(0)"
+            onClick={() => router.push("/booking")}
+          >
             <BooknowIcon />
           </Link>
         </ListItem>
         <ListItem disableGutters>
-          <Link href="javascript:void(0)">
+          <Link href={`tel:${data?.data?.data?.contactNumber}`}>
             <CallUsIcon />
           </Link>
         </ListItem>

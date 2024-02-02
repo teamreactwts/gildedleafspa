@@ -17,16 +17,24 @@ import { useAppSelector } from "@/hooks/useAppSelector";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
-import { GetConditionList, GetServiceList } from "@/api/functions/cms.api";
+import {
+  GetConditionList,
+  GetServiceList,
+  GetSettingsDetails
+} from "@/api/functions/cms.api";
 import { ConditionDoc, Doc } from "@/interface/apiresp.interfaces";
 import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
 import { primaryColors } from "@/themes/_muiPalette";
 import AppStoreIcon from "@/ui/Icons/AppStoreIcon";
 import BrandLogo from "@/ui/Icons/BrandLogo";
 import DropDownIcon from "@/ui/Icons/DropdownIcon";
+import FacebookIcon from "@/ui/Icons/FacebookIcon";
+import InstaGramIcon from "@/ui/Icons/InstaGramIcon";
 import MenuIcon from "@/ui/Icons/MenuIcon";
 import PhoneIcon from "@/ui/Icons/PhoneIcon";
 import PlaysoreIcon from "@/ui/Icons/PlaysoreIcon";
+import TictockIcon from "@/ui/Icons/TictockIcon";
+import YoutubeIcon from "@/ui/Icons/YoutubeIcon";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import Button from "@mui/material/Button";
 import Fade from "@mui/material/Fade";
@@ -87,7 +95,6 @@ export default function Header(props: Props) {
     }
   );
 
-  console.log(!!serviceList && serviceList?.data?.data);
   const navItems2 = [
     {
       name: "Services",
@@ -241,6 +248,15 @@ export default function Header(props: Props) {
     setAnchorEl2(null);
   };
 
+  const { data } = useQuery("settingsDetails", GetSettingsDetails, {
+    refetchOnWindowFocus: false
+  });
+
+  const handleLinkClick = (event: any, url?: string) => {
+    event.preventDefault();
+    window.open(url);
+  };
+
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
       <AppBar
@@ -258,39 +274,96 @@ export default function Header(props: Props) {
               className="header_lableWrap"
             >
               <Box className="lableContact_lft">
-                <Link href="tel:+808 999 9889">
+                <Link href={`tel:${data?.data?.data?.contactNumber}`}>
                   <i className="phone_icon">
                     <PhoneIcon />
                   </i>
-                  <Typography>(808) 999-9889</Typography>
+                  <Typography>{data?.data?.data?.contactNumber}</Typography>
                 </Link>
               </Box>
+
               <Stack
                 direction="row"
                 alignItems="center"
                 className="lableContact_rgt"
               >
-                <Typography className="title_descriptoion" variant="body1">
-                  Download the app:
-                </Typography>
-                <List disablePadding>
-                  <ListItem disablePadding>
-                    <Link href="#url">
-                      <i className="phone_icon">
-                        <PlaysoreIcon />
-                      </i>
-                      <Typography>Play store</Typography>
-                    </Link>
-                  </ListItem>
-                  <ListItem disablePadding>
-                    <Link href="#url">
-                      <i className="phone_icon">
-                        <AppStoreIcon />
-                      </i>
-                      <Typography>App store</Typography>
-                    </Link>
-                  </ListItem>
-                </List>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  className="download_sectionWrap"
+                >
+                  <Typography className="title_descriptoion" variant="body1">
+                    Download the app:
+                  </Typography>
+                  <List disablePadding>
+                    <ListItem disablePadding>
+                      <Link href="#url">
+                        <i className="phone_icon">
+                          <PlaysoreIcon />
+                        </i>
+                        <Typography>Play store</Typography>
+                      </Link>
+                    </ListItem>
+                    <ListItem disablePadding>
+                      <Link href="#url">
+                        <i className="phone_icon">
+                          <AppStoreIcon />
+                        </i>
+                        <Typography>App store</Typography>
+                      </Link>
+                    </ListItem>
+                  </List>
+                </Stack>
+                <Box className="socilIcon_list">
+                  <List disablePadding className="social_icons">
+                    <ListItem disablePadding>
+                      <Link
+                        href={data?.data?.data?.socialLinks?.fb || "#"}
+                        onClick={(e) =>
+                          handleLinkClick(e, data?.data?.data?.socialLinks?.fb)
+                        }
+                      >
+                        <FacebookIcon IconHeight="15" IconWidth="15" />
+                      </Link>
+                    </ListItem>
+                    <ListItem disablePadding>
+                      <Link
+                        href={data?.data?.data?.socialLinks?.tiktok || "#"}
+                        onClick={(e) =>
+                          handleLinkClick(
+                            e,
+                            data?.data?.data?.socialLinks?.tiktok
+                          )
+                        }
+                      >
+                        <TictockIcon IconHeight="15" IconWidth="15" />
+                      </Link>
+                    </ListItem>
+                    <ListItem disablePadding>
+                      <Link
+                        href={data?.data?.data?.socialLinks?.insta || "#"}
+                        onClick={(e) =>
+                          handleLinkClick(
+                            e,
+                            data?.data?.data?.socialLinks?.insta
+                          )
+                        }
+                      >
+                        <InstaGramIcon IconHeight="15" IconWidth="15" />
+                      </Link>
+                    </ListItem>
+                    <ListItem disablePadding>
+                      <Link
+                        href={data?.data?.data?.socialLinks?.yt || "#"}
+                        onClick={(e) =>
+                          handleLinkClick(e, data?.data?.data?.socialLinks?.yt)
+                        }
+                      >
+                        <YoutubeIcon IconHeight="15" IconWidth="15" />
+                      </Link>
+                    </ListItem>
+                  </List>
+                </Box>
               </Stack>
             </Stack>
           </Container>
@@ -384,7 +457,7 @@ export default function Header(props: Props) {
                               router.push(`/service-details/${data._id}`)
                             }
                           >
-                            {data?.title}
+                            {data?.short_title}
                           </MenuItem>
                         )
                       )}

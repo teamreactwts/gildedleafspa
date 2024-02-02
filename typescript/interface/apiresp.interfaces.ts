@@ -138,9 +138,25 @@ export interface Doc {
   status: string;
   createdAt: string;
   updatedAt: string;
+  short_title: string;
+  benefit_heading: string;
+  how_to_use_heading: string;
+  before_image: string;
+  pricings: Iprice[];
 }
 export interface IgetConditionResponse {
   data: any;
+}
+export interface Iprice {
+  _id: string;
+  serviceId: string;
+  type: string;
+  regualr_price: number;
+  membership_price: number;
+  status: string;
+  isDeleted: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 export interface IgetConditionData {
   docs: ConditionDoc[];

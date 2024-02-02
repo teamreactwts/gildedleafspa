@@ -9,11 +9,20 @@ export const HeaderWrap = styled(Box)`
 
     .header_lableWrap {
       padding: 9px 0;
+      @media (max-width: 899px) {
+        justify-content: space-between;
+      }
+      @media (max-width: 599px) {
+        flex-wrap: wrap;
+      }
       .lableContact_lft {
         a {
           display: inline-block;
           display: flex;
           align-items: center;
+          @media (max-width: 899px) {
+            width: max-content;
+          }
           &:hover {
             opacity: 0.8;
           }
@@ -42,11 +51,20 @@ export const HeaderWrap = styled(Box)`
             }
           }
         }
+        @media (max-width: 599px) {
+          width: 100%;
+        }
       }
       .lableContact_rgt {
+        @media (max-width: 899px) {
+          flex-wrap: wrap;
+          justify-content: flex-end;
+        }
         @media (max-width: 599px) {
           flex-direction: column;
-          align-items: flex-end;
+          align-items: flex-start;
+          width: 100%;
+          margin-top: 10px;
         }
         .title_descriptoion {
           color: ${primaryColors.white};
@@ -56,7 +74,7 @@ export const HeaderWrap = styled(Box)`
           margin-right: 19px;
 
           @media (max-width: 599px) {
-            margin-right: 0;
+            margin-right: 10px;
           }
         }
         ul {
@@ -93,6 +111,19 @@ export const HeaderWrap = styled(Box)`
                 margin-left: 5px;
               }
             }
+          }
+        }
+        .socilIcon_list {
+          margin-left: 40px;
+          @media (max-width: 899px) {
+            margin-left: 0px;
+            margin-top: 10px;
+            ul {
+              margin: 0 -15px;
+            }
+          }
+          @media (max-width: 599px) {
+            width: 100%;
           }
         }
       }

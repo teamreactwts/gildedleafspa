@@ -104,6 +104,17 @@ body {
   }
 }
 
-.faq-ans li {
-  list-style: disc !important;
+.faq-ans {
+  ul {
+    padding-left: 30px;
+    li {
+      list-style: disc !important;
+    }
+  }
+  ol {
+    padding-left: 30px;
+    li {
+      list-style: auto;
+    }
+  }
 }
