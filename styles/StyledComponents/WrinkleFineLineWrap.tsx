@@ -75,6 +75,18 @@ export const WrinkleFinelinesWrapper = styled(Box)`
         &:last-child {
           margin-bottom: 0;
         }
+        p,
+        span {
+          color: ${primaryColors.textPrimaryColor};
+          font-family: Noto Sans !important;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 1.3;
+
+          &:last-child {
+            margin-bottom: 0 !important;
+          }
+        }
       }
     }
   }

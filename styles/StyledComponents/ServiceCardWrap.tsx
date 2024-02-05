@@ -103,21 +103,27 @@ export const ServiceCardWrap = styled(Stack)`
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      p {
+      p,
+      span {
         color: inherit;
-        font-size: inherit;
-        font-family: inherit;
-        font-weight: inherit;
-        line-height: inherit;
+        font-size: 16px !important;
+        font-family: Noto Sans !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
         display: none;
 
         &:first-child {
+          font-size: 16px !important;
+          font-family: Noto Sans !important;
           display: block;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
           overflow: hidden;
           text-overflow: ellipsis;
+        }
+        font {
+          font-size: 16px !important;
         }
       }
     }
