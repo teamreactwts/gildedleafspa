@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 export const ImageCardWrap = styled(Box)`
-cursor: pointer;
+  cursor: pointer;
   figure {
     width: 100%;
     height: 367px;
@@ -19,7 +19,7 @@ cursor: pointer;
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
     .slider_text {
       position: absolute;

@@ -169,3 +169,27 @@ body {
     background-color: rgba(166, 112, 51, 1);
   }
 }
+.common_titleWrapper {
+  padding-bottom: 40px;
+  @media (max-width: 899px) {
+    padding-bottom: 30px;
+  }
+  h2 {
+    font-size: 2.5rem;
+    @media (max-width: 899px) {
+      font-size: 2rem;
+    }
+    span {
+      font-size: inherit;
+      font-weight: 300;
+      font-family: inherit;
+      font-style: inherit;
+    }
+  }
+  p {
+    margin-bottom: 8px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

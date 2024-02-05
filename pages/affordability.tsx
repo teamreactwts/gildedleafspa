@@ -8,6 +8,7 @@ import Loader from "@/ui/Loader/Loder";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { Container } from "@mui/system";
 import { useQuery } from "react-query";
 
 export const AboutUsWrapper = styled(Box)``;
@@ -26,31 +27,52 @@ export default function Index() {
   return (
     <Wrapper>
       <InnnerPageWrapper>
-        <BreadcumbTitle pageName="Affordability" title="Affordability" />
+        <BreadcumbTitle
+          pageName={data?.data?.data?.short_title}
+          title={data?.data?.data?.short_title}
+        />
         <AboutUsWrapper className="cmn_gap">
-          <CommonGridSec
-            image={mediaUrl(`affordability/${data?.data?.data?.image}`)}
-            style={{ marginBottom: "50px" }}
-          >
-            <Typography variant="h2">{data?.data?.data?.title}</Typography>
-            <Typography
-              dangerouslySetInnerHTML={{
-                __html: data?.data?.data?.description as string
-              }}
-            />
-          </CommonGridSec>
+          <Container fixed>
+            <Box className="common_titleWrapper">
+              <Typography variant="h2">
+                {data?.data?.data?.intro_title}
+                <Typography variant="caption">
+                  {/* Affordable Financing Options Available */}
+                </Typography>
+              </Typography>
+              <Box className="description_body">
+                <Typography
+                  variant="body1"
+                  dangerouslySetInnerHTML={{
+                    __html: data?.data?.data?.intro_description as string
+                  }}
+                />
+              </Box>
+            </Box>
+            <CommonGridSec
+              image={mediaUrl(`affordability/${data?.data?.data?.image}`)}
+              style={{ marginBottom: "50px" }}
+            >
+              <Typography variant="h2">{data?.data?.data?.title}</Typography>
+              <Typography
+                dangerouslySetInnerHTML={{
+                  __html: data?.data?.data?.description as string
+                }}
+              />
+            </CommonGridSec>
 
-          <CommonGridSec
-            image={mediaUrl(`affordability/${data?.data?.data?.image_1}`)}
-            isReverse
-          >
-            <Typography variant="h2">{data?.data?.data?.title_1}</Typography>
-            <Typography
-              dangerouslySetInnerHTML={{
-                __html: data?.data?.data?.description_1 as string
-              }}
-            />
-          </CommonGridSec>
+            <CommonGridSec
+              image={mediaUrl(`affordability/${data?.data?.data?.image_1}`)}
+              isReverse
+            >
+              <Typography variant="h2">{data?.data?.data?.title_1}</Typography>
+              <Typography
+                dangerouslySetInnerHTML={{
+                  __html: data?.data?.data?.description_1 as string
+                }}
+              />
+            </CommonGridSec>
+          </Container>
         </AboutUsWrapper>
       </InnnerPageWrapper>
     </Wrapper>

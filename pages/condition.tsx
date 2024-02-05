@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
-import { GetConditionList } from "@/api/functions/cms.api";
+import { GetConditionCmsData, GetConditionList } from "@/api/functions/cms.api";
 import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import ImageCard from "@/components/ImageCard/ImageCard";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
@@ -69,7 +69,7 @@ function Condition() {
   const [conditionList, setConditionList] = useState<ConditionDoc[]>();
 
   const { isLoading } = useQuery(
-    ["serviceList", page],
+    ["conditionList", page],
 
     {
       queryFn: () => GetConditionList({ page, per_page }),
@@ -124,6 +124,15 @@ function Condition() {
     }
   }, [windowWidth]);
 
+  const { data } = useQuery(
+    ["conditionCms"],
+
+    {
+      queryFn: () => GetConditionCmsData(),
+      refetchOnWindowFocus: false
+    }
+  );
+
   if (isLoading && page == 1) {
     return <Loader isLoading={isLoading} />;
   }
@@ -131,9 +140,29 @@ function Condition() {
   return (
     <Wrapper>
       <InnnerPageWrapper>
-        <BreadcumbTitle title="Conditions" pageName="Condition" />
+        <BreadcumbTitle
+          title={data?.data?.data?.short_title}
+          pageName={data?.data?.data?.short_title}
+        />
         <ConditionWrap>
           <Container fixed>
+            {/* <Box className="titel_text">
+              <Typography variant="h2">Title</Typography>
+            </Box>
+            <Box className="titel_text">
+              <Typography>Description</Typography>
+            </Box> */}
+            <Box className="common_titleWrapper">
+              <Typography variant="h2">{data?.data?.data?.title}</Typography>
+              <Box className="description_body">
+                <Typography
+                  variant="body1"
+                  dangerouslySetInnerHTML={{
+                    __html: data?.data?.data?.content as string
+                  }}
+                />
+              </Box>
+            </Box>
             <Box className="titel_text">
               <Typography variant="h2">
                 What are your

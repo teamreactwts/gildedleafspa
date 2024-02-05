@@ -54,7 +54,7 @@ type navItemsType = {
 };
 
 interface titleProps {
-  title: string;
+  title?: string;
   navItems?: navItemsType[];
   pageName?: string;
   pageIcon?: string;

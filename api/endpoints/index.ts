@@ -29,7 +29,8 @@ export const endpoints = {
   },
   condition: {
     list: "condition/get-data",
-    details: "condition/get-details"
+    details: "condition/get-details",
+    cms: "conditioncms/get-data"
   },
   contact: {
     contactus: "contact-us/store"

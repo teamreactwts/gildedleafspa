@@ -12,7 +12,7 @@ export const CommongridWrapper = styled(Box)`
       font-style: normal;
       font-weight: 700;
       @media (max-width: 599px) {
-      font-size: 32px;
+        font-size: 32px;
       }
     }
     > p {
@@ -55,7 +55,6 @@ const CommonGridSec: React.FC<gridProps & HTMLAttributes<HTMLDivElement>> = ({
           container
           spacing={{ lg: 9, md: 5, xs: 2 }}
           flexDirection={isReverse ? "row-reverse" : "row"}
-          alignItems="center"
         >
           <Grid item md={6} xs={12}>
             <Box className="grid_image">

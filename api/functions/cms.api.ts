@@ -3,6 +3,7 @@ import {
   IgetAffortResponse,
   IgetBlogDetailsResponse,
   IgetBlogResponse,
+  IgetConditionCmsDetailsResponse,
   IgetConditionDetailsResponse,
   IgetConditionResponse,
   IgetContactResponse,
@@ -126,6 +127,12 @@ export const GetMembershipFeatures = async () => {
 export const GetMembershipDetails = async () => {
   const res = await axiosInstance.get<IgetMembershipDetailsResponse>(
     endpoints.membership.details
+  );
+  return res;
+};
+export const GetConditionCmsData = async () => {
+  const res = await axiosInstance.get<IgetConditionCmsDetailsResponse>(
+    endpoints.condition.cms
   );
   return res;
 };

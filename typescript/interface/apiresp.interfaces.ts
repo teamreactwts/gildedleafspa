@@ -76,6 +76,9 @@ export interface IAffortDetails {
   updatedAt: string;
   image: string;
   image_1: string;
+  short_title: string;
+  intro_title: string;
+  intro_description: string;
 }
 export interface IgetSettingsResponse extends BaseApiResponse {
   data: ISettingsDetails;
@@ -242,6 +245,19 @@ export interface IrelateBlog {
 }
 export interface IgetMembershipDetailsResponse extends BaseApiResponse {
   data: IMembershipDetails;
+}
+export interface IgetConditionCmsDetailsResponse extends BaseApiResponse {
+  data: IConditionCms;
+}
+
+export interface IConditionCms {
+  _id: string;
+  isDeleted: boolean;
+  content: string;
+  title: string;
+  short_title: string;
+  status: string;
+  updatedAt: string;
 }
 export interface IMembershipDetails {
   _id: string;

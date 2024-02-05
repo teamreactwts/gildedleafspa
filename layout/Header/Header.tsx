@@ -490,7 +490,7 @@ export default function Header(props: Props) {
                     }}
                   >
                     <MenuItem onClick={() => router.push("/condition")}>
-                      All Concerns
+                      Conditions Treated
                     </MenuItem>
                     {!!conditionList &&
                       !!conditionList?.data?.data &&
