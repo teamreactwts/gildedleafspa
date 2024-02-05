@@ -176,6 +176,7 @@ export interface ConditionDoc {
   _id: string;
   description?: string;
   serivce?: IserviceCondition[];
+  short_title: string;
 }
 export interface Faq {
   _id: string;

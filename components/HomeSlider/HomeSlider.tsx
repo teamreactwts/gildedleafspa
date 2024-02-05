@@ -116,7 +116,7 @@ function HomeSlider({ homeData }: Iprops) {
                     <ImageCard
                       card_img={mediaUrl(`condition/${data?.image}`)}
                       title={"Concern"}
-                      description={data.title}
+                      description={data.short_title}
                       item={data}
                     />
                   </Box>

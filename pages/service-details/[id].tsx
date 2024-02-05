@@ -291,7 +291,7 @@ function ServiceDetails() {
                             </figure>
                             <Box className="text_section">
                               <Typography variant="h5">
-                                {item?.title}
+                                {item?.short_title}
                               </Typography>
                               <Typography
                                 variant="body1"
