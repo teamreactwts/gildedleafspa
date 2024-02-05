@@ -54,27 +54,18 @@ export default function Home() {
     mode: "all",
     defaultValues: { full_name: "", email: "", phone: "" }
   });
-  const [open, setOpen] = useState(true);
-  // const [count, setCount] = useState(0);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const hasClosedPopup = localStorage.getItem("hasClosedPopup");
 
     if (hasClosedPopup) {
       setOpen(false);
+    } else {
+      setOpen(true);
     }
-    // const handleBeforeUnload = () => {
-    //   localStorage.removeItem("hasClosedPopup");
-    // };
-
-    // window.addEventListener("beforeunload", handleBeforeUnload);
-
-    // return () => {
-    //   window.removeEventListener("beforeunload", handleBeforeUnload);
-    // };
   }, []);
 
   const handleClose = useCallback(() => {
-    // localStorage.setItem("hasClosedPopup", "true");
     setOpen(false);
   }, []);
 
