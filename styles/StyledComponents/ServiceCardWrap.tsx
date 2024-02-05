@@ -84,7 +84,7 @@ export const ServiceCardWrap = styled(Stack)`
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       text-overflow: ellipsis;
-      min-height: 117px;
+      /* min-height: 117px; */
       @media (max-width: 599px) {
         line-height: 1.2;
       }

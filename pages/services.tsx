@@ -64,7 +64,7 @@ function Services() {
                     <Grid item xs={12} lg={6}>
                       <ServiceSectionCard
                         serviceImage={mediaUrl(`service/${data?.icon}`)}
-                        title={data.title}
+                        title={data.short_title}
                         description={data.description}
                         item={data}
                       />
