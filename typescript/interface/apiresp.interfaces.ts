@@ -143,6 +143,8 @@ export interface Doc {
   how_to_use_heading: string;
   before_image: string;
   pricings: Iprice[];
+  treat_title: string;
+  image_title: string;
 }
 export interface IgetConditionResponse {
   data: any;
@@ -191,6 +193,7 @@ export interface IserviceCondition {
   icon: string;
   button_text1: string;
   button_text2: string;
+  short_title: string;
 }
 export interface IgetConditionDetailsResponse {
   data: ConditionDoc;

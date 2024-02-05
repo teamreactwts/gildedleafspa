@@ -239,7 +239,7 @@ function ServiceDetails() {
             {!!data?.data?.data?.result_image && (
               <Box className="result_section">
                 <Typography variant="h4">
-                  {data?.data?.data?.short_title} Before and After Results
+                  {data?.data?.data?.image_title}
                 </Typography>
                 <figure>
                   <Image
@@ -268,7 +268,7 @@ function ServiceDetails() {
               data?.data?.data?.conditionId.length > 0 && (
                 <Box className="botox_section_wrap">
                   <Typography variant="h4">
-                    {data?.data?.data?.short_title}{" "}
+                    {data?.data?.data?.treat_title}{" "}
                     <Typography variant="caption">can treat</Typography>
                   </Typography>
                   <Grid container spacing={3.8}>

@@ -99,7 +99,7 @@ function ConditionDetails() {
                     <Grid item xs={12} lg={6} key={index}>
                       <ServiceSectionCard
                         serviceImage={mediaUrl(`service/${item?.icon}`)}
-                        title={item.title}
+                        title={item.short_title}
                         description={item.description}
                       />
                     </Grid>
