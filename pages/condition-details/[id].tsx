@@ -70,7 +70,7 @@ function ConditionDetails() {
           <Container fixed>
             <Stack
               direction="row"
-              alignItems="center"
+              alignItems="flex-start"
               className="desciption_section"
             >
               <figure>
@@ -84,6 +84,7 @@ function ConditionDetails() {
               <Box className="product_details_wrap">
                 <Typography variant="h3">{data?.data?.data?.title}</Typography>
                 <Typography
+                  className="product_text_description"
                   variant="body1"
                   dangerouslySetInnerHTML={{
                     __html: data?.data?.data?.description as string

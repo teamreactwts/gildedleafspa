@@ -6,13 +6,13 @@ export const WrinkleFinelinesWrapper = styled(Box)`
   padding: 100px 0;
   @media (max-width: 1199px) {
     padding: 50px 0;
-    }
-    @media (max-width: 899px) {
+  }
+  @media (max-width: 899px) {
     padding: 40px 0;
-    }
+  }
   .desciption_section {
     @media (max-width: 1199px) {
-        flex-wrap: wrap;
+      flex-wrap: wrap;
     }
     figure {
       width: 297px;
@@ -24,8 +24,8 @@ export const WrinkleFinelinesWrapper = styled(Box)`
       border-radius: 20px;
       @media (max-width: 1199px) {
         width: 100%;
-      flex-basis: 100%;
-    }
+        flex-basis: 100%;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -38,10 +38,10 @@ export const WrinkleFinelinesWrapper = styled(Box)`
       margin-left: 50px;
       @media (max-width: 1199px) {
         width: 100%;
-      flex-basis: 100%;
-      margin-left: 0px;
-      margin-top: 30px;
-    }
+        flex-basis: 100%;
+        margin-left: 0px;
+        margin-top: 30px;
+      }
       h3 {
         color: ${primaryColors.primary};
         font-family: Cormorant Garamond;
@@ -49,11 +49,11 @@ export const WrinkleFinelinesWrapper = styled(Box)`
         font-weight: 700;
         line-height: 1;
         @media (max-width: 1199px) {
-            font-size: 40px;
-    }
-    @media (max-width: 899px) {
-            font-size: 32px;
-    }
+          font-size: 40px;
+        }
+        @media (max-width: 899px) {
+          font-size: 32px;
+        }
       }
       p {
         color: ${primaryColors.textPrimaryColor};
@@ -64,19 +64,24 @@ export const WrinkleFinelinesWrapper = styled(Box)`
         max-width: 529px;
         margin-bottom: 26px;
         @media (max-width: 1199px) {
+          max-width: 100%;
+        }
+        &.product_text_description {
+          max-width: 100%;
+          p {
             max-width: 100%;
-    }
-        &:last-child{
-            margin-bottom: 0;
+          }
+        }
+        &:last-child {
+          margin-bottom: 0;
         }
       }
     }
   }
-  .section_card{
+  .section_card {
     margin-top: 50px;
     @media (max-width: 1199px) {
-        margin-top: 40px;
+      margin-top: 40px;
     }
-
   }
 `;

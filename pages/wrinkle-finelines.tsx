@@ -45,7 +45,7 @@ function WrinkleFinelines() {
           <Container fixed>
             <Stack
               direction="row"
-              alignItems="center"
+              alignItems="flex-start"
               className="desciption_section"
             >
               <figure>
