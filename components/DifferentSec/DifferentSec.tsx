@@ -33,11 +33,13 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 export const ServiceCardDifferent = ({
   icon,
   title,
+  short_title,
   _id
 }: {
   icon: string;
   title: string;
   _id: string;
+  short_title: string;
 }) => {
   const router = useRouter();
   return (
@@ -62,7 +64,7 @@ export const ServiceCardDifferent = ({
         variant="h4"
         onClick={() => router.push(`/service-details/${_id}`)}
       >
-        {title}
+        {short_title}
       </Typography>
     </ServiceCardDifferentWrap>
   );
