@@ -430,6 +430,7 @@ export default function Header(props: Props) {
                     Services
                   </Button>
                   <NavMenu
+                  className="menue_list_dropdown"
                     id="basic-menu"
                     anchorEl={anchorEl2}
                     open={open2}
@@ -474,6 +475,7 @@ export default function Header(props: Props) {
                     Conditions
                   </Button>
                   <NavMenu
+                   className="menue_list_dropdown"
                     id="basic-menu"
                     anchorEl={anchorEl}
                     open={open}

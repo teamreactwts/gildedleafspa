@@ -6,7 +6,7 @@ import useOnlineStatus from "@/hooks/useDetectOnline";
 import { WrapperStyle } from "@/styles/StyledComponents/WrapperStyle";
 import { primaryColors } from "@/themes/_muiPalette";
 import BooknowIcon from "@/ui/Icons/BooknowIcon";
-import CallUsIcon from "@/ui/Icons/CallUsIcon";
+import CallIcon from "@/ui/Icons/CallIcon";
 import Membership from "@/ui/Icons/Membership";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
@@ -95,7 +95,7 @@ const Wrapper = (props: wrapperProps) => {
         </ListItem>
         <ListItem disableGutters>
           <Link href={`tel:${data?.data?.data?.contactNumber}`}>
-            <CallUsIcon />
+            <CallIcon />
           </Link>
         </ListItem>
       </List>
