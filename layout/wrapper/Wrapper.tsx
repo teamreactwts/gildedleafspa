@@ -19,6 +19,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import { Tooltip } from "@mui/material";
 
 interface wrapperProps {
   children: JSX.Element | JSX.Element[];
@@ -78,25 +79,31 @@ const Wrapper = (props: wrapperProps) => {
 
       <List disablePadding className="batch_iconWrapper">
         <ListItem disableGutters>
-          <Link
-            href="javascript:void(0)"
-            onClick={() => router.push("/membership")}
-          >
-            <Membership />
-          </Link>
+          <Tooltip title="Membership" placement="left">
+            <Link
+              href="javascript:void(0)"
+              onClick={() => router.push("/membership")}
+            >
+              <Membership />
+            </Link>
+          </Tooltip>
         </ListItem>
         <ListItem disableGutters>
-          <Link
-            href="javascript:void(0)"
-            onClick={() => router.push("/booking")}
-          >
-            <BooknowIcon />
-          </Link>
+          <Tooltip title="Book Now" placement="left">
+            <Link
+              href="javascript:void(0)"
+              onClick={() => router.push("/booking")}
+            >
+              <BooknowIcon />
+            </Link>
+          </Tooltip>
         </ListItem>
         <ListItem disableGutters>
-          <Link href={`tel:${data?.data?.data?.contactNumber}`}>
-            <CallIcon />
-          </Link>
+          <Tooltip title="Call Us" placement="left">
+            <Link href={`tel:${data?.data?.data?.contactNumber}`}>
+              <CallIcon />
+            </Link>
+          </Tooltip>
         </ListItem>
       </List>
 

@@ -208,44 +208,47 @@ function Blogs() {
       <InnnerPageWrapper>
         <BreadcumbTitle title="Blogs" pageName="Blogs" />
         <Container fixed>
-          <BlogsWrapper>
-            {page == 1 && (
-              <Box className="blogSectionTopWrapper">
-                <Stack
-                  direction="row"
-                  // alignItems="center"
-                  className="blogSecitoWrap"
-                >
-                  <figure className="blogMain_img">
-                    <Image
-                      src={mediaUrl(
-                        `blog/${
-                          !!blogList && blogList.length > 0 && blogList[0].image
-                        }`
-                      )}
-                      alt="blog_details"
-                      width={585}
-                      height={410}
-                    />
-                  </figure>
-                  <Box className="blog_desctiptions">
-                    <Chip
-                      icon={<Calender />}
-                      label={
-                        !!blogList && blogList.length > 0
-                          ? moment(blogList[0].published_date).format(
-                              "DD.MM.YYYY"
-                            )
-                          : ""
-                      }
-                      variant="filled"
-                      color="default"
-                    />
-                    <Typography variant="h3">
-                      {!!blogList && blogList.length > 0 && blogList[0].title}
-                    </Typography>
-                    <Box className="description_block">
-                      {/* <Typography
+          {!!blogList && blogList.length > 0 ? (
+            <BlogsWrapper>
+              {page == 1 && (
+                <Box className="blogSectionTopWrapper">
+                  <Stack
+                    direction="row"
+                    // alignItems="center"
+                    className="blogSecitoWrap"
+                  >
+                    <figure className="blogMain_img">
+                      <Image
+                        src={mediaUrl(
+                          `blog/${
+                            !!blogList &&
+                            blogList.length > 0 &&
+                            blogList[0].image
+                          }`
+                        )}
+                        alt="blog_details"
+                        width={585}
+                        height={410}
+                      />
+                    </figure>
+                    <Box className="blog_desctiptions">
+                      <Chip
+                        icon={<Calender />}
+                        label={
+                          !!blogList && blogList.length > 0
+                            ? moment(blogList[0].published_date).format(
+                                "DD.MM.YYYY"
+                              )
+                            : ""
+                        }
+                        variant="filled"
+                        color="default"
+                      />
+                      <Typography variant="h3">
+                        {!!blogList && blogList.length > 0 && blogList[0].title}
+                      </Typography>
+                      <Box className="description_block">
+                        {/* <Typography
                         variant="body1"
                         dangerouslySetInnerHTML={{
                           __html:
@@ -254,100 +257,107 @@ function Blogs() {
                               : ""
                         }}
                       /> */}
-                      <Typography variant="body1">
-                        {!!blogList && blogList.length > 0
-                          ? (blogList[0].short_description as string)
-                          : ""}
-                      </Typography>
-                    </Box>
-                    <Stack
-                      direction="row"
-                      alignItems="center"
-                      className="profilesection"
-                    >
-                      <figure className="profileIcon">
-                        <Image
-                          src={mediaUrl(
-                            `blog/${
-                              !!blogList &&
-                              blogList.length > 0 &&
-                              blogList[0].author_image
-                            }`
-                          )}
-                          alt="profile_icon"
-                          width={44}
-                          height={44}
-                        />
-                      </figure>
-                      <Box className="profile_details">
-                        <Typography variant="h5">
-                          {!!blogList &&
-                            blogList.length > 0 &&
-                            blogList[0].author_name}
-                        </Typography>
                         <Typography variant="body1">
-                          {" "}
-                          {!!blogList &&
-                            blogList.length > 0 &&
-                            blogList[0].author_type}
+                          {!!blogList && blogList.length > 0
+                            ? (blogList[0].short_description as string)
+                            : ""}
                         </Typography>
                       </Box>
-                    </Stack>
-                    <Link
-                      href={`/blog-details/${
-                        !!blogList && blogList.length > 0 && blogList[0]._id
-                      }`}
-                      className="redmore_section"
-                    >
-                      <Typography variant="body1">Read More</Typography>
-                      <i>
-                        <ArrowIcon />
-                      </i>
-                    </Link>
-                  </Box>
-                </Stack>
-              </Box>
-            )}
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        className="profilesection"
+                      >
+                        <figure className="profileIcon">
+                          <Image
+                            src={mediaUrl(
+                              `blog/${
+                                !!blogList &&
+                                blogList.length > 0 &&
+                                blogList[0].author_image
+                              }`
+                            )}
+                            alt="profile_icon"
+                            width={44}
+                            height={44}
+                          />
+                        </figure>
+                        <Box className="profile_details">
+                          <Typography variant="h5">
+                            {!!blogList &&
+                              blogList.length > 0 &&
+                              blogList[0].author_name}
+                          </Typography>
+                          <Typography variant="body1">
+                            {" "}
+                            {!!blogList &&
+                              blogList.length > 0 &&
+                              blogList[0].author_type}
+                          </Typography>
+                        </Box>
+                      </Stack>
+                      <Link
+                        href={`/blog-details/${
+                          !!blogList && blogList.length > 0 && blogList[0]._id
+                        }`}
+                        className="redmore_section"
+                      >
+                        <Typography variant="body1">Read More</Typography>
+                        <i>
+                          <ArrowIcon />
+                        </i>
+                      </Link>
+                    </Box>
+                  </Stack>
+                </Box>
+              )}
 
-            <Box className="blogSecitonBottomPart">
-              <Grid container spacing={{ lg: 3.5, xs: 3.2 }}>
-                {!!blogList && blogList.length > 0 && page == 1
-                  ? blogList.slice(1).map((data, index) => (
-                      <Grid item lg={4} md={6} xs={12}>
-                        <BlogCard
-                          item={data}
-                          blogimg={mediaUrl(`blog/${data?.image}`)}
-                          datevalue={moment(data.published_date).format(
-                            "DD.MM.YYYY"
-                          )}
-                          cardtitevalue={data?.title}
-                          blogDescription={data?.short_description}
-                        />
-                      </Grid>
-                    ))
-                  : !!blogList &&
-                    blogList.length > 0 &&
-                    blogList.map((data, index) => (
-                      <Grid item lg={4} md={6} xs={12}>
-                        <BlogCard
-                          item={data}
-                          blogimg={mediaUrl(`blog/${data?.image}`)}
-                          datevalue={moment(data.published_date).format(
-                            "DD.MM.YYYY"
-                          )}
-                          cardtitevalue={data?.title}
-                          blogDescription={data?.short_description}
-                        />
-                      </Grid>
-                    ))}
-              </Grid>
-            </Box>
-            <CommonPagination
-              count={totalPage}
-              page={page}
-              handleChange={handleChange}
-            />
-          </BlogsWrapper>
+              <Box className="blogSecitonBottomPart">
+                <Grid container spacing={{ lg: 3.5, xs: 3.2 }}>
+                  {!!blogList && blogList.length > 0 && page == 1
+                    ? blogList.slice(1).map((data, index) => (
+                        <Grid item lg={4} md={6} xs={12}>
+                          <BlogCard
+                            item={data}
+                            blogimg={mediaUrl(`blog/${data?.image}`)}
+                            datevalue={moment(data.published_date).format(
+                              "DD.MM.YYYY"
+                            )}
+                            cardtitevalue={data?.title}
+                            blogDescription={data?.short_description}
+                          />
+                        </Grid>
+                      ))
+                    : !!blogList &&
+                      blogList.length > 0 &&
+                      blogList.map((data, index) => (
+                        <Grid item lg={4} md={6} xs={12}>
+                          <BlogCard
+                            item={data}
+                            blogimg={mediaUrl(`blog/${data?.image}`)}
+                            datevalue={moment(data.published_date).format(
+                              "DD.MM.YYYY"
+                            )}
+                            cardtitevalue={data?.title}
+                            blogDescription={data?.short_description}
+                          />
+                        </Grid>
+                      ))}
+                </Grid>
+              </Box>
+              <CommonPagination
+                count={totalPage}
+                page={page}
+                handleChange={handleChange}
+              />
+            </BlogsWrapper>
+          ) : (
+            <BlogsWrapper>
+              <Typography variant="h2" style={{ textAlign: "center" }}>
+                No Blog Found
+              </Typography>
+            </BlogsWrapper>
+          )}
         </Container>
       </InnnerPageWrapper>
     </Wrapper>

@@ -119,7 +119,7 @@ function ServiceDetails() {
           <Container fixed>
             <Stack
               direction="row"
-              alignItems="center"
+              alignItems="flex-start"
               className="service_details_top"
             >
               <Box className="service_imgSection">

@@ -15,7 +15,17 @@ export const WrapperStyle = styled(Box)`
     max-width: 100%;
     height: auto;
   }
+  p {
+    font-family: "Noto Sans", sans-serif;
 
+    span {
+      font-family: inherit !important;
+      line-height: 1.5 !important;
+      font {
+        font-size: 16px !important;
+      }
+    }
+  }
   a {
     color: #00a5d0;
     display: inline-block;
@@ -291,7 +301,7 @@ export const WrapperStyle = styled(Box)`
   .errSpan {
     color: red;
   }
-  .batch_iconWrapper{
+  .batch_iconWrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -300,12 +310,12 @@ export const WrapperStyle = styled(Box)`
     right: 10px;
     transform: translateY(-50%);
     z-index: 99;
-    li{
+    li {
       margin-bottom: 15px;
-      &:last-child{
+      &:last-child {
         margin-bottom: 0;
       }
-      a{
+      a {
         display: inline-block;
         width: 40px;
         height: 40px;
@@ -313,19 +323,19 @@ export const WrapperStyle = styled(Box)`
         align-items: center;
         justify-content: center;
         border-radius: 100%;
-        background-color:  #A67033;
+        background-color: #a67033;
         @media (max-width: 599px) {
           width: 30px;
           height: 30px;
         }
-        svg{
+        svg {
           @media (max-width: 599px) {
-          width: 15px;
-          height: 15px;
+            width: 15px;
+            height: 15px;
+          }
         }
-        }
-        &:hover{
-          background-color: #161D29;
+        &:hover {
+          background-color: #161d29;
         }
       }
     }
@@ -460,5 +470,3 @@ export const WrapperStyle = styled(Box)`
   }
   //   ======================
 `;
-
-

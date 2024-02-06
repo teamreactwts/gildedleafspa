@@ -20,6 +20,17 @@ export const CommongridWrapper = styled(Box)`
         margin-bottom: 20px;
       }
     }
+    p {
+      span {
+        font-family: inherit !important;
+        line-height: inherit !important;
+        margin-bottom: 5px;
+        display: inline-block;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
   .grid_image {
     figure {
