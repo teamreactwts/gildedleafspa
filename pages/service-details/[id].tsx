@@ -354,7 +354,7 @@ function ServiceDetails() {
                                   </Stack>
                                 </TableCell>
                                 <TableCell align="center">
-                                  ${item?.regualr_price}
+                                  ${item?.regular_price}
                                 </TableCell>
                                 <TableCell align="center">
                                   ${item?.membership_price}

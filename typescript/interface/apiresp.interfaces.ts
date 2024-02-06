@@ -156,7 +156,7 @@ export interface Iprice {
   _id: string;
   serviceId: string;
   type: string;
-  regualr_price: number;
+  regular_price: number;
   membership_price: number;
   status: string;
   isDeleted: boolean;
