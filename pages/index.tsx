@@ -17,10 +17,12 @@ import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Loader from "@/ui/Loader/Loder";
 import MuiModalWrapper from "@/ui/Modal/MuiModalWrapper";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { List, ListItem } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import router from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useMutation, useQuery } from "react-query";
@@ -150,7 +152,7 @@ export default function Home() {
                   Subscribe our
                   <Typography variant="caption"> Newsletter</Typography>
                 </Typography>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                {/* <form onSubmit={handleSubmit(onSubmit)}>
                   <Grid container spacing={{ xs: 1.8 }} alignItems="center">
                     <Grid item xs={12}>
                       <Controller
@@ -224,7 +226,36 @@ export default function Home() {
                       </Box>
                     </Grid>
                   </Grid>
-                </form>
+                </form> */}
+                <Box className="newsletter_section">
+                <Typography variant="h2">
+          {data?.data?.data?.title}{" "}
+          <Typography variant="caption">
+            {data?.data?.data?.bold_title}
+          </Typography>
+        </Typography>
+        <List disablePadding className="newsletter_button_wrap">
+          <ListItem disablePadding>
+            <CustomButtonPrimary
+              variant="contained"
+              color="primary"
+              className="member_btn"
+            >
+              <Typography variant="caption">Buy Membership Plan</Typography>
+            </CustomButtonPrimary>
+          </ListItem>
+          <ListItem disablePadding>
+            <CustomButtonPrimary
+              variant="outlined"
+              color="primary"
+              className="book_nowbtn"
+              onClick={() => router.push("/booking")}
+            >
+              <Typography variant="caption">Book Now</Typography>
+            </CustomButtonPrimary>
+          </ListItem>
+        </List>
+                </Box>
               </Box>
             </Grid>
           </Grid>

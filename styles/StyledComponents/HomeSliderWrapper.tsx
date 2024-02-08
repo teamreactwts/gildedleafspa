@@ -11,6 +11,7 @@ export const HomeSliderWrapper = styled(Box)`
   .sliderHeading_part {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     @media (max-width: 1199px) {
       flex-wrap: wrap;
     }

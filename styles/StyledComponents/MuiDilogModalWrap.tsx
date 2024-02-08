@@ -192,7 +192,45 @@ export const MuiDilogModalWrap = styled(Dialog)`
             }
           }
         }
+        .newsletter_section{
+          h2{
+            font-size: 25px;
+            line-height: 1.3;
+            max-width: 100%;
+            span{
+              font-size: 40px;
+              text-transform: capitalize;
+            }
+          }
+        }
+        .newsletter_button_wrap {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          
+
+          li {
+            margin: 0 0 10px 0;
+              width: 100%;
+              flex-basis: 100%;
+            &:last-child{
+              margin-bottom: 0;
+            }
+            flex-basis: 100%;
+            }
+            button {
+              width: 100%;
+              height: 100%;
+              min-width: auto;
+              padding: 15px;
+              span{
+                font-size: 14px;
+              }
+            }
+          }
+        }
       }
     }
-  }
+  
 `;
