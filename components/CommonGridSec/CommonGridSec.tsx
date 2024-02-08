@@ -23,7 +23,7 @@ export const CommongridWrapper = styled(Box)`
     p {
       span {
         font-family: inherit !important;
-        line-height: inherit !important;
+        line-height: 1.5 !important;
         margin-bottom: 5px;
         display: inline-block;
         &:last-child {
