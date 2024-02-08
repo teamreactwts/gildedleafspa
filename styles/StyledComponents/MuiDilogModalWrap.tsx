@@ -123,6 +123,9 @@ export const MuiDilogModalWrap = styled(Dialog)`
         }
       }
       .leterBoxWrap {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
         h2 {
           color: ${primaryColors.primary1};
           font-family: "Cormorant Garamond";
@@ -130,7 +133,7 @@ export const MuiDilogModalWrap = styled(Dialog)`
           font-style: italic;
           font-weight: 300;
           line-height: 1;
-          max-width: 227px;
+          max-width: 100%;
           margin-bottom: 21px;
           @media (max-width: 899px) {
             text-align: center;
@@ -192,12 +195,12 @@ export const MuiDilogModalWrap = styled(Dialog)`
             }
           }
         }
-        .newsletter_section{
-          h2{
+        .newsletter_section {
+          h2 {
             font-size: 25px;
             line-height: 1.3;
             max-width: 100%;
-            span{
+            span {
               font-size: 40px;
               text-transform: capitalize;
             }
@@ -208,29 +211,28 @@ export const MuiDilogModalWrap = styled(Dialog)`
           flex-wrap: wrap;
           align-items: center;
           justify-content: space-between;
-          
 
           li {
             margin: 0 0 10px 0;
-              width: 100%;
-              flex-basis: 100%;
-            &:last-child{
+            width: 100%;
+            flex-basis: 100%;
+            &:last-child {
               margin-bottom: 0;
             }
             flex-basis: 100%;
-            }
-            button {
-              width: 100%;
-              height: 100%;
-              min-width: auto;
-              padding: 15px;
-              span{
-                font-size: 14px;
-              }
+          }
+          button {
+            width: 100%;
+            height: 100%;
+            min-width: auto;
+            padding: 15px;
+            span {
+              font-size: 14px;
+              text-transform: none;
             }
           }
         }
       }
     }
-  
+  }
 `;
