@@ -77,7 +77,7 @@ export const ServiceWrapper = styled(Box)`
   );
   backdrop-filter: blur(2px);
   @media (max-width: 1199px) {
-    padding: 25px;
+    padding: 25px 0;
   }
   .title_left {
     h2 {
@@ -109,7 +109,7 @@ export const CommonSlider = styled(Box)`
   }
   .slick-slider {
     margin-bottom: 50px;
-    @media (max-width:599px) {
+    @media (max-width: 599px) {
       padding-bottom: 50px;
       margin-bottom: 0;
     }
@@ -296,12 +296,11 @@ export const DifferentInnerWrapper = styled(Box, {
     }
     `}
 
-    .each_icon_card_slider{
-      .slick-slider{
-        margin-bottom:0;
-        padding-bottom:40px;
-        .slick-next {
-    
+  .each_icon_card_slider {
+    .slick-slider {
+      margin-bottom: 0;
+      padding-bottom: 40px;
+      .slick-next {
         left: 60%;
         transform: translateX(-60%);
         bottom: 0;
@@ -309,18 +308,14 @@ export const DifferentInnerWrapper = styled(Box, {
         top: auto;
       }
       .slick-prev {
-      left: -45px;
-     
+        left: -45px;
+
         left: 40%;
         transform: translateX(-40%);
         bottom: 0;
         right: auto;
         top: auto;
       }
-      }
-      
     }
-    
-    
-    
+  }
 `;

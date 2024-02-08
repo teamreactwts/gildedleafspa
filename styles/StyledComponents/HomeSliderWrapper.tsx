@@ -69,17 +69,19 @@ export const HomeSliderWrapper = styled(Box)`
         top: initial;
         bottom: 0;
         &.slick-prev {
-          left: 45%;
+          left: 50%;
           transform: translateX(-42%);
           @media (max-width: 599px) {
-            left: 42%;
+            left: 40%;
+            transform: translateX(-40%);
           }
         }
         &.slick-next {
-          left: 55%;
+          left: 53%;
           transform: translateX(-58%);
           @media (max-width: 599px) {
-            left: 58%;
+            left: 60%;
+            transform: translateX(-60%);
           }
         }
       }

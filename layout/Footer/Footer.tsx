@@ -119,7 +119,6 @@ const Footer = () => {
             direction="row"
             alignItems="center"
             justifyContent="space-between"
-            flexWrap="wrap"
             className="fotter_topContainer"
           >
             <Typography variant="h5">Schedule Consultation</Typography>

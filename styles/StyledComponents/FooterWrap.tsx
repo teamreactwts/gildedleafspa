@@ -4,6 +4,13 @@ import Box from "@mui/material/Box";
 
 export const FooterWrap = styled(Box)`
   position: relative;
+  padding-top: 93px;
+  @media (max-width: 899px) {
+    padding-top: 87px;
+  }
+  @media (max-width: 599px) {
+    padding-top: 83px;
+  }
 
   .footer_topBar {
     background-color: ${primaryColors.colorFDFDFB};
@@ -19,9 +26,9 @@ export const FooterWrap = styled(Box)`
     z-index: 9;
     transition: all 0.4s ease-out 0s;
     &.footertop-scrolled {
-      position: static;
-      top: initial;
-      bottom: 0px;
+      position: absolute;
+      top: 0;
+      bottom: auto;
       width: 100%;
       height: auto;
       left: 0;
@@ -32,21 +39,31 @@ export const FooterWrap = styled(Box)`
     .fotter_topContainer {
       h5 {
         margin-bottom: 0;
-        font-size: 1.2rem;
+        font-size: 25px;
         padding-right: 15px;
         @media (max-width: 899px) {
-          font-size: 1rem;
+          font-size: 20px;
         }
         @media (max-width: 599px) {
+          font-size: 18px;
           width: 100%;
-          padding-bottom: 10px;
+        }
+      }
+      button {
+        @media (max-width: 899px) {
+          min-width: 140px;
+          padding: 14px 13px;
+        }
+        @media (max-width: 599px) {
+          min-width: 100px;
+          padding: 12px 10px;
         }
       }
     }
   }
   .footer_sectionWrap {
     background-color: ${primaryColors.primary};
-    padding: 185px 0 37px 0;
+    padding: 85px 0 37px 0;
     @media (max-width: 1199px) {
       padding: 60px 0 57px 0;
     }
