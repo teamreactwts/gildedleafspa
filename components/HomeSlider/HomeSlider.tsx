@@ -88,12 +88,7 @@ function HomeSlider({ homeData }: Iprops) {
               {homeData?.concerns_bold_title}
             </Typography>
           </Typography>
-          <Typography
-            variant="body1"
-            dangerouslySetInnerHTML={{
-              __html: homeData?.concerns_description as string
-            }}
-          />
+
           <CustomButtonPrimary
             variant="contained"
             color="primary"
