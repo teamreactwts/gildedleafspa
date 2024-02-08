@@ -123,7 +123,12 @@ const Footer = () => {
           >
             <Typography variant="h5">Schedule Consultation</Typography>
             <CustomButtonPrimary variant="contained" color="primary">
-              <Typography variant="caption">Book Now</Typography>
+              <Typography
+                variant="caption"
+                onClick={() => router.push("/booking")}
+              >
+                Book Now
+              </Typography>
             </CustomButtonPrimary>
           </Stack>
         </Container>
