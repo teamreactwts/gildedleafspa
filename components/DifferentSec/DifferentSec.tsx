@@ -83,8 +83,8 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
   const forNoInterestSection = showInterestSec;
 
   const settings = {
-    dots: true,
-    arrows: false,
+    dots: false,
+    arrows: true,
     navigator: false,
     infinite: true,
     speed: 500,
@@ -110,8 +110,42 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: true,
+          
           dots: false
+        }
+      }
+    ]
+  };
+  const settings1 = {
+    dots: false,
+    arrows: true,
+    navigator: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4
+        }
+      },
+      {
+        breakpoint: 899,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 599,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          
+          
         }
       }
     ]
@@ -151,7 +185,8 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
               aboutData?.data?.data?.make_us_different_short_description
             }
           />
-          <IconCardStack direction="row" flexWrap="wrap">
+          <Box sx={{display:{lg:"block" , xs:"none"}}}>
+          <IconCardStack direction="row" flexWrap="wrap" >
             <Box className="each_icon_card">
               <Typography component="i">
                 <Image
@@ -238,6 +273,101 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
               </Typography>
             </Box>
           </IconCardStack>
+          </Box>
+          <Box className="each_icon_card_slider" sx={{display:{lg:"none" , xs:"block"}}}>
+          <CommonSlider>
+          <IconCardStack direction="row" flexWrap="wrap" >
+          <Slider {...settings1}>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_1}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_1}
+                </Link>
+              </Typography>
+            </Box>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_2}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_2}
+                </Link>
+              </Typography>
+            </Box>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_3}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_3}
+                </Link>
+              </Typography>
+            </Box>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_4}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_4}
+                </Link>
+              </Typography>
+            </Box>
+            <Box className="each_icon_card">
+              <Typography component="i">
+                <Image
+                  src={mediaUrl(
+                    `about/${aboutData?.data?.data?.make_us_different_image_5}`
+                  )}
+                  alt="icon"
+                  width={66}
+                  height={66}
+                />
+              </Typography>
+              <Typography variant="h4">
+                <Link href="#url">
+                  {aboutData?.data?.data?.make_us_different_title_5}
+                </Link>
+              </Typography>
+            </Box>
+            </Slider>
+          </IconCardStack>
+          </CommonSlider>
+       
+          </Box>
         </DifferentInnerWrapper>
 
         {showInterestSec && (

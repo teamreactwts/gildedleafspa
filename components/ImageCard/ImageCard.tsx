@@ -19,7 +19,7 @@ export const ImageCardWrap = styled(Box)`
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
     .slider_text {
       position: absolute;

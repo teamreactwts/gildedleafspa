@@ -62,17 +62,24 @@ export const HomeSliderWrapper = styled(Box)`
     margin-top: 50px;
     padding: 0 10px;
     .slick-slider {
+      margin-bottom: 0;
+      padding-bottom: 50px;
       .slick-arrow {
+        z-index: 2;
+        top: initial;
+        bottom: 0;
         &.slick-prev {
-          @media (max-width: 899px) {
+          left: 45%;
+          transform: translateX(-42%);
+          @media (max-width: 599px) {
             left: 42%;
-            transform: translateX(-42%);
           }
         }
         &.slick-next {
-          @media (max-width: 899px) {
+          left: 55%;
+          transform: translateX(-58%);
+          @media (max-width: 599px) {
             left: 58%;
-            transform: translateX(-58%);
           }
         }
       }

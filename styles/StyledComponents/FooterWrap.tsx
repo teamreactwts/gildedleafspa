@@ -3,8 +3,51 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const FooterWrap = styled(Box)`
-  background-color: ${primaryColors.primary};
-  padding: 92px 0 37px 0;
+position: relative;
+
+.footer_topBar{
+  background-color: ${primaryColors.colorFDFDFB};
+  padding: 20px 0;
+
+    position: absolute;
+    top: 0;
+    bottom: initial;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
+    width: 100%;
+    z-index: 9;
+    transition: all 0.4s ease-out 0s;
+    &.footertop-scrolled{
+      position: fixed;
+      top: initial;
+      bottom: 0px;
+      width: 100%;
+      height: auto;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
+  .fotter_topContainer{
+    h5{
+      margin-bottom:0;
+      font-size: 1.2rem;
+      padding-right:15px;
+      @media (max-width:899px) {
+        font-size:1rem
+      }
+      @media (max-width:599px) {
+        width: 100%;
+        padding-bottom: 10px;
+      }
+
+    }
+  }
+}
+  .footer_sectionWrap{
+    background-color: ${primaryColors.primary};
+  padding: 185px 0 37px 0;
   @media (max-width: 1199px) {
     padding: 60px 0 57px 0;
   }
@@ -12,6 +55,7 @@ export const FooterWrap = styled(Box)`
     padding: 40px 0 57px 0;
   }
   position: relative;
+  }
   .ftr-wrapper {
     position: relative;
     z-index: 3;

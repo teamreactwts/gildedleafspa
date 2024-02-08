@@ -108,7 +108,11 @@ export const CommonSlider = styled(Box)`
     }
   }
   .slick-slider {
-    padding-bottom: 50px;
+    margin-bottom: 50px;
+    @media (max-width:599px) {
+      padding-bottom: 50px;
+      margin-bottom: 0;
+    }
   }
   .slick-arrow {
     width: 30px;
@@ -291,4 +295,32 @@ export const DifferentInnerWrapper = styled(Box, {
       padding:25px 20px;
     }
     `}
+
+    .each_icon_card_slider{
+      .slick-slider{
+        margin-bottom:0;
+        padding-bottom:40px;
+        .slick-next {
+    
+        left: 60%;
+        transform: translateX(-60%);
+        bottom: 0;
+        right: auto;
+        top: auto;
+      }
+      .slick-prev {
+      left: -45px;
+     
+        left: 40%;
+        transform: translateX(-40%);
+        bottom: 0;
+        right: auto;
+        top: auto;
+      }
+      }
+      
+    }
+    
+    
+    
 `;

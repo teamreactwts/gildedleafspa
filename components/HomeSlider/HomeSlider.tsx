@@ -22,8 +22,8 @@ import { useQuery } from "react-query";
 import ImageCard from "../ImageCard/ImageCard";
 
 const settings = {
-  dots: true,
-  arrows: false,
+  dots: false,
+  arrows: true,
   navigator: false,
   infinite: true,
   speed: 500,
