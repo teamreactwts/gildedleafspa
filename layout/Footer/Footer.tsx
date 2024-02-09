@@ -298,10 +298,10 @@ const Footer = () => {
                 Copyright © 2024 <Link href="/">Gilded Leaf</Link>. All Rights
                 Reserved
               </Typography>
-              <Typography className="desingText">
+              {/* <Typography className="desingText">
                 Website Design by{" "}
                 <Link href="https://www.webskitters.com/">Webskitters</Link>
-              </Typography>
+              </Typography> */}
             </Stack>
           </Container>
         </Box>
