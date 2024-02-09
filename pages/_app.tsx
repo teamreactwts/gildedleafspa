@@ -2,7 +2,7 @@ import EventListeners from "@/components/EventListener/EventListener";
 import { checkWindow } from "@/lib/functions/_helpers.lib";
 import { checkLoggedInServer } from "@/reduxtoolkit/slices/userSlice";
 import { store } from "@/reduxtoolkit/store/store";
-import "@/styles/global.scss";
+import "@/styles/global.scss?v=2";
 import MuiThemeProvider from "@/themes/MuiThemeProvider";
 import createEmotionCache from "@/themes/createEmotionCache";
 import { userData } from "@/types/common.type";
