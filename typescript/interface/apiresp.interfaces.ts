@@ -126,28 +126,28 @@ export interface IgetServiceDataNoPage {
 }
 
 export interface Doc {
-  _id: string;
-  faqId: Faq[];
-  conditionId: ConditionDoc[];
-  title: string;
-  description: string;
-  icon: string;
-  benefits_options: string[];
-  how_to_use_options: string[];
-  result_image: string;
-  button_text1: string;
-  button_text2: string;
-  isDeleted: boolean;
-  status: string;
-  createdAt: string;
-  updatedAt: string;
-  short_title: string;
-  benefit_heading: string;
-  how_to_use_heading: string;
-  before_image: string;
-  pricings: Iprice[];
-  treat_title: string;
-  image_title: string;
+  _id?: string;
+  faqId?: Faq[];
+  conditionId?: ConditionDoc[];
+  title?: string;
+  description?: string;
+  icon?: string;
+  benefits_options?: string[];
+  how_to_use_options?: string[];
+  result_image?: string;
+  button_text1?: string;
+  button_text2?: string;
+  isDeleted?: boolean;
+  status?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  short_title?: string;
+  benefit_heading?: string;
+  how_to_use_heading?: string;
+  before_image?: string;
+  pricings?: Iprice[];
+  treat_title?: string;
+  image_title?: string;
 }
 export interface IgetConditionResponse {
   data: any;

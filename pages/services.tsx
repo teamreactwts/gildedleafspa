@@ -6,7 +6,6 @@ import ServiceSectionCard from "@/components/ServiceCard/ServiceCard";
 import { Doc } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { SurviceWrap } from "@/styles/StyledComponents/ServiceWrap";
-import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Loader from "@/ui/Loader/Loder";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -16,8 +15,8 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 
 function Services() {
-  const [page, setPage] = React.useState(1);
-  const [per_page, setPageLimit] = React.useState(4);
+  const [page, setPage] = React.useState(0);
+  const [per_page, setPageLimit] = React.useState(0);
   const [totalPage, setTotalPage] = React.useState<number>(0);
   const [serviceList, setServiceList] = useState<Doc[]>();
 
@@ -31,8 +30,8 @@ function Services() {
         if (data.status === 200) {
           setTotalPage(data?.data?.data?.total);
           !!serviceList && serviceList?.length > 0
-            ? setServiceList([...serviceList, ...data?.data?.data?.docs])
-            : setServiceList(data?.data?.data?.docs);
+            ? setServiceList([...serviceList, ...data?.data?.data])
+            : setServiceList(data?.data?.data);
         }
       }
     }
@@ -64,14 +63,14 @@ function Services() {
                     <Grid item xs={12} lg={6}>
                       <ServiceSectionCard
                         serviceImage={mediaUrl(`service/${data?.icon}`)}
-                        title={data.short_title}
-                        description={data.description}
+                        title={data?.short_title}
+                        description={data?.description}
                         item={data}
                       />
                     </Grid>
                   ))}
               </Grid>
-              {!!serviceList && serviceList.length < totalPage && (
+              {/* {!!serviceList && serviceList.length < totalPage && (
                 <Box className="view_btn">
                   <CustomButtonPrimary
                     variant="contained"
@@ -82,7 +81,7 @@ function Services() {
                     <Typography variant="caption">View More</Typography>
                   </CustomButtonPrimary>
                 </Box>
-              )}
+              )} */}
             </Box>
           </Container>
         </SurviceWrap>

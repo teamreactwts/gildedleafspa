@@ -125,7 +125,7 @@ const Footer = () => {
             <CustomButtonPrimary variant="contained" color="primary">
               <Typography
                 variant="caption"
-                onClick={() => router.push("/booking")}
+                onClick={() => window.open("https://www.zenoti.com/")}
               >
                 Book Now
               </Typography>

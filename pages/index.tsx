@@ -99,6 +99,8 @@ export default function Home() {
     setOpen(false);
   };
 
+  useEffect(() => {}, []);
+
   if (isLoading) {
     return <Loader isLoading={isLoading} />;
   }
@@ -242,7 +244,7 @@ export default function Home() {
                         variant="contained"
                         color="primary"
                         className="member_btn"
-                        onClick={() => router.push("/membership")}
+                        onClick={() => window.open("https://www.zenoti.com/")}
                       >
                         <Typography variant="caption">
                           Buy Membership Plan
@@ -254,7 +256,7 @@ export default function Home() {
                         variant="outlined"
                         color="primary"
                         className="book_nowbtn"
-                        onClick={() => router.push("/booking")}
+                        onClick={() => window.open("https://www.zenoti.com/")}
                       >
                         <Typography variant="caption">Book Now</Typography>
                       </CustomButtonPrimary>

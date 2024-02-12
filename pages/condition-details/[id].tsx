@@ -102,6 +102,7 @@ function ConditionDetails() {
                         serviceImage={mediaUrl(`service/${item?.icon}`)}
                         title={item.short_title}
                         description={item.description}
+                        item={item}
                       />
                     </Grid>
                   ))}
