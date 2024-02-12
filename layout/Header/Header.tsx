@@ -223,7 +223,7 @@ export default function Header(props: Props) {
         variant="contained"
         color="primary"
         className="booknow_btn"
-        onClick={() => router.push("/booking")}
+        onClick={() => window.open("https://www.zenoti.com/")}
       >
         <Typography variant="caption">Book Now</Typography>
       </CustomButtonPrimary>
@@ -525,7 +525,7 @@ export default function Header(props: Props) {
                   type="button"
                   variant="contained"
                   color="primary"
-                  onClick={() => router.push("/booking")}
+                  onClick={() => window.open("https://www.zenoti.com/")}
                 >
                   <Typography variant="caption">Book Now</Typography>
                 </CustomButtonPrimary>

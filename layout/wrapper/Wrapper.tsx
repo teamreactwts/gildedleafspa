@@ -8,6 +8,7 @@ import { primaryColors } from "@/themes/_muiPalette";
 import BooknowIcon from "@/ui/Icons/BooknowIcon";
 import CallIcon from "@/ui/Icons/CallIcon";
 import Membership from "@/ui/Icons/Membership";
+import { Tooltip } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -19,7 +20,6 @@ import React from "react";
 import { useQuery } from "react-query";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { Tooltip } from "@mui/material";
 
 interface wrapperProps {
   children: JSX.Element | JSX.Element[];
@@ -92,7 +92,7 @@ const Wrapper = (props: wrapperProps) => {
           <Tooltip title="Book Now" placement="left">
             <Link
               href="javascript:void(0)"
-              onClick={() => router.push("/booking")}
+              onClick={() => window.open("https://www.zenoti.com/")}
             >
               <BooknowIcon />
             </Link>

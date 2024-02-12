@@ -141,7 +141,11 @@ function ServiceDetails() {
                 </Typography>
                 <List disablePadding>
                   <ListItem disablePadding>
-                    <CustomButtonPrimary color="primary" variant="contained">
+                    <CustomButtonPrimary
+                      color="primary"
+                      variant="contained"
+                      onClick={() => window.open("https://www.zenoti.com/")}
+                    >
                       <Typography variant="caption">
                         Buy Membership Plan
                       </Typography>
@@ -151,7 +155,7 @@ function ServiceDetails() {
                     <CustomButtonPrimary
                       color="primary"
                       variant="outlined"
-                      onClick={() => router.push("/booking")}
+                      onClick={() => window.open("https://www.zenoti.com/")}
                     >
                       <Typography variant="caption">Book Now</Typography>
                     </CustomButtonPrimary>

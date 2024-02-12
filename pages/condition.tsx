@@ -8,9 +8,7 @@ import { ConditionDoc } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { ConditionWrap } from "@/styles/StyledComponents/ConditionWrap";
 import { CommonSlider } from "@/styles/StyledComponents/DifferentWrapper";
-import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Loader from "@/ui/Loader/Loder";
-import { Stack } from "@mui/material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -63,8 +61,8 @@ function Condition() {
     ]
   };
 
-  const [page, setPage] = React.useState(1);
-  const [per_page, setPageLimit] = React.useState(8);
+  const [page, setPage] = React.useState(0);
+  const [per_page, setPageLimit] = React.useState(0);
   const [totalPage, setTotalPage] = React.useState<number>(0);
   const [conditionList, setConditionList] = useState<ConditionDoc[]>();
 
@@ -82,12 +80,9 @@ function Condition() {
           } else {
             !!conditionList && conditionList?.length > 0
               ? page == 1
-                ? setConditionList(data?.data?.data?.docs)
-                : setConditionList([
-                    ...conditionList,
-                    ...data?.data?.data?.docs
-                  ])
-              : setConditionList(data?.data?.data?.docs);
+                ? setConditionList(data?.data?.data)
+                : setConditionList([...conditionList, ...data?.data?.data])
+              : setConditionList(data?.data?.data);
           }
         }
       }
@@ -204,7 +199,7 @@ function Condition() {
                   ))}
               </Slider>
             </CommonSlider>
-            {!!conditionList && conditionList.length < totalPage && (
+            {/* {!!conditionList && conditionList.length < totalPage && (
               <Stack
                 direction="row"
                 alignItems="center"
@@ -222,7 +217,7 @@ function Condition() {
                   </CustomButtonPrimary>
                 </Box>
               </Stack>
-            )}
+            )} */}
           </Container>
         </ConditionWrap>
       </InnnerPageWrapper>

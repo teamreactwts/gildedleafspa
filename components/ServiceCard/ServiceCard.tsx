@@ -1,4 +1,3 @@
-import { GetServiceDetails } from "@/api/functions/cms.api";
 import { Doc } from "@/interface/apiresp.interfaces";
 import { ServiceCardWrap } from "@/styles/StyledComponents/ServiceCardWrap";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -8,12 +7,11 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useQuery } from "react-query";
 
 export interface serviceProps {
   serviceImage: string;
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   item?: Doc;
 }
 function ServiceSectionCard({
@@ -26,28 +24,33 @@ function ServiceSectionCard({
 
   return (
     <ServiceCardWrap direction="row" alignContent="center">
-      <Box className="servie_imgWrap">
+      <Box
+        className="servie_imgWrap"
+        onClick={() => !!item && router.push(`/service-details/${item._id}`)}
+      >
         <figure>
           <Image src={serviceImage} alt="serviceIcon" width={62} height={62} />
         </figure>
       </Box>
-      <Box
-        className="service_details"
-        onClick={() => !!item && router.push(`/service-details/${item._id}`)}
-      >
-        <Typography variant="h4">{title}</Typography>
-        <Typography
-          variant="body1"
-          dangerouslySetInnerHTML={{
-            __html: description as string
-          }}
-        />
+      <Box className="service_details">
+        <Box
+          onClick={() => !!item && router.push(`/service-details/${item._id}`)}
+        >
+          <Typography variant="h4">{title}</Typography>
+          <Typography
+            variant="body1"
+            dangerouslySetInnerHTML={{
+              __html: description as string
+            }}
+          />
+        </Box>
         <List disablePadding className="button_wrap">
           <ListItem disablePadding>
             <CustomButtonPrimary
               variant="contained"
               color="primary"
               className="member_btn"
+              onClick={() => window.open("https://www.zenoti.com/")}
             >
               <Typography variant="caption">Buy Membership Plan</Typography>
             </CustomButtonPrimary>
@@ -57,7 +60,7 @@ function ServiceSectionCard({
               variant="outlined"
               color="primary"
               className="book_nowbtn"
-              onClick={() => router.push("/booking")}
+              onClick={() => window.open("https://www.zenoti.com/")}
             >
               <Typography variant="caption">Book Now</Typography>
             </CustomButtonPrimary>

@@ -168,7 +168,11 @@ function ServiceDetails() {
                 />
                 <List disablePadding>
                   <ListItem disablePadding>
-                    <CustomButtonPrimary color="primary" variant="contained">
+                    <CustomButtonPrimary
+                      color="primary"
+                      variant="contained"
+                      onClick={() => window.open("https://www.zenoti.com/")}
+                    >
                       <Typography variant="caption">
                         Buy Membership Plan
                       </Typography>
@@ -178,7 +182,7 @@ function ServiceDetails() {
                     <CustomButtonPrimary
                       color="primary"
                       variant="outlined"
-                      onClick={() => router.push("/booking")}
+                      onClick={() => window.open("https://www.zenoti.com/")}
                     >
                       <Typography variant="caption">Book Now</Typography>
                     </CustomButtonPrimary>
@@ -236,7 +240,7 @@ function ServiceDetails() {
                 </Grid>
               </Grid>
             </Box>
-            {!!data?.data?.data?.result_image && (
+            {/* {!!data?.data?.data?.result_image && (
               <Box className="result_section">
                 <Typography variant="h4">
                   {data?.data?.data?.image_title}
@@ -263,7 +267,7 @@ function ServiceDetails() {
                   />
                 </figure>
               </Box>
-            )}
+            )} */}
             {!!data?.data?.data?.conditionId &&
               data?.data?.data?.conditionId.length > 0 && (
                 <Box className="botox_section_wrap">
@@ -280,6 +284,9 @@ function ServiceDetails() {
                             direction="row"
                             alignItems="center"
                             className="botex_section"
+                            onClick={() =>
+                              router.push(`/condition-details/${item._id}`)
+                            }
                           >
                             <figure>
                               <Image
@@ -332,7 +339,8 @@ function ServiceDetails() {
                           <TableRow>
                             <TableCell align="left"> Treatment Type</TableCell>
                             <TableCell align="center">Regular</TableCell>
-                            <TableCell align="center">Membership</TableCell>
+                            <TableCell align="center">Gold</TableCell>
+                            <TableCell align="center">Platinum</TableCell>
                           </TableRow>
                         </TableHead>
                         <TableBody>
@@ -355,6 +363,9 @@ function ServiceDetails() {
                                 </TableCell>
                                 <TableCell align="center">
                                   ${item?.regular_price}
+                                </TableCell>
+                                <TableCell align="center">
+                                  ${item?.membership_price}
                                 </TableCell>
                                 <TableCell align="center">
                                   ${item?.membership_price}
