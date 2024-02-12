@@ -41,6 +41,14 @@ const Footer = () => {
     {
       name: "Membership",
       route: "/membership"
+    },
+    {
+      name: "Privacy Policy",
+      route: "/privacy-policy"
+    },
+    {
+      name: "Terms Of Services",
+      route: "/terms-service"
     }
   ];
   const moreItems = [
@@ -59,6 +67,10 @@ const Footer = () => {
     {
       name: "Contact Us",
       route: "/contact-us"
+    },
+    {
+      name: "Terms Of Views",
+      route: "/terms-views"
     }
   ];
 

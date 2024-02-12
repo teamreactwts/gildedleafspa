@@ -162,6 +162,8 @@ export interface Iprice {
   isDeleted: boolean;
   createdAt: string;
   updatedAt: string;
+  gold_price: string;
+  platinum_price: string;
 }
 export interface IgetConditionData {
   docs: ConditionDoc[];

@@ -39,7 +39,7 @@ function Services() {
   const handleViewMore = () => {
     setPage(page + 1);
   };
-  if (isLoading && page == 1) {
+  if (isLoading && page == 0) {
     return <Loader isLoading={isLoading} />;
   }
   return (

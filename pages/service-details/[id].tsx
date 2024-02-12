@@ -365,10 +365,10 @@ function ServiceDetails() {
                                   ${item?.regular_price}
                                 </TableCell>
                                 <TableCell align="center">
-                                  ${item?.membership_price}
+                                  ${item?.gold_price}
                                 </TableCell>
                                 <TableCell align="center">
-                                  ${item?.membership_price}
+                                  ${item?.platinum_price}
                                 </TableCell>
                               </TableRow>
                             ))}
