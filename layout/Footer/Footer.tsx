@@ -20,7 +20,7 @@ import { Box } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useQuery } from "react-query";
 
 const Footer = () => {
@@ -82,34 +82,34 @@ const Footer = () => {
     window.open(url);
   };
 
-  // useEffect(() => {
-  const footerObserver = new IntersectionObserver(
-    ([entry]) => {
-      const header = document.getElementById("footertop");
-      if (entry.isIntersecting) {
-        header?.classList.add("footertop-scrolled");
-      } else {
-        header?.classList.remove("footertop-scrolled");
+  useEffect(() => {
+    const footerObserver = new IntersectionObserver(
+      ([entry]) => {
+        const header = document.getElementById("footertop");
+        if (entry.isIntersecting) {
+          header?.classList.add("footertop-scrolled");
+        } else {
+          header?.classList.remove("footertop-scrolled");
+        }
       }
+      // {
+      //   root: null, // viewport
+      //   rootMargin: "0px", // margin around the root
+      //   threshold: 0.5 // 0-1, percentage of target element which is visible
+      // }
+    );
+
+    if (footerRef.current) {
+      footerObserver.observe(footerRef.current);
     }
-    // {
-    //   root: null, // viewport
-    //   rootMargin: "0px", // margin around the root
-    //   threshold: 0.5 // 0-1, percentage of target element which is visible
-    // }
-  );
 
-  if (footerRef.current) {
-    footerObserver.observe(footerRef.current);
-  }
-
-  // Cleanup
-  // return () => {
-  //   if (footerRef.current) {
-  //     footerObserver.unobserve(footerRef.current);
-  //   }
-  // };
-  // }, []);
+    // Cleanup
+    // return () => {
+    //   if (footerRef.current) {
+    //     footerObserver.unobserve(footerRef.current);
+    //   }
+    // };
+  }, [document.getElementById("footertop")]);
 
   return (
     <FooterWrap>

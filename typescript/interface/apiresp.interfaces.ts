@@ -249,6 +249,18 @@ export interface IgetMembershipDetailsResponse extends BaseApiResponse {
 export interface IgetConditionCmsDetailsResponse extends BaseApiResponse {
   data: IConditionCms;
 }
+export interface IgetCmsResponse extends BaseApiResponse {
+  data: IcmsData;
+}
+export interface IcmsData {
+  _id: string;
+  isDeleted: boolean;
+  content: string;
+  title: string;
+  short_title: string;
+  status: string;
+  updatedAt: string;
+}
 
 export interface IConditionCms {
   _id: string;

@@ -21,7 +21,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import router from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from "react-query";
@@ -56,15 +55,15 @@ export default function Home() {
     defaultValues: { full_name: "", email: "", phone: "" }
   });
   const [open, setOpen] = useState(false);
-  useEffect(() => {
-    const hasClosedPopup = localStorage.getItem("hasClosedPopup");
+  // useEffect(() => {
+  //   const hasClosedPopup = localStorage.getItem("hasClosedPopup");
 
-    if (hasClosedPopup) {
-      setOpen(false);
-    } else {
-      setOpen(true);
-    }
-  }, []);
+  //   if (hasClosedPopup) {
+  //     setOpen(false);
+  //   } else {
+  //     setOpen(true);
+  //   }
+  // }, []);
 
   const handleClose = useCallback(() => {
     setOpen(false);
@@ -99,7 +98,13 @@ export default function Home() {
     setOpen(false);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []); //
 
   if (isLoading) {
     return <Loader isLoading={isLoading} />;

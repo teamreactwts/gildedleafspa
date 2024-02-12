@@ -21,7 +21,8 @@ export const endpoints = {
     home: "home/content-data",
     about: "aboutUs/get-data",
     affort: "affordability/details",
-    setting: "settings/details"
+    setting: "settings/details",
+    details: ""
   },
   service: {
     list: "service/list",

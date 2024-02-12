@@ -12,18 +12,18 @@ export const planCardList = [
     perfectFor:
       "Those new to med spa treatments or seeking occasional pampering."
   },
-  {
-    type: "Diamond",
-    price: 159,
-    description: "Designed for the experienced med spa client.",
-    benefitList: [
-      "Botox at $10/unit.",
-      "15% discount on all services.",
-      "15% discount on retail",
-      "25% discount on hair removal packages"
-    ],
-    perfectFor: "Regular clients looking to explore a wider range of services."
-  },
+  // {
+  //   type: "Diamond",
+  //   price: 159,
+  //   description: "Designed for the experienced med spa client.",
+  //   benefitList: [
+  //     "Botox at $10/unit.",
+  //     "15% discount on all services.",
+  //     "15% discount on retail",
+  //     "25% discount on hair removal packages"
+  //   ],
+  //   perfectFor: "Regular clients looking to explore a wider range of services."
+  // },
   {
     type: "Platinum",
     price: 259,
