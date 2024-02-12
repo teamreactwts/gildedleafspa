@@ -94,34 +94,28 @@ const Footer = () => {
     window.open(url);
   };
 
-  // useEffect(() => {
-  const footerObserver = new IntersectionObserver(
-    ([entry]) => {
-      const header = document.getElementById("footertop");
-      if (entry.isIntersecting) {
-        header?.classList.add("footertop-scrolled");
-      } else {
-        header?.classList.remove("footertop-scrolled");
+  if (typeof IntersectionObserver !== "undefined") {
+    const footerObserver = new IntersectionObserver(
+      ([entry]) => {
+        const header = document.getElementById("footertop");
+        if (entry.isIntersecting) {
+          header?.classList.add("footertop-scrolled");
+        } else {
+          header?.classList.remove("footertop-scrolled");
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5
       }
+    );
+
+    if (footerRef.current) {
+      footerObserver.observe(footerRef.current);
     }
-    // {
-    //   root: null, // viewport
-    //   rootMargin: "0px", // margin around the root
-    //   threshold: 0.5 // 0-1, percentage of target element which is visible
-    // }
-  );
-
-  if (footerRef.current) {
-    footerObserver.observe(footerRef.current);
+  } else {
   }
-
-  // Cleanup
-  // return () => {
-  //   if (footerRef.current) {
-  //     footerObserver.unobserve(footerRef.current);
-  //   }
-  // };
-  // }, [typeof window != undefined && document.getElementById("footertop")]);
 
   return (
     <FooterWrap>

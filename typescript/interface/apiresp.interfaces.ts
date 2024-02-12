@@ -256,11 +256,11 @@ export interface IgetCmsResponse extends BaseApiResponse {
 }
 export interface IcmsData {
   _id: string;
-  isDeleted: boolean;
-  content: string;
   title: string;
-  short_title: string;
+  slug: string;
   status: string;
+  content: string;
+  isDeleted: boolean;
   updatedAt: string;
 }
 
