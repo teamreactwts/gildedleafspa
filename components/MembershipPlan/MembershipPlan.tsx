@@ -37,7 +37,11 @@ export default function MembershipPlan({ ...props }: membershipInterface) {
           breakTitle={props.membershipDetails?.bold_title_1}
           subTitle={props.membershipDetails?.description_1}
         />
-        <Grid container spacing={{ lg: 4, md: 3, xs: 2 }}>
+        <Grid
+          justifyContent="center"
+          container
+          spacing={{ lg: 4, md: 3, xs: 2 }}
+        >
           {planCardList?.map((data, index) => (
             <Grid item md={4} xs={12} key={data?.type}>
               <PriceCard

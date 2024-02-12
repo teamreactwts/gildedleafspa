@@ -202,7 +202,23 @@ export const ServiceDetailsWrapper = styled(Box)`
         rgba(253, 252, 248, 0.74) 3.57%,
         rgba(253, 252, 248, 0.29) 96.74%
       );
+      cursor: pointer;
       backdrop-filter: blur(2px);
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background: var(
+          --Linear,
+          linear-gradient(
+            135deg,
+            rgba(140, 96, 52, 0.2) 7.03%,
+            rgba(169, 130, 79, 0.2) 30.96%,
+            rgba(242, 217, 147, 0.2) 85.67%,
+            rgba(255, 231, 159, 0.2) 94.22%,
+            rgba(226, 192, 124, 0.2) 121.57%,
+            rgba(166, 112, 51, 0.2) 177.99%
+          )
+        );
+      }
       figure {
         line-height: 0;
         font-size: 0;
