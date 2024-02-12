@@ -89,7 +89,7 @@ export const MuiDilogModalWrap = styled(Dialog)`
     @media (max-width: 599px) {
       max-width: 100%;
       width: calc(100vw - 30px);
-      height: calc(100vh - 380px);
+      height: calc(100vh - 35%);
     }
     .closeIcon {
       top: 20px;
@@ -97,6 +97,9 @@ export const MuiDilogModalWrap = styled(Dialog)`
     }
     .modalBodySection {
       padding: 20px 52px 65px;
+      @media (max-width: 599px) {
+        padding: 15px 20px 30px;
+      }
       .modalabout {
         height: 100%;
         figure {
@@ -104,6 +107,9 @@ export const MuiDilogModalWrap = styled(Dialog)`
           font-size: 0;
           width: 297px;
           margin: 0 auto;
+          @media (max-width: 599px) {
+            width: 100%;
+          }
           img {
             width: 100%;
             height: 100%;
@@ -121,6 +127,9 @@ export const MuiDilogModalWrap = styled(Dialog)`
           max-width: 277px;
           margin: 0 auto;
           margin-top: -40px;
+          @media (max-width: 599px) {
+            margin-top: -10px;
+          }
         }
       }
       .leterBoxWrap {
