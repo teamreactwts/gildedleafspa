@@ -67,6 +67,7 @@ export default function Home() {
 
   const handleClose = useCallback(() => {
     setOpen(false);
+    document.body.classList.remove("modalOpenHome");
   }, []);
 
   const { isLoading, data } = useQuery("homeDetails", GetHomeDetails, {
@@ -101,6 +102,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(true);
+      document.body.classList.add("modalOpenHome");
     }, 5000);
 
     return () => clearTimeout(timer);

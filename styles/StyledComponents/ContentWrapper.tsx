@@ -9,8 +9,8 @@ export const ContentWrap = styled(Box)`
       margin-bottom: 0;
     }
     h2 {
-      font-size: 35px;
-      margin-bottom: 10px;
+      font-size: 43px;
+      margin-bottom: 39px;
     }
   }
 `;
