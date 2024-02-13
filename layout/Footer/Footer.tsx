@@ -69,8 +69,8 @@ const Footer = () => {
       route: "/contact-us"
     },
     {
-      name: "Terms Of Views",
-      route: "/terms-views"
+      name: "Terms Of Use",
+      route: "/terms-of-use"
     }
   ];
 

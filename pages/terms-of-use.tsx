@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { useQuery } from "react-query";
 
-function TermsViews() {
+function TermsOfUse() {
   const { isLoading, data, isError } = useQuery(
     ["cmsDetails"],
 
@@ -28,7 +28,7 @@ function TermsViews() {
   return (
     <Wrapper>
       <InnnerPageWrapper>
-        <BreadcumbTitle title="Terms of views" pageName="Terms of views" />
+        <BreadcumbTitle title="Terms of Use" pageName="Terms of Use" />
         <ContentWrap>
           <Container fixed>
             <Box className="content_wrap">
@@ -47,4 +47,4 @@ function TermsViews() {
   );
 }
 
-export default TermsViews;
+export default TermsOfUse;
