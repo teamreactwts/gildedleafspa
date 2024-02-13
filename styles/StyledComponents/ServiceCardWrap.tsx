@@ -72,6 +72,7 @@ export const ServiceCardWrap = styled(Stack)`
     @media (max-width: 599px) {
       width: calc(100% - 110px);
       margin-left: 15px;
+      padding-right: 5px;
     }
     h4 {
       color: ${primaryColors.primary};
