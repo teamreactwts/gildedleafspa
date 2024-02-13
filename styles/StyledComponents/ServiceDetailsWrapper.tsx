@@ -240,6 +240,9 @@ export const ServiceDetailsWrapper = styled(Box)`
         @media (max-width: 899px) {
           padding-left: 20px;
         }
+        @media (max-width: 599px) {
+          padding-right: 5px;
+        }
         h5 {
           color: ${primaryColors.primary};
           font-size: 30px;
