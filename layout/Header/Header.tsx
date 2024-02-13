@@ -210,7 +210,9 @@ export default function Header(props: Props) {
                           handleDrawerToggle();
                         }}
                       >
-                        {subItem.title}
+                        {item.name == "Services"
+                          ? subItem.short_title
+                          : subItem.title}
                       </Link>
                     </AccordionDetails>
                   ))}

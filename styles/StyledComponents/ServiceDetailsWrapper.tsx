@@ -246,6 +246,7 @@ export const ServiceDetailsWrapper = styled(Box)`
         h5 {
           color: ${primaryColors.primary};
           font-size: 30px;
+          word-wrap: break-word;
           font-weight: 700;
           line-height: 1;
           margin-bottom: 15px;
