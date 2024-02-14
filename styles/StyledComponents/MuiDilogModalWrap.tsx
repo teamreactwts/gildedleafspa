@@ -89,11 +89,11 @@ export const MuiDilogModalWrap = styled(Dialog)`
     @media (max-width: 599px) {
       max-width: 100%;
       width: calc(100vw - 30px);
-      height: calc(100vh - 40%);
+      height: calc(100vh - 14vh);
     }
     .modal_sectionWrap {
       @media (max-width: 599px) {
-        margin-top: 0px;
+        margin-top: -50px;
       }
     }
     .closeIcon {
@@ -125,7 +125,7 @@ export const MuiDilogModalWrap = styled(Dialog)`
             width: 100%;
             height: 100%;
             object-fit: cover;
-            @media (max-width: 599px) {
+            @media (max-width: 899px) {
               object-fit: contain;
             }
           }
