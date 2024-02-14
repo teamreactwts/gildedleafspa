@@ -266,7 +266,7 @@ export const ServiceDetailsWrapper = styled(Box)`
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
-          height: 96px;
+          height: 72px;
 
           @media (max-width: 599px) {
             overflow: hidden;
@@ -274,6 +274,7 @@ export const ServiceDetailsWrapper = styled(Box)`
             -webkit-line-clamp: 4;
             display: -webkit-box;
             -webkit-box-orient: vertical;
+            height: 90px;
           }
         }
       }
