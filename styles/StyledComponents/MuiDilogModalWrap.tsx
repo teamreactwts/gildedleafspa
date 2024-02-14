@@ -93,7 +93,7 @@ export const MuiDilogModalWrap = styled(Dialog)`
     }
     .modal_sectionWrap {
       @media (max-width: 599px) {
-        margin-top: -100px;
+        margin-top: 0px;
       }
     }
     .closeIcon {
@@ -175,6 +175,9 @@ export const MuiDilogModalWrap = styled(Dialog)`
             line-height: inherit;
             @media (max-width: 899px) {
               font-size: 40px;
+            }
+            @media (max-width: 599px) {
+              font-size: 33px;
             }
           }
         }
