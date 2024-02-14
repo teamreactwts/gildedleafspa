@@ -266,6 +266,7 @@ export const ServiceDetailsWrapper = styled(Box)`
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
+          height: 96px;
 
           @media (max-width: 599px) {
             overflow: hidden;
