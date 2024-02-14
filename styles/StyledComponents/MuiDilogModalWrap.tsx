@@ -101,8 +101,8 @@ export const MuiDilogModalWrap = styled(Dialog)`
       right: 20px;
 
       @media (max-width: 599px) {
-        right: 0;
-        top: 0;
+        right: 10px;
+        top: 10px;
       }
     }
     .modalBodySection {
@@ -164,7 +164,7 @@ export const MuiDilogModalWrap = styled(Dialog)`
             margin: 0 auto 34px;
           }
           @media (max-width: 599px) {
-            font-size: 30px;
+            font-size: 22px;
           }
           span {
             color: inherit;
@@ -177,7 +177,7 @@ export const MuiDilogModalWrap = styled(Dialog)`
               font-size: 40px;
             }
             @media (max-width: 599px) {
-              font-size: 33px;
+              font-size: 24px;
             }
           }
         }
