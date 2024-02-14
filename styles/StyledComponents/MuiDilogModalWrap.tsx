@@ -84,12 +84,12 @@ export const MuiDilogModalWrap = styled(Dialog)`
     @media (max-width: 899px) {
       max-width: 500px;
       margin: 0 auto;
-      /* height: calc(100vh - 30px); */
+      height: calc(100vh - 30px);
     }
     @media (max-width: 599px) {
       max-width: 100%;
       width: calc(100vw - 30px);
-      /* height: calc(100vh - 40%); */
+      height: calc(100vh - 40px);
     }
     .modal_sectionWrap {
       @media (max-width: 599px) {
