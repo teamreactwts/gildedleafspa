@@ -91,9 +91,19 @@ export const MuiDilogModalWrap = styled(Dialog)`
       width: calc(100vw - 30px);
       /* height: calc(100vh - 40%); */
     }
+    .modal_sectionWrap {
+      @media (max-width: 599px) {
+        margin-top: -100px;
+      }
+    }
     .closeIcon {
       top: 20px;
       right: 20px;
+
+      @media (max-width: 599px) {
+        right: 0;
+        top: 0;
+      }
     }
     .modalBodySection {
       padding: 20px 52px 65px;
@@ -109,11 +119,15 @@ export const MuiDilogModalWrap = styled(Dialog)`
           margin: 0 auto;
           @media (max-width: 599px) {
             width: 100%;
+            height: 250px;
           }
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            @media (max-width: 599px) {
+              object-fit: contain;
+            }
           }
         }
         p {
@@ -148,6 +162,9 @@ export const MuiDilogModalWrap = styled(Dialog)`
           @media (max-width: 899px) {
             text-align: center;
             margin: 0 auto 34px;
+          }
+          @media (max-width: 599px) {
+            font-size: 30px;
           }
           span {
             color: inherit;
