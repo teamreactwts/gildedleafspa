@@ -85,6 +85,10 @@ export const BannerWrap = styled(Box)`
       top: -12px;
       height: 100%;
       width: 100%;
+      @media (max-width: 599px) {
+        left: -5px;
+        top: -7px;
+      }
       &:before {
         content: "";
         position: absolute;

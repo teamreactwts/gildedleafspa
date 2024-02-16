@@ -135,21 +135,21 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
           rows: 2,
           slidesPerRow: 2
         }
-      },
-      {
-        breakpoint: 899,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 599,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
       }
+      // {
+      //   breakpoint: 899,
+      //   settings: {
+      //     slidesToShow: 2,
+      //     slidesToScroll: 2
+      //   }
+      // },
+      // {
+      //   breakpoint: 599,
+      //   settings: {
+      //     slidesToShow: 2,
+      //     slidesToScroll: 2
+      //   }
+      // }
     ]
   };
 
