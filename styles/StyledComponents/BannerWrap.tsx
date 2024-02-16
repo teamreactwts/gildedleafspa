@@ -21,6 +21,14 @@ export const BannerWrap = styled(Box)`
     top: -7vw;
     z-index: -1;
   }
+  .banner_slider {
+    .slick-slide {
+      padding: 50px 50px;
+    }
+    .slick-list {
+      margin: -50px -50px;
+    }
+  }
   .banner_wrap {
     @media (max-width: 899px) {
       text-align: center;
@@ -101,6 +109,9 @@ export const BannerWrap = styled(Box)`
       }
       @media (max-width: 899px) {
         height: auto;
+      }
+      @media (max-width: 480px) {
+        height: 45vh;
       }
       &::after {
         content: "";

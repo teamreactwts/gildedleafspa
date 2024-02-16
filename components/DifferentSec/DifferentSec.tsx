@@ -43,7 +43,7 @@ export const ServiceCardDifferent = ({
 }) => {
   const router = useRouter();
   return (
-    <ServiceCardDifferentWrap>
+    <ServiceCardDifferentWrap className="serviceSectionmain">
       <Box className="service_card_icon">
         <Box className="wrapper_otr">
           <Box
@@ -94,26 +94,28 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
       {
         breakpoint: 1199,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      },
-      {
-        breakpoint: 899,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 599,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-
-          dots: false
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rows: 2,
+          slidesPerRow: 2
         }
       }
+      // {
+      //   breakpoint: 899,
+      //   settings: {
+      //     slidesToShow: 2,
+      //     slidesToScroll: 2
+      //   }
+      // },
+      // {
+      //   breakpoint: 599,
+      //   settings: {
+      //     slidesToShow: 2,
+      //     slidesToScroll: 2,
+
+      //     dots: false
+      //   }
+      // }
     ]
   };
   const settings1 = {
@@ -128,8 +130,10 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
       {
         breakpoint: 1199,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rows: 2,
+          slidesPerRow: 2
         }
       },
       {
@@ -164,6 +168,8 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
       refetchOnWindowFocus: false
     }
   );
+
+  console.log(serviceList, "serviceList");
   const router = useRouter();
   return (
     <DifferentWrapper {...props}>
@@ -406,7 +412,9 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
                   !!serviceList?.data?.data &&
                   serviceList?.data?.data.length > 0 &&
                   serviceList?.data?.data.map((data: Doc, index: number) => (
-                    <ServiceCardDifferent {...data} key={index} />
+                    <Box className="serviceSectionWrapper">
+                      <ServiceCardDifferent {...data} key={index} />
+                    </Box>
                   ))}
               </Slider>
             </CommonSlider>

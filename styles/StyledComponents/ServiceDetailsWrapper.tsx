@@ -105,6 +105,9 @@ export const ServiceDetailsWrapper = styled(Box)`
         rgba(253, 252, 248, 0.74) 3.57%,
         rgba(253, 252, 248, 0.29) 96.74%
       );
+      @media (max-width: 899px) {
+        padding: 32px 20px;
+      }
       backdrop-filter: blur(2px);
       h4 {
         color: ${primaryColors.color021526};
@@ -359,6 +362,11 @@ export const ServiceDetailsWrapper = styled(Box)`
         }
       }
     }
+  }
+  .scroll_textWrap {
+    margin-top: -30px;
+    text-align: right;
+    margin-bottom: 15px;
   }
   .frequent_askQuestion {
     .titleSection {

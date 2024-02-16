@@ -77,8 +77,9 @@ export const ServiceWrapper = styled(Box)`
   );
   backdrop-filter: blur(2px);
   @media (max-width: 1199px) {
-    padding: 25px 0;
+    padding: 25px 15px;
   }
+
   .title_left {
     h2 {
       span {
@@ -203,6 +204,34 @@ export const CommonSlider = styled(Box)`
         button {
           width: 21px;
           opacity: 1;
+        }
+      }
+    }
+  }
+  .serviceSectionWrapper {
+    .serviceSectionmain {
+      padding: 10px;
+      @media (max-width: 599px) {
+        padding: 5px;
+      }
+      .service_card_icon {
+        @media (max-width: 599px) {
+          height: 140px;
+          margin-bottom: 15px;
+        }
+      }
+      h4 {
+        @media (max-width: 899px) {
+          margin-top: 10px;
+        }
+        @media (max-width: 479px) {
+          font-size: 13px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: initial;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
         }
       }
     }

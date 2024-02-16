@@ -7,10 +7,12 @@ import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper"
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { ServiceDetailsWrapper } from "@/styles/StyledComponents/ServiceDetailsWrapper";
+import { primaryColors } from "@/themes/_muiPalette";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import ArrowIcon from "@/ui/Icons/ArrowIcon";
 import MinusIcon from "@/ui/Icons/MinusIcon";
 import PlusIcon from "@/ui/Icons/PlusIcon";
+import RightArrowIcon from "@/ui/Icons/RightArrowIcon";
 import TickIcon from "@/ui/Icons/TickIcon";
 import Loader from "@/ui/Loader/Loder";
 import Accordion from "@mui/material/Accordion";
@@ -377,6 +379,21 @@ function ServiceDetails() {
                     </TableContainer>
                   </>
                 )}
+            </Box>
+            <Box
+              className="scroll_textWrap"
+              sx={{ display: { md: "none", xs: "block" } }}
+            >
+              <Typography variant="body1">
+                Scroll Right{" "}
+                <Typography variant="caption">
+                  <RightArrowIcon
+                    IconColor={primaryColors.textPrimaryColor}
+                    IconHeight="12"
+                    IconWidth="25"
+                  />
+                </Typography>
+              </Typography>
             </Box>
             {!!data?.data?.data?.faqId &&
               data?.data?.data?.faqId.length > 0 && (

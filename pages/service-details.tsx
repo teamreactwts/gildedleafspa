@@ -280,6 +280,7 @@ function ServiceDetails() {
                 </Table>
               </TableContainer>
             </Box>
+
             <Box className="frequent_askQuestion">
               <Box className="titleSection">
                 <Typography variant="h3">
