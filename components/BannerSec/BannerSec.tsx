@@ -18,7 +18,7 @@ export default function BannerSec({
   buttonText
 }: {
   children: React.ReactNode;
-  bannerImage: string;
+  bannerImage: string[];
   buttonText: string;
 }) {
   const router = useRouter();
@@ -52,42 +52,22 @@ export default function BannerSec({
           <Grid item md={5} xs={12}>
             <Box className="banner_slider">
               <Slider {...settings1}>
-                <Box className="banner_fig">
-                  <Box className="gradient-box" />
+                {!!bannerImage &&
+                  bannerImage.length > 0 &&
+                  bannerImage.map((item) => (
+                    <Box className="banner_fig">
+                      <Box className="gradient-box" />
 
-                  <figure>
-                    <Image
-                      src={mediaUrl(`home/${bannerImage}`)}
-                      alt="banner image"
-                      width={480}
-                      height={550}
-                    />
-                  </figure>
-                </Box>
-                <Box className="banner_fig">
-                  <Box className="gradient-box" />
-
-                  <figure>
-                    <Image
-                      src={mediaUrl(`home/${bannerImage}`)}
-                      alt="banner image"
-                      width={480}
-                      height={550}
-                    />
-                  </figure>
-                </Box>
-                <Box className="banner_fig">
-                  <Box className="gradient-box" />
-
-                  <figure>
-                    <Image
-                      src={mediaUrl(`home/${bannerImage}`)}
-                      alt="banner image"
-                      width={480}
-                      height={550}
-                    />
-                  </figure>
-                </Box>
+                      <figure>
+                        <Image
+                          src={mediaUrl(`home/${item}`)}
+                          alt="banner image"
+                          width={480}
+                          height={550}
+                        />
+                      </figure>
+                    </Box>
+                  ))}
               </Slider>
             </Box>
           </Grid>

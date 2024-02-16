@@ -12,7 +12,7 @@ export interface IhomeDetails {
   _id: string;
   title: string;
   description: string;
-  image: string;
+  image: string[];
   button_text: string;
   interested_in_title: string;
   interested_in_description: string;

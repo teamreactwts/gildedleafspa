@@ -116,7 +116,7 @@ export default function Home() {
   return (
     <Wrapper>
       <BannerSec
-        bannerImage={data?.data?.data?.image as string}
+        bannerImage={data?.data?.data?.image as string[]}
         // bannerImage={assest?.banner_image}
         buttonText={data?.data?.data?.button_text as string}
       >
