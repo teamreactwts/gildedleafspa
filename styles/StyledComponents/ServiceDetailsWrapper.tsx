@@ -312,6 +312,7 @@ export const ServiceDetailsWrapper = styled(Box)`
       );
       backdrop-filter: blur(2px);
       .MuiTable-root {
+        min-width: 440px;
         .MuiTableHead-root {
           tr {
             th {
@@ -325,6 +326,10 @@ export const ServiceDetailsWrapper = styled(Box)`
               @media (max-width: 899px) {
                 font-size: 24px;
                 padding: 21px 20px;
+              }
+              @media (max-width: 599px) {
+                font-size: 18px;
+                padding: 21px 15px;
               }
             }
           }
@@ -348,6 +353,9 @@ export const ServiceDetailsWrapper = styled(Box)`
               border-bottom: 1px solid rgba(75, 74, 74, 0.1);
               @media (max-width: 899px) {
                 padding: 21px 20px;
+              }
+              @media (max-width: 599px) {
+                padding: 21px 15px;
               }
 
               span {

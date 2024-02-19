@@ -385,14 +385,11 @@ function ServiceDetails() {
               sx={{ display: { md: "none", xs: "block" } }}
             >
               <Typography variant="body1">
-                Scroll Right{" "}
-                <Typography variant="caption">
-                  <RightArrowIcon
-                    IconColor={primaryColors.textPrimaryColor}
-                    IconHeight="12"
-                    IconWidth="25"
-                  />
-                </Typography>
+                <RightArrowIcon
+                  IconColor={primaryColors.colorA67033}
+                  IconHeight="15"
+                  IconWidth="30"
+                />
               </Typography>
             </Box>
             {!!data?.data?.data?.faqId &&
