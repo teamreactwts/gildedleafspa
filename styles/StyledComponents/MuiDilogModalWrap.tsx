@@ -84,7 +84,7 @@ export const MuiDilogModalWrap = styled(Dialog)`
     @media (max-width: 899px) {
       max-width: 500px;
       margin: 0 auto;
-      height: calc(100vh - 10vh);
+      height: calc(100vh - 50vh);
     }
     @media (max-width: 599px) {
       max-width: 100%;

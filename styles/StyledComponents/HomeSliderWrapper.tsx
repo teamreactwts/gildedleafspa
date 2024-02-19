@@ -70,25 +70,18 @@ export const HomeSliderWrapper = styled(Box)`
         top: initial;
         bottom: 0;
         &.slick-prev {
-          left: 50%;
-          transform: translateX(-42%);
-          @media (max-width: 899px) {
           left: 45%;
-        transform: translateX(-45%);
-        }
+          transform: translateX(-45%);
+
           @media (max-width: 599px) {
             left: 40%;
             transform: translateX(-40%);
           }
-          
         }
         &.slick-next {
-          left: 53%;
-          transform: translateX(-58%);
-          @media (max-width: 899px) {
           left: 55%;
-        transform: translateX(-55%);
-        }
+          transform: translateX(-55%);
+
           @media (max-width: 599px) {
             left: 60%;
             transform: translateX(-60%);

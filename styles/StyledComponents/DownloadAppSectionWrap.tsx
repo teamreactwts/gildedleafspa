@@ -119,6 +119,9 @@ export const DownloadAppSectionWrap = styled(Box)`
                 }
               }
             }
+            &.download_btn {
+              padding: 13px;
+            }
           }
         }
       }

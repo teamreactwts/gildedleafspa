@@ -330,38 +330,31 @@ export const DifferentInnerWrapper = styled(Box, {
       margin-bottom: 0;
       padding-bottom: 40px;
       .slick-next {
-        left: 60%;
-        transform: translateX(-60%);
+        left: 55%;
+        transform: translateX(-55%);
         bottom: 0;
         right: auto;
         top: auto;
-        @media (max-width: 899px) {
-          left: 55%;
-        transform: translateX(-55%);
-        }
+
         @media (max-width: 599px) {
-            left: 60%;
-            transform: translateX(-60%);
-          }
-        
+          left: 60%;
+          transform: translateX(-60%);
+        }
       }
       .slick-prev {
-        left: -45px;
-
-        left: 40%;
-        transform: translateX(-40%);
+        left: 45%;
+        transform: translateX(-45%);
         bottom: 0;
         right: auto;
         top: auto;
         @media (max-width: 899px) {
           left: 45%;
-        transform: translateX(-45%);
+          transform: translateX(-45%);
         }
         @media (max-width: 599px) {
-            left: 40%;
-            transform: translateX(-40%);
-          }
-        
+          left: 40%;
+          transform: translateX(-40%);
+        }
       }
     }
   }

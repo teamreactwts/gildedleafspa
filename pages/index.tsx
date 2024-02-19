@@ -117,7 +117,7 @@ export default function Home() {
     <Wrapper>
       <BannerSec
         bannerImage={data?.data?.data?.image as string[]}
-        // bannerImage={assest?.banner_image}
+        // bannerImage={assest?.banner_image}+
         buttonText={data?.data?.data?.button_text as string}
       >
         <Typography variant="h1">
