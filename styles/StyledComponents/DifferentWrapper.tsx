@@ -335,6 +335,15 @@ export const DifferentInnerWrapper = styled(Box, {
         bottom: 0;
         right: auto;
         top: auto;
+        @media (max-width: 899px) {
+          left: 55%;
+        transform: translateX(-55%);
+        }
+        @media (max-width: 599px) {
+            left: 60%;
+            transform: translateX(-60%);
+          }
+        
       }
       .slick-prev {
         left: -45px;
@@ -344,6 +353,15 @@ export const DifferentInnerWrapper = styled(Box, {
         bottom: 0;
         right: auto;
         top: auto;
+        @media (max-width: 899px) {
+          left: 45%;
+        transform: translateX(-45%);
+        }
+        @media (max-width: 599px) {
+            left: 40%;
+            transform: translateX(-40%);
+          }
+        
       }
     }
   }
