@@ -97,7 +97,7 @@ export default function Header(props: Props) {
 
   const shopArr = [
     {
-      title: "Gilded leaf EStore",
+      title: "Gilded Leaf EStore",
       link: ""
     },
     {
@@ -563,7 +563,7 @@ export default function Header(props: Props) {
                     }}
                   >
                     <MenuItem onClick={() => router.push("/coming-soon")}>
-                      Gilded leaf EStore
+                      Gilded Leaf EStore
                     </MenuItem>
                     <MenuItem
                       onClick={() =>
