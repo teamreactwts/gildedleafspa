@@ -2,8 +2,8 @@ import CommonHeader from "@/components/CommonHeader/CommonHeader";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import BrandLogo from "@/ui/Icons/BrandLogo";
 import styled from "@emotion/styled";
+import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 
 export const ComminSoonWrap = styled(Box)`
@@ -24,12 +24,12 @@ export const ComminSoonWrap = styled(Box)`
       margin-bottom: 25px;
       width: 180px;
     }
-    svg{
-        @media (max-width: 599px) {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    svg {
+      @media (max-width: 599px) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
   .heading_title {

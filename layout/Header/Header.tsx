@@ -95,6 +95,17 @@ export default function Header(props: Props) {
     }
   );
 
+  const shopArr = [
+    {
+      title: "Gilded leaf EStore",
+      link: ""
+    },
+    {
+      title: "Alastin Skincare",
+      link: "https://alastin.com/collections/welcome?designate-location=21726"
+    }
+  ];
+
   const navItems2 = [
     {
       name: "Services",
@@ -114,7 +125,7 @@ export default function Header(props: Props) {
     {
       name: "Shop",
       // route: "#url",
-      subnaveitem: !!conditionList && conditionList?.data?.data
+      subnaveitem: shopArr
     },
     {
       name: "About Us",
@@ -182,32 +193,39 @@ export default function Header(props: Props) {
                   >
                     {item.name}
                   </AccordionSummary>
-                  <AccordionDetails>
-                    <Link
-                      href={"#"}
-                      onClick={() => {
-                        router.push(
-                          item.name == "Services" ? `/services` : `/condition`
-                        );
-                        handleDrawerToggle();
-                      }}
-                    >
-                      {item.name == "Services"
-                        ? "All Services"
-                        : "All Concerns"}
-                    </Link>
-                  </AccordionDetails>
+                  {item.name !== "Shop" && (
+                    <AccordionDetails>
+                      <Link
+                        href={"#"}
+                        onClick={() => {
+                          router.push(
+                            item.name == "Services" ? `/services` : `/condition`
+                          );
+                          handleDrawerToggle();
+                        }}
+                      >
+                        {item.name == "Services"
+                          ? "All Services"
+                          : "All Concerns"}
+                      </Link>
+                    </AccordionDetails>
+                  )}
+
                   {item.subnaveitem.map((subItem, subIndex) => (
                     <AccordionDetails key={subIndex}>
                       <Link
                         href={"#"}
                         // onClick={handleDrawerToggle}
                         onClick={() => {
-                          router.push(
-                            item.name == "Services"
-                              ? `/service-details/${subItem._id}`
-                              : `/condition-details/${subItem._id}`
-                          );
+                          item.name == "Shop"
+                            ? !!subItem.link
+                              ? window.open(subItem.link)
+                              : router.push("/coming-soon")
+                            : router.push(
+                                item.name == "Services"
+                                  ? `/service-details/${subItem._id}`
+                                  : `/condition-details/${subItem._id}`
+                              );
                           handleDrawerToggle();
                         }}
                       >
@@ -544,13 +562,18 @@ export default function Header(props: Props) {
                       vertical: "top"
                     }}
                   >
-                    <MenuItem onClick={() => router.push("javascript:void(0)")}>
-                    Gilded leaf EStore
+                    <MenuItem onClick={() => router.push("/coming-soon")}>
+                      Gilded leaf EStore
                     </MenuItem>
-                    <MenuItem onClick={() => router.push("https://alastin.com/collections/welcome?designate-location=21726")}>
-                    Alastin Skincare
+                    <MenuItem
+                      onClick={() =>
+                        window.open(
+                          "https://alastin.com/collections/welcome?designate-location=21726"
+                        )
+                      }
+                    >
+                      Alastin Skincare
                     </MenuItem>
-                    
                   </NavMenu>
 
                   {navItems.map((item) => (
