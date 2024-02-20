@@ -68,7 +68,7 @@ function ComminSoon() {
           <CommonHeader title="Coming" breakTitle="Soon" />
 
           <Typography>
-            Be the fast to Know when our new site is live.
+            Be the first to Know when our new Estore is live.
           </Typography>
         </ComminSoonWrap>
       </Container>
