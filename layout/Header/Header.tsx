@@ -57,10 +57,10 @@ export default function Header(props: Props) {
       name: "Membership",
       route: "/membership"
     },
-    {
-      name: "Shop",
-      route: "#url"
-    },
+    // {
+    //   name: "Shop",
+    //   route: "#url"
+    // },
     {
       name: "About Us",
       route: "/about-us"
@@ -113,7 +113,8 @@ export default function Header(props: Props) {
     },
     {
       name: "Shop",
-      route: "#url"
+      // route: "#url",
+      subnaveitem: !!conditionList && conditionList?.data?.data
     },
     {
       name: "About Us",
@@ -248,6 +249,14 @@ export default function Header(props: Props) {
   };
   const handleClose2 = () => {
     setAnchorEl2(null);
+  };
+  const [anchorEl3, setAnchorEl3] = React.useState<null | HTMLElement>(null);
+  const open3 = Boolean(anchorEl3);
+  const handleClick3 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl3(event.currentTarget);
+  };
+  const handleClose3 = () => {
+    setAnchorEl3(null);
   };
 
   const { data } = useQuery("settingsDetails", GetSettingsDetails, {
@@ -509,6 +518,39 @@ export default function Header(props: Props) {
                           </MenuItem>
                         )
                       )}
+                  </NavMenu>
+                  <Button
+                    id="basic-button"
+                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleClick3}
+                    className="navDropdown"
+                  >
+                    Shop
+                  </Button>
+                  <NavMenu
+                    className="menue_list_dropdown"
+                    id="basic-menu"
+                    anchorEl={anchorEl3}
+                    open={open3}
+                    onClose={handleClose3}
+                    MenuListProps={{
+                      "aria-labelledby": "basic-button"
+                    }}
+                    TransitionComponent={Fade}
+                    transformOrigin={{
+                      horizontal: 70,
+                      vertical: "top"
+                    }}
+                  >
+                    <MenuItem onClick={() => router.push("javascript:void(0)")}>
+                    Gilded leaf EStore
+                    </MenuItem>
+                    <MenuItem onClick={() => router.push("https://alastin.com/collections/welcome?designate-location=21726")}>
+                    Alastin Skincare
+                    </MenuItem>
+                    
                   </NavMenu>
 
                   {navItems.map((item) => (

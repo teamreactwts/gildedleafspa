@@ -145,7 +145,7 @@ export const HeaderWrap = styled(Box)`
     display: flex;
     align-items: center;
     @media (max-width: 1199px) {
-      margin-left: 20px;
+      margin-left: 14px;
     }
     @media (max-width: 899px) {
       display: none;
@@ -175,7 +175,7 @@ export const HeaderWrap = styled(Box)`
     font-size: 0;
     transition: all 0.4s;
     @media (max-width: 1199px) {
-      width: 170px;
+      width: 150px;
       svg {
         width: 100%;
       }
