@@ -44,6 +44,10 @@ export const PriceCardWrapper = styled(Box)`
       );
       z-index: 1;
     }
+    &:hover {
+      cursor: pointer;
+      background-color: ${primaryColors?.colorA67033};
+    }
   }
   .wrapper {
     position: relative;

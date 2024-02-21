@@ -48,7 +48,13 @@ export default function MembershipPlan({ ...props }: membershipInterface) {
           {!!props.membershipPlan &&
             props.membershipPlan.length > 0 &&
             props.membershipPlan?.map((data, index) => (
-              <Grid item md={4} xs={12} key={data?._id}>
+              <Grid
+                item
+                md={4}
+                xs={12}
+                key={data?._id}
+                onClick={() => window.open(data?.membership_deep_link)}
+              >
                 <PriceCard
                   {...data}
                   className={index + 1 === selectPanel ? "active" : ""}
