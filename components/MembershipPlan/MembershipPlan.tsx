@@ -22,7 +22,7 @@ export const MembershipPlanWrapper = styled(Box)`
 
 interface membershipInterface extends commonHeadderProps {
   membershipDetails: IMembershipDetails;
-  membershipPlan: IMembershipPlans[];
+  membershipPlan?: IMembershipPlans[];
 }
 
 export default function MembershipPlan({ ...props }: membershipInterface) {
