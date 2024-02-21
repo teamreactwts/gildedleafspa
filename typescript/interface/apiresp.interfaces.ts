@@ -299,3 +299,19 @@ export interface IMembershipFeatures {
   createdAt: string;
   updatedAt: string;
 }
+export interface IgetSettingsMembershipPlansResponse extends BaseApiResponse {
+  data: IMembershipPlans[];
+}
+export interface IMembershipPlans {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  benefits_options: string[];
+  perfect_for_content: string;
+  isDeleted: boolean;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  membership_deep_link: string;
+}

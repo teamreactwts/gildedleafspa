@@ -45,7 +45,8 @@ export const endpoints = {
   },
   membership: {
     features: "membership-feature/details",
-    details: "membership/details"
+    details: "membership/details",
+    plans: "membershipprice/list"
   }
 };
 

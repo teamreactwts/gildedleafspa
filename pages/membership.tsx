@@ -1,6 +1,7 @@
 import {
   GetMembershipDetails,
-  GetMembershipFeatures
+  GetMembershipFeatures,
+  GetMembershipPlans
 } from "@/api/functions/cms.api";
 import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
@@ -8,7 +9,8 @@ import MembershipPlan from "@/components/MembershipPlan/MembershipPlan";
 import MemeberFeatureSec from "@/components/MemeberFeatureSec/MemeberFeatureSec";
 import {
   IMembershipDetails,
-  IMembershipFeatures
+  IMembershipFeatures,
+  IMembershipPlans
 } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
@@ -40,6 +42,13 @@ export default function Index() {
   const { data: membershipFeatures } = useQuery(
     "membershipfeature",
     GetMembershipFeatures,
+    {
+      refetchOnWindowFocus: false
+    }
+  );
+  const { data: membershipPlan } = useQuery(
+    "membershipplan",
+    GetMembershipPlans,
     {
       refetchOnWindowFocus: false
     }
@@ -77,6 +86,7 @@ export default function Index() {
             membershipDetails={
               membershipDetails?.data?.data as IMembershipDetails
             }
+            membershipPlan={membershipPlan?.data?.data as IMembershipPlans[]}
           />
         </MemebershipWrapper>
       </InnnerPageWrapper>

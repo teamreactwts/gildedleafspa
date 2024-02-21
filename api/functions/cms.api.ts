@@ -13,6 +13,7 @@ import {
   IgetServiceDetailsResponse,
   IgetServiceResponse,
   IgetSettingsFeaturesResponse,
+  IgetSettingsMembershipPlansResponse,
   IgetSettingsResponse
 } from "@/interface/apiresp.interfaces";
 import {
@@ -122,6 +123,12 @@ export const GetBlogList = async (body: Ipagination) => {
 export const GetMembershipFeatures = async () => {
   const res = await axiosInstance.get<IgetSettingsFeaturesResponse>(
     endpoints.membership.features
+  );
+  return res;
+};
+export const GetMembershipPlans = async () => {
+  const res = await axiosInstance.get<IgetSettingsMembershipPlansResponse>(
+    endpoints.membership.plans
   );
   return res;
 };

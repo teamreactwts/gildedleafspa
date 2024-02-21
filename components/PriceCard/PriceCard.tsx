@@ -12,23 +12,25 @@ import Typography from "@mui/material/Typography";
 import React, { HTMLAttributes } from "react";
 
 export interface priceCardProps {
-  type: string;
+  title: string;
   price: number;
   description: string;
-  benefitList: string[];
-  perfectFor: string;
+  benefits_options: string[];
+  perfect_for_content: string;
   selectValuecallback: (data: number) => void;
   indexNumber: number;
+  membership_deep_link: string;
 }
 
 const PriceCard: React.FC<priceCardProps & HTMLAttributes<HTMLDivElement>> = ({
-  type,
+  title,
   price,
   description,
-  benefitList,
-  perfectFor,
+  benefits_options,
+  perfect_for_content,
   selectValuecallback,
   indexNumber,
+  membership_deep_link,
   ...props
 }) => {
   return (
@@ -36,19 +38,23 @@ const PriceCard: React.FC<priceCardProps & HTMLAttributes<HTMLDivElement>> = ({
       <Box className="wrapper_otr">
         <Box className="wrapper">
           <Box className="title_block">
-            <Typography variant="h5">{type}</Typography>
+            <Typography variant="h5">{title}</Typography>
             <Typography variant="h4">
               ${price}
               <Typography variant="caption">/month</Typography>
             </Typography>
           </Box>
           <Box className="description_block">
-            <Typography>{description}</Typography>
+            <Typography
+              dangerouslySetInnerHTML={{
+                __html: description as string
+              }}
+            />
           </Box>
           <Box className="benefit_block">
             <Typography variant="h4">Benefits</Typography>
             <List disablePadding>
-              {benefitList?.map((data, index) => (
+              {benefits_options?.map((data, index) => (
                 <ListItem disablePadding key={index}>
                   <Icon>
                     <TickIcon />
@@ -61,12 +67,16 @@ const PriceCard: React.FC<priceCardProps & HTMLAttributes<HTMLDivElement>> = ({
           <Box className="perfect_block">
             <Box className="perfect_block_top">
               <Typography variant="h4">Perfect For</Typography>
-              <Typography>{perfectFor}</Typography>
+              <Typography
+                dangerouslySetInnerHTML={{
+                  __html: perfect_for_content as string
+                }}
+              />
             </Box>
             <CustomButtonPrimary
               variant="contained"
               color="primary"
-              onClick={() => selectValuecallback(indexNumber)}
+              onClick={() => window.open(membership_deep_link)}
             >
               <Typography variant="caption">Subscribe</Typography>
             </CustomButtonPrimary>

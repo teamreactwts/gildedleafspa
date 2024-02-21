@@ -1,11 +1,13 @@
-import { planCardList } from "@/json/mock/planCardList.mock";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useCallback, useState } from "react";
 
-import { IMembershipDetails } from "@/interface/apiresp.interfaces";
+import {
+  IMembershipDetails,
+  IMembershipPlans
+} from "@/interface/apiresp.interfaces";
 import CommonHeader, { commonHeadderProps } from "../CommonHeader/CommonHeader";
 import PriceCard from "../PriceCard/PriceCard";
 
@@ -20,6 +22,7 @@ export const MembershipPlanWrapper = styled(Box)`
 
 interface membershipInterface extends commonHeadderProps {
   membershipDetails: IMembershipDetails;
+  membershipPlan: IMembershipPlans[];
 }
 
 export default function MembershipPlan({ ...props }: membershipInterface) {
@@ -42,16 +45,18 @@ export default function MembershipPlan({ ...props }: membershipInterface) {
           container
           spacing={{ lg: 4, md: 3, xs: 2 }}
         >
-          {planCardList?.map((data, index) => (
-            <Grid item md={4} xs={12} key={data?.type}>
-              <PriceCard
-                {...data}
-                className={index + 1 === selectPanel ? "active" : ""}
-                selectValuecallback={selectValuecallback}
-                indexNumber={index}
-              />
-            </Grid>
-          ))}
+          {!!props.membershipPlan &&
+            props.membershipPlan.length > 0 &&
+            props.membershipPlan?.map((data, index) => (
+              <Grid item md={4} xs={12} key={data?._id}>
+                <PriceCard
+                  {...data}
+                  className={index + 1 === selectPanel ? "active" : ""}
+                  selectValuecallback={selectValuecallback}
+                  indexNumber={index}
+                />
+              </Grid>
+            ))}
         </Grid>
       </Container>
     </MembershipPlanWrapper>
