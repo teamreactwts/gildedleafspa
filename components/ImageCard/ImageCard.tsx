@@ -66,7 +66,7 @@ function ImageCard({ card_img, title, description, item }: imageprops) {
       >
         <Image src={card_img} alt="image" width={292} height={369} />
         <Box className="slider_text">
-          <Typography variant="h3">{title}</Typography>
+          {/* <Typography variant="h3">{title}</Typography> */}
           <Typography variant="body1">{description}</Typography>
         </Box>
       </figure>
