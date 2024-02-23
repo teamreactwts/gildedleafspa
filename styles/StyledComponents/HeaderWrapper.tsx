@@ -184,6 +184,8 @@ export const HeaderWrap = styled(Box)`
       width: 185px;
       svg {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
     @media (max-width: 599px) {
