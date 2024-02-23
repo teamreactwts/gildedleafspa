@@ -342,6 +342,12 @@ export const ServiceDetailsWrapper = styled(Box)`
               }
             }
             td {
+              &.deep_link_url {
+                :hover {
+                  color: ${primaryColors.colorA67033};
+                  cursor: pointer;
+                }
+              }
               padding: 30px 20px;
               color: ${primaryColors.primary};
               font-family: Noto Sans;

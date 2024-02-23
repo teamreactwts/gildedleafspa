@@ -82,7 +82,7 @@ const Wrapper = (props: wrapperProps) => {
           <Tooltip title="Membership" placement="left">
             <Link
               href="javascript:void(0)"
-              onClick={() => window.open("https://www.zenoti.com/")}
+              onClick={() => router.push(`/membership`)}
             >
               <Membership />
             </Link>
@@ -92,7 +92,7 @@ const Wrapper = (props: wrapperProps) => {
           <Tooltip title="Book Now" placement="left">
             <Link
               href="javascript:void(0)"
-              onClick={() => window.open("https://www.zenoti.com/")}
+              onClick={() => window.open(data?.data?.data?.deep_zenoti_link)}
             >
               <BooknowIcon />
             </Link>

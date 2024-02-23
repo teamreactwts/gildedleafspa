@@ -144,7 +144,7 @@ function ServiceDetails() {
                     <CustomButtonPrimary
                       color="primary"
                       variant="contained"
-                      onClick={() => window.open("https://www.zenoti.com/")}
+                      onClick={() => router.push(`/membership`)}
                     >
                       <Typography variant="caption">
                         Buy Membership Plan

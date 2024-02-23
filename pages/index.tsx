@@ -1,5 +1,6 @@
 import {
   GetHomeDetails,
+  GetSettingsDetails,
   createNewsLetterMutation
 } from "@/api/functions/cms.api";
 import BannerSec from "@/components/BannerSec/BannerSec";
@@ -22,6 +23,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from "react-query";
@@ -56,6 +58,7 @@ export default function Home() {
     defaultValues: { full_name: "", email: "", phone: "" }
   });
   const [open, setOpen] = useState(false);
+  const router = useRouter();
   // useEffect(() => {
   //   const hasClosedPopup = localStorage.getItem("hasClosedPopup");
 
@@ -74,6 +77,13 @@ export default function Home() {
   const { isLoading, data } = useQuery("homeDetails", GetHomeDetails, {
     refetchOnWindowFocus: false
   });
+  const { data: settingsData } = useQuery(
+    "settingsDetails",
+    GetSettingsDetails,
+    {
+      refetchOnWindowFocus: false
+    }
+  );
 
   const { isLoading: isLoadingSubmit, mutate } = useMutation(
     createNewsLetterMutation
@@ -252,7 +262,7 @@ export default function Home() {
                         variant="contained"
                         color="primary"
                         className="member_btn"
-                        onClick={() => window.open("https://www.zenoti.com/")}
+                        onClick={() => router.push(`/membership`)}
                       >
                         <Typography variant="caption">
                           Buy Membership Plan
@@ -264,7 +274,11 @@ export default function Home() {
                         variant="outlined"
                         color="primary"
                         className="book_nowbtn"
-                        onClick={() => window.open("https://www.zenoti.com/")}
+                        onClick={() =>
+                          window.open(
+                            settingsData?.data?.data?.deep_zenoti_link
+                          )
+                        }
                       >
                         <Typography variant="caption">Book Now</Typography>
                       </CustomButtonPrimary>

@@ -131,7 +131,7 @@ const Footer = () => {
             <CustomButtonPrimary variant="contained" color="primary">
               <Typography
                 variant="caption"
-                onClick={() => window.open("https://www.zenoti.com/")}
+                onClick={() => window.open(data?.data?.data?.deep_zenoti_link)}
               >
                 Book Now
               </Typography>

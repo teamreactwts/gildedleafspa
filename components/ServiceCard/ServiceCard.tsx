@@ -50,7 +50,7 @@ function ServiceSectionCard({
               variant="contained"
               color="primary"
               className="member_btn"
-              onClick={() => window.open("https://www.zenoti.com/")}
+              onClick={() => router.push(`/membership`)}
             >
               <Typography variant="caption">Buy Membership Plan</Typography>
             </CustomButtonPrimary>
@@ -60,7 +60,7 @@ function ServiceSectionCard({
               variant="outlined"
               color="primary"
               className="book_nowbtn"
-              onClick={() => window.open("https://www.zenoti.com/")}
+              onClick={() => window.open(item?.deep_zenoti_link)}
             >
               <Typography variant="caption">Book Now</Typography>
             </CustomButtonPrimary>

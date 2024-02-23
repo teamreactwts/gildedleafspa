@@ -592,7 +592,9 @@ export default function Header(props: Props) {
                   type="button"
                   variant="contained"
                   color="primary"
-                  onClick={() => window.open("https://www.zenoti.com/")}
+                  onClick={() =>
+                    window.open(data?.data?.data?.deep_zenoti_link)
+                  }
                 >
                   <Typography variant="caption">Book Now</Typography>
                 </CustomButtonPrimary>

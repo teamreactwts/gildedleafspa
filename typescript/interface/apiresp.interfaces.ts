@@ -94,6 +94,7 @@ export interface ISettingsDetails {
   isDeleted: boolean;
   createdAt: string;
   updatedAt: string;
+  deep_zenoti_link: string;
 }
 
 export interface SocialLinks {
@@ -148,6 +149,7 @@ export interface Doc {
   pricings?: Iprice[];
   treat_title?: string;
   image_title?: string;
+  deep_zenoti_link?: string;
 }
 export interface IgetConditionResponse {
   data: any;
@@ -164,6 +166,7 @@ export interface Iprice {
   updatedAt: string;
   gold_price: string;
   platinum_price: string;
+  deep_zenoti_link?: string;
 }
 export interface IgetConditionData {
   docs: ConditionDoc[];

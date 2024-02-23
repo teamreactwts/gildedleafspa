@@ -173,7 +173,7 @@ function ServiceDetails() {
                     <CustomButtonPrimary
                       color="primary"
                       variant="contained"
-                      onClick={() => window.open("https://www.zenoti.com/")}
+                      onClick={() => router.push(`/membership`)}
                     >
                       <Typography variant="caption">
                         Buy Membership Plan
@@ -184,7 +184,9 @@ function ServiceDetails() {
                     <CustomButtonPrimary
                       color="primary"
                       variant="outlined"
-                      onClick={() => window.open("https://www.zenoti.com/")}
+                      onClick={() =>
+                        window.open(data?.data?.data?.deep_zenoti_link)
+                      }
                     >
                       <Typography variant="caption">Book Now</Typography>
                     </CustomButtonPrimary>
@@ -357,7 +359,14 @@ function ServiceDetails() {
                                   }
                                 }}
                               >
-                                <TableCell component="td" scope="row">
+                                <TableCell
+                                  component="td"
+                                  scope="row"
+                                  className="deep_link_url"
+                                  onClick={() =>
+                                    window.open(item?.deep_zenoti_link)
+                                  }
+                                >
                                   <Stack direction="row" alignItems="center">
                                     <Typography variant="caption" />
                                     {item?.type}
