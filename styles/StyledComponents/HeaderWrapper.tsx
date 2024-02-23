@@ -137,7 +137,7 @@ export const HeaderWrap = styled(Box)`
     padding: 0;
     padding: 23px 0;
     @media (max-width: 899px) {
-      padding: 14px 0;
+      padding: 8px 0;
     }
   }
   .hdr_rgt {
@@ -149,6 +149,12 @@ export const HeaderWrap = styled(Box)`
     }
     @media (max-width: 899px) {
       display: none;
+    }
+    button {
+      @media (max-width: 1199px) {
+        padding: 15px 24px;
+        min-width: auto;
+      }
     }
 
     .MuiBadge-badge {
@@ -169,13 +175,19 @@ export const HeaderWrap = styled(Box)`
   }
 
   .headerLogo {
-    width: 219px;
+    width: 238px;
     display: inline-block;
     line-height: 0;
     font-size: 0;
     transition: all 0.4s;
     @media (max-width: 1199px) {
-      width: 150px;
+      width: 185px;
+      svg {
+        width: 100%;
+      }
+    }
+    @media (max-width: 599px) {
+      width: 180px;
       svg {
         width: 100%;
       }

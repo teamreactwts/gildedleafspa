@@ -50,10 +50,11 @@ export const FooterWrap = styled(Box)`
         }
       }
       button {
-        @media (max-width: 899px) {
-          min-width: 140px;
+        @media (max-width: 1199px) {
+          min-width: 110px;
           padding: 14px 13px;
         }
+
         @media (max-width: 599px) {
           min-width: 100px;
           padding: 12px 10px;
