@@ -277,7 +277,7 @@ function ServiceDetails() {
                 <Box className="botox_section_wrap">
                   <Typography variant="h4">
                     {data?.data?.data?.treat_title}{" "}
-                    <Typography variant="caption">can treat</Typography>
+                    {/* <Typography variant="caption">can treat</Typography> */}
                   </Typography>
                   <Grid container spacing={3.8}>
                     {!!data?.data?.data?.conditionId &&
