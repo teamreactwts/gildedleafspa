@@ -88,6 +88,7 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
     navigator: false,
     infinite: true,
     speed: 500,
+
     slidesToShow: 5,
     slidesToScroll: 5,
     responsive: [
@@ -98,6 +99,7 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
           slidesToScroll: 1,
           rows: 2,
           slidesPerRow: 2
+          // initialSlide: 1
         }
       }
       // {
@@ -171,6 +173,8 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
 
   console.log(serviceList, "serviceList");
   const router = useRouter();
+
+  console.log(serviceList?.data?.data, "service_data");
   return (
     <DifferentWrapper {...props}>
       <Image
@@ -407,16 +411,17 @@ const DifferentSec: React.FC<props & HTMLAttributes<HTMLDivElement>> = ({
               </CustomButtonPrimary>
             </Stack>
             <CommonSlider>
-              <Slider {...settings}>
-                {!!serviceList &&
-                  !!serviceList?.data?.data &&
-                  serviceList?.data?.data.length > 0 &&
-                  serviceList?.data?.data.map((data: Doc, index: number) => (
-                    <Box className="serviceSectionWrapper">
-                      <ServiceCardDifferent {...data} key={index} />
-                    </Box>
-                  ))}
-              </Slider>
+              {!!serviceList &&
+                !!serviceList?.data?.data &&
+                serviceList?.data?.data.length > 0 && (
+                  <Slider {...settings}>
+                    {serviceList?.data?.data.map((data: Doc, index: number) => (
+                      <Box className="serviceSectionWrapper">
+                        <ServiceCardDifferent {...data} key={index} />
+                      </Box>
+                    ))}
+                  </Slider>
+                )}
             </CommonSlider>
           </ServiceWrapper>
         )}
