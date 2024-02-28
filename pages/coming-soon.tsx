@@ -1,10 +1,12 @@
 import CommonHeader from "@/components/CommonHeader/CommonHeader";
 import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
+import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import BrandLogo from "@/ui/Icons/BrandLogo";
 import styled from "@emotion/styled";
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
+import { useRouter } from "next/router";
 
 export const ComminSoonWrap = styled(Box)`
   display: flex;
@@ -58,6 +60,7 @@ export const ComminSoonWrap = styled(Box)`
 `;
 
 function ComminSoon() {
+  const router = useRouter();
   return (
     <InnnerPageWrapper>
       <Container fixed>
@@ -70,6 +73,19 @@ function ComminSoon() {
           <Typography>
             Be the first to Know when our new Estore is live.
           </Typography>
+          <Box className="ctaBtnbox">
+            <CustomButtonPrimary
+              type="button"
+              variant="contained"
+              color="primary"
+              className="ctabtn"
+              onClick={() => router.push("/")}
+
+              // onClick={() => window.open(data?.data?.data?.deep_zenoti_link)}
+            >
+              <Typography variant="caption">BACK TO HOME</Typography>
+            </CustomButtonPrimary>
+          </Box>
         </ComminSoonWrap>
       </Container>
     </InnnerPageWrapper>
