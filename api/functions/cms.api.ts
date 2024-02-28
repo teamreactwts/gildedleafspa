@@ -14,7 +14,8 @@ import {
   IgetServiceResponse,
   IgetSettingsFeaturesResponse,
   IgetSettingsMembershipPlansResponse,
-  IgetSettingsResponse
+  IgetSettingsResponse,
+  IgetShopResponse
 } from "@/interface/apiresp.interfaces";
 import {
   IContactData,
@@ -79,6 +80,11 @@ export const GetConditionList = async (body: Ipagination) => {
   );
   return res;
 };
+export const GetShopList = async () => {
+  const res = await axiosInstance.get<IgetShopResponse>(endpoints.shop.list);
+  return res;
+};
+
 export const GetServiceDetails = async (data: IQueryProps) => {
   const res = await axiosInstance.get<IgetServiceDetailsResponse>(
     `${endpoints.service.details}/${data?._id}`

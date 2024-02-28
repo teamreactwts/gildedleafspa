@@ -95,6 +95,7 @@ export interface ISettingsDetails {
   createdAt: string;
   updatedAt: string;
   deep_zenoti_link: string;
+  hour: string;
 }
 
 export interface SocialLinks {
@@ -152,6 +153,9 @@ export interface Doc {
   deep_zenoti_link?: string;
 }
 export interface IgetConditionResponse {
+  data: any;
+}
+export interface IgetShopResponse {
   data: any;
 }
 export interface Iprice {

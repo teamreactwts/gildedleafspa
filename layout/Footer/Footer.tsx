@@ -4,6 +4,7 @@ import assest from "@/json/assest";
 import { FooterWrap } from "@/styles/StyledComponents/FooterWrap";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import FacebookIcon from "@/ui/Icons/FacebookIcon";
+import HourIcon from "@/ui/Icons/HourIcon";
 import InstaGramIcon from "@/ui/Icons/InstaGramIcon";
 import LocationIcon from "@/ui/Icons/LocationIcon";
 import MailIcon from "@/ui/Icons/MailIcon";
@@ -283,6 +284,16 @@ const Footer = () => {
                         </i>
                         <Typography className="locationtext">
                           {data?.data?.data?.address}
+                        </Typography>
+                      </Box>
+                    </ListItem>
+                    <ListItem disablePadding>
+                      <Box className="address_box">
+                        <i className="phone_icon">
+                          <HourIcon IconHeight="16" IconWidth="16" />
+                        </i>
+                        <Typography className="locationtext">
+                          {data?.data?.data?.hour}
                         </Typography>
                       </Box>
                     </ListItem>

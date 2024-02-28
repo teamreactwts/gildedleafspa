@@ -20,7 +20,8 @@ import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import {
   GetConditionList,
   GetServiceList,
-  GetSettingsDetails
+  GetSettingsDetails,
+  GetShopList
 } from "@/api/functions/cms.api";
 import { ConditionDoc, Doc } from "@/interface/apiresp.interfaces";
 import { HeaderWrap, NavMenu } from "@/styles/StyledComponents/HeaderWrapper";
@@ -94,6 +95,14 @@ export default function Header(props: Props) {
       refetchOnWindowFocus: false
     }
   );
+  const { data: shopList } = useQuery(
+    ["shopList"],
+
+    {
+      queryFn: () => GetShopList(),
+      refetchOnWindowFocus: false
+    }
+  );
 
   const shopArr = [
     {
@@ -125,7 +134,7 @@ export default function Header(props: Props) {
     {
       name: "Shop",
       // route: "#url",
-      subnaveitem: shopArr
+      subnaveitem: !!shopList && shopList?.data?.data
     },
     {
       name: "About Us",
@@ -218,8 +227,8 @@ export default function Header(props: Props) {
                         // onClick={handleDrawerToggle}
                         onClick={() => {
                           item.name == "Shop"
-                            ? !!subItem.link
-                              ? window.open(subItem.link)
+                            ? !!subItem.deep_zenoti_link
+                              ? window.open(subItem.deep_zenoti_link)
                               : router.push("/coming-soon")
                             : router.push(
                                 item.name == "Services"
@@ -562,7 +571,22 @@ export default function Header(props: Props) {
                       vertical: "top"
                     }}
                   >
-                    <MenuItem onClick={() => router.push("/coming-soon")}>
+                    {!!shopList &&
+                      !!shopList?.data?.data &&
+                      shopList?.data?.data.length > 0 &&
+                      shopList?.data?.data.map((data: any, index: number) => (
+                        <MenuItem
+                          key={index}
+                          onClick={() =>
+                            !!data?.deep_zenoti_link
+                              ? window.open(data?.deep_zenoti_link)
+                              : router.push("/coming-soon")
+                          }
+                        >
+                          {data?.title}
+                        </MenuItem>
+                      ))}
+                    {/* <MenuItem onClick={() => router.push("/coming-soon")}>
                       Gilded Leaf EStore
                     </MenuItem>
                     <MenuItem
@@ -573,7 +597,7 @@ export default function Header(props: Props) {
                       }
                     >
                       Alastin Skincare
-                    </MenuItem>
+                    </MenuItem> */}
                   </NavMenu>
 
                   {navItems.map((item) => (

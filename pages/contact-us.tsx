@@ -13,6 +13,7 @@ import { primaryColors } from "@/themes/_muiPalette";
 import { IContactData } from "@/types/common.type";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+import HourIcon from "@/ui/Icons/HourIcon";
 import LocationIcon from "@/ui/Icons/LocationIcon";
 import MailIcon from "@/ui/Icons/MailIcon";
 import PhoneIcon from "@/ui/Icons/PhoneIcon";
@@ -133,6 +134,7 @@ const Index = () => {
                           </Link>
                         </Box>
                       </ListItem>
+
                       <ListItem disablePadding>
                         <Typography component="i">
                           <LocationIcon
@@ -145,6 +147,21 @@ const Index = () => {
                           <Typography variant="h6">Location</Typography>
                           <Typography component="address">
                             {settingsDetails?.data?.data?.address}
+                          </Typography>
+                        </Box>
+                      </ListItem>
+                      <ListItem disablePadding>
+                        <Typography component="i">
+                          <HourIcon
+                            IconColor={primaryColors?.colorA67033}
+                            IconWidth="20"
+                            IconHeight="20"
+                          />
+                        </Typography>
+                        <Box className="contact_details">
+                          <Typography variant="h6">Business Hours</Typography>
+                          <Typography component="address">
+                            {settingsDetails?.data?.data?.hour}
                           </Typography>
                         </Box>
                       </ListItem>

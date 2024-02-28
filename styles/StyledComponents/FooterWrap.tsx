@@ -215,7 +215,7 @@ export const FooterWrap = styled(Box)`
               font-weight: 400;
               line-height: 1.5;
               &.locationtext {
-                margin-top: -5px;
+                /* margin-top: -5px; */
               }
             }
           }
@@ -310,5 +310,10 @@ export const FooterWrap = styled(Box)`
         object-fit: contain;
       }
     }
+  }
+  .phone_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
