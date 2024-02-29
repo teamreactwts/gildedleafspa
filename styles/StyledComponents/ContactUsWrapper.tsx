@@ -88,9 +88,9 @@ export const ContactUsWrapper = styled(Box)`
     li {
       font-size: 14px;
       min-width: 110px;
-      justify-content: center;
-      width: auto;
-      padding: 5px 5px;
+      justify-content: flex-start;
+      width: 179px;
+      padding: 5px 10px;
       border-radius: 5px;
       border: 1px solid ${primaryColors?.colorA67033};
       margin-bottom: 10px !important;
