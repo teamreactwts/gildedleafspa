@@ -74,6 +74,10 @@ export default function Header(props: Props) {
     {
       name: "Blogs",
       route: "/blogs"
+    },
+    {
+      name: "Contact Us",
+      route: "/contact-us"
     }
   ];
   const [page, setPage] = React.useState(0);
@@ -103,17 +107,6 @@ export default function Header(props: Props) {
       refetchOnWindowFocus: false
     }
   );
-
-  const shopArr = [
-    {
-      title: "Gilded Leaf EStore",
-      link: ""
-    },
-    {
-      title: "Alastin Skincare",
-      link: "https://alastin.com/collections/welcome?designate-location=21726"
-    }
-  ];
 
   const navItems2 = [
     {
@@ -148,6 +141,10 @@ export default function Header(props: Props) {
     {
       name: "Blogs",
       route: "/blogs"
+    },
+    {
+      name: "Contact Us",
+      route: "/contact-us"
     }
   ];
 

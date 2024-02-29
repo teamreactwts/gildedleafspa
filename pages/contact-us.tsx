@@ -79,6 +79,23 @@ const Index = () => {
     });
   };
 
+  const trimTime = (val: string) => {
+    var timeString = val;
+
+    var timeParts = timeString.split(":");
+    var merdParts = timeString.split(" ");
+
+    var hour = parseInt(timeParts[0], 10);
+
+    var minute = parseInt(timeParts[1], 10);
+
+    if (minute === 0) {
+      return hour + " " + merdParts[1].toUpperCase();
+    } else {
+      return `${hour}: ${minute}${" "}${merdParts[1].toUpperCase()}`;
+    }
+  };
+
   return (
     <Wrapper>
       <InnnerPageWrapper>
@@ -160,9 +177,20 @@ const Index = () => {
                         </Typography>
                         <Box className="contact_details">
                           <Typography variant="h6">Business Hours</Typography>
-                          <Typography component="address">
-                            {settingsDetails?.data?.data?.hour}
-                          </Typography>
+                          <List disablePadding className="contact_details_list">
+                            {!!settingsDetails?.data?.data &&
+                              settingsDetails?.data?.data?.hour.length > 0 &&
+                              settingsDetails?.data?.data?.hour.map(
+                                (item: any, i: number) =>
+                                  item.is_active_status == "Active" && (
+                                    <ListItem disablePadding key={i}>
+                                      {item?.day_of_week}{" "}
+                                      {trimTime(item?.start_time_12hoursformat)}{" "}
+                                      -{trimTime(item?.end_time_12hoursformat)}
+                                    </ListItem>
+                                  )
+                              )}
+                          </List>
                         </Box>
                       </ListItem>
                     </List>

@@ -4,7 +4,6 @@ import assest from "@/json/assest";
 import { FooterWrap } from "@/styles/StyledComponents/FooterWrap";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import FacebookIcon from "@/ui/Icons/FacebookIcon";
-import HourIcon from "@/ui/Icons/HourIcon";
 import InstaGramIcon from "@/ui/Icons/InstaGramIcon";
 import LocationIcon from "@/ui/Icons/LocationIcon";
 import MailIcon from "@/ui/Icons/MailIcon";
@@ -118,6 +117,7 @@ const Footer = () => {
   } else {
   }
 
+  console.log(data?.data?.data?.hour, "abhisek");
   return (
     <FooterWrap>
       <Box id="footertop" className="footer_topBar">
@@ -287,16 +287,22 @@ const Footer = () => {
                         </Typography>
                       </Box>
                     </ListItem>
-                    <ListItem disablePadding>
+                    {/* <ListItem disablePadding>
                       <Box className="address_box">
                         <i className="phone_icon">
                           <HourIcon IconHeight="16" IconWidth="16" />
                         </i>
-                        <Typography className="locationtext">
-                          {data?.data?.data?.hour}
-                        </Typography>
+                        <List disablePadding className="contact_details_list">
+                          {!!data?.data?.data &&
+                            data?.data?.data?.hour.length > 0 &&
+                            data?.data?.data?.hour.map((item, i) => (
+                              <ListItem disablePadding key={i}>
+                                {item}
+                              </ListItem>
+                            ))}
+                        </List>
                       </Box>
-                    </ListItem>
+                    </ListItem> */}
                   </List>
                 </Box>
               </Grid>

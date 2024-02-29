@@ -95,7 +95,7 @@ export interface ISettingsDetails {
   createdAt: string;
   updatedAt: string;
   deep_zenoti_link: string;
-  hour: string;
+  hour: any;
 }
 
 export interface SocialLinks {

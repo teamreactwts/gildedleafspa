@@ -203,6 +203,7 @@ export const FooterWrap = styled(Box)`
           }
           a,
           .address_box {
+            /* align-items: flex-start; */
             display: flex;
 
             i {
@@ -315,5 +316,26 @@ export const FooterWrap = styled(Box)`
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .contact_details_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    li {
+      color: ${primaryColors?.white};
+      font-size: 10px;
+      min-width: 88px;
+      justify-content: center;
+      width: auto;
+      padding: 5px 5px;
+      border-radius: 5px;
+      border: 1px solid ${primaryColors?.colorA67033};
+      margin-bottom: 10px !important;
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
   }
 `;

@@ -15,6 +15,7 @@ export const ContactUsWrapper = styled(Box)`
     ul {
       margin-top: 50px;
       li {
+        align-items: flex-start;
         i {
           display: inline-flex;
           justify-content: center;
@@ -76,6 +77,25 @@ export const ContactUsWrapper = styled(Box)`
         .MuiInputBase-root {
           background: transparent;
         }
+      }
+    }
+  }
+  .contact_details_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px !important;
+    li {
+      font-size: 14px;
+      min-width: 110px;
+      justify-content: center;
+      width: auto;
+      padding: 5px 5px;
+      border-radius: 5px;
+      border: 1px solid ${primaryColors?.colorA67033};
+      margin-bottom: 10px !important;
+      &:not(:last-child) {
+        margin-right: 10px;
       }
     }
   }

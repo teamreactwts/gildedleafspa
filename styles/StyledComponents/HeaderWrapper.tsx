@@ -180,6 +180,7 @@ export const HeaderWrap = styled(Box)`
     line-height: 0;
     font-size: 0;
     transition: all 0.4s;
+    margin-right: 15px;
     @media (max-width: 1199px) {
       width: 185px;
       svg {
@@ -198,15 +199,16 @@ export const HeaderWrap = styled(Box)`
   .navbar {
     margin-left: auto;
     a {
-      margin-right: 28px;
+      margin-right: 20px;
       display: inline-block;
       color: ${primaryColors.primary};
-      font-size: 17px;
+      font-size: 16px;
       font-family: "Cormorant Garamond";
       font-weight: 600;
       line-height: 1;
       @media (max-width: 1199px) {
         margin-right: 10px;
+        font-size: 14px;
       }
       &:hover {
         color: ${primaryColors.themTextcolor};
@@ -224,7 +226,7 @@ export const HeaderWrap = styled(Box)`
   }
   .navDropdown {
     padding: 0;
-    margin-right: 28px;
+    margin-right: 20px;
     display: inline-block;
     color: ${primaryColors?.primary};
     font-size: 16px;
@@ -232,12 +234,14 @@ export const HeaderWrap = styled(Box)`
     font-weight: 600;
     line-height: 1;
     background-color: transparent;
+    min-width: auto;
     &:hover {
       background-color: transparent;
       color: ${primaryColors?.themTextcolor};
     }
     @media (max-width: 1199px) {
       margin-right: 10px;
+      font-size: 14px;
     }
   }
   .menu_btn {
