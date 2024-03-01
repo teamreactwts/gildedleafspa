@@ -8,6 +8,7 @@ import {
   IgetConditionDetailsResponse,
   IgetConditionResponse,
   IgetContactResponse,
+  IgetContactUsResponse,
   IgetHomeResponse,
   IgetMembershipDetailsResponse,
   IgetServiceDetailsResponse,
@@ -65,6 +66,13 @@ export const GetSettingsDetails = async () => {
   );
   return res;
 };
+export const GetContactDetails = async () => {
+  const res = await axiosInstance.get<IgetContactUsResponse>(
+    endpoints.cms.contact
+  );
+  return res;
+};
+
 export const GetServiceList = async (body: Ipagination) => {
   const res = await axiosInstance.post<IgetServiceResponse>(
     endpoints.service.list,

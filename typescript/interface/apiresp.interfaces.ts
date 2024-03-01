@@ -83,6 +83,20 @@ export interface IAffortDetails {
 export interface IgetSettingsResponse extends BaseApiResponse {
   data: ISettingsDetails;
 }
+export interface IgetContactUsResponse extends BaseApiResponse {
+  data: IconcmsDetails;
+}
+
+export interface IconcmsDetails {
+  _id: string;
+  isDeleted: boolean;
+  content: string;
+  title: string;
+  head_title: string;
+  status: string;
+  updatedAt: string;
+}
+
 export interface ISettingsDetails {
   _id: string;
   socialLinks: SocialLinks;

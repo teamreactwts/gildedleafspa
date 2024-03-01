@@ -86,7 +86,7 @@ export const ContactUsWrapper = styled(Box)`
     flex-wrap: wrap;
     margin-top: 10px !important;
     li {
-      font-size: 14px;
+      font-size: 10px;
       min-width: 110px;
       justify-content: flex-start;
       width: 179px;

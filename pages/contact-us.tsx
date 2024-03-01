@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import {
+  GetContactDetails,
   GetSettingsDetails,
   createContactMutation
 } from "@/api/functions/cms.api";
@@ -59,6 +60,13 @@ const Index = () => {
       refetchOnWindowFocus: false
     }
   );
+  const { data: contactUsDetails } = useQuery(
+    "contactDetails",
+    GetContactDetails,
+    {
+      refetchOnWindowFocus: false
+    }
+  );
 
   const { toastSuccess, toastError } = useNotiStack();
   const { isLoading, mutate } = useMutation(createContactMutation);
@@ -111,11 +119,14 @@ const Index = () => {
               >
                 <Grid item md={5.5} xs={12}>
                   <Box className="contact_form_content">
-                    <Typography variant="h3">Contact details</Typography>
-                    <Typography>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's{" "}
+                    <Typography variant="h3">
+                      {contactUsDetails?.data?.data?.head_title}
                     </Typography>
+                    <Typography
+                      dangerouslySetInnerHTML={{
+                        __html: contactUsDetails?.data?.data?.content as string
+                      }}
+                    />
                     <List disablePadding>
                       <ListItem disablePadding>
                         <Typography component="i">
@@ -198,7 +209,10 @@ const Index = () => {
                 </Grid>
                 <Grid item md={6.5} xs={12}>
                   <Box className="contact_form">
-                    <Typography variant="h3">Get in touch</Typography>
+                    <Typography variant="h3">
+                      {" "}
+                      {contactUsDetails?.data?.data?.title}
+                    </Typography>
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <Box className="each_input_field">
                         <Controller

@@ -22,7 +22,8 @@ export const endpoints = {
     about: "aboutUs/get-data",
     affort: "affordability/details",
     setting: "settings/details",
-    details: "cms"
+    details: "cms",
+    contact: "contactuscms/get-data"
   },
   service: {
     list: "service/list",
