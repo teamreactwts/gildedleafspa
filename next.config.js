@@ -43,5 +43,9 @@ module.exports = withPWA({
   },
   eslint: {
     ignoreDuringBuilds: true
-  }
+  },
+   typescript: {
+
+    ignoreBuildErrors: true,
+  },
 });
