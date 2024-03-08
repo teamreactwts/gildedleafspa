@@ -7,8 +7,6 @@
     "build": "next build",
     "start": "next start -p 14062",
     "lint": "next lint",
-    "prepare": "husky install",
-    "postinstall": "npm run prepare",
     "eslint": "eslint \"**/*.+(js|jsx|ts|tsx)\"",
     "eslint:fix": "eslint --fix \"**/*.+(js|jsx|ts|tsx)\"",
     "prettier": "prettier --check \"**/*.+(js|jsx|ts|tsx|json|yml|yaml|md|css|scss)\"",
