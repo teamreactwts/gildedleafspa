@@ -1,8 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
 import { GetConditionDetails } from "@/api/functions/cms.api";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
-import ServiceSectionCard from "@/components/ServiceCard/ServiceCard";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { WrinkleFinelinesWrapper } from "@/styles/StyledComponents/WrinkleFineLineWrap";
@@ -12,10 +10,20 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
+
+const ServiceSectionCard = dynamic(
+  () => import("@/components/ServiceCard/ServiceCard"),
+  { ssr: true }
+);
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
 
 export const sectioncardList = [
   {

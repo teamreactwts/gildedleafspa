@@ -1,12 +1,25 @@
-import CommonHeader from "@/components/CommonHeader/CommonHeader";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
-import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import BrandLogo from "@/ui/Icons/BrandLogo";
 import styled from "@emotion/styled";
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
+
+const CustomButtonPrimary = dynamic(
+  () => import("@/ui/CustomButtons/CustomButtonPrimary"),
+  { ssr: true }
+);
+
+const CommonHeader = dynamic(
+  () => import("@/components/CommonHeader/CommonHeader"),
+  { ssr: true }
+);
 
 export const ComminSoonWrap = styled(Box)`
   display: flex;

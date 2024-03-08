@@ -3,10 +3,7 @@ import {
   GetMembershipFeatures,
   GetMembershipPlans
 } from "@/api/functions/cms.api";
-import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
-import MembershipPlan from "@/components/MembershipPlan/MembershipPlan";
-import MemeberFeatureSec from "@/components/MemeberFeatureSec/MemeberFeatureSec";
+
 import {
   IMembershipDetails,
   IMembershipFeatures,
@@ -18,8 +15,25 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import dynamic from "next/dynamic";
 import { useQuery } from "react-query";
 
+const BreadcumbTitle = dynamic(
+  () => import("@/components/BreadcumbTitle/BreadcumbTitle"),
+  { ssr: true }
+);
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
+const MembershipPlan = dynamic(
+  () => import("@/components/MembershipPlan/MembershipPlan"),
+  { ssr: true }
+);
+const MemeberFeatureSec = dynamic(
+  () => import("@/components/MemeberFeatureSec/MemeberFeatureSec"),
+  { ssr: true }
+);
 export const MemebershipWrapper = styled(Box)`
   .subTitle_para {
     max-width: 936px;

@@ -1,10 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { mediaUrl } from "@/api/endpoints";
 import { GetBlogList } from "@/api/functions/cms.api";
-import BlogCard from "@/components/BlogCard/BlogCard";
-import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
-import CommonPagination from "@/components/CommonPagination/CommonPagination";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import { blogDoc } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { primaryColors } from "@/themes/_muiPalette";
@@ -18,11 +14,28 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Box, Stack } from "@mui/system";
 import moment from "moment";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+
+const BreadcumbTitle = dynamic(
+  () => import("@/components/BreadcumbTitle/BreadcumbTitle"),
+  { ssr: true }
+);
+const CommonPagination = dynamic(
+  () => import("@/components/CommonPagination/CommonPagination"),
+  { ssr: true }
+);
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
+const BlogCard = dynamic(() => import("@/components/BlogCard/BlogCard"), {
+  ssr: false
+});
 
 export const BlogsWrapper = styled(Box)`
   padding: 50px 0 100px 0;

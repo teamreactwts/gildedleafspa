@@ -1,8 +1,5 @@
 import { mediaUrl } from "@/api/endpoints";
 import { GetServiceList } from "@/api/functions/cms.api";
-import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
-import ServiceSectionCard from "@/components/ServiceCard/ServiceCard";
 import { Doc } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { SurviceWrap } from "@/styles/StyledComponents/ServiceWrap";
@@ -11,8 +8,22 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+
+const BreadcumbTitle = dynamic(
+  () => import("@/components/BreadcumbTitle/BreadcumbTitle"),
+  { ssr: true }
+);
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
+const ServiceSectionCard = dynamic(
+  () => import("@/components/ServiceCard/ServiceCard"),
+  { ssr: true }
+);
 
 function Services() {
   const [page, setPage] = React.useState(0);

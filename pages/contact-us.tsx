@@ -4,8 +4,6 @@ import {
   GetSettingsDetails,
   createContactMutation
 } from "@/api/functions/cms.api";
-import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import useNotiStack from "@/hooks/useNotistack";
 import validationText from "@/json/messages/validationText";
 import Wrapper from "@/layout/wrapper/Wrapper";
@@ -25,10 +23,20 @@ import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Controller, useForm } from "react-hook-form";
 import { useMutation, useQuery } from "react-query";
 import * as yup from "yup";
+
+const BreadcumbTitle = dynamic(
+  () => import("@/components/BreadcumbTitle/BreadcumbTitle"),
+  { ssr: true }
+);
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
 
 const schema = yup.object().shape({
   full_name: yup.string().trim().required("Please Enter Name"),

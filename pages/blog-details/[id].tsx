@@ -1,8 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
 import { GetBlogDetails } from "@/api/functions/cms.api";
-import BlogCard from "@/components/BlogCard/BlogCard";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { primaryColors } from "@/themes/_muiPalette";
@@ -15,6 +13,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Box, Stack } from "@mui/system";
 import moment from "moment";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -22,6 +21,14 @@ import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
+const BlogCard = dynamic(() => import("@/components/BlogCard/BlogCard"), {
+  ssr: false
+});
 
 export const BlogDetailsWrapper = styled(Box)`
   padding: 100px 0;

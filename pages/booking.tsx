@@ -1,10 +1,5 @@
 /* eslint-disable no-nested-ternary */
 import { GetMembershipDetails } from "@/api/functions/cms.api";
-import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
-import CalendarSec from "@/components/CalendarSec/CalendarSec";
-import ContactForm from "@/components/ContactForm/ContactForm";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
-import MembershipPlan from "@/components/MembershipPlan/MembershipPlan";
 import { IMembershipDetails } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -13,8 +8,36 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import dynamic from "next/dynamic";
 import { useCallback, useState } from "react";
 import { useQuery } from "react-query";
+
+const BreadcumbTitle = dynamic(
+  () => import("@/components/BreadcumbTitle/BreadcumbTitle"),
+  { ssr: true }
+);
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
+const ContactForm = dynamic(
+  () => import("@/components/ContactForm/ContactForm"),
+  {
+    ssr: false
+  }
+);
+const CalendarSec = dynamic(
+  () => import("@/components/CalendarSec/CalendarSec"),
+  {
+    ssr: false
+  }
+);
+const MembershipPlan = dynamic(
+  () => import("@/components/MembershipPlan/MembershipPlan"),
+  {
+    ssr: false
+  }
+);
 
 export const BookingWrapper = styled(Box)`
   .cmn_btn_booking {

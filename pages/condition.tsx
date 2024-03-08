@@ -1,9 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { mediaUrl } from "@/api/endpoints";
 import { GetConditionCmsData, GetConditionList } from "@/api/functions/cms.api";
-import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
-import ImageCard from "@/components/ImageCard/ImageCard";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import { ConditionDoc } from "@/interface/apiresp.interfaces";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { ConditionWrap } from "@/styles/StyledComponents/ConditionWrap";
@@ -13,11 +10,24 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
+import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+
+const BreadcumbTitle = dynamic(
+  () => import("@/components/BreadcumbTitle/BreadcumbTitle"),
+  { ssr: true }
+);
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
+const ImageCard = dynamic(() => import("@/components/ImageCard/ImageCard"), {
+  ssr: false
+});
 
 function Condition() {
   const settings = {

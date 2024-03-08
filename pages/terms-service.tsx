@@ -1,16 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { GetCmsDetails } from "@/api/functions/cms.api";
-import BreadcumbTitle from "@/components/BreadcumbTitle/BreadcumbTitle";
-import InnnerPageWrapper from "@/components/InnnerPageWrapper/InnnerPageWrapper";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { ContentWrap } from "@/styles/StyledComponents/ContentWrapper";
 import Loader from "@/ui/Loader/Loder";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
+import dynamic from "next/dynamic";
 import { useQuery } from "react-query";
 
+const BreadcumbTitle = dynamic(
+  () => import("@/components/BreadcumbTitle/BreadcumbTitle"),
+  { ssr: true }
+);
+const InnnerPageWrapper = dynamic(
+  () => import("@/components/InnnerPageWrapper/InnnerPageWrapper"),
+  { ssr: true }
+);
 function TermsServices() {
   const { isLoading, data, isError } = useQuery(
     ["cmsDetails"],

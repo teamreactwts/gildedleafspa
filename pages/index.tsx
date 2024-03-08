@@ -3,10 +3,6 @@ import {
   GetSettingsDetails,
   createNewsLetterMutation
 } from "@/api/functions/cms.api";
-import BannerSec from "@/components/BannerSec/BannerSec";
-import DifferentSec from "@/components/DifferentSec/DifferentSec";
-import DownloadAppSection from "@/components/DownloadAppSection/DownloadAppSection";
-import HomeSlider from "@/components/HomeSlider/HomeSlider";
 import useNotiStack from "@/hooks/useNotistack";
 import assest from "@/json/assest";
 import validationText from "@/json/messages/validationText";
@@ -22,12 +18,30 @@ import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from "react-query";
 import * as yup from "yup";
+
+const DownloadAppSection = dynamic(
+  () => import("@/components/DownloadAppSection/DownloadAppSection"),
+  { ssr: true }
+);
+const DifferentSec = dynamic(
+  () => import("@/components/DifferentSec/DifferentSec"),
+  {
+    ssr: false
+  }
+);
+const BannerSec = dynamic(() => import("@/components/BannerSec/BannerSec"), {
+  ssr: false
+});
+const HomeSlider = dynamic(() => import("@/components/HomeSlider/HomeSlider"), {
+  ssr: false
+});
 
 const schema = yup.object().shape({
   full_name: yup.string().trim().required("Please Enter Name"),
@@ -47,9 +61,6 @@ const schema = yup.object().shape({
 
 export default function Home() {
   const {
-    handleSubmit,
-    control,
-    setValue,
     reset,
     formState: { errors }
   } = useForm({
@@ -59,15 +70,6 @@ export default function Home() {
   });
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  // useEffect(() => {
-  //   const hasClosedPopup = localStorage.getItem("hasClosedPopup");
-
-  //   if (hasClosedPopup) {
-  //     setOpen(false);
-  //   } else {
-  //     setOpen(true);
-  //   }
-  // }, []);
 
   const handleClose = useCallback(() => {
     setOpen(false);
@@ -174,88 +176,8 @@ export default function Home() {
                     {data?.data?.data?.bold_title}
                   </Typography>
                 </Typography>
-                {/* <form onSubmit={handleSubmit(onSubmit)}>
-                  <Grid container spacing={{ xs: 1.8 }} alignItems="center">
-                    <Grid item xs={12}>
-                      <Controller
-                        control={control}
-                        name="full_name"
-                        render={({
-                          field: { onChange, onBlur, value, name, ref }
-                        }) => (
-                          <InputFieldCommon
-                            placeholder="Name"
-                            onChange={onChange}
-                            value={value}
-                            error={Boolean(errors?.full_name)}
-                            helperText={errors?.full_name?.message}
-                          />
-                        )}
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Controller
-                        control={control}
-                        name="email"
-                        render={({
-                          field: { onChange, onBlur, value, name, ref }
-                        }) => (
-                          <InputFieldCommon
-                            placeholder="Email"
-                            onChange={onChange}
-                            value={value}
-                            error={Boolean(errors?.email)}
-                            helperText={errors?.email?.message}
-                          />
-                        )}
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Controller
-                        control={control}
-                        name="phone"
-                        render={({
-                          field: { onChange, onBlur, value, name, ref }
-                        }) => (
-                          <InputFieldCommon
-                            placeholder="Phone No"
-                            onChange={onChange}
-                            value={value}
-                            error={Boolean(errors?.phone)}
-                            helperText={errors?.phone?.message}
-                          />
-                        )}
-                      />
-                    </Grid>
-                    <Grid item sm={6} xs={12}>
-                      <Box className="modal_btn">
-                        <CustomButtonPrimary
-                          variant="contained"
-                          color="primary"
-                          loading={isLoadingSubmit}
-                          disabled={isLoadingSubmit}
-                          type="submit"
-                        >
-                          <Typography variant="caption">Submit</Typography>
-                        </CustomButtonPrimary>
-                      </Box>
-                    </Grid>
-                    <Grid item sm={6} xs={12}>
-                      <Box className="modal_btn">
-                        <Typography onClick={() => dontshow()}>
-                          Don't show again
-                        </Typography>
-                      </Box>
-                    </Grid>
-                  </Grid>
-                </form> */}
+
                 <Box className="newsletter_section">
-                  {/* <Typography variant="h2">
-                    {data?.data?.data?.title}{" "}
-                    <Typography variant="caption">
-                      {data?.data?.data?.bold_title}
-                    </Typography>
-                  </Typography> */}
                   <List disablePadding className="newsletter_button_wrap">
                     <ListItem disablePadding>
                       <CustomButtonPrimary
